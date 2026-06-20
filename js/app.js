@@ -144,7 +144,7 @@ function buildDailySeries(weather, air, surface) {
       cloudCover: weather.hourly.cloudCover[i],
       surface,
     });
-    return { time: when, uva: r.uva };
+    return { time: when, index: r.index };
   });
 }
 
@@ -157,6 +157,8 @@ function fmt(v, digits = 1) {
 function render(result, sun, weather, air) {
   $('result').hidden = false;
 
+  // Headline is the UVA Index (0-11+); raw irradiance is the technical sub-value.
+  $('uva-index').textContent = fmt(result.index, 1);
   $('uva-value').textContent = fmt(result.uva, 1);
   const band = $('uva-band');
   band.textContent = result.band.label;

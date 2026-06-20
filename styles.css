@@ -144,11 +144,22 @@ button.primary:hover {
   line-height: 1;
 }
 
-.uva-number .unit {
-  font-size: 1.1rem;
+.uva-number .metric-label {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--muted);
-  margin-left: 6px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.uva-number .uva-secondary {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--muted);
   font-weight: 400;
+  margin-top: 6px;
 }
 
 .band {
