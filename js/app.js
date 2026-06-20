@@ -4,6 +4,7 @@
 import { solarPosition } from './solar.js';
 import { computeUVA } from './uva.js';
 import { geocode, coordLabel, fetchWeather, fetchAirQuality } from './api.js';
+import { renderChart } from './chart.js';
 
 const $ = (id) => document.getElementById(id);
 
@@ -112,11 +113,39 @@ async function calculate() {
       surface,
     });
 
+    const series = buildDailySeries(weather, air, surface);
+
     render(result, sun, weather, air);
+    renderChart($('chart'), series, when);
     setStatus('');
   } catch (e) {
     setStatus(`Calculation failed: ${e.message}`, true);
   }
+}
+
+// Compute a full-day UVA series (one point per available hour) so the chart can
+// show how the UVA Index rises and falls. Uses the same model as the headline
+// number, just evaluated at every hour with that hour's cloud/aerosol values.
+function buildDailySeries(weather, air, surface) {
+  const times = weather.hourly?.time || [];
+  // Map air-quality AOD by timestamp so it lines up even if arrays differ.
+  const aodByTime = new Map();
+  const airTimes = air.hourly?.time || [];
+  airTimes.forEach((t, i) => aodByTime.set(t, air.hourly.aod[i]));
+
+  return times.map((t, i) => {
+    const when = new Date(t);
+    const sun = solarPosition(when, location.lat, location.lon);
+    const r = computeUVA({
+      zenith: sun.zenith,
+      aboveHorizon: sun.aboveHorizon,
+      elevationM: weather.elevationM,
+      aod: aodByTime.get(t),
+      cloudCover: weather.hourly.cloudCover[i],
+      surface,
+    });
+    return { time: when, uva: r.uva };
+  });
 }
 
 // --- rendering --------------------------------------------------------------

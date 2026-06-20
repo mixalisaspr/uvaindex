@@ -3,17 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UVA Index Calculator</title>
+
+    <!-- Primary SEO -->
+    <title>UVA Index — Live UVA Index Calculator by Location & Time</title>
+    <meta
+      name="description"
+      content="Free UVA Index calculator. Get a live UVA Index for any location and time — estimated surface UVA irradiance (315–400 nm, W/m²) from real-time sun position, cloud cover and aerosol data."
+    />
+    <meta
+      name="keywords"
+      content="UVA Index, UVA index calculator, UVA irradiance, UVA levels, UVA radiation, UV index, sun exposure, surface UVA"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="UVA Index" />
+    <meta
+      property="og:title"
+      content="UVA Index — Live UVA Index Calculator by Location & Time"
+    />
+    <meta
+      property="og:description"
+      content="Get a live UVA Index for any place and time — estimated surface UVA irradiance from real-time sun position, cloud cover and aerosol data."
+    />
+    <meta property="og:url" content="https://uvaindex.org/" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="UVA Index — Live UVA Index Calculator"
+    />
+    <meta
+      name="twitter:description"
+      content="Get a live UVA Index for any location and time, derived from real-time sun position and atmospheric data."
+    />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <!-- Structured data: helps search engines understand the page -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "UVA Index",
+        "url": "https://uvaindex.org/",
+        "description": "Live UVA Index calculator — estimates surface UVA irradiance (315–400 nm, W/m²) for any location and time from real-time sun position, cloud cover and aerosol data.",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the UVA Index?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The UVA Index on this site is an estimated measure of surface UVA irradiance (the unweighted 315–400 nm band, in W/m²). Unlike the standard UV Index — which is erythemally weighted and dominated by UVB — this value isolates UVA and is derived from solar geometry plus live cloud and aerosol data."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is the UVA Index calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It combines the solar zenith angle for your location and time with a clear-sky UVA baseline, then applies live corrections for altitude, aerosol optical depth, cloud cover and surface albedo using free Open-Meteo data."
+            }
+          }
+        ]
+      }
+    </script>
+
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="app">
       <header>
-        <h1>UVA Calculator</h1>
+        <h1>UVA Index</h1>
         <p class="subtitle">
-          Estimates surface <strong>UVA irradiance</strong> (≈315–400&nbsp;nm, in
-          W/m²) — not the standard erythemal UV&nbsp;Index — from your location,
-          time and live weather.
+          A live <strong>UVA Index</strong> for any location and time — estimated
+          surface <strong>UVA irradiance</strong> (≈315–400&nbsp;nm, in W/m²),
+          derived from real-time sun position and weather. This is a dedicated UVA
+          measure, not the standard erythemal UV&nbsp;Index (which is mostly UVB).
         </p>
       </header>
 
@@ -28,6 +111,7 @@
             id="place-search"
             type="text"
             placeholder="Search a city or place…"
+            aria-label="Search a city or place"
             autocomplete="off"
           />
           <button id="search-btn" type="button">Search</button>
@@ -52,7 +136,7 @@
           <button id="calculate" type="button" class="primary">Calculate UVA</button>
         </div>
 
-        <p id="status" class="status"></p>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
       </section>
 
       <section id="result" class="result" hidden>
@@ -62,6 +146,9 @@
           </div>
           <div id="uva-band" class="band">—</div>
         </div>
+
+        <h2>UVA Index through the day</h2>
+        <div id="chart" class="chart" aria-label="UVA Index over the course of the day"></div>
 
         <h2>Inputs</h2>
         <table class="data-table">

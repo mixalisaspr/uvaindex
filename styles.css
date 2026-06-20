@@ -188,6 +188,56 @@ button.primary:hover {
   color: var(--muted);
 }
 
+.chart {
+  margin: 4px 0 6px;
+}
+
+.uva-chart-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.uva-chart-svg .grid {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.uva-chart-svg .axis {
+  fill: var(--muted);
+  font-size: 11px;
+}
+
+.uva-chart-svg .area {
+  fill: var(--accent);
+  opacity: 0.12;
+}
+
+.uva-chart-svg .curve {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.uva-chart-svg .marker {
+  stroke: var(--muted);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.uva-chart-svg .marker-dot {
+  stroke: var(--text);
+  stroke-width: 1.5;
+}
+
+.chart-empty {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: 8px 0;
+}
+
 .disclaimer {
   color: var(--muted);
   font-size: 0.8rem;
