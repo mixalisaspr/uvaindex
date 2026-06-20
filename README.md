@@ -44,18 +44,39 @@ calibrated against reference data.
 
 ```
 index.html     # UI: location controls, date/time, result + breakdown + chart
-styles.css     # responsive dark styling
+styles.css     # responsive dark styling (calculator + knowledge base)
 js/solar.js    # solar zenith angle (NOAA algorithm), pure functions
 js/uva.js      # hybrid UVA model + qualitative bands, pure functions
 js/api.js      # Open-Meteo fetch helpers (point value + full-day hourly series)
 js/chart.js    # inline SVG chart of the UVA Index through the day, pure functions
 js/app.js      # orchestration: wire UI, fetch, compute, render
+learn/         # Knowledge Base: educational articles about UVA (see below)
 favicon.svg    # site icon
 og-image.svg   # source for the social share image
 og-image.png   # 1200x630 Open Graph / Twitter card image (rasterized from the SVG)
 robots.txt     # crawler directives + sitemap pointer
-sitemap.xml    # single-page sitemap for search engines
+sitemap.xml    # sitemap (calculator + knowledge-base pages) for search engines
 ```
+
+## Knowledge Base
+
+`learn/` is a static, dependency-free content section that explains UVA in
+plain English and supports the calculator's premise. It reuses `styles.css` and
+the root service worker (so the articles also work offline), and every page is
+listed in `sitemap.xml`.
+
+```
+learn/index.html                     # hub page linking the articles
+learn/what-is-uva-radiation.html     # what UVA is and how it behaves
+learn/uva-vs-uvb.html                # side-by-side comparison of the two bands
+learn/dangers-of-uva.html            # health effects + how to reduce exposure
+learn/uv-index-vs-uva-index.html     # why the erythemal UV Index under-counts UVA
+```
+
+The Knowledge Base is linked from the top nav and footer on the home page. To
+add an article: create `learn/<slug>.html` (copy an existing one as a template),
+link it from `learn/index.html`, then add it to `sitemap.xml` and the `SHELL`
+precache list in `sw.js` (bump the `CACHE` version).
 
 The result view also plots the **UVA Index through the day**: the same model is
 evaluated at every available hour using that hour's cloud and aerosol data, so

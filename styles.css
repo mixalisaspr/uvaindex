@@ -248,3 +248,251 @@ button.primary:hover {
 .disclaimer a {
   color: var(--accent);
 }
+
+/* ---------------------------------------------------------------------------
+   Knowledge Base: hub + article pages
+   These share the dark theme and the .app container with the calculator.
+   --------------------------------------------------------------------------- */
+
+/* Top navigation shown on the calculator and the knowledge base. */
+.site-nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 18px;
+  font-size: 0.9rem;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  color: var(--text);
+}
+
+.site-nav a.active {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.site-nav .spacer {
+  flex: 1;
+}
+
+/* Breadcrumb on article pages. */
+.breadcrumb {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.breadcrumb a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb .sep {
+  margin: 0 6px;
+  color: var(--border);
+}
+
+/* Cards linking to each article on the hub page. */
+.kb-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.kb-card {
+  display: block;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.kb-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.kb-card h2 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.kb-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.kb-card .kb-more {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* Long-form article body. */
+.prose {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 20px;
+  margin-bottom: 18px;
+}
+
+.prose h1 {
+  margin: 0 0 6px;
+  font-size: 1.6rem;
+  line-height: 1.25;
+}
+
+.prose .lead {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.55;
+  margin: 0 0 18px;
+}
+
+.prose h2 {
+  font-size: 1.15rem;
+  margin: 26px 0 10px;
+  color: var(--text);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.prose h3 {
+  font-size: 1rem;
+  margin: 18px 0 8px;
+  color: var(--text);
+}
+
+.prose p,
+.prose li {
+  color: var(--text);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 22px;
+  margin: 10px 0;
+}
+
+.prose li {
+  margin-bottom: 6px;
+}
+
+.prose a {
+  color: var(--accent);
+}
+
+.prose strong {
+  color: var(--text);
+}
+
+.prose .data-table {
+  margin: 14px 0;
+}
+
+.prose .data-table td:last-child {
+  text-align: left;
+  font-variant-numeric: normal;
+}
+
+.prose .data-table th {
+  text-align: left;
+  padding: 7px 4px;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Callout / key-point box. */
+.callout {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 9px;
+  padding: 14px 16px;
+  margin: 18px 0;
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.callout strong {
+  color: var(--text);
+}
+
+/* "Try the calculator" call to action. */
+.cta {
+  display: block;
+  text-align: center;
+  background: var(--accent);
+  color: #08111f;
+  border-radius: 11px;
+  padding: 14px 16px;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 22px 0 4px;
+}
+
+.cta:hover {
+  background: #82b8ff;
+}
+
+/* "Keep reading" list at the foot of an article. */
+.related {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.related h2 {
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.related ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.related li {
+  margin-bottom: 8px;
+}
+
+.related a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.related a:hover {
+  text-decoration: underline;
+}
