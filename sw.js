@@ -7,7 +7,7 @@
 //    so those requests always go to the network and fail loudly when offline.
 //  • Navigations fall back to the cached page when the network is unavailable.
 
-const CACHE = 'uvaindex-v1';
+const CACHE = 'uvaindex-v2';
 
 const SHELL = [
   './',
@@ -20,6 +20,12 @@ const SHELL = [
   './js/chart.js',
   './js/solar.js',
   './js/uva.js',
+  './learn/',
+  './learn/index.html',
+  './learn/what-is-uva-radiation.html',
+  './learn/uva-vs-uvb.html',
+  './learn/dangers-of-uva.html',
+  './learn/uv-index-vs-uva-index.html',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/maskable-192.png',
@@ -55,7 +61,13 @@ self.addEventListener('fetch', (event) => {
   // then fall back to the cached shell when offline.
   if (req.mode === 'navigate') {
     event.respondWith(
-      fetch(req).catch(() => caches.match('./index.html', { ignoreSearch: true }))
+      fetch(req).catch(() =>
+        // Prefer the cached version of the page actually requested (e.g. a
+        // knowledge-base article), then fall back to the calculator shell.
+        caches
+          .match(req, { ignoreSearch: true })
+          .then((cached) => cached || caches.match('./index.html', { ignoreSearch: true }))
+      )
     );
     return;
   }

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>UVA Knowledge Base — Understanding UVA Radiation & the UV Index</title>
+    <meta
+      name="description"
+      content="Plain-English guides to UVA radiation: what UVA is, how UVA differs from UVB, the health dangers of UVA, and why the standard UV Index isn't enough — making the case for a dedicated UVA Index."
+    />
+    <meta
+      name="keywords"
+      content="UVA radiation, UVA vs UVB, UVA dangers, UV index explained, UVA index, what is UVA, surface UVA"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/learn/" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="UVA Index" />
+    <meta
+      property="og:title"
+      content="UVA Knowledge Base — Understanding UVA Radiation & the UV Index"
+    />
+    <meta
+      property="og:description"
+      content="Plain-English guides to UVA radiation, how it differs from UVB, its health risks, and why we need a dedicated UVA Index."
+    />
+    <meta property="og:url" content="https://uvaindex.org/learn/" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <!-- Structured data: this page is a collection of articles. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "UVA Knowledge Base",
+        "url": "https://uvaindex.org/learn/",
+        "description": "Guides to UVA radiation, how UVA differs from UVB, its health dangers, and why a dedicated UVA Index is useful alongside the standard UV Index.",
+        "hasPart": [
+          { "@type": "Article", "name": "What is UVA radiation?", "url": "https://uvaindex.org/learn/what-is-uva-radiation.html" },
+          { "@type": "Article", "name": "UVA vs UVB: what's the difference?", "url": "https://uvaindex.org/learn/uva-vs-uvb.html" },
+          { "@type": "Article", "name": "The dangers of UVA radiation", "url": "https://uvaindex.org/learn/dangers-of-uva.html" },
+          { "@type": "Article", "name": "What the UV Index measures — and why we need a UVA Index", "url": "https://uvaindex.org/learn/uv-index-vs-uva-index.html" }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../">Calculator</a>
+        <a href="./" class="active">Knowledge Base</a>
+        <span class="spacer"></span>
+      </nav>
+
+      <header>
+        <h1>UVA Knowledge Base</h1>
+        <p class="subtitle">
+          Short, plain-English guides to ultraviolet&nbsp;A radiation — what it
+          is, how it differs from UVB, why it matters for your skin, and why the
+          familiar <strong>UV&nbsp;Index</strong> doesn't tell the whole story.
+        </p>
+      </header>
+
+      <ul class="kb-list">
+        <li>
+          <a class="kb-card" href="what-is-uva-radiation.html">
+            <h2>What is UVA radiation?</h2>
+            <p>
+              The long-wavelength (315–400&nbsp;nm) part of ultraviolet light:
+              where it sits in the spectrum, why it dominates the UV that reaches
+              the ground, and how it behaves through the day and through glass.
+            </p>
+            <span class="kb-more">Read →</span>
+          </a>
+        </li>
+        <li>
+          <a class="kb-card" href="uva-vs-uvb.html">
+            <h2>UVA vs UVB: what's the difference?</h2>
+            <p>
+              Wavelength, how deep each penetrates skin, sunburn vs photoaging,
+              vitamin&nbsp;D, clouds and glass — a side-by-side comparison of the
+              two UV bands that reach Earth's surface.
+            </p>
+            <span class="kb-more">Read →</span>
+          </a>
+        </li>
+        <li>
+          <a class="kb-card" href="dangers-of-uva.html">
+            <h2>The dangers of UVA radiation</h2>
+            <p>
+              Photoaging, indirect DNA damage, skin cancer risk, eye damage and
+              immune suppression — what the research says about UVA's quieter,
+              longer-term effects, and how to reduce exposure.
+            </p>
+            <span class="kb-more">Read →</span>
+          </a>
+        </li>
+        <li>
+          <a class="kb-card" href="uv-index-vs-uva-index.html">
+            <h2>What the UV Index measures — and why we need a UVA Index</h2>
+            <p>
+              The UV Index is weighted for sunburn, so it's dominated by UVB and
+              under-represents UVA. Here's what it does and doesn't capture, and
+              why a dedicated UVA measure is useful.
+            </p>
+            <span class="kb-more">Read →</span>
+          </a>
+        </li>
+      </ul>
+
+      <a class="cta" href="../">Check the live UVA Index for your location →</a>
+
+      <footer>
+        <p class="disclaimer">
+          Educational information only — not medical advice. UVA has no official
+          index; values and bands on this site are estimated and approximate.
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      // Reuse the root service worker so the knowledge base also works offline.
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('../sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
