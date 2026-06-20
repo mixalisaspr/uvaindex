@@ -79,7 +79,7 @@
             "name": "What is the UVA Index?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "The UVA Index on this site is an estimated measure of surface UVA irradiance (the unweighted 315–400 nm band, in W/m²). Unlike the standard UV Index — which is erythemally weighted and dominated by UVB — this value isolates UVA and is derived from solar geometry plus live cloud and aerosol data."
+              "text": "The UVA Index is a 0–11+ scale derived from surface UVA irradiance (the unweighted 315–400 nm band, in W/m²): the irradiance is divided by 6 so a clear-sky overhead sun reads about 11, mirroring the familiar UV Index range. Categories follow the WHO bands — Low (0–2), Moderate (3–5), High (6–7), Very High (8–10) and Extreme (11+). Unlike the standard UV Index, which is erythemally weighted and dominated by UVB, this value isolates UVA and is derived from solar geometry plus live cloud and aerosol data."
             }
           },
           {
@@ -87,7 +87,7 @@
             "name": "How is the UVA Index calculated?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "It combines the solar zenith angle for your location and time with a clear-sky UVA baseline, then applies live corrections for altitude, aerosol optical depth, cloud cover and surface albedo using free Open-Meteo data."
+              "text": "It combines the solar zenith angle for your location and time with a clear-sky UVA baseline, then applies live corrections for altitude, aerosol optical depth, cloud cover and surface albedo using free Open-Meteo data. The resulting UVA irradiance (W/m²) is then divided by 6 to give the 0–11+ UVA Index."
             }
           }
         ]
@@ -107,9 +107,10 @@
       <header>
         <h1>UVA Index</h1>
         <p class="subtitle">
-          A live <strong>UVA Index</strong> for any location and time — estimated
-          surface <strong>UVA irradiance</strong> (≈315–400&nbsp;nm, in W/m²),
-          derived from real-time sun position and weather. This is a dedicated UVA
+          A live <strong>UVA Index</strong> for any location and time — a
+          <strong>0–11+ scale</strong> built from estimated surface
+          <strong>UVA irradiance</strong> (≈315–400&nbsp;nm, in W/m²), derived
+          from real-time sun position and weather. This is a dedicated UVA
           measure, not the standard erythemal UV&nbsp;Index (which is mostly UVB).
         </p>
       </header>
@@ -156,7 +157,11 @@
       <section id="result" class="result" hidden>
         <div class="readout">
           <div class="uva-number">
-            <span id="uva-value">—</span><span class="unit">W/m²</span>
+            <span class="metric-label">UVA Index</span>
+            <span id="uva-index">—</span>
+            <span class="uva-secondary">
+              <span id="uva-value">—</span> W/m² UVA irradiance
+            </span>
           </div>
           <div id="uva-band" class="band">—</div>
         </div>

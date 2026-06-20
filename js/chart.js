@@ -1,5 +1,5 @@
 // chart.js — tiny dependency-free SVG line chart for the daily UVA Index curve.
-// Pure rendering: given a series of { time: Date, uva: number } points and the
+// Pure rendering: given a series of { time: Date, index: number } points and the
 // selected instant, it returns an inline <svg> string to drop into the page.
 
 import { classifyUVA } from './uva.js';
@@ -9,7 +9,7 @@ const W = 600;
 const H = 220;
 
 function svgEl(series, selectedTime) {
-  const points = series.filter((p) => p && isFinite(p.uva));
+  const points = series.filter((p) => p && isFinite(p.index));
   if (points.length < 2) {
     return '<p class="chart-empty">Not enough data to plot the day.</p>';
   }
@@ -18,15 +18,16 @@ function svgEl(series, selectedTime) {
   const plotH = H - PAD.top - PAD.bottom;
 
   const n = points.length;
-  const maxUva = Math.max(10, ...points.map((p) => p.uva));
-  // Round the axis top up to a tidy number.
-  const yMax = Math.ceil(maxUva / 10) * 10;
+  // Y axis is the UVA Index (0-11+); keep at least the familiar 0-11 range.
+  const maxIndex = Math.max(11, ...points.map((p) => p.index));
+  // Round the axis top up to a tidy even number.
+  const yMax = Math.ceil(maxIndex / 2) * 2;
 
   const x = (i) => PAD.left + (plotW * i) / (n - 1);
   const y = (v) => PAD.top + plotH * (1 - v / yMax);
 
   // Line + area paths.
-  const line = points.map((p, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(p.uva).toFixed(1)}`).join(' ');
+  const line = points.map((p, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(p.index).toFixed(1)}`).join(' ');
   const area = `${line} L${x(n - 1).toFixed(1)},${y(0).toFixed(1)} L${x(0).toFixed(1)},${y(0).toFixed(1)} Z`;
 
   // Y gridlines / labels at 0, 1/2, full.
@@ -64,8 +65,8 @@ function svgEl(series, selectedTime) {
       }
     });
     const mx = x(idx).toFixed(1);
-    const my = y(points[idx].uva).toFixed(1);
-    const band = classifyUVA(points[idx].uva);
+    const my = y(points[idx].index).toFixed(1);
+    const band = classifyUVA(points[idx].index);
     marker =
       `<line class="marker" x1="${mx}" y1="${PAD.top}" x2="${mx}" y2="${PAD.top + plotH}" />` +
       `<circle class="marker-dot" cx="${mx}" cy="${my}" r="4.5" style="fill:${band.color}" />`;

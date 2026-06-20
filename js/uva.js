@@ -41,7 +41,19 @@ export const MODEL = {
     sand: 1.04, // dry sand ~15-25%
     snow: 1.1, // fresh snow can exceed 80% but enhancement at surface is modest
   },
+
+  // UVA Index scale: divisor turning UVA irradiance (W/m2) into a clean 0-11+
+  // index. Chosen so the clear-sky overhead-sun maximum (UVA_MAX = 66) maps to
+  // ~11 — the same top-of-scale feel as the erythemal UV Index (which scales
+  // its irradiance by x40). One constant, strictly proportional to the real
+  // irradiance, so the index is easy to explain and to recalibrate.
+  INDEX_DIVISOR: 6,
 };
+
+// Convert UVA irradiance (W/m2) to the dimensionless UVA Index (0-11+).
+export function uvaIndex(uva, model = MODEL) {
+  return uva / model.INDEX_DIVISOR;
+}
 
 // Air mass approximation (Kasten-Young-ish, simple secant with a floor to
 // avoid blow-up near the horizon).
@@ -76,6 +88,7 @@ export function computeUVA(inputs, model = MODEL) {
   if (!aboveHorizon || zenith >= 90) {
     return {
       uva: 0,
+      index: 0,
       band: classifyUVA(0),
       factors: { baseline: 0, note: 'Sun below horizon' },
     };
@@ -120,9 +133,13 @@ export function computeUVA(inputs, model = MODEL) {
     cloudFactor *
     albedoFactor;
 
+  const value = Math.max(0, uva);
+  const index = uvaIndex(value, model);
+
   return {
-    uva: Math.max(0, uva),
-    band: classifyUVA(uva),
+    uva: value,
+    index,
+    band: classifyUVA(index),
     factors: {
       baseline,
       altitude: altitudeFactor,
@@ -134,12 +151,14 @@ export function computeUVA(inputs, model = MODEL) {
   };
 }
 
-// Qualitative band for a UVA value in W/m2. These thresholds are pragmatic
-// (UVA has no official index), chosen so clear midday sun reads "Very High".
-export function classifyUVA(uva) {
-  if (uva < 5) return { label: 'Low', level: 0, color: '#3a7d44' };
-  if (uva < 20) return { label: 'Moderate', level: 1, color: '#f2c14e' };
-  if (uva < 40) return { label: 'High', level: 2, color: '#f08a24' };
-  if (uva < 55) return { label: 'Very High', level: 3, color: '#e3522f' };
+// Qualitative band for a UVA Index value (0-11+). The category boundaries
+// deliberately reuse the WHO UV Index bands (Low 0-2, Moderate 3-5, High 6-7,
+// Very High 8-10, Extreme 11+) so the scale is instantly familiar — only the
+// underlying quantity (unweighted UVA, not erythemal UV) differs.
+export function classifyUVA(index) {
+  if (index < 3) return { label: 'Low', level: 0, color: '#3a7d44' };
+  if (index < 6) return { label: 'Moderate', level: 1, color: '#f2c14e' };
+  if (index < 8) return { label: 'High', level: 2, color: '#f08a24' };
+  if (index < 11) return { label: 'Very High', level: 3, color: '#e3522f' };
   return { label: 'Extreme', level: 4, color: '#b5179e' };
 }

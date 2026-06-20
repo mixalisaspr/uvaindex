@@ -128,6 +128,35 @@
           how the estimate is built.
         </div>
 
+        <h2>The UVA Index scale</h2>
+        <p>
+          The raw UVA irradiance (in W/m²) is precise but unfamiliar, so we put
+          it on a 0–11+ scale just like the UV&nbsp;Index. The conversion is one
+          constant: <strong>UVA Index = UVA irradiance ÷ 6</strong>. That divisor
+          is chosen so a clear-sky overhead sun (~66&nbsp;W/m² in our model)
+          reads about <strong>11</strong> — the same top-of-scale feel as a peak
+          tropical UV&nbsp;Index. The category bands reuse the WHO UV&nbsp;Index
+          colours and words, so a number you already understand carries straight
+          over:
+        </p>
+        <table class="data-table">
+          <thead>
+            <tr><th>UVA Index</th><th>Band</th><th>≈ Irradiance</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0–2</td><td>Low</td><td>&lt; ~15 W/m²</td></tr>
+            <tr><td>3–5</td><td>Moderate</td><td>~15–35 W/m²</td></tr>
+            <tr><td>6–7</td><td>High</td><td>~35–47 W/m²</td></tr>
+            <tr><td>8–10</td><td>Very High</td><td>~47–65 W/m²</td></tr>
+            <tr><td>11+</td><td>Extreme</td><td>~66+ W/m²</td></tr>
+          </tbody>
+        </table>
+        <p>
+          Because the index is strictly proportional to the irradiance, both
+          numbers tell the same story — the index is just the friendlier way to
+          read it at a glance.
+        </p>
+
         <h2>Use both together</h2>
         <p>
           This isn't "UV Index bad, UVA Index good." They answer different
