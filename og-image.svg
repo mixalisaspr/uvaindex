@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1724" />
+      <stop offset="1" stop-color="#131d30" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- sun mark -->
+  <g transform="translate(170,315)">
+    <circle r="70" fill="#6aa9ff" />
+    <g stroke="#6aa9ff" stroke-width="14" stroke-linecap="round">
+      <line x1="0" y1="-110" x2="0" y2="-150" />
+      <line x1="0" y1="110" x2="0" y2="150" />
+      <line x1="-110" y1="0" x2="-150" y2="0" />
+      <line x1="110" y1="0" x2="150" y2="0" />
+      <line x1="-78" y1="-78" x2="-106" y2="-106" />
+      <line x1="78" y1="78" x2="106" y2="106" />
+      <line x1="78" y1="-78" x2="106" y2="-106" />
+      <line x1="-78" y1="78" x2="-106" y2="106" />
+    </g>
+  </g>
+
+  <text x="400" y="290" font-family="Segoe UI, Roboto, system-ui, sans-serif" font-size="120" font-weight="700" fill="#e8edf6">UVA Index</text>
+  <text x="402" y="370" font-family="Segoe UI, Roboto, system-ui, sans-serif" font-size="40" fill="#9aa7bd">Live UVA irradiance for any location &amp; time</text>
+  <text x="402" y="430" font-family="Segoe UI, Roboto, system-ui, sans-serif" font-size="34" fill="#6aa9ff">uvaindex.org</text>
+</svg>

@@ -43,13 +43,24 @@ calibrated against reference data.
 ## Files
 
 ```
-index.html     # UI: location controls, date/time, result + breakdown
+index.html     # UI: location controls, date/time, result + breakdown + chart
 styles.css     # responsive dark styling
 js/solar.js    # solar zenith angle (NOAA algorithm), pure functions
 js/uva.js      # hybrid UVA model + qualitative bands, pure functions
-js/api.js      # Open-Meteo fetch helpers
+js/api.js      # Open-Meteo fetch helpers (point value + full-day hourly series)
+js/chart.js    # inline SVG chart of the UVA Index through the day, pure functions
 js/app.js      # orchestration: wire UI, fetch, compute, render
+favicon.svg    # site icon
+og-image.svg   # source for the social share image
+og-image.png   # 1200x630 Open Graph / Twitter card image (rasterized from the SVG)
+robots.txt     # crawler directives + sitemap pointer
+sitemap.xml    # single-page sitemap for search engines
 ```
+
+The result view also plots the **UVA Index through the day**: the same model is
+evaluated at every available hour using that hour's cloud and aerosol data, so
+you can see when UVA peaks and how it tracks the sun. To regenerate `og-image.png`
+after editing the SVG: `npx sharp-cli -i og-image.svg -o og-image.png resize 1200 630`.
 
 ## Run it
 

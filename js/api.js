@@ -61,6 +61,12 @@ export async function fetchWeather(lat, lon, when) {
     cloudCover: data.hourly?.cloud_cover?.[idx],
     surfacePressure: data.hourly?.surface_pressure?.[idx],
     time: times[idx],
+    // Full-day hourly series (used to plot the UVA Index curve).
+    hourly: {
+      time: times,
+      cloudCover: data.hourly?.cloud_cover || [],
+      surfacePressure: data.hourly?.surface_pressure || [],
+    },
   };
 }
 
@@ -83,5 +89,11 @@ export async function fetchAirQuality(lat, lon, when) {
     ozone: data.hourly?.ozone?.[idx],
     dust: data.hourly?.dust?.[idx],
     time: times[idx],
+    // Full-day hourly series (used to plot the UVA Index curve).
+    hourly: {
+      time: times,
+      aod: data.hourly?.aerosol_optical_depth || [],
+      uvIndex: data.hourly?.uv_index || [],
+    },
   };
 }
