@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UVA Index Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>UVA Calculator</h1>
+        <p class="subtitle">
+          Estimates surface <strong>UVA irradiance</strong> (≈315–400&nbsp;nm, in
+          W/m²) — not the standard erythemal UV&nbsp;Index — from your location,
+          time and live weather.
+        </p>
+      </header>
+
+      <section class="controls">
+        <div class="row">
+          <button id="use-location" type="button">📍 Use my location</button>
+          <span id="location-label" class="location-label">No location set</span>
+        </div>
+
+        <div class="row search-row">
+          <input
+            id="place-search"
+            type="text"
+            placeholder="Search a city or place…"
+            autocomplete="off"
+          />
+          <button id="search-btn" type="button">Search</button>
+        </div>
+
+        <div class="row">
+          <label for="datetime">Date &amp; time</label>
+          <input id="datetime" type="datetime-local" />
+        </div>
+
+        <div class="row">
+          <label for="surface">Ground surface</label>
+          <select id="surface">
+            <option value="grass">Grass / default</option>
+            <option value="water">Water</option>
+            <option value="sand">Sand / beach</option>
+            <option value="snow">Snow</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <button id="calculate" type="button" class="primary">Calculate UVA</button>
+        </div>
+
+        <p id="status" class="status"></p>
+      </section>
+
+      <section id="result" class="result" hidden>
+        <div class="readout">
+          <div class="uva-number">
+            <span id="uva-value">—</span><span class="unit">W/m²</span>
+          </div>
+          <div id="uva-band" class="band">—</div>
+        </div>
+
+        <h2>Inputs</h2>
+        <table class="data-table">
+          <tbody id="params"></tbody>
+        </table>
+
+        <h2>Model breakdown</h2>
+        <table class="data-table">
+          <tbody id="factors"></tbody>
+        </table>
+      </section>
+
+      <footer>
+        <p class="disclaimer">
+          Derived/estimated value for informational use only — not medical
+          advice. Data: <a href="https://open-meteo.com/">Open-Meteo</a> (free,
+          no key). UVA has no official index; bands are approximate.
+        </p>
+      </footer>
+    </main>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
