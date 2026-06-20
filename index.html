@@ -20,6 +20,14 @@
     <link rel="canonical" href="https://uvaindex.org/" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 
+    <!-- PWA: installable, app-like experience -->
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="UVA Index" />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="UVA Index" />
@@ -171,5 +179,15 @@
     </main>
 
     <script type="module" src="js/app.js"></script>
+    <script>
+      // Register the service worker for offline support and installability.
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js').catch(() => {
+            /* PWA features unavailable; the site still works as a normal page. */
+          });
+        });
+      }
+    </script>
   </body>
 </html>
