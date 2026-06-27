@@ -456,7 +456,8 @@ button.primary:hover {
 }
 
 /* "Try the calculator" call to action. */
-.cta {
+/* Use a.cta so the dark text color beats the .prose a accent color. */
+a.cta {
   display: block;
   text-align: center;
   background: var(--accent);
@@ -468,8 +469,9 @@ button.primary:hover {
   margin: 22px 0 4px;
 }
 
-.cta:hover {
+a.cta:hover {
   background: #82b8ff;
+  color: #08111f;
 }
 
 /* "Keep reading" list at the foot of an article. */
