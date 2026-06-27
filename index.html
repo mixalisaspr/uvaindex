@@ -97,7 +97,7 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="app">
+    <main class="app app--calc">
       <nav class="site-nav" aria-label="Primary">
         <a href="./" class="active">Calculator</a>
         <a href="learn/">Knowledge Base</a>
@@ -116,7 +116,8 @@
         </p>
       </header>
 
-      <section class="controls">
+      <div class="calc-grid">
+        <section class="controls">
         <div class="row">
           <button id="use-location" type="button">📍 Use my location</button>
           <span id="location-label" class="location-label">No location set</span>
@@ -170,20 +171,27 @@
         <h2>UVA Index through the day</h2>
         <div id="chart" class="chart" aria-label="UVA Index over the course of the day"></div>
 
-        <h2>Inputs</h2>
-        <table class="data-table">
-          <tbody id="params"></tbody>
-        </table>
+        <div class="result-tables">
+          <div class="table-block">
+            <h2>Inputs</h2>
+            <table class="data-table">
+              <tbody id="params"></tbody>
+            </table>
+          </div>
 
-        <h2>Model breakdown</h2>
-        <table class="data-table">
-          <tbody id="factors"></tbody>
-        </table>
+          <div class="table-block">
+            <h2>Model breakdown</h2>
+            <table class="data-table">
+              <tbody id="factors"></tbody>
+            </table>
+          </div>
+        </div>
         <p class="model-note">
           <a href="learn/how-uva-index-is-calculated.html">How is this
           calculated? →</a>
         </p>
-      </section>
+        </section>
+      </div>
 
       <footer>
         <p class="disclaimer">
