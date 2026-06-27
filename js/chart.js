@@ -30,6 +30,26 @@ function svgEl(series, selectedTime) {
   const line = points.map((p, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(p.index).toFixed(1)}`).join(' ');
   const area = `${line} L${x(n - 1).toFixed(1)},${y(0).toFixed(1)} L${x(0).toFixed(1)},${y(0).toFixed(1)} Z`;
 
+  // Coloured band fills clipped to the area under the curve.
+  // Each rect covers one band's Y range; the clipPath keeps only what's under the curve.
+  const bandRanges = [
+    [0,  3,  '#3a7d44'],
+    [3,  6,  '#f2c14e'],
+    [6,  8,  '#f08a24'],
+    [8,  11, '#e3522f'],
+    [11, yMax, '#b5179e'],
+  ];
+  const colorBands =
+    `<defs><clipPath id="area-clip"><path d="${area}" /></clipPath></defs>` +
+    bandRanges.map(([lo, hi, color]) => {
+      if (lo >= yMax) return '';
+      const rectTop = y(Math.min(hi, yMax));
+      const rectBot = y(lo);
+      const h = rectBot - rectTop;
+      if (h <= 0) return '';
+      return `<rect x="${PAD.left}" y="${rectTop.toFixed(1)}" width="${plotW}" height="${h.toFixed(1)}" fill="${color}" opacity="0.6" clip-path="url(#area-clip)" />`;
+    }).join('');
+
   // Y gridlines / labels at 0, 1/2, full.
   const yTicks = [0, yMax / 2, yMax];
   const grid = yTicks
@@ -74,8 +94,8 @@ function svgEl(series, selectedTime) {
 
   return (
     `<svg viewBox="0 0 ${W} ${H}" role="img" preserveAspectRatio="none" class="uva-chart-svg">` +
+    colorBands +
     grid +
-    `<path class="area" d="${area}" />` +
     `<path class="curve" d="${line}" />` +
     marker +
     xLabels +

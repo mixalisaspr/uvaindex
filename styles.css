@@ -389,14 +389,9 @@ button.primary:hover {
   font-size: 11px;
 }
 
-.uva-chart-svg .area {
-  fill: var(--accent);
-  opacity: 0.12;
-}
-
 .uva-chart-svg .curve {
   fill: none;
-  stroke: var(--accent);
+  stroke: rgba(255, 255, 255, 0.9);
   stroke-width: 2;
   stroke-linejoin: round;
   stroke-linecap: round;
