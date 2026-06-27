@@ -523,3 +523,71 @@ a.cta:hover {
 .related a:hover {
   text-decoration: underline;
 }
+
+/* ---------------------------------------------------------------------------
+   Responsive: make better use of wider screens
+   On phones everything stays a single comfortable column (the default above).
+   On larger viewports the calculator widens into a two-column layout and the
+   knowledge-base cards flow into a grid, instead of staying a narrow strip.
+   --------------------------------------------------------------------------- */
+
+/* The calculator container grows once a result is on screen so the controls and
+   the result can sit side by side. A smooth transition keeps the jump gentle. */
+.app--calc {
+  transition: max-width 0.25s ease;
+}
+
+/* Controls + result are wrapped in a grid so they can become two columns. */
+.calc-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.calc-grid .controls,
+.calc-grid .result {
+  margin-bottom: 0;
+}
+
+/* On wide screens, lay the two model tables side by side. */
+.result-tables {
+  display: grid;
+  gap: 0 28px;
+}
+
+@media (min-width: 880px) {
+  /* Calculator: expand and go two-column once there's a result to show. */
+  .app--calc:has(#result:not([hidden])) {
+    max-width: 1000px;
+  }
+
+  .calc-grid:has(#result:not([hidden])) {
+    grid-template-columns: minmax(300px, 360px) 1fr;
+    align-items: start;
+  }
+
+  /* Keep the controls visible while scrolling the longer result column. */
+  .calc-grid:has(#result:not([hidden])) .controls {
+    position: sticky;
+    top: 24px;
+  }
+
+  .result-tables {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Knowledge base: wider container and a two-column card grid. */
+  .app--hub {
+    max-width: 900px;
+  }
+
+  .app--hub .kb-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Roomier reading width for article and about pages on large screens. */
+@media (min-width: 720px) {
+  .app--wide {
+    max-width: 680px;
+  }
+}
