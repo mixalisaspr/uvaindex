@@ -29,7 +29,16 @@ export async function geocode(name, count = 5) {
     latitude: r.latitude,
     longitude: r.longitude,
     population: r.population || 0,
+    timezone: r.timezone || null,
   }));
+}
+
+// Fetch the IANA timezone name for a coordinate pair (used for GPS-located positions
+// where we don't have a geocoding result that already includes the timezone).
+export async function fetchTimezone(lat, lon) {
+  const url = `${FORECAST_URL}?latitude=${lat}&longitude=${lon}&timezone=auto&current=temperature_2m`;
+  const data = await getJson(url);
+  return data.timezone || null;
 }
 
 // Turn GPS coordinates into the nearest city/town label. Best-effort: if the

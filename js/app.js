@@ -9,13 +9,14 @@ import {
   coordLabel,
   fetchWeather,
   fetchAirQuality,
+  fetchTimezone,
 } from './api.js';
 import { renderChart } from './chart.js';
 
 const $ = (id) => document.getElementById(id);
 
 // Current location chosen by the user.
-let location = null; // { lat, lon, label }
+let location = null; // { lat, lon, label, timezone }
 
 // --- UI helpers -------------------------------------------------------------
 
@@ -27,13 +28,6 @@ function setStatus(msg, isError = false) {
 
 function setLocationLabel(text) {
   $('location-label').textContent = text;
-}
-
-function nowLocalInputValue() {
-  // datetime-local wants "YYYY-MM-DDTHH:mm" in local time.
-  const d = new Date();
-  const off = d.getTimezoneOffset() * 60000;
-  return new Date(d.getTime() - off).toISOString().slice(0, 16);
 }
 
 // Great-circle distance in km — used to nudge nearby places up the suggestions.
@@ -63,15 +57,19 @@ function useBrowserLocation({ silent = false } = {}) {
     async (pos) => {
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
-      location = { lat, lon, label: coordLabel(lat, lon) };
+      location = { lat, lon, label: coordLabel(lat, lon), timezone: null };
       hideSuggestions();
       setLocationLabel('Locating nearest place…');
-      // Replace the raw coordinates with a friendly city/town name.
+      // Resolve city name and timezone in parallel.
       try {
-        const name = await reverseGeocode(lat, lon);
+        const [name, tz] = await Promise.all([
+          reverseGeocode(lat, lon).catch(() => null),
+          fetchTimezone(lat, lon).catch(() => null),
+        ]);
         if (name) location.label = name;
+        if (tz) location.timezone = tz;
       } catch {
-        /* keep the coordinate fallback */
+        /* keep coordinate label and no timezone */
       }
       setLocationLabel(location.label);
       setLocating(false);
@@ -98,19 +96,13 @@ function setLocating(on) {
   btn.disabled = on;
 }
 
-// "Now" button: reset only the date and time to the current moment and
-// recalculate for the existing location.
-function setTimeToNow() {
-  $('datetime').value = nowLocalInputValue();
-  if (location) calculate();
-}
-
 // Set the chosen location from a geocoding result and recalculate.
 function selectPlace(r) {
   location = {
     lat: r.latitude,
     lon: r.longitude,
     label: [r.name, r.admin1, r.country].filter(Boolean).join(', '),
+    timezone: r.timezone || null,
   };
   $('place-search').value = r.name;
   setLocationLabel(location.label);
@@ -282,11 +274,7 @@ async function calculate() {
     setStatus('Choose a location first.', true);
     return;
   }
-  const when = new Date($('datetime').value);
-  if (isNaN(when.getTime())) {
-    setStatus('Pick a valid date and time.', true);
-    return;
-  }
+  const when = new Date();
   const surface = $('surface').value;
 
   setStatus('Fetching atmospheric data…');
@@ -313,7 +301,7 @@ async function calculate() {
     const series = buildDailySeries(weather, air, surface);
 
     render(result, sun, weather, air);
-    renderChart($('chart'), series, when);
+    renderChart($('chart'), series, when, location.timezone);
     setStatus('');
   } catch (e) {
     setStatus(`Calculation failed: ${e.message}`, true);
@@ -369,8 +357,8 @@ function uvaPointerPosition(index) {
 function render(result, sun, weather, air) {
   $('result').hidden = false;
 
-  // Headline number (no decimals); pointer slides to its position on the scale.
-  $('uva-index').textContent = Math.round(result.index);
+  // Headline number (1 decimal); pointer slides to its position on the scale.
+  $('uva-index').textContent = fmt(result.index, 1);
   $('uva-index').style.color = result.band.color;
   $('uva-pointer').style.left = uvaPointerPosition(result.index) + '%';
   $('uva-value').textContent = fmt(result.uva, 1);
@@ -407,11 +395,7 @@ function render(result, sun, weather, air) {
 // --- wire up ----------------------------------------------------------------
 
 function init() {
-  // Refreshing the page resets the time to now...
-  $('datetime').value = nowLocalInputValue();
-
   $('use-location').addEventListener('click', () => useBrowserLocation());
-  $('now').addEventListener('click', setTimeToNow);
 
   const search = $('place-search');
   search.addEventListener('input', onSearchInput);
@@ -426,7 +410,6 @@ function init() {
   });
 
   $('calculate').addEventListener('click', calculate);
-  $('datetime').addEventListener('change', () => location && calculate());
   $('surface').addEventListener('change', () => location && calculate());
 
   // ...and tries to pull the current location automatically.
