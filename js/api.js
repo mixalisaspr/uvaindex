@@ -126,6 +126,7 @@ export async function fetchAirQuality(lat, lon, when) {
       time: times,
       aod: data.hourly?.aerosol_optical_depth || [],
       uvIndex: data.hourly?.uv_index || [],
+      uvIndexClearSky: data.hourly?.uv_index_clear_sky || [],
     },
   };
 }
