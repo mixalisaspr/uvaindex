@@ -351,15 +351,29 @@ function fmt(v, digits = 1) {
   return typeof v === 'number' && isFinite(v) ? v.toFixed(digits) : '—';
 }
 
+// Maps a UVA index value to a left-percentage position on the 5-segment scale.
+// Each segment occupies 20% of the bar width; the pointer floats continuously
+// within its segment based on where the value falls in that band's range.
+function uvaPointerPosition(index) {
+  const bands = [[0, 3], [3, 6], [6, 8], [8, 11], [11, 14]];
+  for (let i = 0; i < bands.length; i++) {
+    const [lo, hi] = bands[i];
+    if (index < hi || i === bands.length - 1) {
+      const frac = Math.max(0, Math.min(1, (index - lo) / (hi - lo)));
+      return i * 20 + frac * 20;
+    }
+  }
+  return 100;
+}
+
 function render(result, sun, weather, air) {
   $('result').hidden = false;
 
-  // Headline is the UVA Index (0-11+); raw irradiance is the technical sub-value.
-  $('uva-index').textContent = fmt(result.index, 1);
+  // Headline number (no decimals); pointer slides to its position on the scale.
+  $('uva-index').textContent = Math.round(result.index);
+  $('uva-index').style.color = result.band.color;
+  $('uva-pointer').style.left = uvaPointerPosition(result.index) + '%';
   $('uva-value').textContent = fmt(result.uva, 1);
-  const band = $('uva-band');
-  band.textContent = result.band.label;
-  band.style.background = result.band.color;
 
   // Parameter breakdown table.
   const rows = [
