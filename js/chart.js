@@ -4,11 +4,33 @@
 
 import { classifyUVA } from './uva.js';
 
-const PAD = { top: 14, right: 14, bottom: 26, left: 36 };
+const PAD = { top: 14, right: 14, bottom: 32, left: 36 };
 const W = 600;
 const H = 220;
 
-function svgEl(series, selectedTime) {
+// Return the hour (0-23) of a UTC Date in the given IANA timezone.
+function hourInZone(date, ianaName) {
+  if (!ianaName) return date.getHours();
+  const parts = new Intl.DateTimeFormat('en', {
+    timeZone: ianaName,
+    hour: 'numeric',
+    hour12: false,
+  }).formatToParts(date);
+  const h = parts.find((p) => p.type === 'hour');
+  return h ? parseInt(h.value, 10) % 24 : date.getHours();
+}
+
+// Short timezone abbreviation (e.g. "JST"), falls back to the IANA name.
+function tzAbbr(ianaName, date) {
+  if (!ianaName) return null;
+  const parts = new Intl.DateTimeFormat('en', {
+    timeZone: ianaName,
+    timeZoneName: 'short',
+  }).formatToParts(date);
+  return parts.find((p) => p.type === 'timeZoneName')?.value ?? ianaName;
+}
+
+function svgEl(series, selectedTime, timezone) {
   const points = series.filter((p) => p && isFinite(p.index));
   if (points.length < 2) {
     return '<p class="chart-empty">Not enough data to plot the day.</p>';
@@ -62,14 +84,18 @@ function svgEl(series, selectedTime) {
     })
     .join('');
 
-  // X labels every 6 hours, by the hour of each point.
+  // X labels every 6 hours in the location's local timezone.
+  const abbr = tzAbbr(timezone, points[0]?.time ?? new Date());
   const xLabels = points
     .map((p, i) => {
-      const hr = p.time.getHours();
+      const hr = hourInZone(p.time, timezone);
       if (hr % 6 !== 0) return '';
-      return `<text class="axis" x="${x(i).toFixed(1)}" y="${H - 8}" text-anchor="middle">${String(hr).padStart(2, '0')}:00</text>`;
+      return `<text class="axis" x="${x(i).toFixed(1)}" y="${H - 16}" text-anchor="middle">${String(hr).padStart(2, '0')}:00</text>`;
     })
     .join('');
+  const tzText = abbr
+    ? `<text class="axis" x="${W - PAD.right}" y="${H - 2}" text-anchor="end" style="opacity:0.5;font-size:9px">${abbr} local time</text>`
+    : '';
 
   // Marker at the selected time (nearest point).
   let marker = '';
@@ -99,11 +125,12 @@ function svgEl(series, selectedTime) {
     `<path class="curve" d="${line}" />` +
     marker +
     xLabels +
+    tzText +
     '</svg>'
   );
 }
 
 // Render the chart into `container` (a DOM element).
-export function renderChart(container, series, selectedTime) {
-  container.innerHTML = svgEl(series, selectedTime);
+export function renderChart(container, series, selectedTime, timezone) {
+  container.innerHTML = svgEl(series, selectedTime, timezone);
 }
