@@ -3,7 +3,13 @@
 
 import { solarPosition } from './solar.js';
 import { computeUVA } from './uva.js';
-import { geocode, coordLabel, fetchWeather, fetchAirQuality } from './api.js';
+import {
+  geocode,
+  reverseGeocode,
+  coordLabel,
+  fetchWeather,
+  fetchAirQuality,
+} from './api.js';
 import { renderChart } from './chart.js';
 
 const $ = (id) => document.getElementById(id);
@@ -30,30 +36,97 @@ function nowLocalInputValue() {
   return new Date(d.getTime() - off).toISOString().slice(0, 16);
 }
 
+// Great-circle distance in km — used to nudge nearby places up the suggestions.
+function distanceKm(lat1, lon1, lat2, lon2) {
+  const toRad = (d) => (d * Math.PI) / 180;
+  const R = 6371;
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(a));
+}
+
 // --- location handling ------------------------------------------------------
 
-function useBrowserLocation() {
+// Pull the device location via the browser. `silent` suppresses error noise for
+// automatic attempts (page load / refresh); `fallbackRecalc` recalculates with
+// the existing location if a fresh fix can't be obtained.
+function useBrowserLocation({ silent = false, fallbackRecalc = false } = {}) {
   if (!navigator.geolocation) {
-    setStatus('Geolocation not supported by this browser.', true);
+    if (!silent) setStatus('Geolocation not supported by this browser.', true);
     return;
   }
-  setStatus('Locating…');
+  setLocating(true);
+  if (!silent) setStatus('Finding your location…');
   navigator.geolocation.getCurrentPosition(
-    (pos) => {
-      location = {
-        lat: pos.coords.latitude,
-        lon: pos.coords.longitude,
-        label: coordLabel(pos.coords.latitude, pos.coords.longitude),
-      };
-      setLocationLabel(`📍 ${location.label}`);
+    async (pos) => {
+      const lat = pos.coords.latitude;
+      const lon = pos.coords.longitude;
+      location = { lat, lon, label: coordLabel(lat, lon) };
+      hideSuggestions();
+      setLocationLabel('Locating nearest place…');
+      // Replace the raw coordinates with a friendly city/town name.
+      try {
+        const name = await reverseGeocode(lat, lon);
+        if (name) location.label = name;
+      } catch {
+        /* keep the coordinate fallback */
+      }
+      setLocationLabel(location.label);
+      setLocating(false);
       setStatus('');
       calculate();
     },
-    (err) => setStatus(`Could not get location: ${err.message}`, true),
+    (err) => {
+      setLocating(false);
+      if (location && fallbackRecalc) {
+        setStatus('');
+        calculate();
+        return;
+      }
+      if (!silent) {
+        setStatus(`Could not get location: ${err.message}`, true);
+      } else if (!location) {
+        setLocationLabel('Search for a place to begin');
+      }
+    },
     { enableHighAccuracy: false, timeout: 10000 }
   );
 }
 
+// Toggle the spinning/disabled feedback on the locate + refresh buttons.
+function setLocating(on) {
+  ['use-location', 'refresh'].forEach((id) => {
+    const btn = $(id);
+    btn.classList.toggle('spinning', on);
+    btn.disabled = on;
+  });
+}
+
+// Refresh button: reset the time to now and re-pull the location, then
+// recalculate. Falls back to the current location if geolocation is blocked.
+function refreshAll() {
+  $('datetime').value = nowLocalInputValue();
+  useBrowserLocation({ silent: true, fallbackRecalc: true });
+}
+
+// Set the chosen location from a geocoding result and recalculate.
+function selectPlace(r) {
+  location = {
+    lat: r.latitude,
+    lon: r.longitude,
+    label: [r.name, r.admin1, r.country].filter(Boolean).join(', '),
+  };
+  $('place-search').value = r.name;
+  setLocationLabel(location.label);
+  hideSuggestions();
+  setStatus('');
+  calculate();
+}
+
+// Enter-to-search fallback when no suggestion is highlighted.
 async function searchLocation() {
   const q = $('place-search').value.trim();
   if (!q) return;
@@ -64,18 +137,149 @@ async function searchLocation() {
       setStatus('No matching place found.', true);
       return;
     }
-    const r = results[0];
-    location = {
-      lat: r.latitude,
-      lon: r.longitude,
-      label: [r.name, r.admin1, r.country].filter(Boolean).join(', '),
-    };
-    setLocationLabel(`📍 ${location.label}`);
-    setStatus('');
-    calculate();
+    selectPlace(rankSuggestions(results)[0]);
   } catch (e) {
     setStatus(`Search failed: ${e.message}`, true);
   }
+}
+
+// --- search-as-you-type suggestions ----------------------------------------
+
+let suggestions = [];
+let activeSuggestion = -1;
+let suggestTimer = null;
+
+// Rank candidates: keep Open-Meteo's relevance order as the backbone, then
+// gently nudge bigger places — and, when we know where the user is, nearer
+// ones — upward. The nudge is small so an exact-name match is never buried.
+function rankSuggestions(results) {
+  const n = results.length;
+  return results
+    .map((r, i) => {
+      let score = n - i; // provider relevance (first result scores highest)
+      if (r.population) score += Math.min(2, Math.max(0, Math.log10(r.population) - 4));
+      if (location) {
+        const d = distanceKm(location.lat, location.lon, r.latitude, r.longitude);
+        score += Math.max(0, 2 - d / 1500); // up to +2 for places within ~1500 km
+      }
+      return { r, score };
+    })
+    .sort((a, b) => b.score - a.score)
+    .map((x) => x.r);
+}
+
+function onSearchInput() {
+  const q = $('place-search').value.trim();
+  clearTimeout(suggestTimer);
+  if (q.length < 2) {
+    hideSuggestions();
+    return;
+  }
+  suggestTimer = setTimeout(async () => {
+    try {
+      const results = await geocode(q, 8);
+      // Ignore stale responses if the box has since been cleared.
+      if (!$('place-search').value.trim()) return;
+      suggestions = rankSuggestions(results);
+      renderSuggestions();
+    } catch {
+      hideSuggestions();
+    }
+  }, 220);
+}
+
+function renderSuggestions() {
+  const box = $('suggestions');
+  if (!suggestions.length) {
+    hideSuggestions();
+    return;
+  }
+  activeSuggestion = -1;
+  box.innerHTML = suggestions
+    .map((r, i) => {
+      const meta = [r.admin1, r.country].filter(Boolean).join(', ');
+      const pop = r.population ? ` · ${formatPopulation(r.population)}` : '';
+      return (
+        `<li class="suggestion" role="option" data-i="${i}">` +
+        `<span class="s-name">${escapeHtml(r.name)}</span>` +
+        `<span class="s-meta">${escapeHtml(meta)}${pop}</span>` +
+        `</li>`
+      );
+    })
+    .join('');
+  box.hidden = false;
+  $('place-search').setAttribute('aria-expanded', 'true');
+}
+
+function hideSuggestions() {
+  suggestions = [];
+  activeSuggestion = -1;
+  const box = $('suggestions');
+  box.hidden = true;
+  box.innerHTML = '';
+  $('place-search').setAttribute('aria-expanded', 'false');
+}
+
+function moveActive(delta) {
+  if (!suggestions.length) return;
+  activeSuggestion =
+    (activeSuggestion + delta + suggestions.length) % suggestions.length;
+  const items = $('suggestions').querySelectorAll('.suggestion');
+  items.forEach((el, i) => el.classList.toggle('active', i === activeSuggestion));
+}
+
+function onSearchKeydown(e) {
+  if (!suggestions.length) {
+    if (e.key === 'Enter') searchLocation();
+    return;
+  }
+  if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    moveActive(1);
+  } else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    moveActive(-1);
+  } else if (e.key === 'Enter') {
+    e.preventDefault();
+    selectPlace(suggestions[activeSuggestion >= 0 ? activeSuggestion : 0]);
+  } else if (e.key === 'Escape') {
+    hideSuggestions();
+  }
+}
+
+function formatPopulation(p) {
+  if (p >= 1e6) return `${(p / 1e6).toFixed(p >= 1e7 ? 0 : 1)}M`;
+  if (p >= 1e3) return `${Math.round(p / 1e3)}k`;
+  return String(p);
+}
+
+function escapeHtml(s) {
+  return String(s).replace(
+    /[&<>"']/g,
+    (c) =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])
+  );
+}
+
+// Try to locate the user automatically on load — but don't re-prompt if they've
+// previously denied permission, so reloads stay quiet.
+async function autoLocate() {
+  if (!navigator.geolocation) {
+    setLocationLabel('Search for a place to begin');
+    return;
+  }
+  try {
+    if (navigator.permissions) {
+      const status = await navigator.permissions.query({ name: 'geolocation' });
+      if (status.state === 'denied') {
+        setLocationLabel('Search for a place to begin');
+        return;
+      }
+    }
+  } catch {
+    /* Permissions API unavailable — just try anyway. */
+  }
+  useBrowserLocation({ silent: true });
 }
 
 // --- main calculation -------------------------------------------------------
@@ -196,15 +400,30 @@ function render(result, sun, weather, air) {
 // --- wire up ----------------------------------------------------------------
 
 function init() {
+  // Refreshing the page resets the time to now...
   $('datetime').value = nowLocalInputValue();
-  $('use-location').addEventListener('click', useBrowserLocation);
-  $('search-btn').addEventListener('click', searchLocation);
-  $('place-search').addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') searchLocation();
+
+  $('use-location').addEventListener('click', () => useBrowserLocation());
+  $('refresh').addEventListener('click', refreshAll);
+
+  const search = $('place-search');
+  search.addEventListener('input', onSearchInput);
+  search.addEventListener('keydown', onSearchKeydown);
+  // Close the dropdown when focus leaves the box (delay lets clicks register).
+  search.addEventListener('blur', () => setTimeout(hideSuggestions, 150));
+
+  // Select a suggestion on click.
+  $('suggestions').addEventListener('mousedown', (e) => {
+    const item = e.target.closest('.suggestion');
+    if (item) selectPlace(suggestions[Number(item.dataset.i)]);
   });
+
   $('calculate').addEventListener('click', calculate);
   $('datetime').addEventListener('change', () => location && calculate());
   $('surface').addEventListener('change', () => location && calculate());
+
+  // ...and tries to pull the current location automatically.
+  autoLocate();
 }
 
 document.addEventListener('DOMContentLoaded', init);
