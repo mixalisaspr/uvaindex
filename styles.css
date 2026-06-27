@@ -210,11 +210,14 @@ select {
 .location-row {
   gap: 6px;
   margin-top: 2px;
+  flex-wrap: nowrap;
+  align-items: flex-start;
 }
 
 .loc-pin {
   font-size: 0.95rem;
-  line-height: 1;
+  line-height: 1.4;
+  flex-shrink: 0;
 }
 
 button {
@@ -246,6 +249,8 @@ button.primary:hover {
 .location-label {
   color: var(--muted);
   font-size: 0.9rem;
+  min-width: 0;
+  word-break: break-word;
 }
 
 .status {

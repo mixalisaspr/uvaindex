@@ -369,8 +369,8 @@ function uvaPointerPosition(index) {
 function render(result, sun, weather, air) {
   $('result').hidden = false;
 
-  // Headline number (no decimals); pointer slides to its position on the scale.
-  $('uva-index').textContent = Math.round(result.index);
+  // Headline number (1 decimal); pointer slides to its position on the scale.
+  $('uva-index').textContent = fmt(result.index, 1);
   $('uva-index').style.color = result.band.color;
   $('uva-pointer').style.left = uvaPointerPosition(result.index) + '%';
   $('uva-value').textContent = fmt(result.uva, 1);
