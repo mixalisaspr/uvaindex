@@ -88,6 +88,16 @@ select {
   flex-wrap: nowrap;
 }
 
+/* Larger, easier-to-read date & time field; the "Now" button hugs its label. */
+.datetime-input {
+  font-size: 1.1rem;
+  padding: 12px 13px;
+}
+
+#now {
+  flex: 0 0 auto;
+}
+
 /* Search box wraps the input so the suggestions dropdown can anchor to it. */
 .search-box {
   position: relative;
@@ -141,7 +151,7 @@ select {
   font-size: 0.8rem;
 }
 
-/* Compact icon-only buttons (locate / refresh) sit beside the search box. */
+/* Compact icon-only button (use my location) sits beside the search box. */
 .icon-btn {
   display: inline-flex;
   align-items: center;
