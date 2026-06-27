@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>About the UVA Index — Why It Exists & Why It's Not Official</title>
+    <meta
+      name="description"
+      content="Why we built a dedicated UVA Index: the standard UV Index is weighted for sunburn and under-counts UVA. What this site is, how it's funded, why the UVA Index isn't an official standard, and how to use it responsibly."
+    />
+    <meta name="keywords" content="about UVA index, why UVA index, UVA index not official, unofficial UVA index, UVA awareness, surface UVA" />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/about.html" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="UVA Index" />
+    <meta property="og:title" content="About the UVA Index — Why It Exists & Why It's Not Official" />
+    <meta property="og:description" content="Why we built a dedicated UVA Index, what it is, why it isn't an official standard, and how to use it responsibly." />
+    <meta property="og:url" content="https://uvaindex.org/about.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About the UVA Index",
+        "url": "https://uvaindex.org/about.html",
+        "description": "Why a dedicated UVA Index exists, what this site is, why the UVA Index is not an official standard, and how to use it responsibly."
+      }
+    </script>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <nav class="site-nav" aria-label="Primary">
+        <a href="./">Calculator</a>
+        <a href="learn/">Knowledge Base</a>
+        <a href="about.html" class="active">About</a>
+        <span class="spacer"></span>
+      </nav>
+
+      <article class="prose">
+        <h1>About this site</h1>
+        <p class="lead">
+          <strong>uvaindex.org</strong> exists to give UVA radiation a number of
+          its own. The familiar UV&nbsp;Index is genuinely useful, but it answers
+          only one question — <em>how fast will the sun burn my skin?</em> — and in
+          doing so it all but ignores UVA, the part of sunlight most responsible
+          for skin aging and deep, cumulative damage. This site fills that gap with
+          a dedicated, easy-to-read <strong>UVA Index</strong>.
+        </p>
+
+        <h2>Why a UVA Index?</h2>
+        <p>
+          The standard UV&nbsp;Index is <strong>erythemally weighted</strong> —
+          tuned to sunburn — which makes it dominated by UVB. UVA barely moves it,
+          even though UVA is the
+          <a href="learn/what-is-uva-radiation.html">overwhelming majority</a> of
+          the UV that actually reaches you, stays high through more of the day,
+          penetrates cloud and glass, and drives photoaging and indirect DNA
+          damage. So you can have a comfortable, low UV&nbsp;Index while still
+          taking a substantial UVA dose.
+        </p>
+        <p>
+          A UVA-specific measure makes that invisible exposure visible. It looks at
+          the <strong>unweighted UVA band (≈315–400&nbsp;nm)</strong> — the real
+          long-wave irradiance hitting the surface — and puts it on the same
+          friendly 0–11+ scale you already know from the UV&nbsp;Index. For the
+          full argument, see
+          <a href="learn/uv-index-vs-uva-index.html">why the UV&nbsp;Index isn't
+          enough</a>.
+        </p>
+
+        <div class="callout">
+          <strong>The short version:</strong> the UV&nbsp;Index tells you about
+          burning today; the UVA&nbsp;Index tells you about aging and the slow,
+          deeper damage that the UV&nbsp;Index was never designed to show.
+        </div>
+
+        <h2>This is not an official index</h2>
+        <p>
+          We want to be completely upfront: <strong>there is no official UVA
+          Index</strong>. The UV&nbsp;Index is an international standard defined by
+          the WHO, WMO and others. UVA has no equivalent — no agency publishes one,
+          and no free weather API serves pure UVA data.
+        </p>
+        <p>So everything here is an <strong>estimate</strong>:</p>
+        <ul>
+          <li>
+            The UVA irradiance is <strong>derived from a physical model</strong>,
+            not measured by an instrument. We compute the sun's position and apply
+            live corrections for altitude, aerosols, cloud and ground reflectance.
+            The full method is in
+            <a href="learn/how-uva-index-is-calculated.html">how the UVA Index is
+            calculated</a>.
+          </li>
+          <li>
+            The <strong>0–11+ scale and the colour bands are our own pragmatic
+            choice</strong>. We reuse the WHO UV&nbsp;Index bands so the number
+            feels familiar, but they are not an official UVA standard.
+          </li>
+          <li>
+            Values are best treated as a <strong>relative guide</strong> — great
+            for comparing times, places and conditions — rather than an
+            instrument-grade absolute reading.
+          </li>
+        </ul>
+
+        <h2>Why we do it anyway</h2>
+        <p>
+          Because the gap is real and the awareness matters. People reasonably
+          assume a low UV&nbsp;Index means "the sun can't hurt me right now," and
+          for aging and long-term UVA damage that simply isn't true. A transparent,
+          free, no-login estimate — with every input and every step of the
+          calculation shown — is more useful than no UVA information at all. We'd
+          rather give an honest, clearly-labelled approximation than leave UVA
+          invisible.
+        </p>
+        <p>
+          Transparency is the whole point: the calculator shows the inputs and the
+          model breakdown for every reading, the
+          <a href="learn/how-uva-index-is-calculated.html">methodology</a> is
+          written out in plain language, and the
+          <a href="https://github.com/mixalisaspr/uvaindex">source code</a> is open
+          for anyone to inspect or improve.
+        </p>
+
+        <h2>How to use it responsibly</h2>
+        <ul>
+          <li>Use it <strong>alongside</strong> the official UV&nbsp;Index, not instead of it — they answer different questions.</li>
+          <li>Treat the bands as <strong>guidance</strong>, not precise thresholds.</li>
+          <li>For medical or skin-health decisions, talk to a qualified professional. This site is <strong>educational information only, not medical advice</strong>.</li>
+        </ul>
+
+        <h2>How it's built</h2>
+        <p>
+          It's a small, fast, dependency-free website that runs entirely in your
+          browser. Atmospheric data comes from the free
+          <a href="https://open-meteo.com/">Open-Meteo</a> APIs (no key, no
+          tracking), the solar maths runs locally, and the whole thing works
+          offline once loaded. It's free, ad-free and open source.
+        </p>
+
+        <a class="cta" href="./">Check the UVA Index for your location →</a>
+      </article>
+
+      <aside class="related">
+        <h2>Learn more</h2>
+        <ul>
+          <li><a href="learn/how-uva-index-is-calculated.html">How the UVA Index is calculated</a></li>
+          <li><a href="learn/uv-index-vs-uva-index.html">Why the UV Index isn't enough</a></li>
+          <li><a href="learn/dangers-of-uva.html">The dangers of UVA radiation</a></li>
+          <li><a href="learn/">Browse the Knowledge Base</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          Educational information only — not medical advice. UVA has no official
+          index; values and bands on this site are estimated and approximate.
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>

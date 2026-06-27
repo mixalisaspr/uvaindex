@@ -29,7 +29,9 @@ A simple, dependency-free website that estimates **surface UVA irradiance**
    fall together with UVA.
 
 All tunable coefficients live in the `MODEL` block of `js/uva.js` so they can be
-calibrated against reference data.
+calibrated against reference data. The full method — every formula, coefficient
+and the factors deliberately left out — is written up for end users at
+`learn/how-uva-index-is-calculated.html`.
 
 ## Data sources (all free, no API key)
 
@@ -44,6 +46,7 @@ calibrated against reference data.
 
 ```
 index.html     # UI: location controls, date/time, result + breakdown + chart
+about.html     # About page: why a UVA Index, why it isn't official, how to use it
 styles.css     # responsive dark styling (calculator + knowledge base)
 js/solar.js    # solar zenith angle (NOAA algorithm), pure functions
 js/uva.js      # hybrid UVA model + qualitative bands, pure functions
@@ -66,11 +69,12 @@ the root service worker (so the articles also work offline), and every page is
 listed in `sitemap.xml`.
 
 ```
-learn/index.html                     # hub page linking the articles
-learn/what-is-uva-radiation.html     # what UVA is and how it behaves
-learn/uva-vs-uvb.html                # side-by-side comparison of the two bands
-learn/dangers-of-uva.html            # health effects + how to reduce exposure
-learn/uv-index-vs-uva-index.html     # why the erythemal UV Index under-counts UVA
+learn/index.html                       # hub page linking the articles
+learn/what-is-uva-radiation.html       # what UVA is and how it behaves
+learn/uva-vs-uvb.html                  # side-by-side comparison of the two bands
+learn/dangers-of-uva.html              # health effects + how to reduce exposure
+learn/uv-index-vs-uva-index.html       # why the erythemal UV Index under-counts UVA
+learn/how-uva-index-is-calculated.html # the model, parameters, formulas + omissions
 ```
 
 The Knowledge Base is linked from the top nav and footer on the home page. To

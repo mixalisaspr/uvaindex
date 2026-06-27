@@ -7,11 +7,12 @@
 //    so those requests always go to the network and fail loudly when offline.
 //  • Navigations fall back to the cached page when the network is unavailable.
 
-const CACHE = 'uvaindex-v2';
+const CACHE = 'uvaindex-v3';
 
 const SHELL = [
   './',
   './index.html',
+  './about.html',
   './styles.css',
   './favicon.svg',
   './manifest.webmanifest',
@@ -26,6 +27,7 @@ const SHELL = [
   './learn/uva-vs-uvb.html',
   './learn/dangers-of-uva.html',
   './learn/uv-index-vs-uva-index.html',
+  './learn/how-uva-index-is-calculated.html',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/maskable-192.png',
