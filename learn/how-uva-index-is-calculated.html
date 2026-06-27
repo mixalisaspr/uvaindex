@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>How the UVA Index Is Calculated — Model, Parameters & Limitations</title>
+    <meta
+      name="description"
+      content="The full method behind our UVA Index: how surface UVA irradiance (315–400 nm, W/m²) is derived from solar geometry plus live cloud, aerosol and altitude data, the exact formulas and coefficients used, and which factors we deliberately leave out."
+    />
+    <meta name="keywords" content="UVA index calculation, UVA irradiance model, surface UVA, solar zenith angle, aerosol optical depth, clear-sky UVA, UVA methodology, how UVA index works" />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/learn/how-uva-index-is-calculated.html" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA Index" />
+    <meta property="og:title" content="How the UVA Index Is Calculated — Model, Parameters & Limitations" />
+    <meta property="og:description" content="The full method behind our UVA Index: the formulas, the live inputs, the coefficients, and the factors we deliberately leave out." />
+    <meta property="og:url" content="https://uvaindex.org/learn/how-uva-index-is-calculated.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "How the UVA Index is calculated",
+        "description": "The method behind the UVA Index: deriving surface UVA irradiance (315–400 nm) from solar geometry plus live cloud, aerosol and altitude data, the formulas and coefficients used, and the factors deliberately omitted.",
+        "author": { "@type": "Organization", "name": "uvaindex.org" },
+        "publisher": { "@type": "Organization", "name": "uvaindex.org" },
+        "mainEntityOfPage": "https://uvaindex.org/learn/how-uva-index-is-calculated.html"
+      }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../">UVA Index</a><span class="sep">›</span><a href="./">Knowledge Base</a><span class="sep">›</span>How the UVA Index is calculated
+      </nav>
+
+      <article class="prose">
+        <h1>How the UVA Index is calculated</h1>
+        <p class="lead">
+          This is the technical companion to the calculator. It walks through
+          exactly how we estimate <strong>surface UVA irradiance</strong>
+          (the unweighted 315–400&nbsp;nm band, in W/m²), how we turn that into
+          the <strong>0–11+ UVA&nbsp;Index</strong>, every parameter and
+          coefficient we use — and, just as importantly,
+          <a href="#omitted">the factors we deliberately leave out</a>.
+        </p>
+
+        <div class="callout">
+          <strong>Why a model at all?</strong> No mainstream free weather API
+          serves pure UVA — they all publish the erythemally-weighted
+          <a href="uv-index-vs-uva-index.html">UV&nbsp;Index</a>, which is mostly
+          UVB. So instead of reading UVA off an API, we <strong>derive</strong>
+          it from the physics of where the sun is, plus live atmospheric data
+          that we know affects UVA.
+        </div>
+
+        <h2>The model in one line</h2>
+        <p>
+          UVA irradiance is a clear-sky baseline (set by the sun's angle)
+          multiplied by a chain of correction factors, each between roughly 0 and
+          1.1, for the conditions of the moment:
+        </p>
+        <div class="callout">
+          <strong>UVA = baseline × altitude × aerosol × cloud × albedo</strong>
+        </div>
+        <p>
+          Every factor defaults to <code>1</code> (no effect) when its input is
+          missing, so the estimate degrades gracefully rather than failing. Each
+          factor is also shown in the calculator's <em>Model breakdown</em> table,
+          so any reading can be traced back to its parts.
+        </p>
+
+        <h2>Step 1 — Solar position (the clear-sky baseline)</h2>
+        <p>
+          The single biggest driver of UVA is how high the sun is in the sky. We
+          compute the <strong>solar zenith angle</strong> <code>θ</code> (0° =
+          directly overhead, 90° = on the horizon) in the browser from your
+          latitude, longitude and the chosen instant, using the
+          <strong>NOAA solar position algorithm</strong> — the same maths behind
+          the NOAA Solar Calculator.
+        </p>
+        <p>The clear-sky baseline is then:</p>
+        <div class="callout">
+          <strong>baseline = UVA_MAX × cos(θ)<sup>k</sup></strong>
+        </div>
+        <ul>
+          <li>
+            <strong>UVA_MAX = 66&nbsp;W/m²</strong> — the surface UVA for an
+            overhead sun (θ&nbsp;=&nbsp;0) under a clear sky, in line with
+            published values for peak surface UVA.
+          </li>
+          <li>
+            <strong>k = 1.2</strong> — the exponent controlling how fast UVA falls
+            off as the sun gets lower. A value near 1.1–1.3 matches published
+            clear-sky curves; higher means a steeper drop toward sunset.
+          </li>
+        </ul>
+        <p>
+          When the sun is below the horizon the baseline is zero, so night-time
+          UVA is reported as <strong>0</strong>.
+        </p>
+
+        <h2>Step 2 — Altitude</h2>
+        <p>
+          There is less atmosphere to scatter and absorb UV at higher elevations,
+          so UVA rises with altitude. We use Open-Meteo's terrain elevation for
+          your point and apply a simple linear enhancement:
+        </p>
+        <div class="callout">
+          <strong>altitude factor = 1 + 0.06 × (elevation_m ÷ 1000)</strong>
+        </div>
+        <p>That is roughly <strong>+6% per kilometre</strong> of elevation.</p>
+
+        <h2>Step 3 — Aerosols (haze, dust, pollution)</h2>
+        <p>
+          Airborne particles scatter and absorb UV. We take the live
+          <strong>aerosol optical depth (AOD)</strong> from Open-Meteo's
+          air-quality data and apply Beer–Lambert attenuation along the sun's
+          actual path through the atmosphere:
+        </p>
+        <div class="callout">
+          <strong>aerosol factor = exp( −(AOD × 1.3) × airmass )</strong>
+        </div>
+        <ul>
+          <li>
+            <strong>× 1.3</strong> scales the reported broadband AOD up to a
+            UVA-band optical depth (aerosol extinction is stronger at shorter
+            wavelengths).
+          </li>
+          <li>
+            <strong>airmass</strong> = <code>1 / cos(θ)</code> (a simple secant
+            approximation, capped near the horizon at θ&nbsp;=&nbsp;89° so it
+            can't blow up). It accounts for the longer slant path the sun's rays
+            travel when it is low.
+          </li>
+        </ul>
+
+        <h2>Step 4 — Cloud cover</h2>
+        <p>
+          Clouds are the most variable influence on ground-level UVA. We use the
+          live total cloud-cover percentage and an empirical transmission curve:
+        </p>
+        <div class="callout">
+          <strong>cloud factor = 1 − 0.7 × (cover ÷ 100)<sup>3</sup></strong>
+        </div>
+        <p>
+          The cubic shape is deliberate: thin or partial cloud lets most UVA
+          through (UVA penetrates cloud better than visible light), while only
+          heavy, full overcast removes a large share. At 100% cover this leaves
+          about <strong>30%</strong> of the clear-sky UVA — clouds dim UVA, they
+          rarely eliminate it.
+        </p>
+
+        <h2>Step 5 — Surface reflectance (albedo)</h2>
+        <p>
+          Bright ground bounces UVA back up, adding to what reaches you. We apply
+          a small multiplier based on the surface you select:
+        </p>
+        <table class="data-table">
+          <thead>
+            <tr><th>Surface</th><th>Factor</th><th>Why</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Grass / default</td><td>×1.00</td><td>Low reflectance baseline</td></tr>
+            <tr><td>Water</td><td>×1.00</td><td>Low diffuse UVA reflectance</td></tr>
+            <tr><td>Sand / beach</td><td>×1.04</td><td>Dry sand reflects ~15–25%</td></tr>
+            <tr><td>Snow</td><td>×1.10</td><td>Fresh snow is highly reflective</td></tr>
+          </tbody>
+        </table>
+        <p>
+          The enhancements are deliberately modest: even very bright surfaces add
+          only a limited amount to the <em>downwelling</em> UVA at a point.
+        </p>
+
+        <h2>From irradiance to the 0–11+ index</h2>
+        <p>
+          The raw irradiance in W/m² is precise but unfamiliar, so we put it on a
+          0–11+ scale just like the UV&nbsp;Index. The conversion is a single
+          constant:
+        </p>
+        <div class="callout">
+          <strong>UVA Index = UVA irradiance ÷ 6</strong>
+        </div>
+        <p>
+          The divisor of 6 is chosen so a clear-sky overhead sun
+          (~66&nbsp;W/m²) reads about <strong>11</strong> — the same
+          top-of-scale feel as a peak tropical UV&nbsp;Index. Because the index is
+          strictly proportional to the irradiance, both numbers tell the same
+          story. The category bands reuse the familiar WHO UV&nbsp;Index words and
+          colours:
+        </p>
+        <table class="data-table">
+          <thead>
+            <tr><th>UVA Index</th><th>Band</th><th>≈ Irradiance</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0–2</td><td>Low</td><td>&lt; ~15 W/m²</td></tr>
+            <tr><td>3–5</td><td>Moderate</td><td>~15–35 W/m²</td></tr>
+            <tr><td>6–7</td><td>High</td><td>~35–47 W/m²</td></tr>
+            <tr><td>8–10</td><td>Very High</td><td>~47–65 W/m²</td></tr>
+            <tr><td>11+</td><td>Extreme</td><td>~66+ W/m²</td></tr>
+          </tbody>
+        </table>
+
+        <h2>The inputs, at a glance</h2>
+        <table class="data-table">
+          <thead>
+            <tr><th>Input</th><th>Source</th><th>Used for</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Latitude / longitude</td><td>Geolocation or place search</td><td>Solar position</td></tr>
+            <tr><td>Date &amp; time</td><td>You</td><td>Solar position</td></tr>
+            <tr><td>Solar zenith angle</td><td>Computed (NOAA)</td><td>Baseline + airmass</td></tr>
+            <tr><td>Terrain elevation</td><td>Open-Meteo Forecast</td><td>Altitude factor</td></tr>
+            <tr><td>Cloud cover</td><td>Open-Meteo Forecast</td><td>Cloud factor</td></tr>
+            <tr><td>Aerosol optical depth</td><td>Open-Meteo Air-Quality</td><td>Aerosol factor</td></tr>
+            <tr><td>Ground surface</td><td>You</td><td>Albedo factor</td></tr>
+            <tr><td>UV Index (cross-check)</td><td>Open-Meteo Air-Quality</td><td>Sanity check only</td></tr>
+          </tbody>
+        </table>
+        <p>
+          The same model is also evaluated at every hour of the day to draw the
+          <em>UVA Index through the day</em> chart, using each hour's own cloud and
+          aerosol values.
+        </p>
+
+        <h2 id="omitted">What we don't take into account</h2>
+        <p>
+          This is an <strong>estimate built for clarity and transparency, not a
+          calibrated radiometric measurement</strong>. Several real effects are
+          simplified or left out on purpose — knowing them tells you when to trust
+          the number and when to treat it as a rough guide:
+        </p>
+        <ul>
+          <li>
+            <strong>Total-column ozone.</strong> Ozone absorbs mostly UVB and only
+            weakly affects UVA. The model has an ozone term but the free
+            air-quality feed reports <em>surface</em> ozone (µg/m³), not the
+            total-column Dobson Units the term needs — so we leave it at no-effect
+            and show surface ozone for information only.
+          </li>
+          <li>
+            <strong>Direct vs diffuse split.</strong> We model the total UVA
+            arriving on a flat, open, horizontal surface. We don't separate the
+            beam coming straight from the sun from the diffuse skylight, nor model
+            the sky's brightness distribution.
+          </li>
+          <li>
+            <strong>Spectral detail.</strong> UVA is treated as one band. We don't
+            resolve the wavelength-by-wavelength structure within 315–400&nbsp;nm,
+            where atmospheric effects vary across the band.
+          </li>
+          <li>
+            <strong>Cloud type and structure.</strong> Only a single cloud-cover
+            percentage is used. Cloud optical thickness, layering, and
+            broken-cloud "edge" effects (which can briefly <em>raise</em> UVA above
+            clear-sky) are not modelled.
+          </li>
+          <li>
+            <strong>Local geometry and shade.</strong> Buildings, trees, terrain,
+            surface tilt and orientation, and your body's posture all change real
+            exposure and are not considered.
+          </li>
+          <li>
+            <strong>Glass and indoor settings.</strong> The estimate is for being
+            outdoors in the open. UVA passes through window glass while UVB mostly
+            doesn't, so indoor or in-car exposure differs and isn't modelled.
+          </li>
+          <li>
+            <strong>Other minor absorbers</strong> (water vapour, NO₂, etc.) and
+            the wavelength-dependence of surface albedo are not included.
+          </li>
+          <li>
+            <strong>No ground-truth calibration.</strong> The coefficients are set
+            from published literature, not fitted against a local UVA sensor, so
+            absolute values carry real uncertainty.
+          </li>
+        </ul>
+
+        <div class="callout">
+          <strong>Built to be recalibrated.</strong> Every coefficient above lives
+          in one <code>MODEL</code> block in the open-source code, so the model can
+          be tuned against reference data without touching the rest of the app. The
+          full source is on
+          <a href="https://github.com/mixalisaspr/uvaindex">GitHub</a>.
+        </div>
+
+        <h2>So how accurate is it?</h2>
+        <p>
+          Treat it as a well-grounded <strong>relative</strong> guide: it captures
+          how UVA changes with the sun's height, the season, your latitude and
+          altitude, and the day's cloud and haze — and it behaves correctly at the
+          extremes (clear midday sun reads high, night reads zero, heavy overcast
+          drops sharply, higher altitude reads higher). The <em>absolute</em> W/m²
+          figure is a physically reasonable estimate, not an instrument-grade
+          reading. For why this estimate exists at all, see
+          <a href="../about.html">About this site</a>.
+        </p>
+
+        <a class="cta" href="../">Try the calculator and see the breakdown →</a>
+      </article>
+
+      <aside class="related">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="uv-index-vs-uva-index.html">Why the UV Index isn't enough</a></li>
+          <li><a href="what-is-uva-radiation.html">What is UVA radiation?</a></li>
+          <li><a href="uva-vs-uvb.html">UVA vs UVB: what's the difference?</a></li>
+          <li><a href="../about.html">About this site</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          Educational information only — not medical advice. UVA has no official
+          index; values and bands on this site are estimated and approximate.
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('../sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
