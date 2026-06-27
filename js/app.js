@@ -295,6 +295,9 @@ async function calculate() {
       // and let the (weak) ozone term default to 1. Shown as info only below.
       aod: air.aod,
       cloudCover: weather.cloudCover,
+      // Derive the real cloud effect from live UV (erythemal) and let the model
+      // lift it for UVA's better cloud penetration; falls back to cloudCover.
+      uvCloudTransmission: cloudTransmission(air.uvIndex, air.uvIndexClearSky),
       surface,
     });
 
@@ -313,10 +316,17 @@ async function calculate() {
 // number, just evaluated at every hour with that hour's cloud/aerosol values.
 function buildDailySeries(weather, air, surface) {
   const times = weather.hourly?.time || [];
-  // Map air-quality AOD by timestamp so it lines up even if arrays differ.
+  // Map air-quality fields by timestamp so they line up even if arrays differ.
   const aodByTime = new Map();
+  const uvCloudByTime = new Map();
   const airTimes = air.hourly?.time || [];
-  airTimes.forEach((t, i) => aodByTime.set(t, air.hourly.aod[i]));
+  airTimes.forEach((t, i) => {
+    aodByTime.set(t, air.hourly.aod[i]);
+    uvCloudByTime.set(
+      t,
+      cloudTransmission(air.hourly.uvIndex[i], air.hourly.uvIndexClearSky[i])
+    );
+  });
 
   return times.map((t, i) => {
     const when = new Date(t);
@@ -327,10 +337,23 @@ function buildDailySeries(weather, air, surface) {
       elevationM: weather.elevationM,
       aod: aodByTime.get(t),
       cloudCover: weather.hourly.cloudCover[i],
+      uvCloudTransmission: uvCloudByTime.get(t),
       surface,
     });
     return { time: when, index: r.index };
   });
+}
+
+// Erythemal cloud transmission = live UV index / clear-sky UV index. This
+// isolates the cloud effect (aerosol, ozone and geometry cancel in the ratio).
+// Returns undefined when the clear-sky reference is missing or too small to be
+// reliable (sun low), so the model falls back to its parametric cloud term.
+function cloudTransmission(uvIndex, uvIndexClearSky) {
+  if (typeof uvIndex !== 'number' || typeof uvIndexClearSky !== 'number') {
+    return undefined;
+  }
+  if (uvIndexClearSky < 0.1) return undefined;
+  return uvIndex / uvIndexClearSky;
 }
 
 // --- rendering --------------------------------------------------------------

@@ -30,9 +30,21 @@ export const MODEL = {
   // then attenuation = exp(-tau_uva * airmass).
   AOD_UVA_SCALE: 1.3,
 
-  // Cloud transmission: factor = 1 - CLOUD_K * (cover/100)^CLOUD_EXP.
-  CLOUD_K: 0.7,
-  CLOUD_EXP: 3,
+  // Cloud transmission (fallback, parametric): factor = 1 - CLOUD_K * (cover/100)^CLOUD_EXP.
+  // Used only when we can't derive the cloud effect from live UV data. Tuned to
+  // be gentle and gradual — a reported "100% cover" is sky coverage, not optical
+  // depth, so the average overcast UVA transmission is moderate (~0.6), not the
+  // near-blackout the old steep curve produced.
+  CLOUD_K: 0.4,
+  CLOUD_EXP: 1.5,
+
+  // UVA penetrates cloud better than the (UVB-dominated) erythemal UV: cloud
+  // transmittance rises with wavelength across the UV band. When we know the
+  // erythemal cloud transmission T_uv (from live uv_index / uv_index_clear_sky),
+  // we lift it for UVA as T_uva = T_uv ^ CLOUD_UVA_PENETRATION. The exponent is
+  // < 1, so any attenuation is softened (T_uva > T_uv) — and the gap widens for
+  // thicker cloud, which matches the observed spectral behaviour.
+  CLOUD_UVA_PENETRATION: 0.8,
 
   // Surface albedo enhancement multipliers (diffuse UVA bouncing back down).
   ALBEDO: {
@@ -69,7 +81,11 @@ function airMass(zenithDeg) {
 //   elevationM    (m, default 0)
 //   ozoneDU       (Dobson Units, optional)
 //   aod           (aerosol optical depth, optional)
-//   cloudCover    (% 0-100, optional)
+//   cloudCover    (% 0-100, optional — parametric cloud fallback)
+//   uvCloudTransmission (0-1, optional — erythemal cloud transmission derived
+//                  from live uv_index / uv_index_clear_sky; preferred over
+//                  cloudCover because it reflects the real sky, and UVA is
+//                  lifted above it to honour its better cloud penetration)
 //   surface       ('grass'|'water'|'sand'|'snow', default 'grass')
 //
 // Returns { uva, band, factors } where `factors` itemizes each multiplier so
@@ -82,6 +98,7 @@ export function computeUVA(inputs, model = MODEL) {
     ozoneDU,
     aod,
     cloudCover,
+    uvCloudTransmission,
     surface = 'grass',
   } = inputs;
 
@@ -115,9 +132,14 @@ export function computeUVA(inputs, model = MODEL) {
     aerosolFactor = Math.exp(-tauUva * airMass(zenith));
   }
 
-  // 5. Cloud cover.
+  // 5. Cloud cover. Prefer the live-UV-derived transmission (real sky), lifted
+  // for UVA's better cloud penetration; otherwise fall back to the parametric
+  // cloud-cover curve.
   let cloudFactor = 1;
-  if (typeof cloudCover === 'number') {
+  if (typeof uvCloudTransmission === 'number' && isFinite(uvCloudTransmission)) {
+    const tUv = Math.min(1, Math.max(0, uvCloudTransmission));
+    cloudFactor = Math.pow(tUv, model.CLOUD_UVA_PENETRATION);
+  } else if (typeof cloudCover === 'number') {
     const c = Math.min(100, Math.max(0, cloudCover)) / 100;
     cloudFactor = 1 - model.CLOUD_K * Math.pow(c, model.CLOUD_EXP);
   }
