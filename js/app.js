@@ -51,9 +51,8 @@ function distanceKm(lat1, lon1, lat2, lon2) {
 // --- location handling ------------------------------------------------------
 
 // Pull the device location via the browser. `silent` suppresses error noise for
-// automatic attempts (page load / refresh); `fallbackRecalc` recalculates with
-// the existing location if a fresh fix can't be obtained.
-function useBrowserLocation({ silent = false, fallbackRecalc = false } = {}) {
+// automatic attempts (page load).
+function useBrowserLocation({ silent = false } = {}) {
   if (!navigator.geolocation) {
     if (!silent) setStatus('Geolocation not supported by this browser.', true);
     return;
@@ -81,11 +80,6 @@ function useBrowserLocation({ silent = false, fallbackRecalc = false } = {}) {
     },
     (err) => {
       setLocating(false);
-      if (location && fallbackRecalc) {
-        setStatus('');
-        calculate();
-        return;
-      }
       if (!silent) {
         setStatus(`Could not get location: ${err.message}`, true);
       } else if (!location) {
@@ -96,20 +90,19 @@ function useBrowserLocation({ silent = false, fallbackRecalc = false } = {}) {
   );
 }
 
-// Toggle the spinning/disabled feedback on the locate + refresh buttons.
+// Toggle the spinning/disabled feedback on the locate button only — locating
+// has nothing to do with the date/time controls.
 function setLocating(on) {
-  ['use-location', 'refresh'].forEach((id) => {
-    const btn = $(id);
-    btn.classList.toggle('spinning', on);
-    btn.disabled = on;
-  });
+  const btn = $('use-location');
+  btn.classList.toggle('spinning', on);
+  btn.disabled = on;
 }
 
-// Refresh button: reset the time to now and re-pull the location, then
-// recalculate. Falls back to the current location if geolocation is blocked.
-function refreshAll() {
+// "Now" button: reset only the date and time to the current moment and
+// recalculate for the existing location.
+function setTimeToNow() {
   $('datetime').value = nowLocalInputValue();
-  useBrowserLocation({ silent: true, fallbackRecalc: true });
+  if (location) calculate();
 }
 
 // Set the chosen location from a geocoding result and recalculate.
@@ -404,7 +397,7 @@ function init() {
   $('datetime').value = nowLocalInputValue();
 
   $('use-location').addEventListener('click', () => useBrowserLocation());
-  $('refresh').addEventListener('click', refreshAll);
+  $('now').addEventListener('click', setTimeToNow);
 
   const search = $('place-search');
   search.addEventListener('input', onSearchInput);
