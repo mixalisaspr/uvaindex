@@ -94,10 +94,28 @@ select {
   flex-wrap: nowrap;
 }
 
-/* Larger, easier-to-read date & time field; the "Now" button hugs its label. */
+/* Date & time: label + Now button on the first line, full-width input below. */
+.datetime-row {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+}
+
+.datetime-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.datetime-header label {
+  min-width: unset;
+}
+
 .datetime-input {
   font-size: 1.1rem;
   padding: 12px 13px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #now {

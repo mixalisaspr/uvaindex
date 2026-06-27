@@ -149,17 +149,19 @@
           <span id="location-label" class="location-label">Detecting your location…</span>
         </div>
 
-        <div class="row">
-          <label for="datetime">Date &amp; time</label>
+        <div class="row datetime-row">
+          <div class="datetime-header">
+            <label for="datetime">Date &amp; time</label>
+            <button
+              id="now"
+              type="button"
+              title="Reset the date and time to now"
+              aria-label="Reset the date and time to now"
+            >
+              Now
+            </button>
+          </div>
           <input id="datetime" type="datetime-local" class="datetime-input" />
-          <button
-            id="now"
-            type="button"
-            title="Reset the date and time to now"
-            aria-label="Reset the date and time to now"
-          >
-            Now
-          </button>
         </div>
 
         <div class="row">
