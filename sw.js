@@ -7,7 +7,7 @@
 //    so those requests always go to the network and fail loudly when offline.
 //  • Navigations fall back to the cached page when the network is unavailable.
 
-const CACHE = 'uvaindex-v3';
+const CACHE = 'uvaindex-v4';
 
 const SHELL = [
   './',

@@ -4,6 +4,11 @@
 const GEOCODE_URL = 'https://geocoding-api.open-meteo.com/v1/search';
 const FORECAST_URL = 'https://api.open-meteo.com/v1/forecast';
 const AIR_QUALITY_URL = 'https://air-quality-api.open-meteo.com/v1/air-quality';
+// BigDataCloud's client-side reverse geocoder is free, key-less and CORS-enabled
+// — Open-Meteo has no reverse endpoint, so we use it to turn GPS coordinates
+// into a human-friendly "city, region, country" label.
+const REVERSE_GEOCODE_URL =
+  'https://api.bigdatacloud.net/data/reverse-geocode-client';
 
 async function getJson(url) {
   const res = await fetch(url);
@@ -11,10 +16,11 @@ async function getJson(url) {
   return res.json();
 }
 
-// Search places by name. Returns an array of { name, country, latitude,
-// longitude, admin1 }.
-export async function geocode(name) {
-  const url = `${GEOCODE_URL}?name=${encodeURIComponent(name)}&count=5&language=en&format=json`;
+// Search places by name. Returns an array of { name, country, admin1,
+// latitude, longitude, population }. `count` controls how many candidates the
+// caller gets back (used to populate the search-as-you-type suggestions).
+export async function geocode(name, count = 5) {
+  const url = `${GEOCODE_URL}?name=${encodeURIComponent(name)}&count=${count}&language=en&format=json`;
   const data = await getJson(url);
   return (data.results || []).map((r) => ({
     name: r.name,
@@ -22,11 +28,28 @@ export async function geocode(name) {
     admin1: r.admin1,
     latitude: r.latitude,
     longitude: r.longitude,
+    population: r.population || 0,
   }));
 }
 
-// Reverse-ish label for coordinates (best-effort; geocoding API has no true
-// reverse endpoint, so we just format the coords if nothing better is known).
+// Turn GPS coordinates into the nearest city/town label. Best-effort: if the
+// reverse-geocode service is unreachable the caller falls back to coordLabel().
+export async function reverseGeocode(lat, lon) {
+  const url = `${REVERSE_GEOCODE_URL}?latitude=${lat}&longitude=${lon}&localityLanguage=en`;
+  const data = await getJson(url);
+  const place =
+    data.city || data.locality || data.principalSubdivision || null;
+  // Build "City, Region, Country", dropping blanks and duplicates (e.g. when
+  // the city and region share a name).
+  const seen = new Set();
+  const label = [place, data.principalSubdivision, data.countryName]
+    .filter((p) => p && !seen.has(p) && seen.add(p))
+    .join(', ');
+  return label || null;
+}
+
+// Reverse-ish label for coordinates — the fallback when reverseGeocode() can't
+// name the place.
 export function coordLabel(lat, lon) {
   return `${lat.toFixed(3)}, ${lon.toFixed(3)}`;
 }
