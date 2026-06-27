@@ -13,6 +13,12 @@
   box-sizing: border-box;
 }
 
+/* Paint the root canvas dark so page-to-page navigation doesn't flash white
+   in the frame before the body's background is applied. */
+html {
+  background: var(--bg);
+}
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
