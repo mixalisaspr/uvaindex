@@ -1,7 +1,13 @@
-# UVA Calculator
+# UVA Index
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Live site](https://img.shields.io/badge/live-uvaindex.org-0f1724.svg)](https://uvaindex.org)
+[![No dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)](#run-it)
 
 A simple, dependency-free website that estimates **surface UVA irradiance**
 (≈315–400 nm, in W/m²) for a location, date/time and live weather conditions.
+It's **free, ad-free and open source** — live at
+**[uvaindex.org](https://uvaindex.org)**.
 
 > **UVA is not the UV Index.** Every mainstream weather API serves the
 > *erythemally-weighted UV Index*, which is dominated by UVB (~83% UVB / ~17%
@@ -106,6 +112,19 @@ avoids any module/CORS quirks. Deployable as-is to GitHub Pages.
 - Night → 0 W/m².
 - Heavy overcast → sharp drop.
 - Higher altitude → higher UVA for the same sun angle.
+
+## Contributing
+
+Contributions are welcome — bug reports, model improvements, content fixes and
+UI polish alike. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to get started.
+Found a problem? Open an
+[issue](https://github.com/mixalisaspr/uvaindex/issues).
+
+## License
+
+Released under the [MIT License](LICENSE). You're free to use, modify and
+redistribute it, including for commercial purposes, provided the copyright
+notice and license text are retained.
 
 ## Disclaimer
 
