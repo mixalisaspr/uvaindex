@@ -30,62 +30,6 @@ function setLocationLabel(text) {
   $('location-label').textContent = text;
 }
 
-// --- timezone helpers --------------------------------------------------------
-
-// Returns the UTC offset in milliseconds for an IANA timezone at a given instant.
-function utcOffsetMs(ianaName, date) {
-  const parts = new Intl.DateTimeFormat('en', {
-    timeZone: ianaName,
-    timeZoneName: 'shortOffset',
-  }).formatToParts(date);
-  const tz = parts.find((p) => p.type === 'timeZoneName')?.value ?? 'GMT+0';
-  const m = tz.match(/GMT([+-])(\d+)(?::(\d+))?/);
-  if (!m) return 0;
-  const sign = m[1] === '+' ? 1 : -1;
-  return sign * (parseInt(m[2], 10) * 60 + parseInt(m[3] ?? '0', 10)) * 60000;
-}
-
-// Format a UTC Date as "YYYY-MM-DDTHH:mm" in the given timezone (for datetime-local input).
-function toDatetimeLocal(utcDate, ianaName) {
-  const localMs = utcDate.getTime() + utcOffsetMs(ianaName, utcDate);
-  return new Date(localMs).toISOString().slice(0, 16);
-}
-
-// Parse a "YYYY-MM-DDTHH:mm" string as local time in the given timezone. Returns a UTC Date.
-function fromDatetimeLocal(dtStr, ianaName) {
-  const rough = new Date(dtStr + ':00Z');
-  return new Date(rough.getTime() - utcOffsetMs(ianaName, rough));
-}
-
-// Update the timezone badge next to the datetime label.
-function setTimezoneBadge(ianaName) {
-  const el = $('tz-badge');
-  if (!ianaName) {
-    el.hidden = true;
-    return;
-  }
-  const now = new Date();
-  const offsetMs = utcOffsetMs(ianaName, now);
-  const totalMin = offsetMs / 60000;
-  const sign = totalMin >= 0 ? '+' : '-';
-  const absMin = Math.abs(totalMin);
-  const h = Math.floor(absMin / 60);
-  const m = absMin % 60;
-  const utcStr = `UTC${sign}${h}${m ? ':' + String(m).padStart(2, '0') : ''}`;
-  const abbr = new Intl.DateTimeFormat('en', { timeZone: ianaName, timeZoneName: 'short' })
-    .formatToParts(now).find((p) => p.type === 'timeZoneName')?.value;
-  el.textContent = abbr && !abbr.startsWith('GMT') ? `${abbr} · ${utcStr}` : utcStr;
-  el.hidden = false;
-}
-
-function nowInputValue(ianaName) {
-  if (ianaName) return toDatetimeLocal(new Date(), ianaName);
-  // Fallback: browser's local time.
-  const d = new Date();
-  const off = d.getTimezoneOffset() * 60000;
-  return new Date(d.getTime() - off).toISOString().slice(0, 16);
-}
-
 // Great-circle distance in km — used to nudge nearby places up the suggestions.
 function distanceKm(lat1, lon1, lat2, lon2) {
   const toRad = (d) => (d * Math.PI) / 180;
@@ -123,15 +67,11 @@ function useBrowserLocation({ silent = false } = {}) {
           fetchTimezone(lat, lon).catch(() => null),
         ]);
         if (name) location.label = name;
-        if (tz) {
-          location.timezone = tz;
-          $('datetime').value = nowInputValue(tz);
-        }
+        if (tz) location.timezone = tz;
       } catch {
         /* keep coordinate label and no timezone */
       }
       setLocationLabel(location.label);
-      setTimezoneBadge(location.timezone);
       setLocating(false);
       setStatus('');
       calculate();
@@ -156,13 +96,6 @@ function setLocating(on) {
   btn.disabled = on;
 }
 
-// "Now" button: reset only the date and time to the current moment and
-// recalculate for the existing location.
-function setTimeToNow() {
-  $('datetime').value = nowInputValue(location?.timezone);
-  if (location) calculate();
-}
-
 // Set the chosen location from a geocoding result and recalculate.
 function selectPlace(r) {
   location = {
@@ -173,10 +106,6 @@ function selectPlace(r) {
   };
   $('place-search').value = r.name;
   setLocationLabel(location.label);
-  setTimezoneBadge(location.timezone);
-  if (location.timezone) {
-    $('datetime').value = nowInputValue(location.timezone);
-  }
   hideSuggestions();
   setStatus('');
   calculate();
@@ -345,14 +274,7 @@ async function calculate() {
     setStatus('Choose a location first.', true);
     return;
   }
-  const rawValue = $('datetime').value;
-  const when = location.timezone
-    ? fromDatetimeLocal(rawValue, location.timezone)
-    : new Date(rawValue);
-  if (isNaN(when.getTime())) {
-    setStatus('Pick a valid date and time.', true);
-    return;
-  }
+  const when = new Date();
   const surface = $('surface').value;
 
   setStatus('Fetching atmospheric data…');
@@ -473,11 +395,7 @@ function render(result, sun, weather, air) {
 // --- wire up ----------------------------------------------------------------
 
 function init() {
-  // Refreshing the page resets the time to now (browser's local timezone until a location is picked).
-  $('datetime').value = nowInputValue(null);
-
   $('use-location').addEventListener('click', () => useBrowserLocation());
-  $('now').addEventListener('click', setTimeToNow);
 
   const search = $('place-search');
   search.addEventListener('input', onSearchInput);
@@ -492,7 +410,6 @@ function init() {
   });
 
   $('calculate').addEventListener('click', calculate);
-  $('datetime').addEventListener('change', () => location && calculate());
   $('surface').addEventListener('change', () => location && calculate());
 
   // ...and tries to pull the current location automatically.
