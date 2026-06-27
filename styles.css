@@ -94,10 +94,28 @@ select {
   flex-wrap: nowrap;
 }
 
-/* Larger, easier-to-read date & time field; the "Now" button hugs its label. */
+/* Date & time: label + Now button on the first line, full-width input below. */
+.datetime-row {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+}
+
+.datetime-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.datetime-header label {
+  min-width: unset;
+}
+
 .datetime-input {
   font-size: 1.1rem;
   padding: 12px 13px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #now {
@@ -242,43 +260,70 @@ button.primary:hover {
 }
 
 .readout {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
   margin-bottom: 18px;
 }
 
-.uva-number {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.uva-number .metric-label {
+.metric-label {
   display: block;
   font-size: 0.8rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--muted);
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 10px;
 }
 
-.uva-number .uva-secondary {
-  display: block;
+.uva-scale-bar {
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 42px;
+}
+
+.uva-segment {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.67rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  overflow: hidden;
+}
+
+.uva-pointer-track {
+  position: relative;
+  height: 60px;
+}
+
+.uva-pointer {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: left 0.35s ease;
+}
+
+.uva-pointer-caret {
+  font-size: 0.9rem;
+  line-height: 1.1;
+  color: var(--muted);
+}
+
+.uva-pointer-number {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.uva-secondary {
   font-size: 0.95rem;
   color: var(--muted);
-  font-weight: 400;
-  margin-top: 6px;
-}
-
-.band {
-  padding: 8px 16px;
-  border-radius: 999px;
-  font-weight: 700;
-  color: #0c0c12;
-  white-space: nowrap;
+  margin: 4px 0 0;
 }
 
 .result h2 {
@@ -344,14 +389,9 @@ button.primary:hover {
   font-size: 11px;
 }
 
-.uva-chart-svg .area {
-  fill: var(--accent);
-  opacity: 0.12;
-}
-
 .uva-chart-svg .curve {
   fill: none;
-  stroke: var(--accent);
+  stroke: rgba(255, 255, 255, 0.9);
   stroke-width: 2;
   stroke-linejoin: round;
   stroke-linecap: round;

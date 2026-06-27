@@ -149,17 +149,19 @@
           <span id="location-label" class="location-label">Detecting your location…</span>
         </div>
 
-        <div class="row">
-          <label for="datetime">Date &amp; time</label>
+        <div class="row datetime-row">
+          <div class="datetime-header">
+            <label for="datetime">Date &amp; time</label>
+            <button
+              id="now"
+              type="button"
+              title="Reset the date and time to now"
+              aria-label="Reset the date and time to now"
+            >
+              Now
+            </button>
+          </div>
           <input id="datetime" type="datetime-local" class="datetime-input" />
-          <button
-            id="now"
-            type="button"
-            title="Reset the date and time to now"
-            aria-label="Reset the date and time to now"
-          >
-            Now
-          </button>
         </div>
 
         <div class="row">
@@ -181,14 +183,25 @@
 
       <section id="result" class="result" hidden>
         <div class="readout">
-          <div class="uva-number">
-            <span class="metric-label">UVA Index</span>
-            <span id="uva-index">—</span>
-            <span class="uva-secondary">
-              <span id="uva-value">—</span> W/m² UVA irradiance
-            </span>
+          <span class="metric-label">UVA Index</span>
+          <div class="uva-scale">
+            <div class="uva-scale-bar" aria-hidden="true">
+              <div class="uva-segment" style="background:#3a7d44">Low</div>
+              <div class="uva-segment" style="background:#f2c14e">Moderate</div>
+              <div class="uva-segment" style="background:#f08a24">High</div>
+              <div class="uva-segment" style="background:#e3522f">Very High</div>
+              <div class="uva-segment" style="background:#b5179e">Extreme</div>
+            </div>
+            <div class="uva-pointer-track" aria-hidden="true">
+              <div id="uva-pointer" class="uva-pointer">
+                <span class="uva-pointer-caret">▲</span>
+                <span id="uva-index" class="uva-pointer-number">—</span>
+              </div>
+            </div>
           </div>
-          <div id="uva-band" class="band">—</div>
+          <p class="uva-secondary">
+            <span id="uva-value">—</span> W/m² UVA irradiance
+          </p>
         </div>
 
         <h2>UVA Index through the day</h2>
