@@ -27,8 +27,20 @@ export const MODEL = {
   OZONE_EXP: 0.05,
 
   // Aerosol: UVA optical depth is scaled from the reported (broadband) AOD,
-  // then attenuation = exp(-tau_uva * airmass).
+  // then attenuation = exp(-tau_eff * airmass).
   AOD_UVA_SCALE: 1.3,
+
+  // Aerosol diffuse recovery. Pure Beer-Lambert (exp(-tau * airmass)) models
+  // only the DIRECT beam, but UV aerosol is mostly scattering, not absorbing,
+  // and that scattering is strongly forward-peaked — so most "extinguished"
+  // photons still reach the ground as diffuse skylight. Attenuating the full
+  // optical depth therefore over-penalizes GLOBAL (direct + diffuse) UVA. We
+  // keep only the fraction of extinction that is genuinely lost downward:
+  //   tau_eff = tau_uva * (1 - SSA * FORWARD_FRACTION)
+  // With SSA ~0.92 and a forward fraction ~0.6, a moderate AOD costs ~10-20%
+  // of global UVA instead of the ~45% raw Beer-Lambert produced.
+  AEROSOL_SSA: 0.92, // single-scattering albedo in the UV (mostly scattering)
+  AEROSOL_FORWARD_FRACTION: 0.6, // scattered light recovered as diffuse skylight
 
   // Cloud transmission (fallback, parametric): factor = 1 - CLOUD_K * (cover/100)^CLOUD_EXP.
   // Used only when we can't derive the cloud effect from live UV data. Tuned to
@@ -125,11 +137,14 @@ export function computeUVA(inputs, model = MODEL) {
     ozoneFactor = Math.pow(model.OZONE_REF_DU / ozoneDU, model.OZONE_EXP);
   }
 
-  // 4. Aerosol (Beer-Lambert with air mass).
+  // 4. Aerosol (Beer-Lambert with air mass, on the *net* optical depth only —
+  //    forward-scattered light is recovered as diffuse skylight, see MODEL).
   let aerosolFactor = 1;
   if (typeof aod === 'number' && aod > 0) {
     const tauUva = aod * model.AOD_UVA_SCALE;
-    aerosolFactor = Math.exp(-tauUva * airMass(zenith));
+    const tauEff =
+      tauUva * (1 - model.AEROSOL_SSA * model.AEROSOL_FORWARD_FRACTION);
+    aerosolFactor = Math.exp(-tauEff * airMass(zenith));
   }
 
   // 5. Cloud cover. Prefer the live-UV-derived transmission (real sky), lifted
