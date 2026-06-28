@@ -131,13 +131,24 @@
           actual path through the atmosphere:
         </p>
         <div class="callout">
-          <strong>aerosol factor = exp( −(AOD × 1.3) × airmass )</strong>
+          <strong>aerosol factor = exp( −(AOD × 1.3 × 0.45) × airmass )</strong>
         </div>
         <ul>
           <li>
             <strong>× 1.3</strong> scales the reported broadband AOD up to a
             UVA-band optical depth (aerosol extinction is stronger at shorter
             wavelengths).
+          </li>
+          <li>
+            <strong>× 0.45</strong> keeps only the optical depth that is
+            genuinely <em>lost</em>. UV aerosol mostly <em>scatters</em> rather
+            than absorbs, and that scattering is strongly forward-peaked, so
+            most of the "extinguished" light still reaches the ground as diffuse
+            skylight. Attenuating the full optical depth would model only the
+            direct beam and badly over-penalize total ground-level UVA — a
+            moderate haze should cost roughly 10–20%, not 45%. The factor is
+            <code>1 − SSA × forward</code> with single-scattering albedo
+            ≈&nbsp;0.92 and a recovered forward fraction ≈&nbsp;0.6.
           </li>
           <li>
             <strong>airmass</strong> = <code>1 / cos(θ)</code> (a simple secant
