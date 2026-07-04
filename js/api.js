@@ -63,6 +63,16 @@ export function coordLabel(lat, lon) {
   return `${lat.toFixed(3)}, ${lon.toFixed(3)}`;
 }
 
+// Open-Meteo returns hourly timestamps like "2026-07-04T14:00" — no "Z" or
+// offset — even when queried with `timezone=UTC`. A bare ISO date-*time*
+// string with no timezone designator is parsed by `new Date()` as *local*
+// browser time, not UTC, so every one of these would silently be misread by
+// an amount equal to the browser's UTC offset. Normalize to an explicit UTC
+// string once, here, so every downstream `new Date(...)` call is correct.
+function asUtcIso(t) {
+  return t.endsWith('Z') ? t : `${t}Z`;
+}
+
 // Pick the array index whose ISO hour string is closest to `target` (a Date).
 function nearestHourIndex(times, target) {
   const targetMs = target.getTime();
@@ -86,7 +96,7 @@ export async function fetchWeather(lat, lon, when) {
     `&hourly=cloud_cover,surface_pressure` +
     `&start_date=${dateStr}&end_date=${dateStr}&timezone=UTC`;
   const data = await getJson(url);
-  const times = data.hourly?.time || [];
+  const times = (data.hourly?.time || []).map(asUtcIso);
   const idx = nearestHourIndex(times, when);
   return {
     elevationM: data.elevation ?? 0,
@@ -110,7 +120,7 @@ export async function fetchAirQuality(lat, lon, when) {
     `&hourly=uv_index,uv_index_clear_sky,aerosol_optical_depth,ozone,dust` +
     `&start_date=${dateStr}&end_date=${dateStr}&timezone=UTC`;
   const data = await getJson(url);
-  const times = data.hourly?.time || [];
+  const times = (data.hourly?.time || []).map(asUtcIso);
   const idx = nearestHourIndex(times, when);
   // Open-Meteo's `ozone` here is column-integrated; units vary, so we treat it
   // as a soft hint and let the model's weak ozone term handle it gracefully.
