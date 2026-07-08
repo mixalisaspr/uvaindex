@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    $HEAD
+  </head>
+  <body>
+    <main class="app app--hub">
+      $BREADCRUMB_NAV
+
+      <header>
+        <h1>Browse by topic</h1>
+        <p class="subtitle">
+          All Knowledge Base topics, from basics to methodology.
+        </p>
+      </header>
+
+      <ul class="kb-list">
+$CARDS
+      </ul>
+
+      <footer>
+        <p class="disclaimer">
+          $DISCLAIMER
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('../../sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>

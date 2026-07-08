@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    $HEAD
+  </head>
+  <body>
+    <main class="app app--hub">
+      $BREADCRUMB_NAV
+
+      <header>
+        <h1>$TAG_LABEL</h1>
+        <p class="subtitle">
+          Knowledge Base articles tagged <strong>$TAG_LABEL</strong>.
+        </p>
+      </header>
+
+      <ul class="kb-list">
+$CARDS
+      </ul>
+
+      <a class="cta" href="../../">Check the live UVA Index for your location →</a>
+
+      <footer>
+        <p class="disclaimer">
+          $DISCLAIMER
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('../../sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
