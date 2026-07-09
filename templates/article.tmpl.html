@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    $HEAD
+  </head>
+  <body>
+    <main class="app app--wide">
+      $BREADCRUMB_NAV
+
+      <article class="prose">
+$BODY
+
+        <a class="cta" href="$CTA_HREF">$CTA_TEXT</a>
+      </article>
+$RELATED_BLOCK
+      <footer>
+        <p class="disclaimer">
+          $DISCLAIMER
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('${REL}sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>

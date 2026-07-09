@@ -59,34 +59,49 @@ js/uva.js      # hybrid UVA model + qualitative bands, pure functions
 js/api.js      # Open-Meteo fetch helpers (point value + full-day hourly series)
 js/chart.js    # inline SVG chart of the UVA Index through the day, pure functions
 js/app.js      # orchestration: wire UI, fetch, compute, render
-learn/         # Knowledge Base: educational articles about UVA (see below)
+learn/         # Knowledge Base: GENERATED educational articles about UVA (see below)
+content/       # Knowledge Base source content + site config (see below)
+templates/     # HTML/JS templates used to generate learn/, sitemap.xml, sw.js
+scripts/       # build_kb.py — the Knowledge Base generator
 favicon.svg    # site icon
 og-image.svg   # source for the social share image
 og-image.png   # 1200x630 Open Graph / Twitter card image (rasterized from the SVG)
 robots.txt     # crawler directives + sitemap pointer
-sitemap.xml    # sitemap (calculator + knowledge-base pages) for search engines
+sitemap.xml    # GENERATED sitemap (calculator + knowledge-base pages) for search engines
 ```
 
 ## Knowledge Base
 
 `learn/` is a static, dependency-free content section that explains UVA in
 plain English and supports the calculator's premise. It reuses `styles.css` and
-the root service worker (so the articles also work offline), and every page is
-listed in `sitemap.xml`.
+the root service worker (so the articles also work offline).
+
+`learn/*.html`, `learn/index.html`, `learn/tags/*`, `sitemap.xml` and `sw.js`
+are **generated** by `scripts/build_kb.py` (standard-library Python only, no
+new dependency) from source content in `content/learn/*.html` — one file per
+article, a small JSON metadata header followed by the article body. This
+keeps the shipped site 100% static HTML/CSS/vanilla JS while removing the
+manual, error-prone work of keeping the hub listing, sitemap and
+service-worker cache in sync as articles are added:
 
 ```
-learn/index.html                       # hub page linking the articles
-learn/what-is-uva-radiation.html       # what UVA is and how it behaves
-learn/uva-vs-uvb.html                  # side-by-side comparison of the two bands
-learn/dangers-of-uva.html              # health effects + how to reduce exposure
-learn/uv-index-vs-uva-index.html       # why the erythemal UV Index under-counts UVA
-learn/how-uva-index-is-calculated.html # the model, parameters, formulas + omissions
+content/site.json          # site-wide constants (URL, GA id, tag vocabulary, related-count, ...)
+content/learn/_template.html # starting point for a new article
+content/learn/<slug>.html    # one file per article: JSON meta header + body HTML
+scripts/build_kb.py          # generator: content/ -> learn/, sitemap.xml, sw.js
 ```
 
-The Knowledge Base is linked from the top nav and footer on the home page. To
-add an article: create `learn/<slug>.html` (copy an existing one as a template),
-link it from `learn/index.html`, then add it to `sitemap.xml` and the `SHELL`
-precache list in `sw.js` (bump the `CACHE` version).
+Each article's metadata controls its `<head>` (title, description, OG/Twitter
+tags), its `Article`/`TechArticle` and `BreadcrumbList` JSON-LD (and
+`FAQPage` JSON-LD when `faq` entries are set), which tag pages it appears on
+under `learn/tags/`, and its "Keep reading" related links — either
+hand-pinned (`related_pins`) or auto-suggested by shared tags.
+
+To add an article, see [Adding a Knowledge Base article](CONTRIBUTING.md#adding-a-knowledge-base-article)
+in CONTRIBUTING.md. In short: copy `content/learn/_template.html`, fill it in,
+run `python3 scripts/build_kb.py`, and commit the regenerated output —
+`.github/workflows/kb-build-check.yml` fails CI if it ever drifts from what
+`content/` would produce.
 
 The result view also plots the **UVA Index through the day**: the same model is
 evaluated at every available hour using that hour's cloud and aerosol data, so

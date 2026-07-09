@@ -11,43 +11,9 @@
 // SHELL is derived from content/learn/*.html; CACHE is a hash of SHELL so it
 // only changes when the actual set of precached paths changes.
 
-const CACHE = 'uvaindex-shell-e326c90957';
+const CACHE = '$CACHE';
 
-const SHELL = [
-    "./",
-    "./index.html",
-    "./about.html",
-    "./styles.css",
-    "./favicon.svg",
-    "./manifest.webmanifest",
-    "./js/app.js",
-    "./js/api.js",
-    "./js/chart.js",
-    "./js/solar.js",
-    "./js/uva.js",
-    "./icons/icon-192.png",
-    "./icons/icon-512.png",
-    "./icons/maskable-192.png",
-    "./icons/maskable-512.png",
-    "./icons/apple-touch-icon.png",
-    "./learn/",
-    "./learn/index.html",
-    "./learn/dangers-of-uva.html",
-    "./learn/how-uva-index-is-calculated.html",
-    "./learn/uv-index-vs-uva-index.html",
-    "./learn/uva-vs-uvb.html",
-    "./learn/what-is-uva-radiation.html",
-    "./learn/tags/",
-    "./learn/tags/index.html",
-    "./learn/tags/basics.html",
-    "./learn/tags/comparison.html",
-    "./learn/tags/health.html",
-    "./learn/tags/methodology.html",
-    "./learn/tags/risks.html",
-    "./learn/tags/spectrum.html",
-    "./learn/tags/technical.html",
-    "./learn/tags/uv-index.html"
-  ];
+const SHELL = $SHELL_JSON;
 
 self.addEventListener('install', (event) => {
   event.waitUntil(

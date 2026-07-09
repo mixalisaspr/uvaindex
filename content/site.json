@@ -1,0 +1,46 @@
+{
+  "site_url": "https://uvaindex.org",
+  "site_name": "UVA Index",
+  "org_name": "uvaindex.org",
+  "ga_id": "G-Y6Z9PMH6V0",
+  "default_og_image": "https://uvaindex.org/og-image.png",
+  "og_image_width": "1200",
+  "og_image_height": "630",
+  "related_count": 3,
+  "tag_pages_enabled": true,
+  "tags": {
+    "basics": "Basics",
+    "comparison": "Comparisons",
+    "health": "Health effects",
+    "uv-index": "UV Index",
+    "methodology": "Methodology",
+    "spectrum": "UV spectrum",
+    "risks": "Risks",
+    "technical": "Technical"
+  },
+  "default_cta_text": "See the live UVA Index for your location →",
+  "default_cta_href": "../",
+  "disclaimer": "Educational information only — not medical advice. UVA has no official index; values and bands on this site are estimated and approximate.",
+  "static_pages": [
+    { "loc": "/", "lastmod": "2026-06-20", "changefreq": "weekly", "priority": "1.0" },
+    { "loc": "/about.html", "lastmod": "2026-06-27", "changefreq": "monthly", "priority": "0.8" }
+  ],
+  "sw_shell_prefix": [
+    "./",
+    "./index.html",
+    "./about.html",
+    "./styles.css",
+    "./favicon.svg",
+    "./manifest.webmanifest",
+    "./js/app.js",
+    "./js/api.js",
+    "./js/chart.js",
+    "./js/solar.js",
+    "./js/uva.js",
+    "./icons/icon-192.png",
+    "./icons/icon-512.png",
+    "./icons/maskable-192.png",
+    "./icons/maskable-512.png",
+    "./icons/apple-touch-icon.png"
+  ]
+}

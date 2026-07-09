@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    $HEAD
+  </head>
+  <body>
+    <main class="app app--hub">
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../">Calculator</a>
+        <a href="./" class="active">Knowledge Base</a>
+        <a href="../about.html">About</a>
+        <span class="spacer"></span>
+      </nav>
+
+      <header>
+        <h1>UVA Knowledge Base</h1>
+        <p class="subtitle">
+          Short, plain-English guides to ultraviolet&nbsp;A radiation — what it
+          is, how it differs from UVB, why it matters for your skin, and why the
+          familiar <strong>UV&nbsp;Index</strong> doesn't tell the whole story.
+        </p>
+      </header>
+
+      <ul class="kb-list">
+$CARDS
+      </ul>
+
+      <a class="cta" href="../">Check the live UVA Index for your location →</a>
+
+      <footer>
+        <p class="disclaimer">
+          $DISCLAIMER
+        </p>
+        <p class="disclaimer">
+          Free, ad-free and <strong>open source</strong> — the code and model are
+          on <a href="https://github.com/mixalisaspr/uvaindex">GitHub</a> under
+          the
+          <a href="https://github.com/mixalisaspr/uvaindex/blob/main/LICENSE">MIT
+          License</a>.
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      // Reuse the root service worker so the knowledge base also works offline.
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('../sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
