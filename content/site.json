@@ -11,9 +11,11 @@
   "tags": {
     "basics": "Basics",
     "comparison": "Comparisons",
+    "environment": "Conditions & environment",
     "health": "Health effects",
     "uv-index": "UV Index",
     "methodology": "Methodology",
+    "protection": "Protection",
     "spectrum": "UV spectrum",
     "risks": "Risks",
     "technical": "Technical"
