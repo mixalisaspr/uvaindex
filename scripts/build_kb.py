@@ -388,7 +388,7 @@ def render_article(article: dict, all_articles: list[dict], site: dict) -> str:
         CTA_HREF=esc(article["cta_href"] or site["default_cta_href"]),
         CTA_TEXT=esc(article["cta_text"] or site["default_cta_text"]),
         RELATED_BLOCK=render_related_block(related),
-        DISCLAIMER=esc(site["disclaimer"]),
+        DISCLAIMER=site["disclaimer"],
         REL="../",
     )
 
@@ -433,7 +433,7 @@ def render_hub(articles: list[dict], site: dict) -> str:
     )
 
     tmpl = load_template("hub.tmpl.html")
-    return tmpl.substitute(HEAD=head, CARDS=cards, DISCLAIMER=esc(site["disclaimer"]))
+    return tmpl.substitute(HEAD=head, CARDS=cards, DISCLAIMER=site["disclaimer"])
 
 
 def render_tag_page(tag: str, tag_label: str, articles: list[dict], site: dict) -> str:
@@ -471,7 +471,7 @@ def render_tag_page(tag: str, tag_label: str, articles: list[dict], site: dict) 
     )
 
     tmpl = load_template("tag.tmpl.html")
-    return tmpl.substitute(HEAD=head, BREADCRUMB_NAV=render_breadcrumb_nav(crumbs), TAG_LABEL=esc(tag_label), CARDS=cards, DISCLAIMER=esc(site["disclaimer"]))
+    return tmpl.substitute(HEAD=head, BREADCRUMB_NAV=render_breadcrumb_nav(crumbs), TAG_LABEL=esc(tag_label), CARDS=cards, DISCLAIMER=site["disclaimer"])
 
 
 def render_tags_index(tag_counts: list[tuple], site: dict) -> str:
@@ -507,7 +507,7 @@ def render_tags_index(tag_counts: list[tuple], site: dict) -> str:
     )
 
     tmpl = load_template("tags_index.tmpl.html")
-    return tmpl.substitute(HEAD=head, BREADCRUMB_NAV=render_breadcrumb_nav(crumbs), CARDS=cards, DISCLAIMER=esc(site["disclaimer"]))
+    return tmpl.substitute(HEAD=head, BREADCRUMB_NAV=render_breadcrumb_nav(crumbs), CARDS=cards, DISCLAIMER=site["disclaimer"])
 
 
 def render_sitemap(articles: list[dict], tag_counts: list[tuple], site: dict) -> str:
