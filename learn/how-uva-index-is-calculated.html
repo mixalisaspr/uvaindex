@@ -54,7 +54,7 @@
           "name": "uvaindex.org"
         },
         "datePublished": "2026-06-27",
-        "dateModified": "2026-06-28",
+        "dateModified": "2026-08-02",
         "mainEntityOfPage": "https://uvaindex.org/learn/how-uva-index-is-calculated.html"
       }
     </script>
@@ -169,7 +169,15 @@
         <div class="callout">
           <strong>altitude factor = 1 + 0.06 × (elevation_m ÷ 1000)</strong>
         </div>
-        <p>That is roughly <strong>+6% per kilometre</strong> of elevation.</p>
+        <p>
+          That is roughly <strong>+6% per kilometre</strong> of elevation —
+          deliberately below the <strong>8–10%/km</strong> usually quoted for UV,
+          because that figure is <em>erythemal</em> and much of the altitude
+          enhancement comes from reduced ozone and Rayleigh scattering, both of
+          which favour short wavelengths.
+          <a href="uva-at-altitude.html">UVA at altitude</a> works through the
+          reasoning.
+        </p>
 
         <h2>Step 3 — Aerosols (haze, dust, pollution)</h2>
         <p>
@@ -208,18 +216,42 @@
 
         <h2>Step 4 — Cloud cover</h2>
         <p>
-          Clouds are the most variable influence on ground-level UVA. We use the
-          live total cloud-cover percentage and an empirical transmission curve:
+          Clouds are the most variable influence on ground-level UVA, so the model
+          uses the best input available for your location, in two tiers.
+        </p>
+        <p>
+          <strong>Preferred — derived from live UV data.</strong> Open-Meteo
+          publishes both the actual UV&nbsp;Index and a clear-sky UV&nbsp;Index for
+          the same hour. Their ratio is a <em>measured</em> erythemal cloud
+          transmission for the real sky overhead, which beats any parameterisation
+          of a cover percentage. Because UVA penetrates cloud better than the
+          UVB-dominated erythemal UV, we lift that transmission for the UVA band:
         </p>
         <div class="callout">
-          <strong>cloud factor = 1 − 0.7 × (cover ÷ 100)<sup>3</sup></strong>
+          <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>0.8</sup></strong>
         </div>
         <p>
-          The cubic shape is deliberate: thin or partial cloud lets most UVA
-          through (UVA penetrates cloud better than visible light), while only
-          heavy, full overcast removes a large share. At 100% cover this leaves
-          about <strong>30%</strong> of the clear-sky UVA — clouds dim UVA, they
-          rarely eliminate it.
+          The exponent is below 1, so any attenuation is softened and the gap
+          widens as cloud thickens — matching the observed spectral behaviour. A
+          heavy overcast cutting erythemal UV to 30% leaves about
+          <strong>38%</strong> of the UVA.
+        </p>
+        <p>
+          <strong>Fallback — parametric, from cloud cover.</strong> When the live
+          UV pair is unavailable, we fall back to the reported total cloud-cover
+          percentage:
+        </p>
+        <div class="callout">
+          <strong>cloud factor = 1 − 0.4 × (cover ÷ 100)<sup>1.5</sup></strong>
+        </div>
+        <p>
+          The curve is deliberately gentle, because a reported "100% cover" is a
+          statement about <em>sky coverage</em>, not optical depth — an overcast
+          sky is far more often thin stratus than a storm base. At 100% cover this
+          leaves about <strong>60%</strong> of the clear-sky UVA. Clouds dim UVA;
+          they rarely eliminate it. <a href="uva-on-cloudy-days.html">UVA on cloudy
+          days</a> covers the underlying physics and the observed transmission by
+          cloud type.
         </p>
 
         <h2>Step 5 — Surface reflectance (albedo)</h2>
@@ -240,7 +272,12 @@
         </table>
         <p>
           The enhancements are deliberately modest: even very bright surfaces add
-          only a limited amount to the <em>downwelling</em> UVA at a point.
+          only a limited amount to the <em>downwelling</em> UVA at a point. The
+          much larger <em>upwelling</em> flux — snow reflects 80–90% of UVA
+          straight back up — lands on your chin, nose and eyes rather than on a
+          horizontal surface, so it doesn't belong in this term.
+          <a href="reflected-uva-snow-sand-water.html">Reflected UVA</a> explains
+          the distinction and lists albedo by surface.
         </p>
 
         <h2>From irradiance to the 0–11+ index</h2>

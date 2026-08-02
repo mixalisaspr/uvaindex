@@ -568,6 +568,17 @@ button.primary:hover {
   margin: 14px 0;
 }
 
+/* Wide comparison tables scroll inside their own container rather than
+   forcing the whole page to scroll sideways on narrow screens. */
+.prose .table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.prose .table-scroll .data-table {
+  min-width: 30rem;
+}
+
 .prose .data-table td:last-child {
   text-align: left;
   font-variant-numeric: normal;

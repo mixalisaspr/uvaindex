@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6Z9PMH6V0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Y6Z9PMH6V0');
+    </script>
+
+    <title>UVA on Cloudy Days: How Much Gets Through &amp; Cloud Enhancement</title>
+    <meta
+      name="description"
+      content="Cloud dims UVA far less than it dims sunlight — and broken cloud can briefly push UVA above clear-sky levels. Transmission by cloud type, why UVA penetrates cloud better than UVB, the cloud enhancement effect, and how the UVA Index models it."
+    />
+    <meta name="keywords" content="UVA cloudy days, UV through clouds, can you burn on a cloudy day, cloud enhancement effect, UV cloud transmission, overcast UV index, UVA overcast" />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA Index" />
+    <meta property="og:title" content="UVA on Cloudy Days: How Much Actually Gets Through?" />
+    <meta property="og:description" content="Overcast cuts UVA far less than it cuts brightness — and broken cloud can push it above clear-sky. What the numbers really are." />
+    <meta property="og:url" content="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "UVA on cloudy days: how much gets through",
+        "description": "How much UVA passes through cloud by cloud type, why UVA penetrates cloud better than UVB, the broken-cloud enhancement effect that can raise UVA above clear-sky values, and how the UVA Index parameterises cloud.",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-02",
+        "dateModified": "2026-08-02",
+        "mainEntityOfPage": "https://uvaindex.org/learn/uva-on-cloudy-days.html"
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can you get UV damage on a cloudy day?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Thin or broken cloud typically lets 80-100% of UVA through, and even thick overcast usually passes 20-40%. Because cloud removes visible brightness and warmth much more effectively than it removes ultraviolet, an overcast day feels far safer than it is — you lose the sensory cues while keeping most of the UVA."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the cloud enhancement effect?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When the sun is in a gap between bright cumulus clouds, you receive the full direct beam plus extra light scattered off the sunlit sides of the surrounding clouds. The total can exceed the clear-sky value at the same moment, typically by 5-25% and occasionally more for short periods. It is a real, repeatedly measured effect, and it means a partly cloudy sky is not automatically safer than a clear one."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does UVA penetrate cloud better than UVB?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, modestly but consistently. Cloud droplets scatter across the ultraviolet fairly evenly, but scattering lengthens the path each photon travels through the atmosphere, and that longer path lets ozone absorb disproportionately more UVB. UVA is also more diffuse to begin with, so blocking the direct beam takes away a smaller share of it."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA Index",
+            "item": "https://uvaindex.org/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Knowledge Base",
+            "item": "https://uvaindex.org/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UVA on cloudy days",
+            "item": "https://uvaindex.org/learn/uva-on-cloudy-days.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../">UVA Index</a><span class="sep">›</span><a href="./">Knowledge Base</a><span class="sep">›</span>UVA on cloudy days
+      </nav>
+
+      <article class="prose">
+        <h1>UVA on cloudy days: how much gets through</h1>
+        <p class="lead">
+          "It's overcast, I'm fine" is one of the most reliable ways to
+          underestimate your ultraviolet exposure — and it fails
+          <em>specifically</em> for UVA. Cloud is very good at removing the things
+          you can sense, brightness and warmth, and comparatively poor at removing
+          the long-wave ultraviolet you cannot. On a grey day you have lost the
+          warning signals while keeping much of the dose.
+        </p>
+
+        <div class="callout">
+          <strong>The headline numbers:</strong> thin or broken cloud typically
+          passes <strong>80–100%</strong> of UVA. Full, thick overcast usually
+          still passes <strong>20–40%</strong>. And under broken cumulus, UVA can
+          briefly exceed the clear-sky value entirely.
+        </div>
+
+        <h2>Transmission by cloud type</h2>
+        <p>
+          "Cloudy" covers everything from a faint high veil to a black
+          storm base, and the difference between them is more than an order of
+          magnitude. What matters physically is not how much sky is covered but the
+          <strong>optical depth</strong> of what is covering it — how much liquid
+          water sits in the column between you and the sun.
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Sky</th><th>Cloud</th><th>UVA transmitted</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Clear</td><td>—</td><td>100% (reference)</td></tr>
+            <tr><td>Thin high veil</td><td>Cirrus, cirrostratus</td><td>~80–95%</td></tr>
+            <tr><td>Scattered / broken, sun visible</td><td>Fair-weather cumulus</td><td>~90–110%</td></tr>
+            <tr><td>Broken, sun obscured</td><td>Cumulus, altocumulus</td><td>~50–80%</td></tr>
+            <tr><td>Full grey overcast</td><td>Altostratus, stratus</td><td>~30–60%</td></tr>
+            <tr><td>Thick, dark overcast</td><td>Nimbostratus, storm cloud</td><td>~10–30%</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          Note the third row. Under scattered cloud with the sun in a gap, the
+          figure can sit <em>above</em> 100% — that is the enhancement effect,
+          covered below and not a typo.
+        </p>
+
+        <h2>Why UVA gets through cloud better than UVB</h2>
+        <p>
+          Cloud attenuates UVA less than it attenuates the sunburning
+          <a href="uva-vs-uvb.html">UVB</a>, and less again than it attenuates
+          visible light. Three mechanisms are at work.
+        </p>
+        <ul>
+          <li>
+            <strong>Cloud droplets scatter rather than absorb.</strong> Water
+            droplets are large compared with UV wavelengths, so they mostly
+            redirect ultraviolet instead of destroying it. A photon that enters a
+            cloud has a good chance of eventually emerging downward — just from a
+            different direction. This is why an overcast sky is uniformly bright
+            rather than dark: the energy is still arriving, it has simply lost
+            its direction.
+          </li>
+          <li>
+            <strong>Scattering lengthens the path, and a longer path hurts UVB
+            more.</strong> Every bounce inside a cloud increases the total distance
+            a photon travels through the atmosphere, and therefore its chance of
+            meeting an ozone molecule. Ozone absorbs strongly in the UVB and only
+            weakly in the UVA, so the detour is far more costly for UVB. The band
+            that penetrates a straight path better also survives a crooked one
+            better.
+          </li>
+          <li>
+            <strong>UVA is already mostly diffuse.</strong> Even under a perfectly
+            clear sky, a large share of surface UVA arrives as scattered skylight
+            from the whole dome rather than straight from the solar disc. Cloud
+            primarily removes the direct beam — so it takes away a smaller
+            proportion of UVA than of visible light, most of which does come
+            straight from the sun. The same fact explains why
+            <a href="reflected-uva-snow-sand-water.html">shade offers less UVA
+            protection than it appears to</a>: standing under an umbrella removes
+            the sun, not the sky.
+          </li>
+        </ul>
+
+        <h2>The cloud enhancement effect</h2>
+        <p>
+          This is the part that surprises people: <strong>a partly cloudy sky can
+          deliver more UVA than a clear one.</strong>
+        </p>
+        <p>
+          The geometry is simple. When the sun sits in a clear gap between bright
+          cumulus clouds, you receive the entire direct beam, exactly as you would
+          under a clear sky — plus additional radiation scattered off the brilliant
+          sunlit flanks of the clouds around the gap. Nothing is subtracted and
+          something is added. Measured enhancements are commonly in the
+          <strong>5–25%</strong> range, with short-lived spikes recorded higher,
+          particularly when a bright surface such as snow is also bouncing light
+          back up from below.
+        </p>
+        <div class="callout">
+          <strong>Why this matters behaviourally:</strong> "partly cloudy" reads as
+          a reason to relax. Physically it is the sky condition most likely to
+          deliver <em>above</em> clear-sky UVA — while the intermittent shade makes
+          the day feel cooler and more comfortable, so people stay out longer.
+        </div>
+        <p>
+          The effect is episodic and short-lived: it applies while the sun is in a
+          gap, and gives way to genuine attenuation when a cloud passes in front.
+          Averaged over an afternoon, broken cloud usually nets out a little below
+          clear sky. But the peak instantaneous values are real, and they are not
+          what anyone expects from a cloudy forecast.
+        </p>
+
+        <h2>What this changes in practice</h2>
+        <ul>
+          <li>
+            <strong>Overcast is not a day off.</strong> At 30–60% transmission, an
+            outdoor afternoon under grey skies in midsummer can still deliver more
+            UVA than a clear day in midwinter. See
+            <a href="does-uva-change-with-the-seasons.html">why UVA changes so
+            little with the seasons</a> for the arithmetic.
+          </li>
+          <li>
+            <strong>You will not get the usual warning.</strong> Cloud strips UVB
+            faster than UVA, so the sunburn that normally signals overexposure is
+            suppressed more than the UVA that causes photoaging and pigmentation.
+            Cloud shifts the exposure mix toward UVA in the same way glass and low
+            sun angles do.
+          </li>
+          <li>
+            <strong>Cloud cover percentage is a weak predictor.</strong> "90% cloud
+            cover" in a forecast describes how much sky is obscured, not how thick
+            the obscuring cloud is. Ninety percent thin cirrus and ninety percent
+            nimbostratus differ by a factor of five in what reaches you.
+          </li>
+          <li>
+            <strong>Photosensitive people should treat cloud as almost
+            irrelevant.</strong> If your threshold is low, a 40% day still crosses
+            it. That is covered in
+            <a href="uva-photosensitivity-medications.html">UVA photosensitivity</a>.
+          </li>
+        </ul>
+
+        <h2>How the UVA Index handles cloud</h2>
+        <p>
+          Cloud is the single most variable input to this site's
+          <a href="../">UVA&nbsp;Index</a>, and the model treats it in two ways
+          depending on what data is available for your location.
+        </p>
+        <p>
+          <strong>Preferred: derived from live UV data.</strong> Open-Meteo
+          publishes both the actual UV&nbsp;Index and a clear-sky UV&nbsp;Index for
+          the same hour. Their ratio is a measured erythemal cloud transmission for
+          the real sky overhead — far better than any parameterisation of a cover
+          percentage. Because UVA penetrates cloud better than erythemal UV, that
+          transmission is then lifted for the UVA band:
+        </p>
+        <div class="callout">
+          <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>0.8</sup></strong>
+        </div>
+        <p>
+          The exponent is below 1, so any attenuation is softened, and the gap
+          widens as cloud thickens — which matches the observed spectral behaviour.
+          A heavy overcast that cuts erythemal UV to 30% leaves roughly
+          <strong>38%</strong> of the UVA; light cloud cutting erythemal UV to 70%
+          leaves about <strong>75%</strong>.
+        </p>
+        <p>
+          <strong>Fallback: parametric, from cloud cover.</strong> When the live UV
+          pair is unavailable, the model falls back to the reported total cloud
+          cover:
+        </p>
+        <div class="callout">
+          <strong>cloud factor = 1 − 0.4 × (cover ÷ 100)<sup>1.5</sup></strong>
+        </div>
+        <p>
+          The curve is deliberately gentle, because a reported "100% cover" is a
+          statement about sky coverage, not optical depth — so the right average
+          behaviour at full cover is a moderate reduction to about
+          <strong>60%</strong>, not a blackout. The full derivation, along with
+          every other coefficient, is in
+          <a href="how-uva-index-is-calculated.html">how the UVA Index is
+          calculated</a>.
+        </p>
+        <p>
+          One honest limitation: <strong>the model does not reproduce cloud
+          enhancement.</strong> Both routes are attenuation-only, so a factor above
+          1 never occurs. Under broken cumulus with the sun in a gap, the real UVA
+          can exceed what the UVA&nbsp;Index reports. It is listed among the
+          <a href="how-uva-index-is-calculated.html#omitted">factors deliberately
+          left out</a>, and it is the one case where the number is more likely to
+          under-read than over-read.
+        </p>
+
+        <a class="cta" href="../">Check today's UVA Index, cloud and all →</a>
+      </article>
+
+      <aside class="related">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="what-is-uva-radiation.html">What is UVA radiation?</a></li>
+          <li><a href="how-uva-index-is-calculated.html">How the UVA Index is calculated</a></li>
+          <li><a href="does-uva-change-with-the-seasons.html">Why UVA changes far less with the seasons than UVB</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href="https://uvaindex.org/about.html">About page</a>.
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('../sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>

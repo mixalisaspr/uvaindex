@@ -11,7 +11,7 @@
 // SHELL is derived from content/learn/*.html; CACHE is a hash of SHELL so it
 // only changes when the actual set of precached paths changes.
 
-const CACHE = 'uvaindex-shell-e326c90957';
+const CACHE = 'uvaindex-shell-5db4c3860c';
 
 const SHELL = [
     "./",
@@ -33,16 +33,28 @@ const SHELL = [
     "./learn/",
     "./learn/index.html",
     "./learn/dangers-of-uva.html",
+    "./learn/does-glass-block-uva.html",
+    "./learn/does-uva-change-with-the-seasons.html",
     "./learn/how-uva-index-is-calculated.html",
+    "./learn/indoor-uva-nail-lamps-tanning-beds.html",
+    "./learn/reflected-uva-snow-sand-water.html",
     "./learn/uv-index-vs-uva-index.html",
+    "./learn/uva-and-your-eyes.html",
+    "./learn/uva-at-altitude.html",
+    "./learn/uva-melasma-and-skin-tone.html",
+    "./learn/uva-on-cloudy-days.html",
+    "./learn/uva-photosensitivity-medications.html",
+    "./learn/uva-sunscreen-labels-explained.html",
     "./learn/uva-vs-uvb.html",
     "./learn/what-is-uva-radiation.html",
     "./learn/tags/",
     "./learn/tags/index.html",
     "./learn/tags/basics.html",
     "./learn/tags/comparison.html",
+    "./learn/tags/environment.html",
     "./learn/tags/health.html",
     "./learn/tags/methodology.html",
+    "./learn/tags/protection.html",
     "./learn/tags/risks.html",
     "./learn/tags/spectrum.html",
     "./learn/tags/technical.html",

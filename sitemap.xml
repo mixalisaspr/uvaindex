@@ -14,19 +14,43 @@
   </url>
   <url>
     <loc>https://uvaindex.org/learn/</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://uvaindex.org/learn/dangers-of-uva.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uvaindex.org/learn/does-glass-block-uva.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uvaindex.org/learn/does-uva-change-with-the-seasons.html</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://uvaindex.org/learn/how-uva-index-is-calculated.html</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uvaindex.org/learn/indoor-uva-nail-lamps-tanning-beds.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uvaindex.org/learn/reflected-uva-snow-sand-water.html</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -37,68 +61,116 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://uvaindex.org/learn/uva-and-your-eyes.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uvaindex.org/learn/uva-at-altitude.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uvaindex.org/learn/uva-melasma-and-skin-tone.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uvaindex.org/learn/uva-on-cloudy-days.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uvaindex.org/learn/uva-photosensitivity-medications.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://uvaindex.org/learn/uva-sunscreen-labels-explained.html</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://uvaindex.org/learn/uva-vs-uvb.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://uvaindex.org/learn/what-is-uva-radiation.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://uvaindex.org/learn/tags/</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://uvaindex.org/learn/tags/basics.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://uvaindex.org/learn/tags/comparison.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://uvaindex.org/learn/tags/environment.html</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://uvaindex.org/learn/tags/health.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://uvaindex.org/learn/tags/methodology.html</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://uvaindex.org/learn/tags/protection.html</loc>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://uvaindex.org/learn/tags/risks.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://uvaindex.org/learn/tags/spectrum.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://uvaindex.org/learn/tags/technical.html</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://uvaindex.org/learn/tags/uv-index.html</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
