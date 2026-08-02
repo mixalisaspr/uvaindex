@@ -20,7 +20,7 @@
   },
   "default_cta_text": "See the live UVA Index for your location →",
   "default_cta_href": "../",
-  "disclaimer": "Educational information only — not medical advice. UVA has no official index; values and bands on this site are estimated and approximate.",
+  "disclaimer": "Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href=\"https://uvaindex.org/about.html\">About page</a>.",
   "static_pages": [
     { "loc": "/", "lastmod": "2026-06-20", "changefreq": "weekly", "priority": "1.0" },
     { "loc": "/about.html", "lastmod": "2026-06-27", "changefreq": "monthly", "priority": "0.8" }
