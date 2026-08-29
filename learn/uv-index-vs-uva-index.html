@@ -54,8 +54,41 @@
           "name": "uvaindex.org"
         },
         "datePublished": "2026-06-20",
-        "dateModified": "2026-06-20",
+        "dateModified": "2026-08-29",
         "mainEntityOfPage": "https://uvaindex.org/learn/uv-index-vs-uva-index.html"
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does the UV Index measure UVA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Barely. The UV Index weights the surface UV spectrum by the CIE erythemal action spectrum, a curve describing how effectively each wavelength reddens skin, then multiplies by 40. That curve falls off steeply toward longer wavelengths — skin is on the order of a thousand times less sensitive to some UVA wavelengths than to UVB — so the weighting all but erases UVA despite it being the vast majority of surface UV by energy."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can the UV Index be low while UVA is high?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, and it happens in the situations people read as safe. Late in the afternoon, under overcast, in winter, or sitting behind a window, the sunburning UVB has fallen away or been filtered out while UVA — steadier through the day and better at penetrating cloud and glass — continues to arrive. The UV Index gives a reassuring number while UVA exposure quietly continues."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the UVA Index scale?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is the unweighted UVA irradiance over roughly 315-400 nm, in W/m², divided by six. The divisor is chosen so a clear-sky overhead sun of about 66 W/m² reads 11, giving the same top-of-scale feel as a peak tropical UV Index. The bands reuse the WHO wording: Low below 3, Moderate from 3, High from 6, Very High from 8 and Extreme from 11 — which in irradiance terms are 18, 36, 48 and 66 W/m²."
+            }
+          }
+        ]
       }
     </script>
 
@@ -187,18 +220,20 @@
           colours and words, so a number you already understand carries straight
           over:
         </p>
+        <div class="table-scroll">
         <table class="data-table">
           <thead>
             <tr><th>UVA Index</th><th>Band</th><th>≈ Irradiance</th></tr>
           </thead>
           <tbody>
-            <tr><td>0–2</td><td>Low</td><td>&lt; ~15 W/m²</td></tr>
-            <tr><td>3–5</td><td>Moderate</td><td>~15–35 W/m²</td></tr>
-            <tr><td>6–7</td><td>High</td><td>~35–47 W/m²</td></tr>
-            <tr><td>8–10</td><td>Very High</td><td>~47–65 W/m²</td></tr>
-            <tr><td>11+</td><td>Extreme</td><td>~66+ W/m²</td></tr>
+            <tr><td>Under 3</td><td>Low</td><td>Under 18 W/m²</td></tr>
+            <tr><td>3 to under 6</td><td>Moderate</td><td>18 to under 36 W/m²</td></tr>
+            <tr><td>6 to under 8</td><td>High</td><td>36 to under 48 W/m²</td></tr>
+            <tr><td>8 to under 11</td><td>Very High</td><td>48 to under 66 W/m²</td></tr>
+            <tr><td>11 and above</td><td>Extreme</td><td>66 W/m² and above</td></tr>
           </tbody>
         </table>
+        </div>
         <p>
           Because the index is strictly proportional to the irradiance, both
           numbers tell the same story — the index is just the friendlier way to
