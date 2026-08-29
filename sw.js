@@ -11,7 +11,7 @@
 // SHELL is derived from content/learn/*.html; CACHE is a hash of SHELL so it
 // only changes when the actual set of precached paths changes.
 
-const CACHE = 'uvaindex-shell-737ae567d3';
+const CACHE = 'uvaindex-shell-91b99f2163';
 
 const SHELL = [
     "./",
@@ -54,7 +54,6 @@ const SHELL = [
     "./learn/uva-photosensitivity-medications.html",
     "./learn/uva-sunscreen-labels-explained.html",
     "./learn/uva-vs-uvb.html",
-    "./learn/what-is-a-good-uva-index.html",
     "./learn/what-is-uva-radiation.html",
     "./learn/what-time-is-uva-highest.html",
     "./learn/tags/",
