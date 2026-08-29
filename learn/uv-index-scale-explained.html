@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6Z9PMH6V0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-Y6Z9PMH6V0');
+    </script>
+
+    <title>The UV Index Scale 0 to 11+ Explained — and What It Hides</title>
+    <meta
+      name="description"
+      content="What the UV Index numbers mean, where the 0–11+ scale comes from, the WHO band colours and advice, how high it can actually go — and the erythemal weighting that makes it under-report UVA."
+    />
+    <meta name="keywords" content="UV index scale, what is a high UV index, UV index 8 meaning, UV index chart, UV index explained, UV index colours, erythemal UV index" />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/learn/uv-index-scale-explained.html" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA Index" />
+    <meta property="og:title" content="The UV Index Scale 0 to 11+ Explained" />
+    <meta property="og:description" content="Where the UV Index numbers come from, what each band means, how high it really goes — and the one thing the scale is built not to show you." />
+    <meta property="og:url" content="https://uvaindex.org/learn/uv-index-scale-explained.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The UV Index scale explained — and what it leaves out",
+        "description": "A full explanation of the UV Index scale: the erythemal action spectrum and the times-40 conversion behind the numbers, the WHO bands and colours, record values worldwide, and the structural reason the index under-represents UVA.",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-29",
+        "dateModified": "2026-08-29",
+        "mainEntityOfPage": "https://uvaindex.org/learn/uv-index-scale-explained.html"
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a high UV index?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The WHO bands are Low (0–2), Moderate (3–5), High (6–7), Very High (8–10) and Extreme (11+). Protection is advised from 3 upward. A reading of 8 or more means unprotected fair skin can begin to burn within roughly 15–25 minutes around solar noon."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is the UV Index calculated?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Solar spectral irradiance at the ground is multiplied wavelength by wavelength by the CIE erythemal action spectrum — a curve describing how effectively each wavelength reddens human skin — then integrated across the UV band and multiplied by 40. So a UV Index of 1 corresponds to 0.025 W/m² of erythemally weighted irradiance."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can the UV Index go above 11?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The scale is open-ended; 11 is simply where the top band starts. Values of 14–16 are routine in the tropical Andes, and a reading of 43.3 was recorded at 5,916 m on Licancabur in Bolivia in December 2003 — the highest ever published. High altitude, thin ozone, an overhead sun and snow reflection compound."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA Index",
+            "item": "https://uvaindex.org/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Knowledge Base",
+            "item": "https://uvaindex.org/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "The UV Index scale explained",
+            "item": "https://uvaindex.org/learn/uv-index-scale-explained.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../">UVA Index</a><span class="sep">›</span><a href="./">Knowledge Base</a><span class="sep">›</span>The UV Index scale explained
+      </nav>
+
+      <article class="prose">
+        <h1>The UV Index scale explained — and what it leaves out</h1>
+        <p class="lead">
+          The UV&nbsp;Index is the one piece of ultraviolet information almost
+          everyone has seen: a number in a weather app, colour-coded, somewhere
+          between 0 and 11. It is a genuinely good piece of science communication.
+          It is also, by design, a measure of <em>one</em> thing — and this page is
+          about both halves of that sentence.
+        </p>
+
+        <h2>Where the number comes from</h2>
+        <p>
+          The UV&nbsp;Index is not a measurement of ultraviolet light. It is a
+          measurement of ultraviolet light's ability to <strong>redden human
+          skin</strong>, which is a different quantity.
+        </p>
+        <p>
+          Sunlight arrives at the ground as a spectrum — a distribution of energy
+          across wavelengths. To produce the index, that spectrum is multiplied,
+          wavelength by wavelength, by the <strong>CIE erythemal action
+          spectrum</strong>: a standardised curve describing how effective each
+          wavelength is at causing sunburn. The weighted result is integrated
+          across the ultraviolet band and scaled by a constant.
+        </p>
+        <div class="callout">
+          <strong>UV Index = erythemally weighted irradiance (W/m²) × 40</strong><br />
+          So UV&nbsp;Index 1 = 0.025&nbsp;W/m²; UV&nbsp;Index 10 = 0.25&nbsp;W/m².
+        </div>
+        <p>
+          The times-40 factor exists purely so the result lands on a memorable
+          0-to-about-11 range for conditions on Earth. It carries no physical
+          meaning of its own — exactly like the divisor of six that puts this
+          site's <a href="how-uva-index-is-calculated.html">UVA Index</a> on a
+          comparable scale.
+        </p>
+
+        <h2>The bands, and what the WHO advises</h2>
+        <p>
+          The categories below are the WHO/WMO/ICNIRP standard, used essentially
+          worldwide. The colours are part of the standard, not decoration.
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>UV Index</th><th>Band</th><th>Colour</th><th>WHO guidance</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0–2</td><td>Low</td><td>Green</td><td>No protection needed for most people</td></tr>
+            <tr><td>3–5</td><td>Moderate</td><td>Yellow</td><td>Seek shade near midday; shirt, sunscreen, hat</td></tr>
+            <tr><td>6–7</td><td>High</td><td>Orange</td><td>Protection required; reduce midday exposure</td></tr>
+            <tr><td>8–10</td><td>Very High</td><td>Red</td><td>Extra protection; avoid being outside near midday</td></tr>
+            <tr><td>11+</td><td>Extreme</td><td>Violet</td><td>Take all precautions; unprotected skin can burn in minutes</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          <strong>Three is the threshold that matters.</strong> It is the value at
+          which the WHO begins recommending protection, and it is the number most
+          national campaigns are built around. Below 3, erythema is unlikely for
+          most skin types under normal exposure durations.
+        </p>
+
+        <h2>How high does it actually go?</h2>
+        <p>
+          The scale is open-ended. Eleven is where the top band <em>begins</em>,
+          not where the scale stops — a common misreading encouraged by the way
+          apps display "11+".
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Setting</th><th>Typical clear-sky summer peak</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Northern UK, Scandinavia</td><td>5–7</td></tr>
+            <tr><td>Central and northern Europe</td><td>6–8</td></tr>
+            <tr><td>Mediterranean, southern US</td><td>9–11</td></tr>
+            <tr><td>Tropical lowlands</td><td>11–14</td></tr>
+            <tr><td>Tropical high altitude (Andes, Himalaya)</td><td>14–20+</td></tr>
+            <tr><td>Highest published reading (Licancabur, Bolivia, 5,916 m, Dec 2003)</td><td>43.3</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          The extremes come from stacking every amplifier at once: an overhead sun,
+          a thin ozone column, very little atmosphere above you, clean dry air and
+          snow reflecting from below. <a href="uva-at-altitude.html">UVA at
+          altitude</a> covers why the elevation gradient differs by wavelength, and
+          <a href="reflected-uva-snow-sand-water.html">reflected UVA</a> covers the
+          albedo contribution.
+        </p>
+
+        <h2>What the weighting does — and hides</h2>
+        <p>
+          Here is the structural consequence of erythemal weighting. The action
+          spectrum falls away extraordinarily steeply with wavelength: relative to
+          its peak in the UVB, its effectiveness at 340&nbsp;nm is on the order of
+          a thousand times smaller. So the index is, in effect, a UVB instrument.
+        </p>
+        <div class="callout">
+          At solar noon, roughly <strong>95% of the ultraviolet photons</strong>
+          reaching the ground are UVA — but after erythemal weighting, UVA
+          contributes only about <strong>17%</strong> of the UV&nbsp;Index, with
+          UVB supplying the other ~83%. The index is dominated by the small
+          minority of the spectrum that happens to burn.
+        </div>
+        <p>
+          For its intended job — telling you whether you are about to get sunburnt
+          — that is exactly right, and no criticism applies. The problem is that
+          the number then gets used as a general-purpose "how much ultraviolet is
+          there today" signal, which it is not. Because UVB and UVA respond very
+          differently to sun angle, ozone, cloud and glass, the two come apart
+          precisely when people stop paying attention:
+        </p>
+        <ul>
+          <li>
+            <strong>Winter.</strong> A long slant path through the atmosphere means
+            far more ozone in the way, which strips UVB while leaving UVA largely
+            intact. The UV&nbsp;Index collapses; UVA falls modestly. See
+            <a href="does-uva-change-with-the-seasons.html">seasonal UVA</a>.
+          </li>
+          <li>
+            <strong>Behind glass.</strong> Ordinary window glass removes nearly all
+            UVB, so the effective UV&nbsp;Index indoors is about zero — while a
+            large fraction of UVA continues through. See
+            <a href="does-glass-block-uva.html">does glass block UVA</a>.
+          </li>
+          <li>
+            <strong>Under cloud.</strong> Cloud attenuates the UVB-dominated
+            erythemal band more than it attenuates UVA, so the ratio shifts again.
+            See <a href="uva-on-cloudy-days.html">UVA on cloudy days</a>.
+          </li>
+          <li>
+            <strong>Early and late in the day.</strong> The same air-mass argument
+            as winter, compressed into a few hours. See
+            <a href="what-time-is-uva-highest.html">what time UVA peaks</a>.
+          </li>
+        </ul>
+        <p>
+          In every one of those cases a low UV&nbsp;Index is telling the truth
+          about sunburn risk and giving a misleading impression about ultraviolet
+          exposure in general — which is the entire reason this site computes a
+          <a href="what-is-a-good-uva-index.html">separate UVA Index</a>.
+        </p>
+
+        <h2>Reading the two together</h2>
+        <p>
+          The most useful habit is to treat them as answering two different
+          questions rather than competing for the same one.
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Question</th><th>Number to look at</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Will I burn today?</td><td>UV Index</td></tr>
+            <tr><td>Do I need protection right now, for sunburn?</td><td>UV Index ≥ 3</td></tr>
+            <tr><td>Am I accumulating photoaging and pigmentation dose?</td><td>UVA Index</td></tr>
+            <tr><td>Does my commute or desk by the window matter?</td><td>UVA Index</td></tr>
+            <tr><td>Will I make vitamin D?</td><td>UV Index (it is the UVB proxy)</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          That last row is worth dwelling on, because it is the cleanest
+          illustration of the split: vitamin D synthesis is driven by UVB and
+          therefore tracks the UV&nbsp;Index closely, while UVA contributes
+          none of it — a point developed in
+          <a href="uva-and-vitamin-d.html">UVA and vitamin D</a>. The calculator
+          on this site shows the live UV&nbsp;Index alongside the UVA Index for
+          exactly this reason: seeing them together makes the divergence obvious.
+        </p>
+
+        <a class="cta" href="../">Compare it with the UVA Index for your location →</a>
+      </article>
+
+      <aside class="related">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="uv-index-vs-uva-index.html">What the UV Index measures — and why we need a UVA Index</a></li>
+          <li><a href="what-is-a-good-uva-index.html">What is a good UVA Index? Reading the scale</a></li>
+          <li><a href="uva-vs-uvb.html">UVA vs UVB: what's the difference?</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href="https://uvaindex.org/about.html">About page</a>.
+        </p>
+      </footer>
+    </main>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('../sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>

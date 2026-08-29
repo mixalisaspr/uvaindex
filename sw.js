@@ -11,7 +11,7 @@
 // SHELL is derived from content/learn/*.html; CACHE is a hash of SHELL so it
 // only changes when the actual set of precached paths changes.
 
-const CACHE = 'uvaindex-shell-5db4c3860c';
+const CACHE = 'uvaindex-shell-737ae567d3';
 
 const SHELL = [
     "./",
@@ -33,20 +33,30 @@ const SHELL = [
     "./learn/",
     "./learn/index.html",
     "./learn/dangers-of-uva.html",
+    "./learn/does-clothing-block-uva.html",
     "./learn/does-glass-block-uva.html",
     "./learn/does-uva-change-with-the-seasons.html",
+    "./learn/does-uva-tan-or-burn.html",
+    "./learn/how-to-measure-uva.html",
     "./learn/how-uva-index-is-calculated.html",
     "./learn/indoor-uva-nail-lamps-tanning-beds.html",
     "./learn/reflected-uva-snow-sand-water.html",
+    "./learn/sunscreen-application-uva-protection.html",
+    "./learn/uv-index-scale-explained.html",
     "./learn/uv-index-vs-uva-index.html",
+    "./learn/uva-and-skin-aging.html",
+    "./learn/uva-and-vitamin-d.html",
     "./learn/uva-and-your-eyes.html",
     "./learn/uva-at-altitude.html",
+    "./learn/uva-by-latitude-and-location.html",
     "./learn/uva-melasma-and-skin-tone.html",
     "./learn/uva-on-cloudy-days.html",
     "./learn/uva-photosensitivity-medications.html",
     "./learn/uva-sunscreen-labels-explained.html",
     "./learn/uva-vs-uvb.html",
+    "./learn/what-is-a-good-uva-index.html",
     "./learn/what-is-uva-radiation.html",
+    "./learn/what-time-is-uva-highest.html",
     "./learn/tags/",
     "./learn/tags/index.html",
     "./learn/tags/basics.html",

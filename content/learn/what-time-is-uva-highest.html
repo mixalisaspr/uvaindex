@@ -1,0 +1,229 @@
+<!--meta
+{
+  "slug": "what-time-is-uva-highest",
+  "title": "What Time Is UVA Highest? The Daily UVA Curve, Hour by Hour",
+  "headline": "What time is UVA highest? The daily curve",
+  "description": "UVA peaks at solar noon — but its curve is far flatter than the UV Index's, so mornings and late afternoons carry proportionally much more UVA. Hour-by-hour numbers, why the shadow rule fails, and why solar noon is rarely 12:00.",
+  "keywords": ["what time is UV highest", "UV index by hour", "is UV high in the morning", "when is UVA strongest", "solar noon", "UV safe hours", "shadow rule UV"],
+  "schema_type": "Article",
+  "date_published": "2026-08-29",
+  "date_modified": "2026-08-29",
+  "tags": ["environment", "basics"],
+  "order": 8,
+  "og_title": "What Time Is UVA Highest?",
+  "og_description": "UVA's daily curve is much flatter than the UV Index's. At four hours from solar noon you have lost 63% of the burning UV but only 42% of the UVA.",
+  "jsonld_description": "How surface UVA varies through the day: the cos(zenith) falloff, an hour-by-hour comparison against erythemal UV, why the 10-to-4 rule and the shadow rule are UVB rules, and how to find true solar noon.",
+  "faq": [
+    {
+      "question": "What time of day is UVA highest?",
+      "answer": "UVA peaks at solar noon — the moment the sun is highest, which is rarely 12:00 on the clock. What distinguishes UVA is how slowly it falls away either side: four hours from solar noon it is still around 58% of its peak, whereas erythemal UV has dropped to about 37%."
+    },
+    {
+      "question": "Is UV high in the morning?",
+      "answer": "In burning terms, not very — erythemal UV at three hours before solar noon is roughly 59% of peak. In UVA terms, considerably more so: about 75% of peak at the same moment. Morning and late afternoon sun is disproportionately UVA-rich, because the long atmospheric path removes UVB far more effectively than UVA."
+    },
+    {
+      "question": "Does the shadow rule work for UVA?",
+      "answer": "Only loosely. The rule — if your shadow is shorter than you are tall, UV is strong — marks a solar zenith angle of 45°, which at mid-latitude midsummer is about three and a quarter hours either side of solar noon. Outside that window erythemal UV really has fallen sharply, but UVA is still running at over half its peak, so a \"safe\" shadow does not mean a low UVA dose."
+    }
+  ],
+  "related_pins": ["what-is-a-good-uva-index", "does-uva-change-with-the-seasons", "how-uva-index-is-calculated"],
+  "cta_text": "See today's hourly UVA curve for your location →",
+  "cta_href": "../",
+  "breadcrumb_label": "What time is UVA highest?",
+  "draft": false
+}
+-->
+<h1>What time is UVA highest? The daily curve</h1>
+<p class="lead">
+  UVA peaks at solar noon, for the same reason everything else in the sky
+  does: that is when the sun is highest and its light takes the shortest
+  path through the atmosphere. The interesting part is not the peak. It is
+  the <em>shape</em> — UVA's daily curve is markedly flatter than the
+  UV&nbsp;Index's, which means every piece of familiar timing advice you
+  have absorbed is calibrated for the wrong waveband.
+</p>
+
+<div class="callout">
+  <strong>The headline:</strong> four hours either side of solar noon,
+  erythemal UV has fallen to about <strong>37%</strong> of its peak — but
+  UVA is still at <strong>58%</strong>. Relative to noon, late-afternoon
+  sunlight is roughly <strong>1.6× richer in UVA</strong>.
+</div>
+
+<h2>Why the curve has the shape it does</h2>
+<p>
+  Both bands weaken as the sun drops, for two separate reasons. The first
+  is purely geometric: a beam striking the ground at an angle spreads the
+  same energy over a larger area. That effect is proportional to the cosine
+  of the solar zenith angle and it treats every wavelength identically.
+</p>
+<p>
+  The second reason is absorption, and it does not treat wavelengths
+  equally. As the sun drops, sunlight travels through progressively more
+  atmosphere — the <strong>air mass</strong> rises — and every extra
+  kilometre of path is more ozone in the way. Ozone absorbs strongly in the
+  UVB and only very weakly in the UVA. So the lengthening path punishes the
+  burning band far more than the ageing one.
+</p>
+<p>
+  Combining both, surface irradiance falls roughly as a power of the cosine
+  of the zenith angle, with a different exponent per band. This site's
+  model uses <strong>cos(z)<sup>1.2</sup></strong> for UVA. Erythemal UV
+  behaves more like <strong>cos(z)<sup>2.2</sup></strong>, because the
+  ozone term compounds with the geometry. That one-exponent difference is
+  the whole story.
+</p>
+
+<h2>Hour by hour</h2>
+<p>
+  The table below is a clear-sky midsummer day at 40°&nbsp;N — southern
+  Europe, the northern Mediterranean, New York, Beijing. Values are
+  percentages of each band's own noon peak, so the columns are directly
+  comparable in shape rather than magnitude.
+</p>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>From solar noon</th><th>Sun's zenith angle</th><th>UVA (% of peak)</th><th>Erythemal UV (% of peak)</th><th>UVA enrichment</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>0 h</td><td>17°</td><td>100%</td><td>100%</td><td>1.00×</td></tr>
+    <tr><td>±1 h</td><td>21°</td><td>97%</td><td>95%</td><td>1.03×</td></tr>
+    <tr><td>±2 h</td><td>30°</td><td>88%</td><td>80%</td><td>1.11×</td></tr>
+    <tr><td>±3 h</td><td>41°</td><td>75%</td><td>59%</td><td>1.27×</td></tr>
+    <tr><td>±4 h</td><td>53°</td><td>58%</td><td>37%</td><td>1.58×</td></tr>
+    <tr><td>±5 h</td><td>64°</td><td>39%</td><td>18%</td><td>2.19×</td></tr>
+    <tr><td>±6 h</td><td>75°</td><td>21%</td><td>6%</td><td>3.75×</td></tr>
+    <tr><td>±7 h</td><td>86°</td><td>5%</td><td>0.4%</td><td>13×</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  In absolute terms that noon peak is a UVA Index of about
+  <strong>10.5</strong> under a clear sky at sea level — firmly in the
+  Very&nbsp;High band. Three hours later it is still around
+  <strong>7.8</strong> — the top of the High band. Even four hours out it
+  reads about <strong>6.0</strong>, still scraping High, and only at five
+  hours does a clear midsummer sky finally fall to
+  <strong>4.1</strong>, or Moderate. The
+  <a href="what-is-a-good-uva-index.html">band descriptions</a> spell out
+  what each of those levels is worth doing about.
+</p>
+<div class="callout">
+  <strong>The "UVA enrichment" column is the practical result.</strong>
+  Late in the day the ultraviolet reaching you has not just diminished — it
+  has changed composition. What remains is disproportionately the band that
+  causes photoaging and pigmentation, and disproportionately not the band
+  that makes you notice.
+</div>
+
+<h2>Why "avoid 10 to 4" is a UVB rule</h2>
+<p>
+  The standard advice to stay out of the sun between 10:00 and 16:00 is
+  sound public-health messaging and it is aimed squarely at sunburn. Read
+  the erythemal column: the window really does capture the great majority
+  of burning UV, so as burn-avoidance advice it works.
+</p>
+<p>
+  As UVA advice it is much weaker. Take a mid-latitude midsummer day where
+  solar noon falls at 13:00. The six hours from 10:00 to 16:00 contain most
+  of the erythemal dose — but the hours from 08:00 to 10:00 and 16:00 to
+  18:00, which the rule treats as free, are running at roughly 40–75% of
+  peak UVA. An hour outside at 17:00 is not a UVA-free hour. It is most of
+  a midday hour with the warning signals removed.
+</p>
+<p>
+  The same reasoning applies to the <strong>shadow rule</strong> — if your
+  shadow is longer than you are tall, UV is supposedly low. That marks a
+  zenith angle of 45°, which the table puts at about three and a quarter
+  hours from solar noon. Beyond it, erythemal UV genuinely is falling away
+  fast. UVA is still above half its peak.
+</p>
+
+<h2>Solar noon is not 12:00</h2>
+<p>
+  Everything above is measured from <strong>solar noon</strong> — the
+  instant the sun crosses your local meridian. On the clock this can sit a
+  long way from midday, and three separate effects stack up:
+</p>
+<ul>
+  <li>
+    <strong>Daylight saving time</strong> moves solar noon an hour later,
+    to around 13:00 through the whole summer. This alone means the true
+    peak sits closer to the start of a typical lunch break than to noon.
+  </li>
+  <li>
+    <strong>Your longitude within your time zone.</strong> Time zones are
+    an hour wide but political. At the western edge of a zone the sun runs
+    late. Spain keeps Central European Time despite sitting on Greenwich's
+    longitude, so summer solar noon in Galicia arrives after 14:30. China
+    runs a single time zone across five zones' worth of longitude; in
+    Kashgar solar noon is close to 15:00.
+  </li>
+  <li>
+    <strong>The equation of time</strong> — the Earth's orbit is elliptical
+    and its axis tilted, so solar noon drifts by up to about ±16 minutes
+    across the year regardless of anything else.
+  </li>
+</ul>
+<p>
+  The practical consequence: <strong>do not assume the UV peak is at
+  midday.</strong> In most of Europe in summer it is nearer 13:30, and in
+  parts of Spain and western China considerably later than that. The
+  calculator on this site works from your actual coordinates and the true
+  solar position, so the hourly chart shows where the peak really falls for
+  you rather than where the clock suggests.
+</p>
+
+<h2>What changes the shape</h2>
+<p>
+  The clean curve above assumes a clear sky. Reality distorts it in
+  predictable ways:
+</p>
+<ul>
+  <li>
+    <strong>Season flattens or sharpens it.</strong> In winter the sun
+    never gets high, so the whole curve is compressed and low — but
+    disproportionately UVA, because low sun means a long ozone path all
+    day. <a href="does-uva-change-with-the-seasons.html">Seasonal UVA</a>
+    works through the numbers.
+  </li>
+  <li>
+    <strong>Latitude sets the ceiling.</strong> Nearer the equator the noon
+    peak is higher and the curve broader.
+    <a href="uva-by-latitude-and-location.html">UVA by latitude</a> has the
+    comparison.
+  </li>
+  <li>
+    <strong>Cloud adds noise, not a trend.</strong> A passing cumulus field
+    can move the reading by a factor of two within minutes, and broken
+    cloud can briefly push it <em>above</em> the clear-sky line — see
+    <a href="uva-on-cloudy-days.html">UVA on cloudy days</a>.
+  </li>
+  <li>
+    <strong>Terrain truncates it.</strong> In a valley or a city street the
+    sun disappears behind an obstruction long before the geometric curve
+    says it should — though diffuse UVA from the open sky continues, which
+    is why shade is a partial measure rather than a complete one.
+  </li>
+  <li>
+    <strong>Morning and afternoon are not quite symmetric.</strong>
+    Convective cloud typically builds through the day and aerosol loading
+    often differs between morning and afternoon, so the real afternoon
+    limb usually sits a little below the morning one.
+  </li>
+</ul>
+
+<h2>Using this</h2>
+<p>
+  If you are trying to avoid burning, time-of-day avoidance is efficient:
+  the erythemal curve is sharply peaked, so a few hours of shade removes
+  most of the risk. If you are trying to limit UVA — for photoaging,
+  melasma, a photosensitivity condition, or eye exposure — timing is a much
+  blunter instrument, because the curve you are fighting is broad. There
+  the answer is not scheduling but <strong>barriers</strong>: sunscreen,
+  <a href="does-clothing-block-uva.html">clothing</a> and
+  <a href="uva-and-your-eyes.html">UV400 lenses</a>, which work equally
+  well at 09:00 and 13:00.
+</p>

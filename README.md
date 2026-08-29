@@ -123,7 +123,7 @@ avoids any module/CORS quirks. Deployable as-is to GitHub Pages.
 
 ## Sanity checks
 
-- Clear midday sun → ~45–66 W/m² ("Very High"/"Extreme").
+- Clear midday sun → ~45–66 W/m², i.e. a UVA Index of ~7.5–11 ("High" to "Extreme").
 - Night → 0 W/m².
 - Heavy overcast → sharp drop.
 - Higher altitude → higher UVA for the same sun angle.
