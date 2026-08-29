@@ -41,7 +41,11 @@ The Knowledge Base is generated from `content/learn/*.html` by
 You author one structured content file; the script regenerates every
 `learn/*.html` page, `learn/index.html`, `learn/tags/*`, `sitemap.xml` and
 `sw.js` from it. `learn/*.html`, `sitemap.xml` and `sw.js` are generated
-output — don't hand-edit them, your changes will be overwritten.
+output — don't hand-edit them, your changes will be overwritten. The same
+applies to the primary `<nav>` in `index.html` and `about.html`: it is
+generated from `templates/_site_nav.tmpl.html` into the region marked by
+`<!-- site-nav:start -->` / `<!-- site-nav:end -->`, so change the nav there
+and re-run the script.
 
 To add an article:
 

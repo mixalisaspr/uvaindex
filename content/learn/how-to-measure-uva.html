@@ -1,0 +1,255 @@
+<!--meta
+{
+  "slug": "how-to-measure-uva",
+  "title": "How to Measure UVA: Meters, UV Cards and Why Phones Can't",
+  "headline": "How to measure UVA yourself: meters, cards and phone myths",
+  "description": "What it takes to actually measure UVA — spectroradiometers, broadband radiometers, cheap consumer meters and photochromic cards — where each fails, why no smartphone can measure ultraviolet, and how to sanity-check any reading.",
+  "keywords": ["UV meter", "how to measure UV index", "UV sensor card", "can my phone measure UV", "UVA meter", "UV beads", "spectroradiometer UV", "UV dosimeter"],
+  "schema_type": "TechArticle",
+  "date_published": "2026-08-29",
+  "date_modified": "2026-08-29",
+  "tags": ["technical", "methodology"],
+  "order": 25,
+  "og_title": "How to Measure UVA Yourself",
+  "og_description": "From £50,000 spectroradiometers to £15 pocket meters and colour-changing beads — what each one really tells you, and why your phone tells you nothing.",
+  "jsonld_description": "A technical guide to measuring ultraviolet A: instrument classes from spectroradiometers to consumer photodiode meters, the spectral-response and cosine-response errors that dominate cheap devices, why smartphones cannot sense UV, and how to validate a reading against modelled values.",
+  "faq": [
+    {
+      "question": "Can my phone measure UV?",
+      "answer": "No. No mainstream smartphone contains a UV sensor. The ambient-light sensor responds to visible light and is filtered against infrared; the camera sits behind a UV/IR-cut filter, and the lens glass would block most UVA even without it. Apps that display a UV index are downloading a forecast for your coordinates from a weather API — which is useful, but it is a prediction for your area, not a measurement of your surroundings."
+    },
+    {
+      "question": "Are cheap UV meters accurate?",
+      "answer": "For relative comparisons, often adequate. For absolute values, frequently not. The two dominant errors are spectral mismatch — the detector-and-filter combination only approximates the response curve it claims — and poor cosine response, where light arriving at an angle is under-counted because the sensor lacks a proper diffuser. Both errors grow exactly when the spectrum departs from clear midday sun: under cloud, at low sun angles, indoors and under artificial lamps."
+    },
+    {
+      "question": "How do I check whether a UV reading is plausible?",
+      "answer": "Run four tests. It should read zero at night. It should peak at solar noon, not clock noon. Through a closed window it should drop sharply if it is erythemally weighted, and far less if it genuinely measures UVA. And its daily curve should be a smooth broad arc. A device failing any of these is not measuring what it claims."
+    }
+  ],
+  "related_pins": ["how-uva-index-is-calculated", "uv-index-vs-uva-index", "what-is-a-good-uva-index"],
+  "cta_text": "Compare your meter against the modelled UVA Index →",
+  "cta_href": "../",
+  "breadcrumb_label": "How to measure UVA",
+  "draft": false
+}
+-->
+<h1>How to measure UVA yourself: meters, cards and phone myths</h1>
+<p class="lead">
+  This site <em>models</em> UVA rather than measuring it, for a reason
+  worth being upfront about: measuring ultraviolet properly is genuinely
+  hard, and the instruments that do it well cost more than a car. What
+  follows is an honest survey of what is available, what each class of
+  device actually tells you, and how to tell a real reading from a
+  plausible-looking number.
+</p>
+
+<h2>The instrument classes</h2>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Instrument</th><th>What it does</th><th>Typical cost</th><th>Good for</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Scanning spectroradiometer</td><td>Resolves irradiance wavelength by wavelength</td><td>£30,000–100,000+</td><td>Reference measurement; any weighting computed afterwards</td></tr>
+    <tr><td>Broadband radiometer</td><td>Filter and detector shaped to one target response curve</td><td>£1,500–6,000</td><td>Continuous monitoring of a single defined band</td></tr>
+    <tr><td>Consumer photodiode meter</td><td>Silicon, SiC or GaN photodiode plus filter</td><td>£15–300</td><td>Relative comparisons; spotting gross differences</td></tr>
+    <tr><td>Photochromic card or bead</td><td>Dye darkens on UV exposure</td><td>£1–10</td><td>Demonstrating that UV exists; teaching</td></tr>
+    <tr><td>Polysulphone film badge</td><td>Absorbance shift integrates cumulative dose</td><td>Low, per badge</td><td>Personal dose studies over hours or days</td></tr>
+    <tr><td>Smartphone</td><td>Nothing — no UV sensor exists in the hardware</td><td>—</td><td>Displaying a forecast, not a measurement</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>The reference: spectroradiometers</h2>
+<p>
+  A double-monochromator spectroradiometer disperses incoming light and
+  measures each narrow wavelength slice separately, typically from around
+  290&nbsp;nm to 400&nbsp;nm or beyond. Because it produces the whole
+  spectrum, any weighting can be applied afterwards in software: erythemal
+  for a <a href="uv-index-scale-explained.html">UV&nbsp;Index</a>,
+  vitamin&nbsp;D for a synthesis rate, or no weighting at all for the
+  unweighted 315–400&nbsp;nm integral this site calls UVA.
+</p>
+<p>
+  That flexibility is exactly why it is the reference. Every other device
+  bakes one weighting into hardware and cannot be re-purposed. The
+  drawbacks are cost, size, the need for regular calibration against
+  traceable standard lamps, temperature stabilisation, and scan times long
+  enough that a passing cloud can corrupt a measurement.
+</p>
+
+<h2>Broadband radiometers</h2>
+<p>
+  These use a stack of optical filters and a detector engineered so the
+  combined response approximates one target curve. Two kinds matter here:
+</p>
+<ul>
+  <li>
+    <strong>Erythemal biometers</strong> approximate the CIE sunburn action
+    spectrum. These are what most national UV monitoring networks deploy,
+    and what most published "UV Index" observations come from.
+  </li>
+  <li>
+    <strong>UVA radiometers</strong> aim for a flat response across roughly
+    315–400&nbsp;nm. These measure the quantity this site models, and are
+    the only affordable instruments that do.
+  </li>
+</ul>
+<p>
+  They are robust, weatherproof and log continuously. Their weakness is
+  that the response curve is only ever an approximation, and it drifts as
+  filters age — which is why serious deployments recalibrate annually
+  against a spectroradiometer.
+</p>
+
+<h2>Consumer meters: what you are actually buying</h2>
+<p>
+  A pocket UV meter is a photodiode, a filter, and a microcontroller
+  applying a conversion factor. Whether the number it shows means anything
+  depends on three things that datasheets rarely mention.
+</p>
+<ul>
+  <li>
+    <strong>Detector chemistry.</strong> Plain silicon photodiodes respond
+    strongly across the visible and near-infrared, so they depend entirely
+    on filtering to reject perhaps 99.9% of the light actually hitting
+    them — a demanding requirement met unevenly at low cost. Silicon
+    carbide and gallium nitride detectors are intrinsically
+    <em>visible-blind</em>: their bandgap means they barely respond above
+    the ultraviolet at all. A meter specifying SiC or GaN is a
+    substantially better instrument than one that does not specify.
+  </li>
+  <li>
+    <strong>Cosine response.</strong> A flat sensor must count light
+    arriving at 60° from vertical at half the weight of light arriving
+    straight down, because that is how irradiance onto a horizontal surface
+    works. Achieving this requires a properly shaped diffuser. Cheap meters
+    with a bare window under-read low-angle light badly — precisely the
+    diffuse skylight that carries a large share of UVA.
+  </li>
+  <li>
+    <strong>Spectral assumption.</strong> Most consumer meters display a
+    "UV index", derived from a single broadband reading by assuming a
+    standard clear-sky solar spectrum. Change the spectrum and the
+    assumption fails. Under cloud, at low sun, behind glass, or under a
+    nail lamp or sunbed, the true spectral shape is nothing like the
+    assumed one, and the displayed index can be wrong by a wide margin —
+    in either direction.
+  </li>
+</ul>
+<div class="callout">
+  <strong>The practical rule:</strong> treat a consumer meter as a
+  comparator, not a calibrated instrument. "Is it brighter here than
+  there?", "did the film help?", "how much does this canopy cut?" are
+  questions it answers well. "What is the absolute UVA irradiance in
+  W/m²?" is not.
+</div>
+
+<h2>Cards, beads and badges</h2>
+<p>
+  Photochromic UV cards and the beads sold for classroom demonstrations
+  contain spiropyran or spirooxazine dyes that change colour on ultraviolet
+  exposure. They are excellent for making an invisible thing visible — put
+  a bead behind a window and behind sunscreen and the difference is
+  immediate and convincing.
+</p>
+<p>
+  What they cannot do is quantify. The response is non-linear, saturates
+  quickly, resets over time, drifts with temperature, and its spectral
+  sensitivity is a property of the dye rather than anything standardised.
+  Two cards from different manufacturers will disagree, and neither is
+  weighted to any recognised curve.
+</p>
+<p>
+  <strong>Polysulphone film dosimetry</strong> is the serious version of
+  the same idea. A thin film worn as a badge changes optical absorbance in
+  proportion to cumulative UV dose, read out afterwards in a
+  spectrophotometer. Its response is a rough approximation of the erythemal
+  curve, which makes it the classic tool for personal sunburn-dose studies
+  — and, for the same reason, a poor instrument for UVA specifically.
+</p>
+
+<h2>Why your phone cannot do this</h2>
+<p>
+  This deserves stating plainly because the app stores suggest otherwise.
+  <strong>No mainstream smartphone contains a UV sensor.</strong> Three
+  independent barriers stand in the way:
+</p>
+<ul>
+  <li>
+    <strong>The ambient-light sensor</strong> is designed to track
+    perceived brightness for screen dimming. It is filtered to approximate
+    the human photopic response and to reject infrared. It has no
+    ultraviolet channel.
+  </li>
+  <li>
+    <strong>The camera sensor</strong> sits behind a UV/IR-cut filter,
+    fitted precisely to stop non-visible light from degrading colour
+    accuracy.
+  </li>
+  <li>
+    <strong>The lens</strong> is glass or optical plastic, which absorbs
+    strongly through the UVA range on its own — the same physics covered in
+    <a href="does-glass-block-uva.html">does glass block UVA</a>.
+  </li>
+</ul>
+<p>
+  So any app showing a UV number is doing what this site's calculator does:
+  taking your coordinates and retrieving or computing a value. That is a
+  legitimate and useful thing to do — it is simply not measurement, and an
+  app that implies otherwise by asking you to point your phone at the sky
+  is misrepresenting itself. Clip-on and Bluetooth UV accessories are a
+  different matter: those contain real photodiodes and are subject to the
+  same caveats as any other consumer meter.
+</p>
+
+<h2>Sanity-checking any reading</h2>
+<p>
+  Whatever device you have, these five checks will expose most problems
+  without any reference equipment:
+</p>
+<ol>
+  <li><strong>Night reads zero.</strong> A non-zero night reading means stray light, an offset error or infrared leakage.</li>
+  <li><strong>The peak lands at solar noon</strong>, which is often an hour or more from clock noon — see <a href="what-time-is-uva-highest.html">what time UVA is highest</a>. A peak at 12:00 sharp during daylight saving is a sign the device is reporting a modelled value rather than sensing one.</li>
+  <li><strong>The daily curve is a smooth broad arc</strong>, not a plateau or a step. Steps suggest coarse internal quantisation.</li>
+  <li><strong>Behind a closed window, the reading behaves diagnostically.</strong> An erythemally weighted device should collapse toward zero, because glass removes nearly all UVB. A true UVA device should retain a large fraction. If your "UVA meter" reads near zero indoors by a sunlit window, it is not measuring UVA.</li>
+  <li><strong>Shade drops it, but not to zero.</strong> Step into full shade with open sky above and a correct instrument still reads substantially — that is diffuse skylight. A device that reads near zero in open shade has a broken cosine response.</li>
+</ol>
+
+<h2>Comparing a meter against this site</h2>
+<p>
+  If you want to check a UVA meter against the
+  <a href="how-uva-index-is-calculated.html">modelled value</a> here, three
+  things have to line up first:
+</p>
+<ul>
+  <li>
+    <strong>Match the quantity.</strong> The model outputs unweighted
+    irradiance over roughly 315–400&nbsp;nm in W/m², and the
+    <a href="what-is-a-good-uva-index.html">UVA Index</a> is that figure
+    divided by six. A meter reporting an erythemal "UV index" is measuring
+    a different physical quantity and no agreement should be expected.
+  </li>
+  <li>
+    <strong>Match the geometry.</strong> The model assumes irradiance onto
+    a horizontal surface. Hold the sensor level, facing straight up, away
+    from walls and reflective ground.
+  </li>
+  <li>
+    <strong>Choose the right conditions.</strong> Compare under clear sky
+    with the sun well up. Under broken cloud the model is
+    attenuation-only and cannot reproduce
+    <a href="uva-on-cloudy-days.html">cloud enhancement</a>, so real
+    readings can legitimately exceed it.
+  </li>
+</ul>
+<p>
+  Under those conditions, agreement within roughly 20% would be a good
+  result for a modelled value against a consumer instrument — and if you
+  find a systematic offset with a properly calibrated device, that is
+  genuinely useful information. The model's coefficients all live in one
+  block of <code>js/uva.js</code> specifically so they can be recalibrated
+  against real measurements, and the project welcomes that kind of
+  contribution.
+</p>
