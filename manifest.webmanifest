@@ -1,5 +1,5 @@
 {
-  "name": "UVA Index — Live UVA Irradiance Calculator",
+  "name": "UVA Index — Live UVA Index Calculator",
   "short_name": "UVA Index",
   "description": "A live UVA Index for any location and time — estimated surface UVA irradiance from real-time sun position and weather.",
   "id": "/",

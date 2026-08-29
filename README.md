@@ -76,7 +76,8 @@ sitemap.xml    # GENERATED sitemap (calculator + knowledge-base pages) for searc
 plain English and supports the calculator's premise. It reuses `styles.css` and
 the root service worker (so the articles also work offline).
 
-`learn/*.html`, `learn/index.html`, `learn/tags/*`, `sitemap.xml` and `sw.js`
+`learn/*.html`, `learn/index.html`, `learn/tags/*`, `sitemap.xml`, `sw.js` and
+the primary `<nav>` inside `index.html` and `about.html`
 are **generated** by `scripts/build_kb.py` (standard-library Python only, no
 new dependency) from source content in `content/learn/*.html` — one file per
 article, a small JSON metadata header followed by the article body. This
@@ -90,6 +91,12 @@ content/learn/_template.html # starting point for a new article
 content/learn/<slug>.html    # one file per article: JSON meta header + body HTML
 scripts/build_kb.py          # generator: content/ -> learn/, sitemap.xml, sw.js
 ```
+
+The three pages carrying the primary navigation — `index.html`, `about.html`
+and the generated Knowledge Base hub — share a single source for it,
+`templates/_site_nav.tmpl.html`. In the two hand-maintained pages the nav sits
+between `<!-- site-nav:start -->` and `<!-- site-nav:end -->` markers that the
+generator rewrites; edit the template, not the pages.
 
 Each article's metadata controls its `<head>` (title, description, OG/Twitter
 tags), its `Article`/`TechArticle` and `BreadcrumbList` JSON-LD (and
