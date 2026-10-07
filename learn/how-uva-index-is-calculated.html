@@ -4,22 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6Z9PMH6V0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-Y6Z9PMH6V0');
-    </script>
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
 
     <title>How the UVA Index Is Calculated — Model, Parameters &amp; Limitations</title>
     <meta
       name="description"
       content="The full method behind our UVA Index: how surface UVA irradiance (315–400 nm, W/m²) is derived from solar geometry plus live cloud, aerosol and altitude data, the exact formulas and coefficients used, and which factors we deliberately leave out."
     />
-    <meta name="keywords" content="UVA index calculation, UVA irradiance model, surface UVA, solar zenith angle, aerosol optical depth, clear-sky UVA, UVA methodology, how UVA index works" />
     <meta name="author" content="uvaindex.org" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0f1724" />
@@ -54,7 +47,7 @@
           "name": "uvaindex.org"
         },
         "datePublished": "2026-06-27",
-        "dateModified": "2026-08-29",
+        "dateModified": "2026-10-07",
         "mainEntityOfPage": "https://uvaindex.org/learn/how-uva-index-is-calculated.html"
       }
     </script>
@@ -85,7 +78,7 @@
             "name": "Why does the model ignore ozone?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Because ozone barely affects UVA. Ozone absorbs strongly in the UVB and only very weakly across the UVA band, so the model gives it an exponent of just 0.05 — halving the ozone column would change modelled UVA by a few percent while roughly doubling erythemal UV. In practice the term runs unused, because the free data source exposes surface ozone in µg/m³ rather than the total-column Dobson Units the term needs. Ozone is shown for information only."
+              "text": "Because ozone barely affects UVA. Ozone absorbs strongly in the UVB and only very weakly across the UVA band, halving the ozone column would change UVA by only a few percent while roughly doubling erythemal UV. The free data source also only exposes surface ozone in µg/m³, not the total-column Dobson Units such a term would need, so the model leaves ozone out entirely. Surface ozone is shown for information only."
             }
           }
         ]
@@ -367,9 +360,14 @@
         </table>
         </div>
         <p>
-          The same model is also evaluated at every hour of the day to draw the
-          <em>UVA Index through the day</em> chart, using each hour's own cloud and
-          aerosol values.
+          The same model also draws the <em>UVA forecast</em>: it is evaluated
+          every 15 minutes across today and the next four days (in the location's
+          own time zone), with the sun's position computed exactly at each step and
+          the hourly cloud and aerosol values interpolated between hours. Each
+          day's peak and the span when the UVA Index is Moderate (3) or higher come
+          from that curve. The air-quality forecast that supplies the UV Index and
+          aerosol only reaches about four to five days ahead; beyond that the model
+          falls back to its cloud-cover curve, so later days are rougher.
         </p>
 
         <h2 id="omitted">What we don't take into account</h2>
@@ -382,10 +380,10 @@
         <ul>
           <li>
             <strong>Total-column ozone.</strong> Ozone absorbs mostly UVB and only
-            weakly affects UVA. The model has an ozone term but the free
-            air-quality feed reports <em>surface</em> ozone (µg/m³), not the
-            total-column Dobson Units the term needs — so we leave it at no-effect
-            and show surface ozone for information only.
+            weakly affects UVA, and the free air-quality feed reports
+            <em>surface</em> ozone (µg/m³), not the total-column Dobson Units an
+            ozone term would need — so the model leaves ozone out and shows surface
+            ozone for information only.
           </li>
           <li>
             <strong>Direct vs diffuse split.</strong> We model the total UVA
@@ -461,6 +459,7 @@
       <footer>
         <p class="disclaimer">
           Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href="https://uvaindex.org/about.html">About page</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie settings</button>
         </p>
       </footer>
     </main>

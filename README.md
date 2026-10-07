@@ -28,9 +28,9 @@ It's **free, ad-free and open source** — live at
    - **Aerosol optical depth** — Beer–Lambert attenuation with air mass.
    - **Cloud cover** — empirical transmission factor.
    - **Surface albedo** — small enhancement for snow/sand.
-   - Total-column ozone has only a weak effect on UVA and is omitted (Open-Meteo
-     exposes surface ozone in µg/m³, not the Dobson Units the term needs); it is
-     shown for information only.
+   - Total-column ozone has only a weak effect on UVA and is not modelled
+     (Open-Meteo exposes surface ozone in µg/m³, not total-column Dobson Units);
+     it is shown for information only.
 4. The result is cross-checked against the API's UV Index, which should rise and
    fall together with UVA.
 
@@ -44,9 +44,10 @@ and the factors deliberately left out — is written up for end users at
 | Need | Source |
 |------|--------|
 | Place search / coordinates | Open-Meteo Geocoding API |
-| Cloud cover, surface pressure, elevation | Open-Meteo Forecast API |
-| UV Index, aerosol optical depth, ozone, dust | Open-Meteo Air-Quality API |
+| Cloud cover, elevation | Open-Meteo Forecast API |
+| UV Index, aerosol optical depth, ozone | Open-Meteo Air-Quality API |
 | Auto location | Browser Geolocation API |
+| Place name for GPS coordinates | BigDataCloud reverse geocoding (client API) |
 
 ## Files
 
@@ -56,9 +57,13 @@ about.html     # About page: why a UVA Index, why it isn't official, how to use 
 styles.css     # responsive dark styling (calculator + knowledge base)
 js/solar.js    # solar zenith angle (NOAA algorithm), pure functions
 js/uva.js      # hybrid UVA model + qualitative bands, pure functions
-js/api.js      # Open-Meteo fetch helpers (point value + full-day hourly series)
-js/chart.js    # inline SVG chart of the UVA Index through the day, pure functions
+js/tz.js       # IANA timezone helpers (local midnight, DST-length days), pure
+js/api.js      # Open-Meteo fetch helpers (multi-day hourly window, merged)
+js/forecast.js # model over time: "now", 15-min daily curves, peak + protection window
+js/chart.js    # inline SVG chart of one local day of the UVA Index, pure functions
 js/app.js      # orchestration: wire UI, fetch, compute, render
+js/consent.js  # analytics consent banner (EU/EEA, UK, CH) + Google Analytics loader
+tests/         # unit tests (node --test, no dependencies)
 learn/         # Knowledge Base: GENERATED educational articles about UVA (see below)
 content/       # Knowledge Base source content + site config (see below)
 templates/     # HTML/JS templates used to generate learn/, sitemap.xml, sw.js
@@ -110,9 +115,11 @@ run `python3 scripts/build_kb.py`, and commit the regenerated output —
 `.github/workflows/kb-build-check.yml` fails CI if it ever drifts from what
 `content/` would produce.
 
-The result view also plots the **UVA Index through the day**: the same model is
-evaluated at every available hour using that hour's cloud and aerosol data, so
-you can see when UVA peaks and how it tracks the sun. To regenerate `og-image.png`
+The result view also shows a **five-day UVA forecast** for the location's own
+calendar days: the same model is evaluated every 15 minutes (exact sun
+position, hourly cloud and aerosol data interpolated between hours), giving
+each day's peak, the span when the UVA Index is Moderate (3) or higher, and a
+chart of the selected day. To regenerate `og-image.png`
 after editing the SVG: `npx sharp-cli -i og-image.svg -o og-image.png resize 1200 630`.
 
 ## Run it
@@ -127,6 +134,18 @@ python3 -m http.server 8000
 
 Opening `index.html` directly also works in most browsers; a local server
 avoids any module/CORS quirks. Deployable as-is to GitHub Pages.
+
+## Tests
+
+The model, timezone, forecast, API and chart modules are pure functions with
+unit tests under `tests/`, run by Node's built-in test runner (Node 22+, no
+dependencies to install):
+
+```bash
+npm test
+```
+
+CI runs them on every pull request alongside the Knowledge Base build check.
 
 ## Sanity checks
 

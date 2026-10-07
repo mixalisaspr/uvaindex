@@ -8,8 +8,9 @@
 //  • Navigations fall back to the cached page when the network is unavailable.
 //
 // GENERATED FILE — do not edit by hand. Run `python3 scripts/build_kb.py`.
-// SHELL is derived from content/learn/*.html; CACHE is a hash of SHELL so it
-// only changes when the actual set of precached paths changes.
+// SHELL is derived from content/site.json and content/learn/*.html; CACHE is
+// a hash of SHELL *and the contents of every file in it*, so editing any
+// cached file (JS, CSS, a page) ships a new cache to returning visitors.
 
 const CACHE = '$CACHE';
 

@@ -148,7 +148,6 @@ def load_articles(errors: list[str]) -> list[dict]:
             "title": meta.get("title", ""),
             "headline": meta.get("headline", ""),
             "description": meta.get("description", ""),
-            "keywords": meta.get("keywords", []),
             "author": meta.get("author", "uvaindex.org"),
             "schema_type": schema_type,
             "date_published": date_published,
@@ -320,17 +319,13 @@ def render_breadcrumb_nav(crumbs: list[tuple]) -> str:
     return nav_tmpl.substitute(CRUMBS="".join(parts)).rstrip("\n")
 
 
-def render_head(site: dict, *, title, description, keywords, author, canonical, rel,
+def render_head(site: dict, *, title, description, author, canonical, rel,
                  og_type, og_title, og_description, og_image, jsonld_blocks) -> str:
-    keywords_meta = ""
-    if keywords:
-        keywords_meta = f'\n    <meta name="keywords" content="{esc(", ".join(keywords))}" />'
     head_tmpl = load_template("_head.tmpl.html")
     return head_tmpl.substitute(
         GA_ID=site["ga_id"],
         TITLE=esc(title),
         DESCRIPTION=esc(description),
-        KEYWORDS_META=keywords_meta,
         AUTHOR=esc(author),
         CANONICAL=esc(canonical),
         REL=rel,
@@ -365,7 +360,6 @@ def render_article(article: dict, all_articles: list[dict], site: dict) -> str:
         site,
         title=article["title"],
         description=article["description"],
-        keywords=article["keywords"],
         author=article["author"],
         canonical=canonical,
         rel="../",
@@ -461,7 +455,6 @@ def render_hub(articles: list[dict], site: dict) -> str:
         site,
         title="UVA Knowledge Base — Understanding UVA Radiation & the UV Index",
         description="Plain-English guides to UVA radiation: what UVA is, how UVA differs from UVB, the health dangers of UVA, and why the standard UV Index isn't enough — making the case for a dedicated UVA Index.",
-        keywords=["UVA radiation", "UVA vs UVB", "UVA dangers", "UV index explained", "UVA index", "what is UVA", "surface UVA"],
         author=site["org_name"],
         canonical=canonical,
         rel="../",
@@ -504,7 +497,6 @@ def render_tag_page(tag: str, tag_label: str, articles: list[dict], site: dict) 
         site,
         title=f"{tag_label} — UVA Knowledge Base",
         description=f"Knowledge Base articles about {tag_label.lower()}.",
-        keywords=[],
         author=site["org_name"],
         canonical=canonical,
         rel="../../",
@@ -540,7 +532,6 @@ def render_tags_index(tag_counts: list[tuple], site: dict) -> str:
         site,
         title="Browse by Topic — UVA Knowledge Base",
         description="Browse UVA Knowledge Base articles by topic.",
-        keywords=[],
         author=site["org_name"],
         canonical=canonical,
         rel="../../",
@@ -591,9 +582,31 @@ def compute_shell(articles: list[dict], tag_counts: list[tuple], site: dict) -> 
     return shell
 
 
-def render_sw(articles: list[dict], tag_counts: list[tuple], site: dict) -> str:
+def shell_content_hash(shell: list[str], rendered: dict[Path, str]) -> str:
+    """Hash the shell's paths AND the bytes behind them.
+
+    Any edit to a cached file (app JS, CSS, a regenerated article...) changes
+    the cache name, so returning visitors' service workers fetch the new shell
+    instead of serving stale files. Generated files are hashed as they are
+    about to be written; everything else is read from disk.
+    """
+    h = hashlib.sha256()
+    for shell_path in shell:
+        h.update(shell_path.encode("utf-8") + b"\0")
+        if shell_path.endswith("/"):
+            continue  # directory entries are served by their index.html
+        path = ROOT / shell_path[2:]
+        if path in rendered:
+            h.update(rendered[path].encode("utf-8"))
+        elif path.exists():
+            h.update(path.read_bytes())
+        h.update(b"\0")
+    return h.hexdigest()[:10]
+
+
+def render_sw(articles: list[dict], tag_counts: list[tuple], site: dict, rendered: dict[Path, str]) -> str:
     shell = compute_shell(articles, tag_counts, site)
-    cache_hash = hashlib.sha256(json.dumps(shell, sort_keys=False).encode("utf-8")).hexdigest()[:10]
+    cache_hash = shell_content_hash(shell, rendered)
     cache = f"uvaindex-shell-{cache_hash}"
     shell_json = json.dumps(shell, indent=2)
     # re-indent the JS array literal to match the template's 2-space body
@@ -671,7 +684,8 @@ def build(check: bool) -> int:
             rendered[ROOT / name] = patched
 
     rendered[ROOT / "sitemap.xml"] = render_sitemap(articles, tag_counts, site)
-    rendered[ROOT / "sw.js"] = render_sw(articles, tag_counts, site)
+    # Last: the cache name hashes every other shell file's final content.
+    rendered[ROOT / "sw.js"] = render_sw(articles, tag_counts, site, rendered)
 
     # SW shell paths must exist on disk (or be one of the files we're about to write).
     shell = compute_shell(articles, tag_counts, site)

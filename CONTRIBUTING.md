@@ -75,11 +75,15 @@ rather than generating broken output.
    dependency.
 4. If you change the model or its coefficients, explain the reasoning and cite
    any data sources.
-5. Test in a browser before submitting (the
+5. Run `npm test` (Node 22+, no install step) and add tests for model or
+   logic changes. Then check it in a browser (the
    [sanity checks](README.md#sanity-checks) in the README are a good start).
-6. If you add, remove or rename a Knowledge Base article, run
-   `python3 scripts/build_kb.py` and commit the regenerated output alongside
-   your `content/` change.
+6. After changing a Knowledge Base article **or any file the service worker
+   caches** (the JS, CSS, `index.html`, `about.html`, icons), run
+   `python3 scripts/build_kb.py` and commit the regenerated output. The
+   service-worker cache name is a hash of those files' contents, so this is
+   what makes returning visitors pick up your change; CI fails if it's
+   skipped.
 
 ## Code of conduct
 

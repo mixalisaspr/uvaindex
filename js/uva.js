@@ -4,7 +4,10 @@
 // erythemally-weighted UV Index, which is mostly UVB). So we DERIVE UVA
 // (unweighted, ~315-400 nm, in W/m2) from:
 //   1. solar geometry (zenith angle) -> clear-sky baseline
-//   2. live atmospheric corrections (altitude, ozone, aerosol, cloud, albedo)
+//   2. live atmospheric corrections (altitude, aerosol, cloud, albedo)
+//
+// Total-column ozone is deliberately not modelled: it absorbs mostly UVB and
+// barely touches UVA, and the free data source only offers surface ozone.
 //
 // All tunable coefficients live in MODEL below so they can be calibrated
 // against reference data later. Functions are pure.
@@ -20,11 +23,6 @@ export const MODEL = {
 
   // Altitude enhancement: fractional increase in UVA per km of elevation.
   ALTITUDE_PER_KM: 0.06,
-
-  // Reference total-column ozone (Dobson Units) the baseline is normalized to.
-  OZONE_REF_DU: 300,
-  // UVA is only weakly ozone-sensitive (ozone absorbs mostly UVB). Small power.
-  OZONE_EXP: 0.05,
 
   // Aerosol: UVA optical depth is scaled from the reported (broadband) AOD,
   // then attenuation = exp(-tau_eff * airmass).
@@ -91,7 +89,6 @@ function airMass(zenithDeg) {
 //   zenith        (deg, required)
 //   aboveHorizon  (bool, required)
 //   elevationM    (m, default 0)
-//   ozoneDU       (Dobson Units, optional)
 //   aod           (aerosol optical depth, optional)
 //   cloudCover    (% 0-100, optional — parametric cloud fallback)
 //   uvCloudTransmission (0-1, optional — erythemal cloud transmission derived
@@ -107,7 +104,6 @@ export function computeUVA(inputs, model = MODEL) {
     zenith,
     aboveHorizon,
     elevationM = 0,
-    ozoneDU,
     aod,
     cloudCover,
     uvCloudTransmission,
@@ -131,13 +127,7 @@ export function computeUVA(inputs, model = MODEL) {
   // 2. Altitude.
   const altitudeFactor = 1 + model.ALTITUDE_PER_KM * (elevationM / 1000);
 
-  // 3. Ozone (weak).
-  let ozoneFactor = 1;
-  if (typeof ozoneDU === 'number' && ozoneDU > 0) {
-    ozoneFactor = Math.pow(model.OZONE_REF_DU / ozoneDU, model.OZONE_EXP);
-  }
-
-  // 4. Aerosol (Beer-Lambert with air mass, on the *net* optical depth only —
+  // 3. Aerosol (Beer-Lambert with air mass, on the *net* optical depth only —
   //    forward-scattered light is recovered as diffuse skylight, see MODEL).
   let aerosolFactor = 1;
   if (typeof aod === 'number' && aod > 0) {
@@ -147,7 +137,7 @@ export function computeUVA(inputs, model = MODEL) {
     aerosolFactor = Math.exp(-tauEff * airMass(zenith));
   }
 
-  // 5. Cloud cover. Prefer the live-UV-derived transmission (real sky), lifted
+  // 4. Cloud cover. Prefer the live-UV-derived transmission (real sky), lifted
   // for UVA's better cloud penetration; otherwise fall back to the parametric
   // cloud-cover curve.
   let cloudFactor = 1;
@@ -159,13 +149,12 @@ export function computeUVA(inputs, model = MODEL) {
     cloudFactor = 1 - model.CLOUD_K * Math.pow(c, model.CLOUD_EXP);
   }
 
-  // 6. Albedo.
+  // 5. Albedo.
   const albedoFactor = model.ALBEDO[surface] ?? 1;
 
   const uva =
     baseline *
     altitudeFactor *
-    ozoneFactor *
     aerosolFactor *
     cloudFactor *
     albedoFactor;
@@ -180,7 +169,6 @@ export function computeUVA(inputs, model = MODEL) {
     factors: {
       baseline,
       altitude: altitudeFactor,
-      ozone: ozoneFactor,
       aerosol: aerosolFactor,
       cloud: cloudFactor,
       albedo: albedoFactor,
@@ -188,14 +176,23 @@ export function computeUVA(inputs, model = MODEL) {
   };
 }
 
-// Qualitative band for a UVA Index value (0-11+). The category boundaries
+// Qualitative bands for the UVA Index (0-11+). The category boundaries
 // deliberately reuse the WHO UV Index bands (Low 0-2, Moderate 3-5, High 6-7,
 // Very High 8-10, Extreme 11+) so the scale is instantly familiar — only the
-// underlying quantity (unweighted UVA, not erythemal UV) differs.
+// underlying quantity (unweighted UVA, not erythemal UV) differs. `from` is
+// the band's lower bound; it runs up to the next band's `from`.
+export const BANDS = [
+  { label: 'Low', level: 0, from: 0, color: '#3a7d44' },
+  { label: 'Moderate', level: 1, from: 3, color: '#f2c14e' },
+  { label: 'High', level: 2, from: 6, color: '#f08a24' },
+  { label: 'Very High', level: 3, from: 8, color: '#e3522f' },
+  { label: 'Extreme', level: 4, from: 11, color: '#b5179e' },
+];
+
+// Band for a UVA Index value.
 export function classifyUVA(index) {
-  if (index < 3) return { label: 'Low', level: 0, color: '#3a7d44' };
-  if (index < 6) return { label: 'Moderate', level: 1, color: '#f2c14e' };
-  if (index < 8) return { label: 'High', level: 2, color: '#f08a24' };
-  if (index < 11) return { label: 'Very High', level: 3, color: '#e3522f' };
-  return { label: 'Extreme', level: 4, color: '#b5179e' };
+  let band = BANDS[0];
+  for (const b of BANDS) if (index >= b.from) band = b;
+  const { label, level, color } = band;
+  return { label, level, color };
 }

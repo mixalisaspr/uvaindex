@@ -24,8 +24,8 @@
   "default_cta_href": "../",
   "disclaimer": "Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href=\"https://uvaindex.org/about.html\">About page</a>.",
   "static_pages": [
-    { "loc": "/", "lastmod": "2026-06-20", "changefreq": "weekly", "priority": "1.0" },
-    { "loc": "/about.html", "lastmod": "2026-06-27", "changefreq": "monthly", "priority": "0.8" }
+    { "loc": "/", "lastmod": "2026-10-07", "changefreq": "weekly", "priority": "1.0" },
+    { "loc": "/about.html", "lastmod": "2026-10-07", "changefreq": "monthly", "priority": "0.8" }
   ],
   "sw_shell_prefix": [
     "./",
@@ -37,7 +37,10 @@
     "./js/app.js",
     "./js/api.js",
     "./js/chart.js",
+    "./js/consent.js",
+    "./js/forecast.js",
     "./js/solar.js",
+    "./js/tz.js",
     "./js/uva.js",
     "./icons/icon-192.png",
     "./icons/icon-512.png",
