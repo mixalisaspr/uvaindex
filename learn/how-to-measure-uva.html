@@ -47,7 +47,7 @@
           "name": "uvaindex.org"
         },
         "datePublished": "2026-08-29",
-        "dateModified": "2026-08-29",
+        "dateModified": "2026-10-07",
         "mainEntityOfPage": "https://uvaindex.org/learn/how-to-measure-uva.html"
       }
     </script>
@@ -335,10 +335,12 @@
           Under those conditions, agreement within roughly 20% would be a good
           result for a modelled value against a consumer instrument — and if you
           find a systematic offset with a properly calibrated device, that is
-          genuinely useful information. The model's coefficients all live in one
-          block of <code>js/uva.js</code> specifically so they can be recalibrated
-          against real measurements, and the project welcomes that kind of
-          contribution.
+          genuinely useful information. The project's validation script,
+          <code>scripts/validate.mjs</code>, takes a CSV of timestamped readings
+          and reports the model's bias against them by sun angle and cloudiness —
+          the remaining coefficients live in one block of <code>js/uva.js</code>
+          specifically so they can be recalibrated against real measurements, and
+          the project welcomes that kind of contribution.
         </p>
 
         <a class="cta" href="../">Compare your meter against the modelled UVA Index →</a>

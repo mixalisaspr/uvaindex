@@ -87,7 +87,7 @@
             "name": "How is the UVA Index calculated?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "It combines the solar zenith angle for your location and time with a clear-sky UVA baseline, then applies live corrections for altitude, aerosol optical depth, cloud cover and surface albedo using free Open-Meteo data. The resulting UVA irradiance (W/m²) is then divided by 6 to give the 0–11+ UVA Index."
+              "text": "It looks up clear-sky UVA for your sun angle, haze (aerosol optical depth) and surface pressure in a table computed with a radiative-transfer model, adds reflection from the surroundings and the day's Earth–Sun distance, then applies the live cloud effect, all from free Open-Meteo data. The resulting UVA irradiance (W/m²) is divided by 6 to give the 0–11+ UVA Index."
             }
           }
         ]
@@ -152,9 +152,10 @@
         </div>
 
         <div class="row">
-          <label for="surface">Ground surface</label>
+          <label for="surface" title="What covers the area around you. Reflective surroundings send more UVA back down from the sky.">Surroundings</label>
           <select id="surface">
-            <option value="grass">Grass / default</option>
+            <option value="auto">Auto (snow if forecast)</option>
+            <option value="grass">Grass, soil or town</option>
             <option value="water">Water</option>
             <option value="sand">Sand / beach</option>
             <option value="snow">Snow</option>

@@ -455,15 +455,30 @@ function selectDay(i) {
   renderSelectedDay();
 }
 
+const SURFACE_LABELS = {
+  grass: 'grass/town',
+  water: 'water',
+  sand: 'sand / beach',
+  snow: 'snow',
+};
+
 function renderTables(now) {
   const atm = now?.atm ?? {};
   const sun = now?.sun ?? {};
+  const auto = $('surface').value === 'auto';
+  const surfaceText = now?.surface
+    ? `${SURFACE_LABELS[now.surface]}${auto ? ' (auto)' : ''}, albedo ${fmt(now.albedo, 2)}`
+    : '—';
   const rows = [
     ['Solar zenith angle', `${fmt(sun.zenith)}°`],
     ['Solar elevation', `${fmt(sun.elevation)}°`],
+    ['Earth–Sun distance', sun.distanceAU != null ? `${fmt(sun.distanceAU, 4)} AU` : '—'],
     ['Elevation', `${fmt(data.hourly.elevationM, 0)} m`],
+    ['Surface pressure', now?.pressureHpa != null ? `${fmt(now.pressureHpa, 0)} hPa` : '—'],
     ['Cloud cover', atm.cloudCover != null ? `${fmt(atm.cloudCover, 0)} %` : '—'],
     ['Aerosol optical depth', fmt(atm.aod, 2)],
+    ['Snow depth', atm.snowDepth != null ? `${fmt(atm.snowDepth * 100, 0)} cm` : '—'],
+    ['Surroundings', surfaceText],
     ['Surface ozone (info)', atm.ozone != null ? `${fmt(atm.ozone, 0)} µg/m³` : '—'],
     ['UV Index (cross-check)', fmt(atm.uvIndex, 1)],
     ['UV Index clear sky', fmt(atm.uvIndexClearSky, 1)],
@@ -474,8 +489,9 @@ function renderTables(now) {
     ['Clear-sky baseline', `${fmt(f.baseline, 1)} W/m²`],
     ['× Altitude', `×${fmt(f.altitude, 3)}`],
     ['× Aerosol', `×${fmt(f.aerosol, 3)}`],
+    ['× Surroundings', `×${fmt(f.albedo, 3)}`],
+    ['× Earth–Sun distance', `×${fmt(f.distance, 3)}`],
     ['× Cloud', `×${fmt(f.cloud, 3)}`],
-    ['× Albedo', `×${fmt(f.albedo, 3)}`],
   ];
 
   $('params').innerHTML = rows

@@ -3,7 +3,7 @@
 // facts (peak, and when UVA is Moderate or higher). Pure functions.
 
 import { solarPosition } from './solar.js';
-import { computeUVA, classifyUVA } from './uva.js';
+import { computeUVA, classifyUVA, MODEL } from './uva.js';
 import { localDays } from './tz.js';
 
 // Curve resolution. Solar geometry is exact at every step; the hourly
@@ -35,12 +35,12 @@ function lerp(a, b, frac) {
   return frac < 0.5 ? (isNum(a) ? a : b) : isNum(b) ? b : a;
 }
 
-const FIELDS = ['cloudCover', 'aod', 'uvIndex', 'uvIndexClearSky', 'ozone', 'uvCloud'];
+export const ATMOSPHERE_FIELDS = ['cloudCover', 'pressure', 'snowDepth', 'aod', 'uvIndex', 'uvIndexClearSky', 'ozone', 'uvCloud'];
 
 // Atmosphere at instant `t`, interpolated between the surrounding hourly
 // samples (`hours` sorted by time, each optionally carrying `uvCloud`).
-// Returns null outside the data's range.
-export function atmosphereAt(hours, t) {
+// Returns null outside the data's range. `fields` picks what to interpolate.
+export function atmosphereAt(hours, t, fields = ATMOSPHERE_FIELDS) {
   const ms = t.getTime();
   if (!hours.length || ms < hours[0].time - 1 || ms > hours[hours.length - 1].time.getTime() + 1) {
     return null;
@@ -52,7 +52,7 @@ export function atmosphereAt(hours, t) {
   const span = b.time - a.time;
   const frac = span > 0 ? Math.min(1, Math.max(0, (ms - a.time) / span)) : 0;
   const out = {};
-  for (const f of FIELDS) out[f] = lerp(a[f], b[f], frac);
+  for (const f of fields) out[f] = lerp(a[f], b[f], frac);
   return out;
 }
 
@@ -62,24 +62,34 @@ export function withCloudTransmission(hours) {
   return hours.map((h) => ({ ...h, uvCloud: cloudTransmission(h.uvIndex, h.uvIndexClearSky) }));
 }
 
+// The surroundings to model: the user's choice, or for 'auto' snow when the
+// forecast has snow on the ground and ordinary ground otherwise.
+export function resolveSurface(surface, snowDepth) {
+  if (surface !== 'auto') return surface;
+  return typeof snowDepth === 'number' && snowDepth >= MODEL.SNOW_DEPTH_M ? 'snow' : 'grass';
+}
+
 // Model output at instant `t`. Returns null when there's no atmospheric data
 // for that instant.
 export function uvaAt(t, hours, { lat, lon, elevationM, surface }) {
   const atm = atmosphereAt(hours, t);
   if (!atm) return null;
   const sun = solarPosition(t, lat, lon);
+  const resolvedSurface = resolveSurface(surface, atm.snowDepth);
   const result = computeUVA({
     zenith: sun.zenith,
     aboveHorizon: sun.aboveHorizon,
+    pressureHpa: atm.pressure,
     elevationM,
+    distanceAU: sun.distanceAU,
     aod: atm.aod,
     cloudCover: atm.cloudCover,
     // Derive the real cloud effect from live UV (erythemal) and let the model
     // lift it for UVA's better cloud penetration; falls back to cloudCover.
     uvCloudTransmission: atm.uvCloud,
-    surface,
+    surface: resolvedSurface,
   });
-  return { time: t, sun, atm, ...result };
+  return { time: t, sun, atm, surface: resolvedSurface, ...result };
 }
 
 // Curve points for one local day [start, end).

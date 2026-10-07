@@ -51,3 +51,9 @@ test('elevation, zenith and the horizon flag agree', () => {
   assert.equal(day.aboveHorizon, true);
   assert.ok(Math.abs(day.elevation + day.zenith - 90) < 1e-9);
 });
+
+test('Earth-Sun distance: perihelion in early January, aphelion in early July', () => {
+  const r = (iso) => solarPosition(new Date(iso), 0, 0).distanceAU;
+  assert.ok(Math.abs(r('2026-01-03T17:00:00Z') - 0.98329) < 2e-4);
+  assert.ok(Math.abs(r('2026-07-06T17:00:00Z') - 1.01670) < 2e-4);
+});

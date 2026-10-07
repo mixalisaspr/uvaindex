@@ -88,14 +88,14 @@ const WINDOW = `&timezone=UTC&past_days=1&forecast_days=${FORECAST_DAYS + 1}`;
 
 // Fetch every hourly input the model needs for the forecast window, merged
 // from the forecast and air-quality APIs by timestamp. Returns
-//   { elevationM, hours: [{ time: Date, cloudCover, aod, uvIndex,
-//                           uvIndexClearSky, ozone }] }
+//   { elevationM, hours: [{ time: Date, cloudCover, pressure, snowDepth,
+//                           aod, uvIndex, uvIndexClearSky, ozone }] }
 // sorted by time. Missing values are left undefined/null for the model to
 // skip.
 export async function fetchHourly(lat, lon) {
   const coords = `latitude=${lat}&longitude=${lon}`;
   const [weather, air] = await Promise.all([
-    getJson(`${FORECAST_URL}?${coords}&hourly=cloud_cover${WINDOW}`),
+    getJson(`${FORECAST_URL}?${coords}&hourly=cloud_cover,surface_pressure,snow_depth${WINDOW}`),
     getJson(
       `${AIR_QUALITY_URL}?${coords}` +
         `&hourly=uv_index,uv_index_clear_sky,aerosol_optical_depth,ozone${WINDOW}`
@@ -116,7 +116,10 @@ export function mergeHourly(weatherHourly = {}, airHourly = {}) {
     return byTime.get(t);
   };
   (weatherHourly.time || []).forEach((t, i) => {
-    row(t).cloudCover = weatherHourly.cloud_cover?.[i];
+    const r = row(t);
+    r.cloudCover = weatherHourly.cloud_cover?.[i];
+    r.pressure = weatherHourly.surface_pressure?.[i]; // hPa
+    r.snowDepth = weatherHourly.snow_depth?.[i]; // m
   });
   (airHourly.time || []).forEach((t, i) => {
     const r = row(t);

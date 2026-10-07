@@ -39,6 +39,7 @@
     "./js/chart.js",
     "./js/consent.js",
     "./js/forecast.js",
+    "./js/lut.js",
     "./js/solar.js",
     "./js/tz.js",
     "./js/uva.js",

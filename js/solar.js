@@ -46,6 +46,13 @@ function sunTrueLong(t) {
   return geomMeanLongSun(t) + sunEqOfCenter(t); // degrees
 }
 
+// Earth-Sun distance in AU (the NOAA "sun rad vector").
+function sunRadVector(t) {
+  const e = eccentricityEarthOrbit(t);
+  const trueAnomaly = (geomMeanAnomalySun(t) + sunEqOfCenter(t)) * DEG;
+  return (1.000001018 * (1 - e * e)) / (1 + e * Math.cos(trueAnomaly));
+}
+
 function sunApparentLong(t) {
   const o = sunTrueLong(t);
   return o - 0.00569 - 0.00478 * Math.sin((125.04 - 1934.136 * t) * DEG); // degrees
@@ -96,8 +103,9 @@ function equationOfTime(t) {
 
 // --- public API -------------------------------------------------------------
 
-// Returns the solar zenith angle (degrees), solar elevation (degrees), and a
-// boolean for whether the sun is above the horizon, for a given location and
+// Returns the solar zenith angle (degrees), solar elevation (degrees), the
+// Earth-Sun distance (AU) and a boolean for whether the sun is above the
+// horizon, for a given location and
 // instant. `date` is a JS Date (any timezone — the underlying UTC instant is
 // what matters). lat/lon in degrees, east-positive longitude.
 export function solarPosition(date, lat, lon) {
@@ -137,6 +145,7 @@ export function solarPosition(date, lat, lon) {
     zenith, // solar zenith angle, degrees
     elevation, // solar elevation above horizon, degrees
     declination: decl,
+    distanceAU: sunRadVector(t), // Earth-Sun distance (0.983-1.017 AU)
     aboveHorizon: elevation > 0,
   };
 }

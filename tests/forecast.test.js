@@ -4,6 +4,7 @@ import {
   atmosphereAt,
   buildForecast,
   cloudTransmission,
+  resolveSurface,
   summarizeDay,
   withCloudTransmission,
   STEP_MINUTES,
@@ -120,4 +121,15 @@ test('summarizeDay: a cloud dip reports the full span', () => {
 
 test('summarizeDay: empty input', () => {
   assert.deepEqual(summarizeDay([]), { peak: null, protect: null });
+});
+
+test('Auto surroundings switch to snow when the forecast has snow cover', () => {
+  assert.equal(resolveSurface('auto', 0.2), 'snow');
+  assert.equal(resolveSurface('auto', 0.01), 'grass');
+  assert.equal(resolveSurface('auto', undefined), 'grass');
+  assert.equal(resolveSurface('sand', 0.5), 'sand', 'an explicit choice wins');
+  const hours = syntheticHours('2026-10-06T00:00:00Z', 8, () => ({ snowDepth: 0.3, pressure: 700 }));
+  const f = forecastAt({ ...SYDNEY, surface: 'auto' }, '2026-10-08T02:00:00Z', hours);
+  assert.equal(f.now.surface, 'snow');
+  assert.equal(f.now.pressureHpa, 700);
 });

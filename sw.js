@@ -12,7 +12,7 @@
 // a hash of SHELL *and the contents of every file in it*, so editing any
 // cached file (JS, CSS, a page) ships a new cache to returning visitors.
 
-const CACHE = 'uvaindex-shell-1cceb88317';
+const CACHE = 'uvaindex-shell-b525d50f4b';
 
 const SHELL = [
     "./",
@@ -26,6 +26,7 @@ const SHELL = [
     "./js/chart.js",
     "./js/consent.js",
     "./js/forecast.js",
+    "./js/lut.js",
     "./js/solar.js",
     "./js/tz.js",
     "./js/uva.js",

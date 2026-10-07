@@ -24,7 +24,15 @@ beforeEach(() => {
             ozone: [70, 60],
           },
         }
-      : { elevation: 58, hourly: { time: ['2026-10-07T00:00', '2026-10-07T01:00'], cloud_cover: [10, 20] } };
+      : {
+          elevation: 58,
+          hourly: {
+            time: ['2026-10-07T00:00', '2026-10-07T01:00'],
+            cloud_cover: [10, 20],
+            surface_pressure: [1012, 1011],
+            snow_depth: [0, 0.12],
+          },
+        };
     return { ok: true, json: async () => body };
   };
 });
@@ -41,6 +49,8 @@ test('requests a UTC window wide enough for every local day', async () => {
     assert.equal(u.searchParams.get('forecast_days'), String(FORECAST_DAYS + 1));
     assert.equal(u.searchParams.get('latitude'), '-33.87');
   }
+  const weather = requested.find((u) => !u.host.startsWith('air'));
+  assert.deepEqual(weather.searchParams.get('hourly').split(','), ['cloud_cover', 'surface_pressure', 'snow_depth']);
 });
 
 test('merges both APIs by timestamp and parses times as UTC', async () => {
@@ -54,8 +64,8 @@ test('merges both APIs by timestamp and parses times as UTC', async () => {
     { cloudCover: 10, uvIndex: 2, aod: 0.1 }
   );
   assert.deepEqual(
-    { cloudCover: h1.cloudCover, uvIndex: h1.uvIndex, aod: h1.aod },
-    { cloudCover: 20, uvIndex: 4, aod: 0.2 }
+    { cloudCover: h1.cloudCover, uvIndex: h1.uvIndex, aod: h1.aod, pressure: h1.pressure, snowDepth: h1.snowDepth },
+    { cloudCover: 20, uvIndex: 4, aod: 0.2, pressure: 1011, snowDepth: 0.12 }
   );
 });
 
