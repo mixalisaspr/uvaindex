@@ -331,19 +331,26 @@ button:disabled {
 }
 
 /* Multi-day forecast: one button per local day, showing that day's peak. */
+/* One row that scrolls sideways when the days don't fit (narrow phones),
+   and stretches to fill the width when they do. */
 .days {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
+  display: flex;
   gap: 6px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+  padding-bottom: 4px;
 }
 
 .day {
+  flex: 1 0 68px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2px;
   padding: 8px 4px;
-  min-width: 0;
+  scroll-snap-align: start;
 }
 
 .day[aria-pressed='true'] {
@@ -369,7 +376,7 @@ button:disabled {
   font-size: 0.68rem;
   line-height: 1.2;
   color: var(--muted);
-  text-align: center;
+  white-space: nowrap;
 }
 
 .day-summary {
@@ -816,6 +823,9 @@ a.cta:hover {
 .calc-grid .controls,
 .calc-grid .result {
   margin-bottom: 0;
+  /* Let wide content (the forecast row) scroll inside the panel instead of
+     stretching the grid column past the screen. */
+  min-width: 0;
 }
 
 /* On wide screens, lay the two model tables side by side. */
