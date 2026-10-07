@@ -243,15 +243,6 @@
     </main>
 
     <script type="module" src="js/app.js"></script>
-    <script>
-      // Register the service worker for offline support and installability.
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('sw.js').catch(() => {
-            /* PWA features unavailable; the site still works as a normal page. */
-          });
-        });
-      }
-    </script>
+    <script src="js/sw-register.js" defer></script>
   </body>
 </html>

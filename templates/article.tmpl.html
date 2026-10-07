@@ -21,12 +21,6 @@ $RELATED_BLOCK
       </footer>
     </main>
 
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('${REL}sw.js').catch(() => {});
-        });
-      }
-    </script>
+    <script src="${REL}js/sw-register.js" defer></script>
   </body>
 </html>
