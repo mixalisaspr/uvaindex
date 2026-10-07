@@ -100,6 +100,7 @@ js/forecast.js # model over time: "now", 15-min daily curves, peak + protection 
 js/chart.js    # inline SVG chart of one local day of the UVA Index, pure functions
 js/app.js      # orchestration: wire UI, fetch, compute, render
 js/consent.js  # analytics consent banner (EU/EEA, UK, CH) + Google Analytics loader
+js/sw-register.js # registers sw.js; reloads open pages/PWAs onto a new version
 tests/         # unit tests (node --test, no dependencies)
 learn/         # Knowledge Base: GENERATED educational articles about UVA (see below)
 content/       # Knowledge Base source content + site config (see below)

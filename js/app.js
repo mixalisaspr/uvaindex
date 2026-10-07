@@ -451,7 +451,12 @@ function selectDay(i) {
   selectedDay = i;
   $('days')
     .querySelectorAll('.day')
-    .forEach((b) => b.setAttribute('aria-pressed', String(Number(b.dataset.i) === i)));
+    .forEach((b) => {
+      const on = Number(b.dataset.i) === i;
+      b.setAttribute('aria-pressed', String(on));
+      // Keep the chosen day in view when the row is scrolled sideways.
+      if (on) b.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+    });
   renderSelectedDay();
 }
 

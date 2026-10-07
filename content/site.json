@@ -41,6 +41,7 @@
     "./js/forecast.js",
     "./js/lut.js",
     "./js/solar.js",
+    "./js/sw-register.js",
     "./js/tz.js",
     "./js/uva.js",
     "./icons/icon-192.png",
