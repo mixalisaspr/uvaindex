@@ -4,10 +4,9 @@
   "title": "How to Measure UVA: Meters, UV Cards and Why Phones Can't",
   "headline": "How to measure UVA yourself: meters, cards and phone myths",
   "description": "What it takes to actually measure UVA — spectroradiometers, broadband radiometers, cheap consumer meters and photochromic cards — where each fails, why no smartphone can measure ultraviolet, and how to sanity-check any reading.",
-  "keywords": ["UV meter", "how to measure UV index", "UV sensor card", "can my phone measure UV", "UVA meter", "UV beads", "spectroradiometer UV", "UV dosimeter"],
   "schema_type": "TechArticle",
   "date_published": "2026-08-29",
-  "date_modified": "2026-08-29",
+  "date_modified": "2026-10-07",
   "tags": ["technical", "methodology"],
   "order": 24,
   "og_title": "How to Measure UVA Yourself",
@@ -248,8 +247,10 @@
   Under those conditions, agreement within roughly 20% would be a good
   result for a modelled value against a consumer instrument — and if you
   find a systematic offset with a properly calibrated device, that is
-  genuinely useful information. The model's coefficients all live in one
-  block of <code>js/uva.js</code> specifically so they can be recalibrated
-  against real measurements, and the project welcomes that kind of
-  contribution.
+  genuinely useful information. The project's validation script,
+  <code>scripts/validate.mjs</code>, takes a CSV of timestamped readings
+  and reports the model's bias against them by sun angle and cloudiness —
+  the remaining coefficients live in one block of <code>js/uva.js</code>
+  specifically so they can be recalibrated against real measurements, and
+  the project welcomes that kind of contribution.
 </p>

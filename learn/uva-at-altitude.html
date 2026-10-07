@@ -4,22 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6Z9PMH6V0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-Y6Z9PMH6V0');
-    </script>
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
 
     <title>UVA at Altitude: Mountains, Hiking, Skiing and Flying</title>
     <meta
       name="description"
       content="UV rises with elevation — but UVA rises more slowly than the often-quoted 10% per 1000 m, which is an erythemal figure. Why the altitude gradient differs by wavelength, how snow and clean air compound it, and what the cockpit UVA and pilot melanoma research shows."
     />
-    <meta name="keywords" content="UV at altitude, UV index mountains, UVA hiking, sunburn at altitude, UV per 1000m, pilot melanoma, UVA in aircraft cabin, ski sunburn" />
     <meta name="author" content="uvaindex.org" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0f1724" />
@@ -54,7 +47,7 @@
           "name": "uvaindex.org"
         },
         "datePublished": "2026-08-02",
-        "dateModified": "2026-08-02",
+        "dateModified": "2026-10-07",
         "mainEntityOfPage": "https://uvaindex.org/learn/uva-at-altitude.html"
       }
     </script>
@@ -141,9 +134,11 @@
         <div class="callout">
           <strong>The correction:</strong> the standard <strong>8–10% per
           1000&nbsp;m</strong> applies to erythemal UV. For UVA specifically the
-          gradient is more like <strong>4–7% per 1000&nbsp;m</strong>. This site's
-          <a href="../">UVA&nbsp;Index</a> uses <strong>+6% per kilometre</strong>,
-          deliberately below the erythemal number.
+          gradient is more like <strong>4–7% per 1000&nbsp;m</strong>, and only
+          about 3% of that comes from the thinner air itself; the rest is leaving
+          the valley haze behind. This site's <a href="../">UVA&nbsp;Index</a>
+          models the two separately — air pressure in a radiative-transfer table,
+          haze from live aerosol data.
         </div>
 
         <h2>Why altitude raises UV at all</h2>
@@ -190,8 +185,9 @@
 
         <h2>What the numbers look like</h2>
         <p>
-          Using the model's +6%/km, and adding the surface and air effects that
-          travel with altitude in practice:
+          From the model's radiative-transfer table, for clean air with the sun
+          30° from overhead (the haze you leave behind adds to these), and with
+          snow-covered surroundings compared with sea level in light haze:
         </p>
         <div class="table-scroll">
         <table class="data-table">
@@ -200,20 +196,20 @@
           </thead>
           <tbody>
             <tr><td>Sea level</td><td>0 m</td><td>×1.00</td><td>—</td></tr>
-            <tr><td>Alpine valley town</td><td>1000 m</td><td>×1.06</td><td>×1.17</td></tr>
-            <tr><td>Ski resort base</td><td>2000 m</td><td>×1.12</td><td>×1.23</td></tr>
-            <tr><td>Ski resort summit</td><td>3000 m</td><td>×1.18</td><td>×1.30</td></tr>
-            <tr><td>High trekking pass</td><td>5000 m</td><td>×1.30</td><td>×1.43</td></tr>
+            <tr><td>Alpine valley town</td><td>1000 m</td><td>×1.03</td><td>×1.24</td></tr>
+            <tr><td>Ski resort base</td><td>2000 m</td><td>×1.06</td><td>×1.25</td></tr>
+            <tr><td>Ski resort summit</td><td>3000 m</td><td>×1.08</td><td>×1.27</td></tr>
+            <tr><td>High trekking pass</td><td>5000 m</td><td>×1.13</td><td>×1.29</td></tr>
           </tbody>
         </table>
         </div>
         <p>
           The altitude term on its own is real but not dramatic. The reason
           mountains are a high-UVA environment is that altitude never arrives
-          alone. At a ski summit you have +18% from elevation, +10% from
-          <a href="reflected-uva-snow-sand-water.html">snow reflecting from
-          below</a>, and a clean, dry, low-aerosol atmosphere that costs you less
-          than sea-level haze would. The compound effect is what makes a
+          alone. At a ski summit you have +8% from the thinner air, about +17%
+          from <a href="reflected-uva-snow-sand-water.html">snow reflecting light
+          back down off the sky</a>, and a clean, dry, low-aerosol atmosphere that
+          costs you less than sea-level haze would. The compound effect is what makes a
           <strong>clear February day at 3000&nbsp;m rival a summer day at sea
           level</strong> — despite a solar elevation that ought to make it
           four times weaker.
@@ -288,8 +284,8 @@
           calculated</a>.
         </p>
         <p>
-          Two limits to keep in mind. The elevation used is the
-          <strong>ground</strong> elevation at your coordinates, so the model has
+          Two limits to keep in mind. The pressure used is the forecast's
+          <strong>surface</strong> pressure at your coordinates, so the model has
           nothing sensible to say about being in an aircraft. And it does not know
           that mountain air is typically cleaner than the aerosol data suggests for
           the wider grid cell, so on a clear alpine day the estimate is more likely
@@ -298,7 +294,7 @@
 
         <h2>Practical takeaways</h2>
         <ul>
-          <li><strong>Discount the 10%-per-1000&nbsp;m rule for UVA</strong> — it is a sunburn figure. Around 6% is the better working number.</li>
+          <li><strong>Discount the 10%-per-1000&nbsp;m rule for UVA</strong> — it is a sunburn figure. For UVA, 4–7% is the better working number, about half of it from leaving haze behind.</li>
           <li><strong>But do not relax</strong>, because on snow the albedo term is larger than the altitude term, and the two multiply.</li>
           <li><strong>Cover upward-facing skin</strong> in the mountains: under the chin, the nose, the underside of the jaw, the ears.</li>
           <li><strong>Wrap-around eye protection is not optional on snow</strong> — see <a href="uva-and-your-eyes.html">UVA and your eyes</a>.</li>
@@ -320,6 +316,7 @@
       <footer>
         <p class="disclaimer">
           Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href="https://uvaindex.org/about.html">About page</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie settings</button>
         </p>
       </footer>
     </main>

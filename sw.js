@@ -8,10 +8,11 @@
 //  • Navigations fall back to the cached page when the network is unavailable.
 //
 // GENERATED FILE — do not edit by hand. Run `python3 scripts/build_kb.py`.
-// SHELL is derived from content/learn/*.html; CACHE is a hash of SHELL so it
-// only changes when the actual set of precached paths changes.
+// SHELL is derived from content/site.json and content/learn/*.html; CACHE is
+// a hash of SHELL *and the contents of every file in it*, so editing any
+// cached file (JS, CSS, a page) ships a new cache to returning visitors.
 
-const CACHE = 'uvaindex-shell-91b99f2163';
+const CACHE = 'uvaindex-shell-f25585ae9b';
 
 const SHELL = [
     "./",
@@ -23,7 +24,11 @@ const SHELL = [
     "./js/app.js",
     "./js/api.js",
     "./js/chart.js",
+    "./js/consent.js",
+    "./js/forecast.js",
+    "./js/lut.js",
     "./js/solar.js",
+    "./js/tz.js",
     "./js/uva.js",
     "./icons/icon-192.png",
     "./icons/icon-512.png",

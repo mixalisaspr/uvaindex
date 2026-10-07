@@ -4,22 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6Z9PMH6V0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-Y6Z9PMH6V0');
-    </script>
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
 
     <title>What is UVA Radiation? The Long-Wave Ultraviolet Explained</title>
     <meta
       name="description"
       content="UVA is the long-wavelength band of ultraviolet light (315–400 nm). Learn where it sits in the UV spectrum, why ~95% of the UV reaching the ground is UVA, and how it behaves through the day, through clouds and through glass."
     />
-    <meta name="keywords" content="what is UVA, UVA radiation, ultraviolet A, 315-400 nm, long wave UV, surface UVA" />
     <meta name="author" content="uvaindex.org" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0f1724" />
@@ -245,6 +238,7 @@
       <footer>
         <p class="disclaimer">
           Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href="https://uvaindex.org/about.html">About page</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie settings</button>
         </p>
       </footer>
     </main>

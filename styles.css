@@ -219,6 +219,22 @@ button.primary:hover {
   background: #82b8ff;
 }
 
+button:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+#refresh {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+#refresh.spinning svg {
+  animation: icon-spin 0.8s linear infinite;
+}
+
 .location-label {
   color: var(--muted);
   font-size: 0.9rem;
@@ -304,6 +320,64 @@ button.primary:hover {
   margin: 4px 0 0;
 }
 
+.uva-band {
+  color: var(--text);
+}
+
+.as-of {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* Multi-day forecast: one button per local day, showing that day's peak. */
+.days {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(56px, 1fr));
+  gap: 6px;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 4px;
+  min-width: 0;
+}
+
+.day[aria-pressed='true'] {
+  border-color: var(--accent);
+  background: #22324f;
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.day-name {
+  font-size: 0.78rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.day-peak {
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.day-band {
+  font-size: 0.68rem;
+  line-height: 1.2;
+  color: var(--muted);
+  text-align: center;
+}
+
+.day-summary {
+  margin: 10px 0 6px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
 .result h2 {
   font-size: 1rem;
   color: var(--muted);
@@ -352,7 +426,7 @@ button.primary:hover {
 }
 
 .uva-chart-svg {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
 }
@@ -365,6 +439,11 @@ button.primary:hover {
 .uva-chart-svg .axis {
   fill: var(--muted);
   font-size: 11px;
+}
+
+.uva-chart-svg .axis-note {
+  font-size: 10px;
+  opacity: 0.7;
 }
 
 .uva-chart-svg .curve {
@@ -401,6 +480,56 @@ button.primary:hover {
 
 .disclaimer a {
   color: var(--accent);
+}
+
+/* Inline button styled as a link (e.g. "Cookie settings" in footers). */
+.link-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--accent);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-btn:hover {
+  background: none;
+}
+
+/* Analytics consent banner (js/consent.js). */
+.consent {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 50;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.consent p {
+  margin: 0 0 10px;
+}
+
+.consent a {
+  color: var(--accent);
+}
+
+.consent-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.consent-actions button {
+  flex: 1;
 }
 
 /* ---------------------------------------------------------------------------

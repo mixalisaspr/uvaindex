@@ -1,0 +1,9 @@
+[
+  { "name": "Davos, Switzerland (alpine, snow)", "lat": 46.81, "lon": 9.84 },
+  { "name": "Lindenberg, Germany (mid-latitude)", "lat": 52.21, "lon": 14.12 },
+  { "name": "Thessaloniki, Greece (Mediterranean)", "lat": 40.63, "lon": 22.96 },
+  { "name": "Boulder, USA (high plains, 1.6 km)", "lat": 40.01, "lon": -105.27 },
+  { "name": "Alice Springs, Australia (clear desert)", "lat": -23.70, "lon": 133.88 },
+  { "name": "Lauder, New Zealand (clean air)", "lat": -45.04, "lon": 169.68 },
+  { "name": "Singapore (tropical cloud)", "lat": 1.35, "lon": 103.82 }
+]

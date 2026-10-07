@@ -4,15 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6Z9PMH6V0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-Y6Z9PMH6V0');
-    </script>
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
 
     <title>Conditions &amp; environment — UVA Knowledge Base</title>
     <meta
@@ -101,7 +95,7 @@
           <a class="kb-card" href="../uva-on-cloudy-days.html">
             <h2>UVA on cloudy days: how much gets through</h2>
             <p>
-              Cloud dims UVA far less than it dims sunlight — and broken cloud can briefly push UVA above clear-sky levels. Transmission by cloud type, why UVA penetrates cloud better than UVB, the cloud enhancement effect, and how the UVA Index models it.
+              Cloud dims UVA far less than it dims sunlight — and broken cloud can briefly push UVA above clear-sky levels. Transmission by cloud type, how UVA and UVB compare under cloud, the cloud enhancement effect, and how the UVA Index models it.
             </p>
             <span class="kb-more">Read →</span>
           </a>
@@ -154,6 +148,7 @@
       <footer>
         <p class="disclaimer">
           Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href="https://uvaindex.org/about.html">About page</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie settings</button>
         </p>
       </footer>
     </main>

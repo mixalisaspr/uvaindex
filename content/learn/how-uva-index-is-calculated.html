@@ -3,28 +3,27 @@
   "slug": "how-uva-index-is-calculated",
   "title": "How the UVA Index Is Calculated — Model, Parameters & Limitations",
   "headline": "How the UVA Index is calculated",
-  "description": "The full method behind our UVA Index: how surface UVA irradiance (315–400 nm, W/m²) is derived from solar geometry plus live cloud, aerosol and altitude data, the exact formulas and coefficients used, and which factors we deliberately leave out.",
-  "keywords": ["UVA index calculation", "UVA irradiance model", "surface UVA", "solar zenith angle", "aerosol optical depth", "clear-sky UVA", "UVA methodology", "how UVA index works"],
+  "description": "The full method behind our UVA Index: how surface UVA irradiance (315–400 nm, W/m²) is derived from a radiative-transfer lookup table plus live cloud, haze, pressure and snow data, the exact formulas and assumptions, how it is validated, and which factors we leave out.",
   "schema_type": "TechArticle",
   "date_published": "2026-06-27",
-  "date_modified": "2026-08-29",
+  "date_modified": "2026-10-07",
   "tags": ["methodology", "technical"],
   "order": 5,
   "og_title": "How the UVA Index Is Calculated — Model, Parameters & Limitations",
   "og_description": "The full method behind our UVA Index: the formulas, the live inputs, the coefficients, and the factors we deliberately leave out.",
-  "jsonld_description": "The method behind the UVA Index: deriving surface UVA irradiance (315–400 nm) from solar geometry plus live cloud, aerosol and altitude data, the formulas and coefficients used, and the factors deliberately omitted.",
+  "jsonld_description": "The method behind the UVA Index: deriving surface UVA irradiance (315–400 nm) from a radiative-transfer lookup table plus live cloud, aerosol, pressure and snow data, the formulas and assumptions used, validation, and the factors deliberately omitted.",
   "faq": [
     {
       "question": "How is the UVA Index calculated?",
-      "answer": "A clear-sky baseline of about 66 W/m² for an overhead sun is scaled by the cosine of the solar zenith angle raised to the power 1.2, giving the angular falloff through the day. That baseline is then multiplied by correction factors from live data: altitude at roughly 6% per kilometre, aerosol attenuation, cloud transmission and surface albedo. The resulting irradiance in W/m² is divided by six to give the 0-11+ index."
+      "answer": "Clear-sky UVA is looked up in a table computed with a radiative-transfer model (DISORT) for the sun's angle, the haze (aerosol optical depth) and the surface air pressure — about 64 W/m² for an overhead sun in clean air at sea level. That value is then multiplied by factors for reflection from your surroundings, the day's Earth–Sun distance and live cloud. The resulting irradiance in W/m² is divided by six to give the 0-11+ index."
     },
     {
       "question": "How accurate is the UVA Index?",
       "answer": "It is a model output rather than a measurement, and its error structure is predictable. Clear sky with the sun well up is the most reliable case, because solar geometry dominates and the corrections are small. Broken cloud is the least reliable and biased low, since the model is attenuation-only and cannot reproduce the cloud enhancement effect where sun in a gap between bright cumulus briefly exceeds clear-sky values. Readings with the sun near the horizon are least reliable in relative terms."
     },
     {
-      "question": "Why does the model ignore ozone?",
-      "answer": "Because ozone barely affects UVA. Ozone absorbs strongly in the UVB and only very weakly across the UVA band, so the model gives it an exponent of just 0.05 — halving the ozone column would change modelled UVA by a few percent while roughly doubling erythemal UV. In practice the term runs unused, because the free data source exposes surface ozone in µg/m³ rather than the total-column Dobson Units the term needs. Ozone is shown for information only."
+      "question": "Why does the model ignore live ozone?",
+      "answer": "Because ozone barely affects UVA. Ozone absorbs strongly in the UVB and only weakly at the short end of the UVA band, so halving the ozone column changes UVA by only a few percent while roughly doubling erythemal UV. The radiative-transfer table holds ozone at a typical 300 Dobson Units; the free data source only exposes surface ozone in µg/m³, not the total column such a term would need, so surface ozone is shown for information only."
     }
   ],
   "related_pins": [
@@ -60,12 +59,12 @@
 
 <h2>The model in one line</h2>
 <p>
-  UVA irradiance is a clear-sky baseline (set by the sun's angle)
-  multiplied by a chain of correction factors, each between roughly 0 and
-  1.1, for the conditions of the moment:
+  UVA irradiance is a clear-sky value from a radiative-transfer
+  calculation, multiplied by a short chain of factors for the conditions
+  of the moment:
 </p>
 <div class="callout">
-  <strong>UVA = baseline × altitude × aerosol × cloud × albedo</strong>
+  <strong>UVA = baseline × altitude × aerosol × surroundings × Earth–Sun distance × cloud</strong>
 </div>
 <p>
   Every factor defaults to <code>1</code> (no effect) when its input is
@@ -74,91 +73,155 @@
   so any reading can be traced back to its parts.
 </p>
 
-<h2>Step 1 — Solar position (the clear-sky baseline)</h2>
+<h2>Step 1 — Solar position</h2>
 <p>
   The single biggest driver of UVA is how high the sun is in the sky. We
   compute the <strong>solar zenith angle</strong> <code>θ</code> (0° =
   directly overhead, 90° = on the horizon) in the browser from your
-  latitude, longitude and the chosen instant, using the
+  latitude, longitude and the instant, using the
   <strong>NOAA solar position algorithm</strong> — the same maths behind
-  the NOAA Solar Calculator.
+  the NOAA Solar Calculator. The same algorithm gives the
+  <strong>Earth–Sun distance</strong> used in step&nbsp;5. When the sun is
+  below the horizon, UVA is reported as <strong>0</strong>.
 </p>
-<p>The clear-sky baseline is then:</p>
-<div class="callout">
-  <strong>baseline = UVA_MAX × cos(θ)<sup>k</sup></strong>
-</div>
+
+<h2>Step 2 — Clear sky, from a radiative-transfer table</h2>
+<p>
+  Rather than a hand-tuned curve, the clear-sky part of the model comes
+  from a physics calculation done once, ahead of time. We ran
+  <strong>DISORT</strong> — the standard multiple-scattering solver used in
+  atmospheric science — over a layered model atmosphere for every
+  combination of:
+</p>
 <ul>
-  <li>
-    <strong>UVA_MAX = 66&nbsp;W/m²</strong> — the surface UVA for an
-    overhead sun (θ&nbsp;=&nbsp;0) under a clear sky, in line with
-    published values for peak surface UVA.
-  </li>
-  <li>
-    <strong>k = 1.2</strong> — the exponent controlling how fast UVA falls
-    off as the sun gets lower. A value near 1.1–1.3 matches published
-    clear-sky curves; higher means a steeper drop toward sunset.
-  </li>
+  <li><strong>sun angle</strong>, 0–90° in 5° steps;</li>
+  <li><strong>aerosol optical depth</strong> (haze, at 550&nbsp;nm), 0–3;</li>
+  <li><strong>surface air pressure</strong>, 500–1060&nbsp;hPa (sea level to about 5,500&nbsp;m),</li>
 </ul>
 <p>
-  When the sun is below the horizon the baseline is zero, so night-time
-  UVA is reported as <strong>0</strong>.
+  and integrated the result over 315–400&nbsp;nm. The page interpolates
+  that table (about 1,800 numbers, 13&nbsp;KB) for your conditions. The
+  table captures, from first principles, everything the old rules of thumb
+  approximated:
 </p>
-
-<h2>Step 2 — Altitude</h2>
-<p>
-  There is less atmosphere to scatter and absorb UV at higher elevations,
-  so UVA rises with altitude. We use Open-Meteo's terrain elevation for
-  your point and apply a simple linear enhancement:
-</p>
-<div class="callout">
-  <strong>altitude factor = 1 + 0.06 × (elevation_m ÷ 1000)</strong>
-</div>
-<p>
-  That is roughly <strong>+6% per kilometre</strong> of elevation —
-  deliberately below the <strong>8–10%/km</strong> usually quoted for UV,
-  because that figure is <em>erythemal</em> and much of the altitude
-  enhancement comes from reduced ozone and Rayleigh scattering, both of
-  which favour short wavelengths.
-  <a href="uva-at-altitude.html">UVA at altitude</a> works through the
-  reasoning.
-</p>
-
-<h2>Step 3 — Aerosols (haze, dust, pollution)</h2>
-<p>
-  Airborne particles scatter and absorb UV. We take the live
-  <strong>aerosol optical depth (AOD)</strong> from Open-Meteo's
-  air-quality data and apply Beer–Lambert attenuation along the sun's
-  actual path through the atmosphere:
-</p>
-<div class="callout">
-  <strong>aerosol factor = exp( −(AOD × 1.3 × 0.45) × airmass )</strong>
-</div>
 <ul>
   <li>
-    <strong>× 1.3</strong> scales the reported broadband AOD up to a
-    UVA-band optical depth (aerosol extinction is stronger at shorter
-    wavelengths).
+    <strong>The fall-off with sun angle</strong>, including the large
+    share of UVA that arrives as diffuse skylight — which is why UVA drops
+    far more slowly than UVB as the sun sinks.
   </li>
   <li>
-    <strong>× 0.45</strong> keeps only the optical depth that is
-    genuinely <em>lost</em>. UV aerosol mostly <em>scatters</em> rather
-    than absorbs, and that scattering is strongly forward-peaked, so
-    most of the "extinguished" light still reaches the ground as diffuse
-    skylight. Attenuating the full optical depth would model only the
-    direct beam and badly over-penalize total ground-level UVA — a
-    moderate haze should cost roughly 10–20%, not 45%. The factor is
-    <code>1 − SSA × forward</code> with single-scattering albedo
-    ≈&nbsp;0.92 and a recovered forward fraction ≈&nbsp;0.6.
+    <strong>Rayleigh scattering by the air</strong>, scaled by the actual
+    surface pressure, which is how altitude enters.
   </li>
   <li>
-    <strong>airmass</strong> = <code>1 / cos(θ)</code> (a simple secant
-    approximation, capped near the horizon at θ&nbsp;=&nbsp;89° so it
-    can't blow up). It accounts for the longer slant path the sun's rays
-    travel when it is low.
+    <strong>Haze</strong> with its real direct-to-diffuse trade-off: aerosol
+    removes light from the direct beam but scatters most of it forward, so
+    much of it still reaches the ground as skylight.
+  </li>
+  <li>
+    <strong>Ozone</strong> absorption at the short end of the band, at a
+    typical 300 Dobson Units.
+  </li>
+  <li>
+    <strong>The curvature of the atmosphere</strong> for a low sun (the
+    Kasten–Young air mass), which a flat-atmosphere 1/cos θ overstates near
+    the horizon.
   </li>
 </ul>
+<p>The atmosphere assumed:</p>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Ingredient</th><th>Assumption</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Sunlight above the atmosphere</td><td>ASTM G173-03 extraterrestrial spectrum, 85.5&nbsp;W/m² over 315–400&nbsp;nm</td></tr>
+    <tr><td>Air (Rayleigh)</td><td>Bodhaine et al. (1999) optical depth × pressure ÷ 1013.25&nbsp;hPa</td></tr>
+    <tr><td>Ozone</td><td>300&nbsp;DU, centred at 22&nbsp;km</td></tr>
+    <tr><td>Aerosol</td><td>Ångström exponent 1.14, single-scattering albedo 0.92, asymmetry 0.70, scale height 1.5&nbsp;km</td></tr>
+    <tr><td>Solver</td><td>DISORT, 16 streams, 17 layers, 2.5&nbsp;nm spectral bins</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  For an overhead sun in clean air at sea level the table gives
+  <strong>64.5&nbsp;W/m²</strong>; a moderate haze (AOD&nbsp;0.15) trims
+  that by about 5% with the sun high and 9–12% with it low. As a check,
+  the direct-beam part matches NREL's independent SPECTRL2 model to within
+  1% at every sun angle tested; SPECTRL2's simpler diffuse-sky estimate
+  mostly comes out 4–18% lower, as expected from a model that doesn't
+  solve multiple scattering.
+  The generator, <code>scripts/build_lut.py</code>, is in the repository
+  for anyone to rerun or change.
+</p>
 
-<h2>Step 4 — Cloud cover</h2>
+<h2>Step 3 — Altitude (air pressure)</h2>
+<p>
+  There is less air above you at altitude to scatter UVA back out to space.
+  The model reads the forecast's <strong>surface pressure</strong> (falling
+  back to a standard atmosphere for the terrain elevation) and lets the
+  table do the rest. In clean air that is worth about
+  <strong>+3% per kilometre</strong>. The larger 4–7%/km often measured for
+  UVA in the mountains mostly comes from leaving haze behind in the
+  valleys, and the model picks that up separately through the aerosol data
+  for your point. <a href="uva-at-altitude.html">UVA at altitude</a> works
+  through the numbers.
+</p>
+
+<h2>Step 4 — Surroundings (surface reflection)</h2>
+<p>
+  Bright surroundings reflect UVA upward, and the sky scatters part of it
+  back down. For a surface of UV albedo <code>r</code> the table also
+  provides the atmosphere's <strong>spherical albedo</strong>
+  <code>s</code> (about 0.3 in the UVA), and the enhancement is exact for
+  an evenly reflecting surface:
+</p>
+<div class="callout">
+  <strong>surroundings factor = 1 ÷ (1 − r × s)</strong>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Surroundings</th><th>UV albedo r</th><th>Factor</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Grass, soil or town</td><td>0.03</td><td>×1.01</td></tr>
+    <tr><td>Water</td><td>0.07</td><td>×1.02</td></tr>
+    <tr><td>Sand / beach</td><td>0.15</td><td>×1.05</td></tr>
+    <tr><td>Snow-covered terrain</td><td>0.6</td><td>×1.24</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  What matters is the <em>surroundings</em> — the kilometre-scale area
+  around you — not just the ground underfoot, because the reflected light
+  has to come back down off the sky. On <strong>Auto</strong> (the default)
+  the calculator switches to snow when the forecast has 5&nbsp;cm or more
+  on the ground. Fresh, unbroken snow (r&nbsp;≈&nbsp;0.9) reaches about
+  ×1.40. The much larger flux reflected straight <em>up</em> lands on your
+  chin, nose and eyes rather than on a horizontal surface, so it isn't
+  part of this number;
+  <a href="reflected-uva-snow-sand-water.html">Reflected UVA</a> explains
+  the distinction.
+</p>
+
+<h2>Step 5 — Earth–Sun distance</h2>
+<p>
+  Earth's orbit is slightly elliptical: it is closest to the sun in early
+  January (0.983&nbsp;AU) and farthest in early July (1.017&nbsp;AU).
+  Sunlight scales with the inverse square of distance:
+</p>
+<div class="callout">
+  <strong>distance factor = 1 ÷ r<sub>AU</sub>²</strong>
+</div>
+<p>
+  That is <strong>+3.4%</strong> in January and <strong>−3.3%</strong> in
+  July — one reason a southern-hemisphere summer is a little stronger than
+  a northern one at the same latitude.
+</p>
+
+<h2>Step 6 — Cloud</h2>
 <p>
   Clouds are the most variable influence on ground-level UVA, so the model
   uses the best input available for your location, in two tiers.
@@ -166,24 +229,24 @@
 <p>
   <strong>Preferred — derived from live UV data.</strong> Open-Meteo
   publishes both the actual UV&nbsp;Index and a clear-sky UV&nbsp;Index for
-  the same hour. Their ratio is a <em>measured</em> erythemal cloud
-  transmission for the real sky overhead, which beats any parameterisation
-  of a cover percentage. Because UVA penetrates cloud better than the
-  UVB-dominated erythemal UV, we lift that transmission for the UVA band:
+  the same hour. Their ratio is the erythemal cloud transmission for the
+  real sky overhead, which beats any parameterisation of a cover
+  percentage. UVA's transmission is taken from it as
 </p>
 <div class="callout">
-  <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>0.8</sup></strong>
+  <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>γ</sup>, with γ = 1</strong>
 </div>
 <p>
-  The exponent is below 1, so any attenuation is softened and the gap
-  widens as cloud thickens — matching the observed spectral behaviour. A
-  heavy overcast cutting erythemal UV to 30% leaves about
-  <strong>38%</strong> of the UVA.
+  Under thick cloud UVA can get through slightly better than the
+  UVB-weighted UV Index, but measurements vary by cloud type (see
+  <a href="uva-on-cloudy-days.html">UVA on cloudy days</a>), so until the
+  size of the effect is pinned down the neutral value is used. γ is the one cloud coefficient
+  the validation below is set up to calibrate.
 </p>
 <p>
   <strong>Fallback — parametric, from cloud cover.</strong> When the live
-  UV pair is unavailable, we fall back to the reported total cloud-cover
-  percentage:
+  UV pair is unavailable (for instance more than about five days ahead),
+  we fall back to the reported total cloud-cover percentage:
 </p>
 <div class="callout">
   <strong>cloud factor = 1 − 0.4 × (cover ÷ 100)<sup>1.5</sup></strong>
@@ -193,37 +256,7 @@
   statement about <em>sky coverage</em>, not optical depth — an overcast
   sky is far more often thin stratus than a storm base. At 100% cover this
   leaves about <strong>60%</strong> of the clear-sky UVA. Clouds dim UVA;
-  they rarely eliminate it. <a href="uva-on-cloudy-days.html">UVA on cloudy
-  days</a> covers the underlying physics and the observed transmission by
-  cloud type.
-</p>
-
-<h2>Step 5 — Surface reflectance (albedo)</h2>
-<p>
-  Bright ground bounces UVA back up, adding to what reaches you. We apply
-  a small multiplier based on the surface you select:
-</p>
-<div class="table-scroll">
-<table class="data-table">
-  <thead>
-    <tr><th>Surface</th><th>Factor</th><th>Why</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Grass / default</td><td>×1.00</td><td>Low reflectance baseline</td></tr>
-    <tr><td>Water</td><td>×1.00</td><td>Low diffuse UVA reflectance</td></tr>
-    <tr><td>Sand / beach</td><td>×1.04</td><td>Dry sand reflects ~15–25%</td></tr>
-    <tr><td>Snow</td><td>×1.10</td><td>Fresh snow is highly reflective</td></tr>
-  </tbody>
-</table>
-</div>
-<p>
-  The enhancements are deliberately modest: even very bright surfaces add
-  only a limited amount to the <em>downwelling</em> UVA at a point. The
-  much larger <em>upwelling</em> flux — snow reflects 80–90% of UVA
-  straight back up — lands on your chin, nose and eyes rather than on a
-  horizontal surface, so it doesn't belong in this term.
-  <a href="reflected-uva-snow-sand-water.html">Reflected UVA</a> explains
-  the distinction and lists albedo by surface.
+  they rarely eliminate it.
 </p>
 
 <h2>From irradiance to the 0–11+ index</h2>
@@ -237,7 +270,7 @@
 </div>
 <p>
   The divisor of 6 is chosen so a clear-sky overhead sun
-  (~66&nbsp;W/m²) reads about <strong>11</strong> — the same
+  (~64–66&nbsp;W/m²) reads about <strong>11</strong> — the same
   top-of-scale feel as a peak tropical UV&nbsp;Index. Because the index is
   strictly proportional to the irradiance, both numbers tell the same
   story, and every band boundary below is simply the index value times
@@ -267,20 +300,26 @@
   </thead>
   <tbody>
     <tr><td>Latitude / longitude</td><td>Geolocation or place search</td><td>Solar position</td></tr>
-    <tr><td>Date &amp; time</td><td>You</td><td>Solar position</td></tr>
-    <tr><td>Solar zenith angle</td><td>Computed (NOAA)</td><td>Baseline + airmass</td></tr>
-    <tr><td>Terrain elevation</td><td>Open-Meteo Forecast</td><td>Altitude factor</td></tr>
-    <tr><td>Cloud cover</td><td>Open-Meteo Forecast</td><td>Cloud factor</td></tr>
-    <tr><td>Aerosol optical depth</td><td>Open-Meteo Air-Quality</td><td>Aerosol factor</td></tr>
-    <tr><td>Ground surface</td><td>You</td><td>Albedo factor</td></tr>
-    <tr><td>UV Index (cross-check)</td><td>Open-Meteo Air-Quality</td><td>Sanity check only</td></tr>
+    <tr><td>Solar zenith angle, Earth–Sun distance</td><td>Computed (NOAA)</td><td>Clear-sky table, distance factor</td></tr>
+    <tr><td>Surface pressure</td><td>Open-Meteo Forecast</td><td>Clear-sky table (altitude)</td></tr>
+    <tr><td>Terrain elevation</td><td>Open-Meteo Forecast</td><td>Pressure fallback</td></tr>
+    <tr><td>Aerosol optical depth</td><td>Open-Meteo Air-Quality (CAMS)</td><td>Clear-sky table (haze)</td></tr>
+    <tr><td>UV Index &amp; clear-sky UV Index</td><td>Open-Meteo Air-Quality (CAMS)</td><td>Cloud factor</td></tr>
+    <tr><td>Cloud cover</td><td>Open-Meteo Forecast</td><td>Cloud fallback</td></tr>
+    <tr><td>Snow depth</td><td>Open-Meteo Forecast</td><td>Auto surroundings</td></tr>
+    <tr><td>Surroundings</td><td>You (or Auto)</td><td>Surroundings factor</td></tr>
   </tbody>
 </table>
 </div>
 <p>
-  The same model is also evaluated at every hour of the day to draw the
-  <em>UVA Index through the day</em> chart, using each hour's own cloud and
-  aerosol values.
+  The same model also draws the <em>UVA forecast</em>: it is evaluated
+  every 15 minutes across today and the next four days (in the location's
+  own time zone), with the sun's position computed exactly at each step and
+  the hourly cloud and aerosol values interpolated between hours. Each
+  day's peak and the span when the UVA Index is Moderate (3) or higher come
+  from that curve. The air-quality forecast that supplies the UV Index and
+  aerosol only reaches about four to five days ahead; beyond that the model
+  falls back to its cloud-cover curve, so later days are rougher.
 </p>
 
 <h2 id="omitted">What we don't take into account</h2>
@@ -292,28 +331,23 @@
 </p>
 <ul>
   <li>
-    <strong>Total-column ozone.</strong> Ozone absorbs mostly UVB and only
-    weakly affects UVA. The model has an ozone term but the free
-    air-quality feed reports <em>surface</em> ozone (µg/m³), not the
-    total-column Dobson Units the term needs — so we leave it at no-effect
-    and show surface ozone for information only.
+    <strong>Live ozone.</strong> The table holds total-column ozone at
+    300&nbsp;DU. Real columns range from about 250 to 450&nbsp;DU, which
+    moves UVA by only a couple of percent, and the free feed reports
+    <em>surface</em> ozone (µg/m³) rather than the column, so it is shown
+    for information only.
   </li>
   <li>
-    <strong>Direct vs diffuse split.</strong> We model the total UVA
-    arriving on a flat, open, horizontal surface. We don't separate the
-    beam coming straight from the sun from the diffuse skylight, nor model
-    the sky's brightness distribution.
+    <strong>Local aerosol type.</strong> The table assumes a typical
+    continental aerosol. Desert dust (which absorbs more in the UV and has
+    a flatter spectrum) and wildfire smoke differ, so heavy dust or smoke
+    days carry more uncertainty than the AOD alone suggests.
   </li>
   <li>
-    <strong>Spectral detail.</strong> UVA is treated as one band. We don't
-    resolve the wavelength-by-wavelength structure within 315–400&nbsp;nm,
-    where atmospheric effects vary across the band.
-  </li>
-  <li>
-    <strong>Cloud type and structure.</strong> Only a single cloud-cover
-    percentage is used. Cloud optical thickness, layering, and
+    <strong>Cloud type and structure.</strong> The cloud effect comes from
+    a coarse (~40&nbsp;km) forecast model's UV Index. Cloud layering and
     broken-cloud "edge" effects (which can briefly <em>raise</em> UVA above
-    clear-sky) are not modelled.
+    clear sky) are not modelled.
   </li>
   <li>
     <strong>Local geometry and shade.</strong> Buildings, trees, terrain,
@@ -326,21 +360,30 @@
     doesn't, so indoor or in-car exposure differs and isn't modelled.
   </li>
   <li>
-    <strong>Other minor absorbers</strong> (water vapour, NO₂, etc.) and
-    the wavelength-dependence of surface albedo are not included.
-  </li>
-  <li>
-    <strong>No ground-truth calibration.</strong> The coefficients are set
-    from published literature, not fitted against a local UVA sensor, so
-    absolute values carry real uncertainty.
+    <strong>Other minor absorbers</strong> (NO₂, SO₂) and the
+    wavelength-dependence of surface albedo are not included.
   </li>
 </ul>
 
+<h2 id="validation">How the model is checked</h2>
+<p>
+  The repository includes a validation script,
+  <code>scripts/validate.mjs</code>, that replays archived inputs for past
+  dates through the exact code the calculator runs and compares the result
+  hour by hour with independent UVA data: NASA's POWER service
+  (satellite-derived UVA from the CERES instruments, available worldwide)
+  or a file of ground measurements from a UVA radiometer. It reports the
+  bias and error by sun angle and by cloudiness, checks the clear-sky table
+  on its own, and fits the cloud exponent γ and an alternative cloud source.
+  Results from that comparison will be published here; until then, treat
+  the cloud term as the least certain part of the model.
+</p>
+
 <div class="callout">
-  <strong>Built to be recalibrated.</strong> Every coefficient above lives
-  in one <code>MODEL</code> block in the open-source code, so the model can
-  be tuned against reference data without touching the rest of the app. The
-  full source is on
+  <strong>Built to be recalibrated.</strong> The few remaining tunable
+  coefficients live in one <code>MODEL</code> block, and the clear-sky
+  table can be regenerated with different assumptions, without touching the
+  rest of the app. The full source is on
   <a href="https://github.com/mixalisaspr/uvaindex">GitHub</a>.
 </div>
 

@@ -73,70 +73,60 @@ function asUtcIso(t) {
   return t.endsWith('Z') ? t : `${t}Z`;
 }
 
-// Pick the array index whose ISO hour string is closest to `target` (a Date).
-function nearestHourIndex(times, target) {
-  const targetMs = target.getTime();
-  let best = 0;
-  let bestDiff = Infinity;
-  for (let i = 0; i < times.length; i++) {
-    const diff = Math.abs(new Date(times[i]).getTime() - targetMs);
-    if (diff < bestDiff) {
-      bestDiff = diff;
-      best = i;
-    }
-  }
-  return best;
-}
+// How many local days the forecast covers (today + the next four). The
+// air-quality model (CAMS) that supplies the UV Index and aerosol only reaches
+// ~4-5 days ahead; past that the hours come back empty and the UVA model falls
+// back to its parametric cloud-cover term, so later days are still computable.
+export const FORECAST_DAYS = 5;
 
-// Fetch cloud cover, surface pressure and elevation around `when` (a Date).
-export async function fetchWeather(lat, lon, when) {
-  const dateStr = when.toISOString().slice(0, 10);
-  const url =
-    `${FORECAST_URL}?latitude=${lat}&longitude=${lon}` +
-    `&hourly=cloud_cover,surface_pressure` +
-    `&start_date=${dateStr}&end_date=${dateStr}&timezone=UTC`;
-  const data = await getJson(url);
-  const times = (data.hourly?.time || []).map(asUtcIso);
-  const idx = nearestHourIndex(times, when);
+// Query window shared by both endpoints. We ask for UTC timestamps (so DST and
+// half-hour zones can't skew the parsing) starting one UTC day back: a
+// location's local midnight can fall on the previous UTC date (anywhere east of
+// Greenwich), and the last local day can run up to 14 h into the UTC day after
+// FORECAST_DAYS. The caller trims the result to the local days it needs.
+const WINDOW = `&timezone=UTC&past_days=1&forecast_days=${FORECAST_DAYS + 1}`;
+
+// Fetch every hourly input the model needs for the forecast window, merged
+// from the forecast and air-quality APIs by timestamp. Returns
+//   { elevationM, hours: [{ time: Date, cloudCover, pressure, snowDepth,
+//                           aod, uvIndex, uvIndexClearSky, ozone }] }
+// sorted by time. Missing values are left undefined/null for the model to
+// skip.
+export async function fetchHourly(lat, lon) {
+  const coords = `latitude=${lat}&longitude=${lon}`;
+  const [weather, air] = await Promise.all([
+    getJson(`${FORECAST_URL}?${coords}&hourly=cloud_cover,surface_pressure,snow_depth${WINDOW}`),
+    getJson(
+      `${AIR_QUALITY_URL}?${coords}` +
+        `&hourly=uv_index,uv_index_clear_sky,aerosol_optical_depth,ozone${WINDOW}`
+    ),
+  ]);
   return {
-    elevationM: data.elevation ?? 0,
-    cloudCover: data.hourly?.cloud_cover?.[idx],
-    surfacePressure: data.hourly?.surface_pressure?.[idx],
-    time: times[idx],
-    // Full-day hourly series (used to plot the UVA Index curve).
-    hourly: {
-      time: times,
-      cloudCover: data.hourly?.cloud_cover || [],
-      surfacePressure: data.hourly?.surface_pressure || [],
-    },
+    elevationM: weather.elevation ?? 0,
+    hours: mergeHourly(weather.hourly, air.hourly),
   };
 }
 
-// Fetch UV index, aerosol optical depth and ozone around `when` (a Date).
-export async function fetchAirQuality(lat, lon, when) {
-  const dateStr = when.toISOString().slice(0, 10);
-  const url =
-    `${AIR_QUALITY_URL}?latitude=${lat}&longitude=${lon}` +
-    `&hourly=uv_index,uv_index_clear_sky,aerosol_optical_depth,ozone,dust` +
-    `&start_date=${dateStr}&end_date=${dateStr}&timezone=UTC`;
-  const data = await getJson(url);
-  const times = (data.hourly?.time || []).map(asUtcIso);
-  const idx = nearestHourIndex(times, when);
-  // Open-Meteo's `ozone` here is column-integrated; units vary, so we treat it
-  // as a soft hint and let the model's weak ozone term handle it gracefully.
-  return {
-    uvIndex: data.hourly?.uv_index?.[idx],
-    uvIndexClearSky: data.hourly?.uv_index_clear_sky?.[idx],
-    aod: data.hourly?.aerosol_optical_depth?.[idx],
-    ozone: data.hourly?.ozone?.[idx],
-    dust: data.hourly?.dust?.[idx],
-    time: times[idx],
-    // Full-day hourly series (used to plot the UVA Index curve).
-    hourly: {
-      time: times,
-      aod: data.hourly?.aerosol_optical_depth || [],
-      uvIndex: data.hourly?.uv_index || [],
-      uvIndexClearSky: data.hourly?.uv_index_clear_sky || [],
-    },
+// Join the two APIs' hourly blocks on their timestamp strings (their arrays
+// are not guaranteed to line up index-for-index).
+export function mergeHourly(weatherHourly = {}, airHourly = {}) {
+  const byTime = new Map();
+  const row = (t) => {
+    if (!byTime.has(t)) byTime.set(t, { time: new Date(asUtcIso(t)) });
+    return byTime.get(t);
   };
+  (weatherHourly.time || []).forEach((t, i) => {
+    const r = row(t);
+    r.cloudCover = weatherHourly.cloud_cover?.[i];
+    r.pressure = weatherHourly.surface_pressure?.[i]; // hPa
+    r.snowDepth = weatherHourly.snow_depth?.[i]; // m
+  });
+  (airHourly.time || []).forEach((t, i) => {
+    const r = row(t);
+    r.uvIndex = airHourly.uv_index?.[i];
+    r.uvIndexClearSky = airHourly.uv_index_clear_sky?.[i];
+    r.aod = airHourly.aerosol_optical_depth?.[i];
+    r.ozone = airHourly.ozone?.[i];
+  });
+  return [...byTime.values()].sort((a, b) => a.time - b.time);
 }

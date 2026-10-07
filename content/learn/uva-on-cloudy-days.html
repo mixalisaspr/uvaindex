@@ -3,16 +3,15 @@
   "slug": "uva-on-cloudy-days",
   "title": "UVA on Cloudy Days: How Much Gets Through & Cloud Enhancement",
   "headline": "UVA on cloudy days: how much gets through",
-  "description": "Cloud dims UVA far less than it dims sunlight — and broken cloud can briefly push UVA above clear-sky levels. Transmission by cloud type, why UVA penetrates cloud better than UVB, the cloud enhancement effect, and how the UVA Index models it.",
-  "keywords": ["UVA cloudy days", "UV through clouds", "can you burn on a cloudy day", "cloud enhancement effect", "UV cloud transmission", "overcast UV index", "UVA overcast"],
+  "description": "Cloud dims UVA far less than it dims sunlight — and broken cloud can briefly push UVA above clear-sky levels. Transmission by cloud type, how UVA and UVB compare under cloud, the cloud enhancement effect, and how the UVA Index models it.",
   "schema_type": "Article",
   "date_published": "2026-08-02",
-  "date_modified": "2026-08-02",
+  "date_modified": "2026-10-07",
   "tags": ["environment", "basics"],
   "order": 8,
   "og_title": "UVA on Cloudy Days: How Much Actually Gets Through?",
   "og_description": "Overcast cuts UVA far less than it cuts brightness — and broken cloud can push it above clear-sky. What the numbers really are.",
-  "jsonld_description": "How much UVA passes through cloud by cloud type, why UVA penetrates cloud better than UVB, the broken-cloud enhancement effect that can raise UVA above clear-sky values, and how the UVA Index parameterises cloud.",
+  "jsonld_description": "How much UVA passes through cloud by cloud type, how UVA and UVB compare under cloud, the broken-cloud enhancement effect that can raise UVA above clear-sky values, and how the UVA Index parameterises cloud.",
   "faq": [
     {
       "question": "Can you get UV damage on a cloudy day?",
@@ -24,7 +23,7 @@
     },
     {
       "question": "Does UVA penetrate cloud better than UVB?",
-      "answer": "Yes, modestly but consistently. Cloud droplets scatter across the ultraviolet fairly evenly, but scattering lengthens the path each photon travels through the atmosphere, and that longer path lets ozone absorb disproportionately more UVB. UVA is also more diffuse to begin with, so blocking the direct beam takes away a smaller share of it."
+      "answer": "Under thick cloud, UVA can get through slightly better than UVB, because the longer paths inside the cloud let ozone absorb more UVB, though measurements vary by cloud type. Both get through cloud far better than visible light does, so an overcast sky still delivers a substantial UVA dose."
     }
   ],
   "related_pins": ["what-is-uva-radiation", "how-uva-index-is-calculated", "does-uva-change-with-the-seasons"],
@@ -80,11 +79,11 @@
   covered below and not a typo.
 </p>
 
-<h2>Why UVA gets through cloud better than UVB</h2>
+<h2>Why UV gets through cloud better than visible light</h2>
 <p>
-  Cloud attenuates UVA less than it attenuates the sunburning
-  <a href="uva-vs-uvb.html">UVB</a>, and less again than it attenuates
-  visible light. Three mechanisms are at work.
+  Cloud attenuates ultraviolet — UVA and the sunburning
+  <a href="uva-vs-uvb.html">UVB</a> alike — less than it attenuates
+  visible light. Two mechanisms are at work.
 </p>
 <ul>
   <li>
@@ -97,26 +96,35 @@
     its direction.
   </li>
   <li>
-    <strong>Scattering lengthens the path, and a longer path hurts UVB
-    more.</strong> Every bounce inside a cloud increases the total distance
-    a photon travels through the atmosphere, and therefore its chance of
-    meeting an ozone molecule. Ozone absorbs strongly in the UVB and only
-    weakly in the UVA, so the detour is far more costly for UVB. The band
-    that penetrates a straight path better also survives a crooked one
-    better.
-  </li>
-  <li>
-    <strong>UVA is already mostly diffuse.</strong> Even under a perfectly
-    clear sky, a large share of surface UVA arrives as scattered skylight
-    from the whole dome rather than straight from the solar disc. Cloud
-    primarily removes the direct beam — so it takes away a smaller
-    proportion of UVA than of visible light, most of which does come
+    <strong>UV is already largely diffuse.</strong> Even under a perfectly
+    clear sky, a large share of surface UV arrives as scattered skylight
+    from the whole dome rather than straight from the solar disc — around
+    a third to a half of UVA with the sun high, more as it sinks. Cloud
+    primarily removes the direct beam, so it takes away a smaller
+    proportion of UV than of visible light, most of which does come
     straight from the sun. The same fact explains why
     <a href="reflected-uva-snow-sand-water.html">shade offers less UVA
     protection than it appears to</a>: standing under an umbrella removes
     the sun, not the sky.
   </li>
 </ul>
+
+<h2>UVA versus UVB under cloud</h2>
+<p>
+  <strong>Under thick cloud, UVA can get through slightly better than
+  UVB</strong>, because the longer paths inside the cloud let ozone absorb
+  more UVB. Every bounce inside and below a cloud lengthens a photon's
+  path, and with it the chance of meeting an ozone molecule; ozone absorbs
+  strongly in the UVB and barely in the UVA, so the detour costs UVB more.
+</p>
+<p>
+  Measurements vary by cloud type, though. Light reflected upward by a
+  cloud is partly scattered back down by the air above it, and air
+  scatters shorter wavelengths more strongly, so under some uniform cloud
+  layers the UVB has been measured coming through a little better instead.
+  Either way the difference between the two is modest — and both get
+  through far better than the light and warmth you can feel.
+</p>
 
 <h2>The cloud enhancement effect</h2>
 <p>
@@ -188,18 +196,18 @@
   publishes both the actual UV&nbsp;Index and a clear-sky UV&nbsp;Index for
   the same hour. Their ratio is a measured erythemal cloud transmission for
   the real sky overhead — far better than any parameterisation of a cover
-  percentage. Because UVA penetrates cloud better than erythemal UV, that
-  transmission is then lifted for the UVA band:
+  percentage. Because the difference between UVA and erythemal
+  transmission is modest and varies by cloud type (see above), that
+  transmission is applied to UVA as it is:
 </p>
 <div class="callout">
-  <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>0.8</sup></strong>
+  <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>γ</sup>, with γ = 1</strong>
 </div>
 <p>
-  The exponent is below 1, so any attenuation is softened, and the gap
-  widens as cloud thickens — which matches the observed spectral behaviour.
-  A heavy overcast that cuts erythemal UV to 30% leaves roughly
-  <strong>38%</strong> of the UVA; light cloud cutting erythemal UV to 70%
-  leaves about <strong>75%</strong>.
+  A heavy overcast that cuts erythemal UV to 30% leaves about 30% of the
+  UVA. The exponent γ is kept as an explicit coefficient because it is the
+  part of the model most worth checking against measurements; the
+  project's validation script fits it against independent UVA data.
 </p>
 <p>
   <strong>Fallback: parametric, from cloud cover.</strong> When the live UV

@@ -4,22 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6Z9PMH6V0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-Y6Z9PMH6V0');
-    </script>
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
 
     <title>UVA Knowledge Base — Understanding UVA Radiation &amp; the UV Index</title>
     <meta
       name="description"
       content="Plain-English guides to UVA radiation: what UVA is, how UVA differs from UVB, the health dangers of UVA, and why the standard UV Index isn't enough — making the case for a dedicated UVA Index."
     />
-    <meta name="keywords" content="UVA radiation, UVA vs UVB, UVA dangers, UV index explained, UVA index, what is UVA, surface UVA" />
     <meta name="author" content="uvaindex.org" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0f1724" />
@@ -236,7 +229,7 @@
           <a class="kb-card" href="how-uva-index-is-calculated.html">
             <h2>How the UVA Index is calculated</h2>
             <p>
-              The full method behind our UVA Index: how surface UVA irradiance (315–400 nm, W/m²) is derived from solar geometry plus live cloud, aerosol and altitude data, the exact formulas and coefficients used, and which factors we deliberately leave out.
+              The full method behind our UVA Index: how surface UVA irradiance (315–400 nm, W/m²) is derived from a radiative-transfer lookup table plus live cloud, haze, pressure and snow data, the exact formulas and assumptions, how it is validated, and which factors we leave out.
             </p>
             <span class="kb-more">Read →</span>
           </a>
@@ -266,7 +259,7 @@
           <a class="kb-card" href="uva-on-cloudy-days.html">
             <h2>UVA on cloudy days: how much gets through</h2>
             <p>
-              Cloud dims UVA far less than it dims sunlight — and broken cloud can briefly push UVA above clear-sky levels. Transmission by cloud type, why UVA penetrates cloud better than UVB, the cloud enhancement effect, and how the UVA Index models it.
+              Cloud dims UVA far less than it dims sunlight — and broken cloud can briefly push UVA above clear-sky levels. Transmission by cloud type, how UVA and UVB compare under cloud, the cloud enhancement effect, and how the UVA Index models it.
             </p>
             <span class="kb-more">Read →</span>
           </a>
@@ -439,6 +432,7 @@
       <footer>
         <p class="disclaimer">
           Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href="https://uvaindex.org/about.html">About page</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie settings</button>
         </p>
         <p class="disclaimer">
           Free, ad-free and <strong>open source</strong> — the code and model are

@@ -4,22 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6Z9PMH6V0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-Y6Z9PMH6V0');
-    </script>
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
 
     <title>UVA Indoors: Nail Lamps, Tanning Beds, Bulbs and Screens</title>
     <meta
       name="description"
       content="Gel-manicure lamps are almost pure UVA, tanning beds emit heavily UVA-shifted spectra, and screens emit no UV at all. What each indoor source actually puts out, how it compares to midday sun in W/m², and where the real risks are."
     />
-    <meta name="keywords" content="are UV nail lamps safe, gel manicure UV, tanning bed UVA, do screens emit UV, blue light is not UV, CFL bulb UV emission, halogen lamp UV, indoor UV exposure" />
     <meta name="author" content="uvaindex.org" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0f1724" />
@@ -353,6 +346,7 @@
       <footer>
         <p class="disclaimer">
           Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href="https://uvaindex.org/about.html">About page</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie settings</button>
         </p>
       </footer>
     </main>

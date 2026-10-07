@@ -4,22 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6Z9PMH6V0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-Y6Z9PMH6V0');
-    </script>
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
 
     <title>Reflected UVA: Snow, Sand, Water and Concrete Albedo Explained</title>
     <meta
       name="description"
       content="Ground reflectance adds to the UVA you receive — and UV albedo is not visible albedo. Reflectance values by surface, why skiers and boaters burn under the chin, why shade fails on a beach, and how the UVA Index models surface albedo."
     />
-    <meta name="keywords" content="UV reflection snow, UV albedo, sand UV reflection, water UV reflection, snow blindness, reflected UV beach, does shade block UV" />
     <meta name="author" content="uvaindex.org" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0f1724" />
@@ -54,7 +47,7 @@
           "name": "uvaindex.org"
         },
         "datePublished": "2026-08-02",
-        "dateModified": "2026-08-02",
+        "dateModified": "2026-10-07",
         "mainEntityOfPage": "https://uvaindex.org/learn/reflected-uva-snow-sand-water.html"
       }
     </script>
@@ -277,19 +270,24 @@
 
         <h2>How the UVA Index models albedo</h2>
         <p>
-          The <a href="../">calculator</a>'s ground-surface selector applies a
-          multiplier to the modelled UVA irradiance:
+          The <a href="../">calculator</a>'s <em>Surroundings</em> selector sets
+          the UV albedo <code>r</code> of the area around you, and the model adds
+          the light it reflects that the sky scatters back down, exactly for an
+          evenly reflecting surface: factor = 1&nbsp;÷&nbsp;(1&nbsp;−&nbsp;r&nbsp;×&nbsp;s),
+          where <code>s</code>&nbsp;≈&nbsp;0.3 is the atmosphere's spherical albedo
+          in the UVA. On <strong>Auto</strong> it switches to snow when the forecast
+          has snow on the ground.
         </p>
         <div class="table-scroll">
         <table class="data-table">
           <thead>
-            <tr><th>Selector option</th><th>Factor</th><th>Rationale</th></tr>
+            <tr><th>Selector option</th><th>Albedo r</th><th>Factor</th><th>Rationale</th></tr>
           </thead>
           <tbody>
-            <tr><td>Grass / default</td><td>×1.00</td><td>~2% reflectance; the baseline</td></tr>
-            <tr><td>Water</td><td>×1.00</td><td>Low diffuse UV reflectance from above</td></tr>
-            <tr><td>Sand / beach</td><td>×1.04</td><td>Dry sand ~15–25%, modest downwelling gain</td></tr>
-            <tr><td>Snow</td><td>×1.10</td><td>Highly reflective, but the horizontal-surface gain is bounded</td></tr>
+            <tr><td>Grass, soil or town</td><td>0.03</td><td>×1.01</td><td>Low reflectance; the baseline</td></tr>
+            <tr><td>Water</td><td>0.07</td><td>×1.02</td><td>Low diffuse UV reflectance from above, sun well up</td></tr>
+            <tr><td>Sand / beach</td><td>0.15</td><td>×1.05</td><td>Dry sand reflects ~15–25%</td></tr>
+            <tr><td>Snow</td><td>0.6</td><td>×1.24</td><td>Snow-covered terrain with some trees and buildings; unbroken fresh snow (0.9) reaches ×1.40</td></tr>
           </tbody>
         </table>
         </div>
@@ -306,7 +304,7 @@
           Two practical notes on using the selector. <strong>Concrete and paving
           are not options</strong> — at 0.08–0.15 they sit between grass and sand,
           and grass is the closer approximation for a city street. And
-          <strong>"Water" at ×1.00 describes standing beside or above water with a
+          <strong>"Water" at ×1.02 describes standing beside or above water with a
           reasonably high sun</strong>; with a low sun, or on a bright choppy sea,
           the real reflected component is higher than the model's flat treatment
           suggests.
@@ -336,6 +334,7 @@
       <footer>
         <p class="disclaimer">
           Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href="https://uvaindex.org/about.html">About page</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie settings</button>
         </p>
       </footer>
     </main>

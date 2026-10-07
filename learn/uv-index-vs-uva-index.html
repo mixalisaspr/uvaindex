@@ -4,22 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6Z9PMH6V0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-Y6Z9PMH6V0');
-    </script>
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
 
     <title>UV Index vs UVA Index: What Each One Measures</title>
     <meta
       name="description"
       content="The UV Index is erythemally weighted, so it is dominated by UVB and barely registers UVA. What each index measures, the situations where a low UV Index sits alongside high UVA, and how to read the 0–11+ UVA Index scale."
     />
-    <meta name="keywords" content="UV index vs UVA index, UV index explained, what does the UV index measure, erythemal weighting, UVA index scale, UV index not enough, surface UVA irradiance" />
     <meta name="author" content="uvaindex.org" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0f1724" />
@@ -54,7 +47,7 @@
           "name": "uvaindex.org"
         },
         "datePublished": "2026-06-20",
-        "dateModified": "2026-08-29",
+        "dateModified": "2026-10-07",
         "mainEntityOfPage": "https://uvaindex.org/learn/uv-index-vs-uva-index.html"
       }
     </script>
@@ -77,7 +70,7 @@
             "name": "Can the UV Index be low while UVA is high?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes, and it happens in the situations people read as safe. Late in the afternoon, under overcast, in winter, or sitting behind a window, the sunburning UVB has fallen away or been filtered out while UVA — steadier through the day and better at penetrating cloud and glass — continues to arrive. The UV Index gives a reassuring number while UVA exposure quietly continues."
+              "text": "Yes, and it happens in the situations people read as safe. Late in the afternoon, under overcast, in winter, or sitting behind a window, the sunburning UVB has fallen away or been filtered out while UVA — steadier through the day, passing through window glass, and dimmed by cloud far less than the light you can feel — continues to arrive. The UV Index gives a reassuring number while UVA exposure quietly continues."
             }
           },
           {
@@ -85,7 +78,7 @@
             "name": "What is the UVA Index scale?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "It is the unweighted UVA irradiance over roughly 315-400 nm, in W/m², divided by six. The divisor is chosen so a clear-sky overhead sun of about 66 W/m² reads 11, giving the same top-of-scale feel as a peak tropical UV Index. The bands reuse the WHO wording: Low below 3, Moderate from 3, High from 6, Very High from 8 and Extreme from 11 — which in irradiance terms are 18, 36, 48 and 66 W/m²."
+              "text": "It is the unweighted UVA irradiance over roughly 315-400 nm, in W/m², divided by six. The divisor is chosen so a clear-sky overhead sun of about 64–66 W/m² reads 11, giving the same top-of-scale feel as a peak tropical UV Index. The bands reuse the WHO wording: Low below 3, Moderate from 3, High from 6, Very High from 8 and Extreme from 11 — which in irradiance terms are 18, 36, 48 and 66 W/m²."
             }
           }
         ]
@@ -184,8 +177,9 @@
         <p>
           Picture late afternoon, or a hazy/overcast day, or sitting by a sunny
           window. The UV Index may read low to moderate because the sunburning UVB
-          has fallen away. But UVA — steadier through the day, better at
-          penetrating cloud and glass — can still be delivering a substantial
+          has fallen away. But UVA — steadier through the day, passing through
+          window glass, and dimmed by cloud far less than the light you can feel —
+          can still be delivering a substantial
           dose to the deeper layers of your skin. The UVI gives you a reassuring
           number while the UVA exposure quietly continues.
         </p>
@@ -214,7 +208,7 @@
           The raw UVA irradiance (in W/m²) is precise but unfamiliar, so we put
           it on a 0–11+ scale just like the UV&nbsp;Index. The conversion is one
           constant: <strong>UVA Index = UVA irradiance ÷ 6</strong>. That divisor
-          is chosen so a clear-sky overhead sun (~66&nbsp;W/m² in our model)
+          is chosen so a clear-sky overhead sun (~64–66&nbsp;W/m² in our model)
           reads about <strong>11</strong> — the same top-of-scale feel as a peak
           tropical UV&nbsp;Index. The category bands reuse the WHO UV&nbsp;Index
           colours and words, so a number you already understand carries straight
@@ -267,6 +261,7 @@
       <footer>
         <p class="disclaimer">
           Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href="https://uvaindex.org/about.html">About page</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie settings</button>
         </p>
       </footer>
     </main>

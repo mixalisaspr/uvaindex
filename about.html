@@ -4,22 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6Z9PMH6V0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-Y6Z9PMH6V0');
-    </script>
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
 
     <title>About the UVA Index — Why It Exists & Why It's Not Official</title>
     <meta
       name="description"
       content="Why we built a dedicated UVA Index: the standard UV Index is weighted for sunburn and under-counts UVA. What this site is, how it's funded, why the UVA Index isn't an official standard, and how to use it responsibly."
     />
-    <meta name="keywords" content="about UVA index, why UVA index, UVA index not official, unofficial UVA index, UVA awareness, surface UVA" />
     <meta name="author" content="uvaindex.org" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0f1724" />
@@ -185,6 +178,34 @@
           guide</a> to get started.
         </p>
 
+        <h2 id="privacy">Privacy</h2>
+        <p>
+          There are no accounts, no ads and nothing is sold. What does leave
+          your browser:
+        </p>
+        <ul>
+          <li>
+            <strong>Your location, to fetch the forecast.</strong> The
+            coordinates of the place you search for, or your device's position
+            if you allow it, are sent to
+            <a href="https://open-meteo.com/">Open-Meteo</a> to get weather and
+            air-quality data. If you use your device's position, the coordinates
+            also go to
+            <a href="https://www.bigdatacloud.com/">BigDataCloud</a> to look up
+            the nearest town's name. We don't store them anywhere.
+          </li>
+          <li>
+            <strong>Analytics, with your consent.</strong> We use Google
+            Analytics to count visits and see which pages are useful. Visitors
+            in the EU/EEA, UK and Switzerland are asked first, and nothing is
+            loaded unless they accept; elsewhere it is on by default. Either
+            way, you can change your choice at any time with
+            <button type="button" class="link-btn" data-consent-open>Cookie settings</button>
+            (also in every page footer). Your choice is remembered in your
+            browser's local storage.
+          </li>
+        </ul>
+
         <a class="cta" href="./">Check the UVA Index for your location →</a>
       </article>
 
@@ -203,6 +224,7 @@
           Free and open source. Unofficial UVA index and UVA irradiance
           calculation. Educational information only, not medical advice.
           More on the <a href="about.html">About page</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie settings</button>
         </p>
       </footer>
     </main>

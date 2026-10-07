@@ -4,25 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6Z9PMH6V0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-Y6Z9PMH6V0');
-    </script>
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
 
     <!-- Primary SEO -->
     <title>UVA Index — Live UVA Index Calculator by Location & Time</title>
     <meta
       name="description"
       content="Free UVA Index calculator. Get a live UVA Index for any location and time — estimated surface UVA irradiance (315–400 nm, W/m²) from real-time sun position, cloud cover and aerosol data."
-    />
-    <meta
-      name="keywords"
-      content="UVA Index, UVA index calculator, UVA irradiance, UVA levels, UVA radiation, UV index, sun exposure, surface UVA"
     />
     <meta name="author" content="uvaindex.org" />
     <meta name="robots" content="index, follow" />
@@ -97,7 +87,7 @@
             "name": "How is the UVA Index calculated?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "It combines the solar zenith angle for your location and time with a clear-sky UVA baseline, then applies live corrections for altitude, aerosol optical depth, cloud cover and surface albedo using free Open-Meteo data. The resulting UVA irradiance (W/m²) is then divided by 6 to give the 0–11+ UVA Index."
+              "text": "It looks up clear-sky UVA for your sun angle, haze (aerosol optical depth) and surface pressure in a table computed with a radiative-transfer model, adds reflection from the surroundings and the day's Earth–Sun distance, then applies the live cloud effect, all from free Open-Meteo data. The resulting UVA irradiance (W/m²) is divided by 6 to give the 0–11+ UVA Index."
             }
           }
         ]
@@ -162,9 +152,10 @@
         </div>
 
         <div class="row">
-          <label for="surface">Ground surface</label>
+          <label for="surface" title="What covers the area around you. Reflective surroundings send more UVA back down from the sky.">Surroundings</label>
           <select id="surface">
-            <option value="grass">Grass / default</option>
+            <option value="auto">Auto (snow if forecast)</option>
+            <option value="grass">Grass, soil or town</option>
             <option value="water">Water</option>
             <option value="sand">Sand / beach</option>
             <option value="snow">Snow</option>
@@ -172,7 +163,12 @@
         </div>
 
         <div class="row">
-          <button id="calculate" type="button" class="primary">Calculate UVA Index</button>
+          <button id="refresh" type="button" class="primary" disabled>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+              <path d="M17.65 6.35A7.958 7.958 0 0 0 12 4a8 8 0 1 0 7.73 10h-2.08A6 6 0 1 1 12 6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+            </svg>
+            <span id="refresh-label">Refresh</span>
+          </button>
         </div>
 
         <p id="status" class="status" role="status" aria-live="polite"></p>
@@ -180,7 +176,7 @@
 
       <section id="result" class="result" hidden>
         <div class="readout">
-          <span class="metric-label">UVA Index</span>
+          <span class="metric-label">UVA Index now <span id="as-of" class="as-of"></span></span>
           <div class="uva-scale">
             <div class="uva-scale-bar" aria-hidden="true">
               <div class="uva-segment" style="background:#3a7d44">Low</div>
@@ -189,20 +185,23 @@
               <div class="uva-segment" style="background:#e3522f">Very High</div>
               <div class="uva-segment" style="background:#b5179e">Extreme</div>
             </div>
-            <div class="uva-pointer-track" aria-hidden="true">
+            <div class="uva-pointer-track">
               <div id="uva-pointer" class="uva-pointer">
-                <span class="uva-pointer-caret">▲</span>
+                <span class="uva-pointer-caret" aria-hidden="true">▲</span>
                 <span id="uva-index" class="uva-pointer-number">—</span>
               </div>
             </div>
           </div>
           <p class="uva-secondary">
+            <strong id="uva-band" class="uva-band">—</strong> ·
             <span id="uva-value">—</span> W/m² UVA irradiance
           </p>
         </div>
 
-        <h2>UVA Index through the day</h2>
-        <div id="chart" class="chart" aria-label="UVA Index over the course of the day"></div>
+        <h2 id="forecast-heading">UVA forecast</h2>
+        <div id="days" class="days" role="group" aria-labelledby="forecast-heading"></div>
+        <p id="day-summary" class="day-summary" aria-live="polite"></p>
+        <div id="chart" class="chart"></div>
 
         <div class="result-tables">
           <div class="table-block">
@@ -238,6 +237,7 @@
           Free and open source. Unofficial UVA index and UVA irradiance
           calculation. Educational information only, not medical advice.
           More on the <a href="about.html">About page</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie settings</button>
         </p>
       </footer>
     </main>

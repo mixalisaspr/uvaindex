@@ -4,22 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6Z9PMH6V0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-Y6Z9PMH6V0');
-    </script>
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
 
     <title>UVA vs UVB: What's the Difference? | UVA Index</title>
     <meta
       name="description"
       content="UVA vs UVB compared: wavelength, how deep each penetrates skin, sunburn vs photoaging, vitamin D, skin-cancer roles, and how clouds, glass, time of day and season affect each."
     />
-    <meta name="keywords" content="UVA vs UVB, difference between UVA and UVB, UVB sunburn, UVA aging, UV bands, vitamin D UVB" />
     <meta name="author" content="uvaindex.org" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0f1724" />
@@ -54,7 +47,7 @@
           "name": "uvaindex.org"
         },
         "datePublished": "2026-06-20",
-        "dateModified": "2026-08-29",
+        "dateModified": "2026-10-07",
         "mainEntityOfPage": "https://uvaindex.org/learn/uva-vs-uvb.html"
       }
     </script>
@@ -85,7 +78,7 @@
             "name": "Does UVA or UVB come through windows?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "UVA, mostly. Ordinary window glass blocks the large majority of UVB but transmits a substantial share of UVA, so time spent by a sunny window or driving delivers UVA with almost no UVB. The same asymmetry applies to cloud and to low sun angles: whenever something removes UVB preferentially, exposure shifts toward UVA while the sensation of sun exposure disappears."
+              "text": "UVA, mostly. Ordinary window glass blocks the large majority of UVB but transmits a substantial share of UVA, so time spent by a sunny window or driving delivers UVA with almost no UVB. The same asymmetry applies to low sun angles: whenever something removes UVB preferentially, exposure shifts toward UVA while the sensation of sun exposure disappears. Cloud has a smaller effect of the same kind: under thick cloud, UVA can get through slightly better than UVB, though measurements vary by cloud type."
             }
           }
         ]
@@ -151,7 +144,8 @@
             <tr><td>Main short-term effect</td><td>Immediate tanning, little burning</td><td>Sunburn (erythema)</td></tr>
             <tr><td>Main long-term effect</td><td>Photoaging, wrinkles, pigmentation</td><td>DNA damage, most skin cancers</td></tr>
             <tr><td>Vitamin D</td><td>No</td><td>Yes — triggers synthesis</td></tr>
-            <tr><td>Through glass / clouds</td><td>Largely passes through</td><td>Mostly blocked</td></tr>
+            <tr><td>Through window glass</td><td>Largely passes through</td><td>Mostly blocked</td></tr>
+            <tr><td>Through thick cloud</td><td>Dimmed, far less than visible light</td><td>Often dimmed slightly more than UVA</td></tr>
             <tr><td>Time of day / season</td><td>Fairly constant</td><td>Peaks at midday and in summer</td></tr>
           </tbody>
         </table>
@@ -221,7 +215,7 @@
         </p>
         <ul>
           <li><strong>Glass:</strong> <a href="does-glass-block-uva.html">standard windows block most UVB but let much UVA through</a> — so you can age your skin behind a car or office window.</li>
-          <li><strong>Clouds:</strong> <a href="uva-on-cloudy-days.html">light cloud cuts UVB more than UVA</a>; a meaningful UVA dose gets through on overcast days.</li>
+          <li><strong>Clouds:</strong> <a href="uva-on-cloudy-days.html">under thick cloud, UVA can get through slightly better than UVB</a> (measurements vary by cloud type), and both far better than visible light, so a meaningful UVA dose gets through on overcast days.</li>
           <li><strong>Time and season:</strong> UVB is highly concentrated around solar noon and in summer, because a low sun forces it through more ozone. <a href="does-uva-change-with-the-seasons.html">UVA is comparatively flat across the day and year.</a></li>
         </ul>
         <p>
@@ -245,6 +239,7 @@
       <footer>
         <p class="disclaimer">
           Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href="https://uvaindex.org/about.html">About page</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie settings</button>
         </p>
       </footer>
     </main>

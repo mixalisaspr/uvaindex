@@ -1,0 +1,5 @@
+# Dev-only: needed to regenerate js/lut.js with scripts/build_lut.py.
+# The website itself has no dependencies.
+numpy>=2.0
+pvlib>=0.11
+PythonicDISORT>=1.0

@@ -4,22 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y6Z9PMH6V0"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-Y6Z9PMH6V0');
-    </script>
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
 
     <title>How to Measure UVA: Meters, UV Cards and Why Phones Can't</title>
     <meta
       name="description"
       content="What it takes to actually measure UVA — spectroradiometers, broadband radiometers, cheap consumer meters and photochromic cards — where each fails, why no smartphone can measure ultraviolet, and how to sanity-check any reading."
     />
-    <meta name="keywords" content="UV meter, how to measure UV index, UV sensor card, can my phone measure UV, UVA meter, UV beads, spectroradiometer UV, UV dosimeter" />
     <meta name="author" content="uvaindex.org" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0f1724" />
@@ -54,7 +47,7 @@
           "name": "uvaindex.org"
         },
         "datePublished": "2026-08-29",
-        "dateModified": "2026-08-29",
+        "dateModified": "2026-10-07",
         "mainEntityOfPage": "https://uvaindex.org/learn/how-to-measure-uva.html"
       }
     </script>
@@ -342,10 +335,12 @@
           Under those conditions, agreement within roughly 20% would be a good
           result for a modelled value against a consumer instrument — and if you
           find a systematic offset with a properly calibrated device, that is
-          genuinely useful information. The model's coefficients all live in one
-          block of <code>js/uva.js</code> specifically so they can be recalibrated
-          against real measurements, and the project welcomes that kind of
-          contribution.
+          genuinely useful information. The project's validation script,
+          <code>scripts/validate.mjs</code>, takes a CSV of timestamped readings
+          and reports the model's bias against them by sun angle and cloudiness —
+          the remaining coefficients live in one block of <code>js/uva.js</code>
+          specifically so they can be recalibrated against real measurements, and
+          the project welcomes that kind of contribution.
         </p>
 
         <a class="cta" href="../">Compare your meter against the modelled UVA Index →</a>
@@ -363,6 +358,7 @@
       <footer>
         <p class="disclaimer">
           Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href="https://uvaindex.org/about.html">About page</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie settings</button>
         </p>
       </footer>
     </main>
