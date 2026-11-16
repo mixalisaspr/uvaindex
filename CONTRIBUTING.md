@@ -57,14 +57,21 @@ To add an article:
    throughout the Knowledge Base (`<table class="data-table">`,
    `<div class="callout">`, internal links as `<a href="other-slug.html">`).
    Set `"draft": false` when it's ready to publish.
-3. Run `python3 scripts/build_kb.py` and review the diff — it updates every
+3. Back factual claims with sources. Add each reference once to
+   `content/sources.json` (id, authors, year, title, publisher, url) and cite
+   it in the body with `[[cite:id]]` (or `[[cite:id1,id2]]`) straight after
+   the sentence it supports. The build numbers the citations and appends a
+   "Sources" list to the article. Prefer primary sources — the study,
+   standard or agency page itself — and only cite what you have checked
+   actually says what the sentence claims.
+4. Run `python3 scripts/build_kb.py` and review the diff — it updates every
    generated file for you, including the sitemap and service-worker cache.
-4. Commit both the `content/` file and the regenerated output together. CI
+5. Commit both the `content/` file and the regenerated output together. CI
    (`.github/workflows/kb-build-check.yml`) fails the PR if they ever drift
    apart.
 
 The script validates as it goes (duplicate slugs, broken internal links,
-missing required fields, bad dates) and fails loudly with a full error list
+missing required fields, bad dates, unknown or unused sources) and fails loudly with a full error list
 rather than generating broken output.
 
 ## Pull request guidelines

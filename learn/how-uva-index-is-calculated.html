@@ -47,8 +47,62 @@
           "name": "uvaindex.org"
         },
         "datePublished": "2026-06-27",
-        "dateModified": "2026-10-07",
-        "mainEntityOfPage": "https://uvaindex.org/learn/how-uva-index-is-calculated.html"
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/learn/how-uva-index-is-calculated.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "NOAA Solar Calculator and solar position calculation details",
+            "publisher": "NOAA Global Monitoring Laboratory",
+            "url": "https://gml.noaa.gov/grad/solcalc/"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Numerically stable algorithm for discrete-ordinate-method radiative transfer in multiple scattering and emitting layered media",
+            "author": "Stamnes K, Tsay S-C, Wiscombe W, Jayaweera K",
+            "publisher": "Applied Optics 27(12):2502–2509",
+            "datePublished": "1988",
+            "url": "https://doi.org/10.1364/AO.27.002502"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Revised optical air mass tables and approximation formula",
+            "author": "Kasten F, Young AT",
+            "publisher": "Applied Optics 28(22):4735–4738",
+            "datePublished": "1989",
+            "url": "https://doi.org/10.1364/AO.28.004735"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Reference Air Mass 1.5 Spectra (ASTM G173-03)",
+            "publisher": "National Renewable Energy Laboratory",
+            "url": "https://www.nrel.gov/grid/solar-resource/spectra-am1.5.html"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "On Rayleigh optical depth calculations",
+            "author": "Bodhaine BA, Wood NB, Dutton EG, Slusser JR",
+            "publisher": "Journal of Atmospheric and Oceanic Technology 16(11):1854–1861",
+            "datePublished": "1999",
+            "url": "https://doi.org/10.1175/1520-0426(1999)016%3C1854:ORODC%3E2.0.CO;2"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Simple solar spectral model for direct and diffuse irradiance on horizontal and tilted planes at the Earth's surface for cloudless atmospheres",
+            "author": "Bird RE, Riordan C",
+            "publisher": "Journal of Climate and Applied Meteorology 25(1):87–97",
+            "datePublished": "1986",
+            "url": "https://doi.org/10.1175/1520-0450(1986)025%3C0087:SSSMFD%3E2.0.CO;2"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Increase in solar UV radiation with altitude",
+            "author": "Blumthaler M, Ambach W, Ellinger R",
+            "publisher": "Journal of Photochemistry and Photobiology B: Biology 39(2):130–134",
+            "datePublished": "1997",
+            "url": "https://doi.org/10.1016/S1011-1344(96)00018-8"
+          }
+        ]
       }
     </script>
 
@@ -163,7 +217,7 @@
           directly overhead, 90° = on the horizon) in the browser from your
           latitude, longitude and the instant, using the
           <strong>NOAA solar position algorithm</strong> — the same maths behind
-          the NOAA Solar Calculator. The same algorithm gives the
+          the NOAA Solar Calculator.<sup class="cite"><a href="#src-1" aria-label="Source 1">[1]</a></sup> The same algorithm gives the
           <strong>Earth–Sun distance</strong> used in step&nbsp;5. When the sun is
           below the horizon, UVA is reported as <strong>0</strong>.
         </p>
@@ -172,8 +226,7 @@
         <p>
           Rather than a hand-tuned curve, the clear-sky part of the model comes
           from a physics calculation done once, ahead of time. We ran
-          <strong>DISORT</strong> — the standard multiple-scattering solver used in
-          atmospheric science — over a layered model atmosphere for every
+          <strong>DISORT</strong> — the standard multiple-scattering solver used in atmospheric science<sup class="cite"><a href="#src-2" aria-label="Source 2">[2]</a></sup> — over a layered model atmosphere for every
           combination of:
         </p>
         <ul>
@@ -207,8 +260,7 @@
             typical 300 Dobson Units.
           </li>
           <li>
-            <strong>The curvature of the atmosphere</strong> for a low sun (the
-            Kasten–Young air mass), which a flat-atmosphere 1/cos θ overstates near
+            <strong>The curvature of the atmosphere</strong> for a low sun (the Kasten–Young air mass<sup class="cite"><a href="#src-3" aria-label="Source 3">[3]</a></sup>), which a flat-atmosphere 1/cos θ overstates near
             the horizon.
           </li>
         </ul>
@@ -219,8 +271,8 @@
             <tr><th>Ingredient</th><th>Assumption</th></tr>
           </thead>
           <tbody>
-            <tr><td>Sunlight above the atmosphere</td><td>ASTM G173-03 extraterrestrial spectrum, 85.5&nbsp;W/m² over 315–400&nbsp;nm</td></tr>
-            <tr><td>Air (Rayleigh)</td><td>Bodhaine et al. (1999) optical depth × pressure ÷ 1013.25&nbsp;hPa</td></tr>
+            <tr><td>Sunlight above the atmosphere</td><td>ASTM G173-03 extraterrestrial spectrum<sup class="cite"><a href="#src-4" aria-label="Source 4">[4]</a></sup>, 85.5&nbsp;W/m² over 315–400&nbsp;nm</td></tr>
+            <tr><td>Air (Rayleigh)</td><td>Bodhaine et al. (1999)<sup class="cite"><a href="#src-5" aria-label="Source 5">[5]</a></sup> optical depth × pressure ÷ 1013.25&nbsp;hPa</td></tr>
             <tr><td>Ozone</td><td>300&nbsp;DU, centred at 22&nbsp;km</td></tr>
             <tr><td>Aerosol</td><td>Ångström exponent 1.14, single-scattering albedo 0.92, asymmetry 0.70, scale height 1.5&nbsp;km</td></tr>
             <tr><td>Solver</td><td>DISORT, 16 streams, 17 layers, 2.5&nbsp;nm spectral bins</td></tr>
@@ -231,7 +283,7 @@
           For an overhead sun in clean air at sea level the table gives
           <strong>64.5&nbsp;W/m²</strong>; a moderate haze (AOD&nbsp;0.15) trims
           that by about 5% with the sun high and 9–12% with it low. As a check,
-          the direct-beam part matches NREL's independent SPECTRL2 model to within
+          the direct-beam part matches NREL's independent SPECTRL2 model<sup class="cite"><a href="#src-6" aria-label="Source 6">[6]</a></sup> to within
           1% at every sun angle tested; SPECTRL2's simpler diffuse-sky estimate
           mostly comes out 4–18% lower, as expected from a model that doesn't
           solve multiple scattering.
@@ -245,8 +297,7 @@
           The model reads the forecast's <strong>surface pressure</strong> (falling
           back to a standard atmosphere for the terrain elevation) and lets the
           table do the rest. In clean air that is worth about
-          <strong>+3% per kilometre</strong>. The larger 4–7%/km often measured for
-          UVA in the mountains mostly comes from leaving haze behind in the
+          <strong>+3% per kilometre</strong>. The larger figures often measured for UVA in the mountains — about 9%/km in one Alpine study<sup class="cite"><a href="#src-7" aria-label="Source 7">[7]</a></sup> — mostly come from leaving haze behind in the
           valleys, and the model picks that up separately through the aerosol data
           for your point. <a href="uva-at-altitude.html">UVA at altitude</a> works
           through the numbers.
@@ -481,6 +532,20 @@
           reading. For why this estimate exists at all, see
           <a href="../about.html">About this site</a>.
         </p>
+
+        <section class="sources" id="sources">
+          <h2>Sources</h2>
+          <ol>
+            <li id="src-1"><a href="https://gml.noaa.gov/grad/solcalc/" rel="noopener">NOAA Solar Calculator and solar position calculation details</a>. <em>NOAA Global Monitoring Laboratory</em>.</li>
+            <li id="src-2">Stamnes K, Tsay S-C, Wiscombe W, Jayaweera K (1988). <a href="https://doi.org/10.1364/AO.27.002502" rel="noopener">Numerically stable algorithm for discrete-ordinate-method radiative transfer in multiple scattering and emitting layered media</a>. <em>Applied Optics 27(12):2502–2509</em>.</li>
+            <li id="src-3">Kasten F, Young AT (1989). <a href="https://doi.org/10.1364/AO.28.004735" rel="noopener">Revised optical air mass tables and approximation formula</a>. <em>Applied Optics 28(22):4735–4738</em>.</li>
+            <li id="src-4"><a href="https://www.nrel.gov/grid/solar-resource/spectra-am1.5.html" rel="noopener">Reference Air Mass 1.5 Spectra (ASTM G173-03)</a>. <em>National Renewable Energy Laboratory</em>.</li>
+            <li id="src-5">Bodhaine BA, Wood NB, Dutton EG, Slusser JR (1999). <a href="https://doi.org/10.1175/1520-0426(1999)016%3C1854:ORODC%3E2.0.CO;2" rel="noopener">On Rayleigh optical depth calculations</a>. <em>Journal of Atmospheric and Oceanic Technology 16(11):1854–1861</em>.</li>
+            <li id="src-6">Bird RE, Riordan C (1986). <a href="https://doi.org/10.1175/1520-0450(1986)025%3C0087:SSSMFD%3E2.0.CO;2" rel="noopener">Simple solar spectral model for direct and diffuse irradiance on horizontal and tilted planes at the Earth's surface for cloudless atmospheres</a>. <em>Journal of Climate and Applied Meteorology 25(1):87–97</em>.</li>
+            <li id="src-7">Blumthaler M, Ambach W, Ellinger R (1997). <a href="https://doi.org/10.1016/S1011-1344(96)00018-8" rel="noopener">Increase in solar UV radiation with altitude</a>. <em>Journal of Photochemistry and Photobiology B: Biology 39(2):130–134</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">Last reviewed 16 November 2026. Spotted an error or a better source? <a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">Tell us on GitHub</a>.</p>
 
         <a class="cta" href="../">Try the UVA Index calculator and see the breakdown →</a>
       </article>
