@@ -47,8 +47,41 @@
           "name": "uvaindex.org"
         },
         "datePublished": "2026-08-02",
-        "dateModified": "2026-10-07",
-        "mainEntityOfPage": "https://uvaindex.org/learn/uva-at-altitude.html"
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/learn/uva-at-altitude.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Global Solar UV Index: A Practical Guide",
+            "publisher": "World Health Organization, WMO, UNEP and ICNIRP",
+            "datePublished": "2002",
+            "url": "https://www.who.int/publications/i/item/9241590076"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Increase in solar UV radiation with altitude",
+            "author": "Blumthaler M, Ambach W, Ellinger R",
+            "publisher": "Journal of Photochemistry and Photobiology B: Biology 39(2):130–134",
+            "datePublished": "1997",
+            "url": "https://doi.org/10.1016/S1011-1344(96)00018-8"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "The risk of melanoma in pilots and cabin crew: UV measurements in flying airplanes",
+            "author": "Sanlorenzo M, Vujic I, Posch C, Cleaver JE, Quaglino P, Ortiz-Urda S",
+            "publisher": "JAMA Dermatology 151(4):450–452",
+            "datePublished": "2015",
+            "url": "https://doi.org/10.1001/jamadermatol.2014.4643"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "The risk of melanoma in airline pilots and cabin crew: a meta-analysis",
+            "author": "Sanlorenzo M, Wehner MR, Linos E, et al.",
+            "publisher": "JAMA Dermatology 151(1):51–58",
+            "datePublished": "2015",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/25188246/"
+          }
+        ]
       }
     </script>
 
@@ -132,10 +165,12 @@
         </p>
 
         <div class="callout">
-          <strong>The correction:</strong> the standard <strong>8–10% per
-          1000&nbsp;m</strong> applies to erythemal UV. For UVA specifically the
-          gradient is more like <strong>4–7% per 1000&nbsp;m</strong>, and only
-          about 3% of that comes from the thinner air itself; the rest is leaving
+          <strong>The correction:</strong> the WHO's familiar <strong>10–12% per
+          1000&nbsp;m</strong> describes sunburning UV.<sup class="cite"><a href="#src-1" aria-label="Source 1">[1]</a></sup> UVA
+          rises more slowly: measurements in the Alps found about <strong>9% per
+          1000&nbsp;m for UVA against 18% for erythemal UV</strong>,<sup class="cite"><a href="#src-2" aria-label="Source 2">[2]</a></sup>
+          and in this site's model only about 3% per 1000&nbsp;m comes from the
+          thinner air itself; the rest is leaving
           the valley haze behind. This site's <a href="../">UVA&nbsp;Index</a>
           models the two separately — air pressure in a radiative-transfer table,
           haze from live aerosol data.
@@ -235,7 +270,7 @@
             <a href="does-glass-block-uva.html">same laminate physics as a car
             windshield</a>. Not all of it, though: measurements in a cockpit at
             30,000&nbsp;feet found that <strong>about an hour of flight delivered a
-            UVA dose comparable to a short tanning-bed session</strong>. Side
+            UVA dose comparable to a short tanning-bed session</strong>.<sup class="cite"><a href="#src-3" aria-label="Source 3">[3]</a></sup> Side
             windows, often acrylic, vary more, and flying above a cloud deck adds a
             strong reflected component from below.
           </li>
@@ -250,7 +285,7 @@
           The epidemiology is what pushed this into the literature. A
           meta-analysis of aircrew studies found roughly <strong>twice the
           melanoma incidence</strong> in both pilots and cabin crew compared with
-          the general population, and higher melanoma mortality in pilots. The
+          the general population, and higher melanoma mortality in pilots.<sup class="cite"><a href="#src-4" aria-label="Source 4">[4]</a></sup> The
           finding is consistent across studies and hard to dismiss.
         </p>
         <p>
@@ -267,17 +302,13 @@
         <h2>How the UVA Index handles elevation</h2>
         <p>
           The <a href="../">calculator</a> does not ask you for your altitude. It
-          looks up the <strong>terrain elevation</strong> for your coordinates from
-          Open-Meteo and applies:
-        </p>
-        <div class="callout">
-          <strong>altitude factor = 1 + 0.06 × (elevation_m ÷ 1000)</strong>
-        </div>
-        <p>
-          A linear approximation is a simplification — the real relationship
-          flattens somewhat at very high elevations — but it is well behaved across
-          the range where people actually stand, and the coefficient is
-          UVA-specific rather than borrowed from erythemal tables. You can see the
+          reads the forecast's <strong>surface air pressure</strong> for your
+          coordinates from Open-Meteo (falling back to a standard atmosphere for
+          the terrain elevation) and looks the clear-sky UVA up in a
+          radiative-transfer table computed for that pressure. In clean air that
+          works out at about <strong>+3% per kilometre</strong> — the altitude
+          factors in the table above — and the haze you climb out of is handled
+          separately, from live aerosol data for your location. You can see the
           factor itself in the calculator's <em>Model breakdown</em>, alongside
           the cloud, aerosol and albedo terms; the derivation for all of them is in
           <a href="how-uva-index-is-calculated.html">how the UVA Index is
@@ -300,6 +331,17 @@
           <li><strong>Wrap-around eye protection is not optional on snow</strong> — see <a href="uva-and-your-eyes.html">UVA and your eyes</a>.</li>
           <li><strong>If you fly for a living</strong>, treat the flight deck as a sunny window rather than an indoor space: broad-spectrum sunscreen on the face and hands, and film on side windows where operators permit it.</li>
         </ul>
+
+        <section class="sources" id="sources">
+          <h2>Sources</h2>
+          <ol>
+            <li id="src-1"><a href="https://www.who.int/publications/i/item/9241590076" rel="noopener">Global Solar UV Index: A Practical Guide</a>. <em>World Health Organization, WMO, UNEP and ICNIRP</em>, 2002.</li>
+            <li id="src-2">Blumthaler M, Ambach W, Ellinger R (1997). <a href="https://doi.org/10.1016/S1011-1344(96)00018-8" rel="noopener">Increase in solar UV radiation with altitude</a>. <em>Journal of Photochemistry and Photobiology B: Biology 39(2):130–134</em>.</li>
+            <li id="src-3">Sanlorenzo M, Vujic I, Posch C, Cleaver JE, Quaglino P, Ortiz-Urda S (2015). <a href="https://doi.org/10.1001/jamadermatol.2014.4643" rel="noopener">The risk of melanoma in pilots and cabin crew: UV measurements in flying airplanes</a>. <em>JAMA Dermatology 151(4):450–452</em>.</li>
+            <li id="src-4">Sanlorenzo M, Wehner MR, Linos E, et al. (2015). <a href="https://pubmed.ncbi.nlm.nih.gov/25188246/" rel="noopener">The risk of melanoma in airline pilots and cabin crew: a meta-analysis</a>. <em>JAMA Dermatology 151(1):51–58</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">Last reviewed 16 November 2026. Spotted an error or a better source? <a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">Tell us on GitHub</a>.</p>
 
         <a class="cta" href="../">The UVA Index uses your real terrain elevation →</a>
       </article>

@@ -6,7 +6,7 @@
   "description": "The full method behind our UVA Index: how surface UVA irradiance (315–400 nm, W/m²) is derived from a radiative-transfer lookup table plus live cloud, haze, pressure and snow data, the exact formulas and assumptions, how it is validated, and which factors we leave out.",
   "schema_type": "TechArticle",
   "date_published": "2026-06-27",
-  "date_modified": "2026-10-07",
+  "date_modified": "2026-11-16",
   "tags": ["methodology", "technical"],
   "order": 5,
   "og_title": "How the UVA Index Is Calculated — Model, Parameters & Limitations",
@@ -80,7 +80,7 @@
   directly overhead, 90° = on the horizon) in the browser from your
   latitude, longitude and the instant, using the
   <strong>NOAA solar position algorithm</strong> — the same maths behind
-  the NOAA Solar Calculator. The same algorithm gives the
+  the NOAA Solar Calculator.[[cite:noaa_solcalc]] The same algorithm gives the
   <strong>Earth–Sun distance</strong> used in step&nbsp;5. When the sun is
   below the horizon, UVA is reported as <strong>0</strong>.
 </p>
@@ -89,8 +89,7 @@
 <p>
   Rather than a hand-tuned curve, the clear-sky part of the model comes
   from a physics calculation done once, ahead of time. We ran
-  <strong>DISORT</strong> — the standard multiple-scattering solver used in
-  atmospheric science — over a layered model atmosphere for every
+  <strong>DISORT</strong> — the standard multiple-scattering solver used in atmospheric science[[cite:stamnes1988]] — over a layered model atmosphere for every
   combination of:
 </p>
 <ul>
@@ -124,8 +123,7 @@
     typical 300 Dobson Units.
   </li>
   <li>
-    <strong>The curvature of the atmosphere</strong> for a low sun (the
-    Kasten–Young air mass), which a flat-atmosphere 1/cos θ overstates near
+    <strong>The curvature of the atmosphere</strong> for a low sun (the Kasten–Young air mass[[cite:kasten1989]]), which a flat-atmosphere 1/cos θ overstates near
     the horizon.
   </li>
 </ul>
@@ -136,8 +134,8 @@
     <tr><th>Ingredient</th><th>Assumption</th></tr>
   </thead>
   <tbody>
-    <tr><td>Sunlight above the atmosphere</td><td>ASTM G173-03 extraterrestrial spectrum, 85.5&nbsp;W/m² over 315–400&nbsp;nm</td></tr>
-    <tr><td>Air (Rayleigh)</td><td>Bodhaine et al. (1999) optical depth × pressure ÷ 1013.25&nbsp;hPa</td></tr>
+    <tr><td>Sunlight above the atmosphere</td><td>ASTM G173-03 extraterrestrial spectrum[[cite:astm_g173]], 85.5&nbsp;W/m² over 315–400&nbsp;nm</td></tr>
+    <tr><td>Air (Rayleigh)</td><td>Bodhaine et al. (1999)[[cite:bodhaine1999]] optical depth × pressure ÷ 1013.25&nbsp;hPa</td></tr>
     <tr><td>Ozone</td><td>300&nbsp;DU, centred at 22&nbsp;km</td></tr>
     <tr><td>Aerosol</td><td>Ångström exponent 1.14, single-scattering albedo 0.92, asymmetry 0.70, scale height 1.5&nbsp;km</td></tr>
     <tr><td>Solver</td><td>DISORT, 16 streams, 17 layers, 2.5&nbsp;nm spectral bins</td></tr>
@@ -148,7 +146,7 @@
   For an overhead sun in clean air at sea level the table gives
   <strong>64.5&nbsp;W/m²</strong>; a moderate haze (AOD&nbsp;0.15) trims
   that by about 5% with the sun high and 9–12% with it low. As a check,
-  the direct-beam part matches NREL's independent SPECTRL2 model to within
+  the direct-beam part matches NREL's independent SPECTRL2 model[[cite:bird1986]] to within
   1% at every sun angle tested; SPECTRL2's simpler diffuse-sky estimate
   mostly comes out 4–18% lower, as expected from a model that doesn't
   solve multiple scattering.
@@ -162,8 +160,7 @@
   The model reads the forecast's <strong>surface pressure</strong> (falling
   back to a standard atmosphere for the terrain elevation) and lets the
   table do the rest. In clean air that is worth about
-  <strong>+3% per kilometre</strong>. The larger 4–7%/km often measured for
-  UVA in the mountains mostly comes from leaving haze behind in the
+  <strong>+3% per kilometre</strong>. The larger figures often measured for UVA in the mountains — about 9%/km in one Alpine study[[cite:blumthaler1997]] — mostly come from leaving haze behind in the
   valleys, and the model picks that up separately through the aerosol data
   for your point. <a href="uva-at-altitude.html">UVA at altitude</a> works
   through the numbers.

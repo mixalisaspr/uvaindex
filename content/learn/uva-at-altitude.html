@@ -6,7 +6,7 @@
   "description": "UV rises with elevation — but UVA rises more slowly than the often-quoted 10% per 1000 m, which is an erythemal figure. Why the altitude gradient differs by wavelength, how snow and clean air compound it, and what the cockpit UVA and pilot melanoma research shows.",
   "schema_type": "Article",
   "date_published": "2026-08-02",
-  "date_modified": "2026-10-07",
+  "date_modified": "2026-11-16",
   "tags": ["environment", "technical"],
   "order": 11,
   "og_title": "UVA at Altitude: Mountains, Hiking and Flying",
@@ -44,10 +44,12 @@
 </p>
 
 <div class="callout">
-  <strong>The correction:</strong> the standard <strong>8–10% per
-  1000&nbsp;m</strong> applies to erythemal UV. For UVA specifically the
-  gradient is more like <strong>4–7% per 1000&nbsp;m</strong>, and only
-  about 3% of that comes from the thinner air itself; the rest is leaving
+  <strong>The correction:</strong> the WHO's familiar <strong>10–12% per
+  1000&nbsp;m</strong> describes sunburning UV.[[cite:who_uvi_guide]] UVA
+  rises more slowly: measurements in the Alps found about <strong>9% per
+  1000&nbsp;m for UVA against 18% for erythemal UV</strong>,[[cite:blumthaler1997]]
+  and in this site's model only about 3% per 1000&nbsp;m comes from the
+  thinner air itself; the rest is leaving
   the valley haze behind. This site's <a href="../">UVA&nbsp;Index</a>
   models the two separately — air pressure in a radiative-transfer table,
   haze from live aerosol data.
@@ -147,7 +149,7 @@
     <a href="does-glass-block-uva.html">same laminate physics as a car
     windshield</a>. Not all of it, though: measurements in a cockpit at
     30,000&nbsp;feet found that <strong>about an hour of flight delivered a
-    UVA dose comparable to a short tanning-bed session</strong>. Side
+    UVA dose comparable to a short tanning-bed session</strong>.[[cite:sanlorenzo2015uv]] Side
     windows, often acrylic, vary more, and flying above a cloud deck adds a
     strong reflected component from below.
   </li>
@@ -162,7 +164,7 @@
   The epidemiology is what pushed this into the literature. A
   meta-analysis of aircrew studies found roughly <strong>twice the
   melanoma incidence</strong> in both pilots and cabin crew compared with
-  the general population, and higher melanoma mortality in pilots. The
+  the general population, and higher melanoma mortality in pilots.[[cite:sanlorenzo2015meta]] The
   finding is consistent across studies and hard to dismiss.
 </p>
 <p>
@@ -179,17 +181,13 @@
 <h2>How the UVA Index handles elevation</h2>
 <p>
   The <a href="../">calculator</a> does not ask you for your altitude. It
-  looks up the <strong>terrain elevation</strong> for your coordinates from
-  Open-Meteo and applies:
-</p>
-<div class="callout">
-  <strong>altitude factor = 1 + 0.06 × (elevation_m ÷ 1000)</strong>
-</div>
-<p>
-  A linear approximation is a simplification — the real relationship
-  flattens somewhat at very high elevations — but it is well behaved across
-  the range where people actually stand, and the coefficient is
-  UVA-specific rather than borrowed from erythemal tables. You can see the
+  reads the forecast's <strong>surface air pressure</strong> for your
+  coordinates from Open-Meteo (falling back to a standard atmosphere for
+  the terrain elevation) and looks the clear-sky UVA up in a
+  radiative-transfer table computed for that pressure. In clean air that
+  works out at about <strong>+3% per kilometre</strong> — the altitude
+  factors in the table above — and the haze you climb out of is handled
+  separately, from live aerosol data for your location. You can see the
   factor itself in the calculator's <em>Model breakdown</em>, alongside
   the cloud, aerosol and albedo terms; the derivation for all of them is in
   <a href="how-uva-index-is-calculated.html">how the UVA Index is

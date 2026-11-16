@@ -1,0 +1,477 @@
+{
+  "who_uv": {
+    "title": "Radiation: Ultraviolet (UV) radiation — questions and answers",
+    "publisher": "World Health Organization",
+    "url": "https://www.who.int/news-room/questions-and-answers/item/radiation-ultraviolet-(uv)"
+  },
+  "who_uvi_guide": {
+    "title": "Global Solar UV Index: A Practical Guide",
+    "publisher": "World Health Organization, WMO, UNEP and ICNIRP",
+    "year": "2002",
+    "url": "https://www.who.int/publications/i/item/9241590076"
+  },
+  "iarc100d": {
+    "title": "IARC Monographs Volume 100D: Radiation (solar and ultraviolet radiation; UV-emitting tanning devices)",
+    "publisher": "International Agency for Research on Cancer",
+    "year": "2012",
+    "url": "https://publications.iarc.who.int/Book-And-Report-Series/Iarc-Monographs-On-The-Identification-Of-Carcinogenic-Hazards-To-Humans/Radiation-2012"
+  },
+  "elghissassi2009": {
+    "authors": "El Ghissassi F, Baan R, Straif K, et al.",
+    "year": "2009",
+    "title": "A review of human carcinogens — Part D: radiation",
+    "publisher": "The Lancet Oncology 10(8):751–752",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/19655431/"
+  },
+  "boniol2012": {
+    "authors": "Boniol M, Autier P, Boyle P, Gandini S",
+    "year": "2012",
+    "title": "Cutaneous melanoma attributable to sunbed use: systematic review and meta-analysis (with the December 2012 correction)",
+    "publisher": "BMJ 345:e4757",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/22833605/"
+  },
+  "gerber2002": {
+    "authors": "Gerber B, Mathys P, Moser M, Bressoud D, Braun-Fahrländer C",
+    "year": "2002",
+    "title": "Ultraviolet emission spectra of sunbeds",
+    "publisher": "Photochemistry and Photobiology 76(6):664–668",
+    "url": "https://doi.org/10.1562/0031-8655(2002)076%3C0664:UESOS%3E2.0.CO;2"
+  },
+  "hughes2013": {
+    "authors": "Hughes MCB, Williams GM, Baker P, Green AC",
+    "year": "2013",
+    "title": "Sunscreen and prevention of skin aging: a randomized trial",
+    "publisher": "Annals of Internal Medicine 158(11):781–790",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/23732711/"
+  },
+  "green2011": {
+    "authors": "Green AC, Williams GM, Logan V, Strutton GM",
+    "year": "2011",
+    "title": "Reduced melanoma after regular sunscreen use: randomized trial follow-up",
+    "publisher": "Journal of Clinical Oncology 29(3):257–263",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/21135266/"
+  },
+  "gordon2012": {
+    "authors": "Gordon JRS, Brieva JC",
+    "year": "2012",
+    "title": "Unilateral dermatoheliosis",
+    "publisher": "New England Journal of Medicine 366:e25",
+    "url": "https://www.nejm.org/doi/abs/10.1056/NEJMicm1104059"
+  },
+  "boxerwachler2016": {
+    "authors": "Boxer Wachler BS",
+    "year": "2016",
+    "title": "Assessment of levels of ultraviolet A light protection in automobile windshields and side windows",
+    "publisher": "JAMA Ophthalmology 134(7):772–775",
+    "url": "https://doi.org/10.1001/jamaophthalmol.2016.1139"
+  },
+  "butler2010": {
+    "authors": "Butler ST, Fosko SW",
+    "year": "2010",
+    "title": "Increased prevalence of left-sided skin cancers",
+    "publisher": "Journal of the American Academy of Dermatology 63(6):1006–1010",
+    "url": "https://doi.org/10.1016/j.jaad.2009.11.032"
+  },
+  "tuchinda2006": {
+    "authors": "Tuchinda C, Srivannaboon S, Lim HW",
+    "year": "2006",
+    "title": "Photoprotection by window glass, automobile glass, and sunglasses",
+    "publisher": "Journal of the American Academy of Dermatology 54(5):845–854",
+    "url": "https://doi.org/10.1016/j.jaad.2005.11.1082"
+  },
+  "zhivagui2023": {
+    "authors": "Zhivagui M, Hoda A, Valenzuela N, et al.",
+    "year": "2023",
+    "title": "DNA damage and somatic mutations in mammalian cells after irradiation with a nail polish dryer",
+    "publisher": "Nature Communications 14:276",
+    "url": "https://doi.org/10.1038/s41467-023-35876-8"
+  },
+  "shipp2014": {
+    "authors": "Shipp LR, Warner CA, Rueggeberg FA, Davis LS",
+    "year": "2014",
+    "title": "Further investigation into the risk of skin cancer associated with the use of UV nail lamps",
+    "publisher": "JAMA Dermatology 150(7):775–776",
+    "url": "https://doi.org/10.1001/jamadermatol.2013.8740"
+  },
+  "markova2013": {
+    "authors": "Markova A, Weinstock MA",
+    "year": "2013",
+    "title": "Risk of skin cancer associated with the use of UV nail lamp",
+    "publisher": "Journal of Investigative Dermatology 133(4):1097–1099",
+    "url": "https://doi.org/10.1038/jid.2012.440"
+  },
+  "flament2013": {
+    "authors": "Flament F, Bazin R, Laquieze S, Rubert V, Simonpietri E, Piot B",
+    "year": "2013",
+    "title": "Effect of the sun on visible clinical signs of aging in Caucasian skin",
+    "publisher": "Clinical, Cosmetic and Investigational Dermatology 6:221–232",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/24101874/"
+  },
+  "fisher2002": {
+    "authors": "Fisher GJ, Kang S, Varani J, et al.",
+    "year": "2002",
+    "title": "Mechanisms of photoaging and chronological skin aging",
+    "publisher": "Archives of Dermatology 138(11):1462–1470",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/12437452/"
+  },
+  "guyuron2009": {
+    "authors": "Guyuron B, Rowe DJ, Weinfeld AB, et al.",
+    "year": "2009",
+    "title": "Factors contributing to the facial aging of identical twins",
+    "publisher": "Plastic and Reconstructive Surgery 123(4):1321–1331",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/19337100/"
+  },
+  "bruls1984": {
+    "authors": "Bruls WAG, Slaper H, van der Leun JC, Berrens L",
+    "year": "1984",
+    "title": "Transmission of human epidermis and stratum corneum as a function of thickness in the ultraviolet and visible wavelengths",
+    "publisher": "Photochemistry and Photobiology 40(4):485–494",
+    "url": "https://doi.org/10.1111/j.1751-1097.1984.tb04622.x"
+  },
+  "mouret2006": {
+    "authors": "Mouret S, Baudouin C, Charveron M, Favier A, Cadet J, Douki T",
+    "year": "2006",
+    "title": "Cyclobutane pyrimidine dimers are predominant DNA lesions in whole human skin exposed to UVA radiation",
+    "publisher": "Proceedings of the National Academy of Sciences 103(37):13765–13770",
+    "url": "https://doi.org/10.1073/pnas.0604213103"
+  },
+  "noonan2012": {
+    "authors": "Noonan FP, Zaidi MR, Wolnicka-Glubisz A, et al.",
+    "year": "2012",
+    "title": "Melanoma induction by ultraviolet A but not ultraviolet B radiation requires melanin pigment",
+    "publisher": "Nature Communications 3:884",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/22673911/"
+  },
+  "halliday2011": {
+    "authors": "Halliday GM, Byrne SN, Damian DL",
+    "year": "2011",
+    "title": "Ultraviolet A radiation: its role in immunosuppression and carcinogenesis",
+    "publisher": "Seminars in Cutaneous Medicine and Surgery 30(4):214–221",
+    "url": "https://doi.org/10.1016/j.sder.2011.08.002"
+  },
+  "taylor1988": {
+    "authors": "Taylor HR, West SK, Rosenthal FS, et al.",
+    "year": "1988",
+    "title": "Effect of ultraviolet radiation on cataract formation",
+    "publisher": "New England Journal of Medicine 319(22):1429–1433",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/3185661/"
+  },
+  "beharcohen2014": {
+    "authors": "Behar-Cohen F, Baillet G, de Ayguavives T, et al.",
+    "year": "2014",
+    "title": "Ultraviolet damage to the eye revisited: eye-sun protection factor (E-SPF), a new ultraviolet protection label for eyewear",
+    "publisher": "Clinical Ophthalmology 8:87–104",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/24379652/"
+  },
+  "coroneo2011": {
+    "authors": "Coroneo M",
+    "year": "2011",
+    "title": "Ultraviolet radiation and the anterior eye",
+    "publisher": "Eye & Contact Lens 37(4):214–224",
+    "url": "https://doi.org/10.1097/ICL.0b013e318223394e"
+  },
+  "blakely2019": {
+    "authors": "Blakely KM, Drucker AM, Rosen CF",
+    "year": "2019",
+    "title": "Drug-induced photosensitivity — an update: culprit drugs, prevention and management",
+    "publisher": "Drug Safety 42(7):827–847",
+    "url": "https://doi.org/10.1007/s40264-019-00806-5"
+  },
+  "pedersen2018": {
+    "authors": "Pedersen SA, Gaist D, Schmidt SAJ, Hölmich LR, Friis S, Pottegård A",
+    "year": "2018",
+    "title": "Hydrochlorothiazide use and risk of nonmelanoma skin cancer: a nationwide case-control study from Denmark",
+    "publisher": "Journal of the American Academy of Dermatology 78(4):673–681"
+  },
+  "cole2016": {
+    "authors": "Cole C, Shyr T, Ou-Yang H",
+    "year": "2016",
+    "title": "Metal oxide sunscreens protect skin by absorption, not by reflection or scattering",
+    "publisher": "Photodermatology, Photoimmunology & Photomedicine 32(1):5–10",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/26431814/"
+  },
+  "faurschou2007": {
+    "authors": "Faurschou A, Wulf HC",
+    "year": "2007",
+    "title": "The relation between sun protection factor and amount of sunscreen applied in vivo",
+    "publisher": "British Journal of Dermatology 156(4):716–719",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/17493070/"
+  },
+  "petersen2014": {
+    "authors": "Petersen B, Wulf HC",
+    "year": "2014",
+    "title": "Application of sunscreen — theory and reality",
+    "publisher": "Photodermatology, Photoimmunology & Photomedicine 30(2–3):96–101",
+    "url": "https://doi.org/10.1111/phpp.12099"
+  },
+  "pratt2017": {
+    "authors": "Pratt H, Hassanin K, Troughton LD, et al.",
+    "year": "2017",
+    "title": "UV imaging reveals facial areas that are prone to skin cancer are disproportionately missed during sunscreen application",
+    "publisher": "PLoS ONE 12(10):e0185297",
+    "url": "https://doi.org/10.1371/journal.pone.0185297"
+  },
+  "cancercouncil_sunscreen": {
+    "title": "All about sunscreen",
+    "publisher": "Cancer Council Australia",
+    "url": "https://www.cancer.org.au/cancer-information/causes-and-prevention/sun-safety/sunscreen/basics"
+  },
+  "sunsmart_hats": {
+    "title": "Slap! Sun protective hats (fact sheet)",
+    "publisher": "SunSmart / Cancer Council SA",
+    "url": "https://www.cancersa.org.au/uploads/sunsmart/SunSmart%20FactSheets-Slap%20-%20Sun%20Protective%20Hats.pdf"
+  },
+  "godar2003": {
+    "authors": "Godar DE, Urbach F, Gasparro FP, van der Leun JC",
+    "year": "2003",
+    "title": "UV doses of young adults",
+    "publisher": "Photochemistry and Photobiology 77(4):453–457",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/12733658/"
+  },
+  "dennis2008": {
+    "authors": "Dennis LK, Vanbeek MJ, Beane Freeman LE, Smith BJ, Dawson DV, Coughlin JA",
+    "year": "2008",
+    "title": "Sunburns and risk of cutaneous melanoma: does age matter? A comprehensive meta-analysis",
+    "publisher": "Annals of Epidemiology 18(8):614–627",
+    "url": "https://doi.org/10.1016/j.annepidem.2008.04.006"
+  },
+  "aap2011": {
+    "authors": "American Academy of Pediatrics, Council on Environmental Health and Section on Dermatology",
+    "year": "2011",
+    "title": "Ultraviolet radiation: a hazard to children and adolescents (policy statement)",
+    "publisher": "Pediatrics 127(3):588–597",
+    "url": "https://publications.aap.org/pediatrics/article/127/3/588/64968/Ultraviolet-Radiation-A-Hazard-to-Children-and"
+  },
+  "sanlorenzo2015meta": {
+    "authors": "Sanlorenzo M, Wehner MR, Linos E, et al.",
+    "year": "2015",
+    "title": "The risk of melanoma in airline pilots and cabin crew: a meta-analysis",
+    "publisher": "JAMA Dermatology 151(1):51–58",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/25188246/"
+  },
+  "sanlorenzo2015uv": {
+    "authors": "Sanlorenzo M, Vujic I, Posch C, Cleaver JE, Quaglino P, Ortiz-Urda S",
+    "year": "2015",
+    "title": "The risk of melanoma in pilots and cabin crew: UV measurements in flying airplanes",
+    "publisher": "JAMA Dermatology 151(4):450–452",
+    "url": "https://doi.org/10.1001/jamadermatol.2014.4643"
+  },
+  "blumthaler1997": {
+    "authors": "Blumthaler M, Ambach W, Ellinger R",
+    "year": "1997",
+    "title": "Increase in solar UV radiation with altitude",
+    "publisher": "Journal of Photochemistry and Photobiology B: Biology 39(2):130–134",
+    "url": "https://doi.org/10.1016/S1011-1344(96)00018-8"
+  },
+  "mahmoud2010": {
+    "authors": "Mahmoud BH, Ruvolo E, Hexsel CL, et al.",
+    "year": "2010",
+    "title": "Impact of long-wavelength UVA and visible light on melanocompetent skin",
+    "publisher": "Journal of Investigative Dermatology 130(8):2092–2097",
+    "url": "https://doi.org/10.1038/jid.2010.95"
+  },
+  "duteil2014": {
+    "authors": "Duteil L, Cardot-Leccia N, Queille-Roussel C, et al.",
+    "year": "2014",
+    "title": "Differences in visible light-induced pigmentation according to wavelengths: a clinical and histological study in comparison with UVB exposure",
+    "publisher": "Pigment Cell & Melanoma Research 27(5):822–826",
+    "url": "https://doi.org/10.1111/pcmr.12273"
+  },
+  "kaidbey1979": {
+    "authors": "Kaidbey KH, Agin PP, Sayre RM, Kligman AM",
+    "year": "1979",
+    "title": "Photoprotection by melanin — a comparison of black and Caucasian skin",
+    "publisher": "Journal of the American Academy of Dermatology 1(3):249–260",
+    "url": "https://doi.org/10.1016/S0190-9622(79)70018-1"
+  },
+  "dawes2016": {
+    "authors": "Dawes SM, Tsai S, Gittleman H, Barnholtz-Sloan JS, Bordeaux JS",
+    "year": "2016",
+    "title": "Racial disparities in melanoma survival",
+    "publisher": "Journal of the American Academy of Dermatology 75(5):983–991",
+    "url": "https://doi.org/10.1016/j.jaad.2016.06.006"
+  },
+  "lyons2021": {
+    "authors": "Lyons AB, Trullas C, Kohli I, Hamzavi IH, Lim HW",
+    "year": "2021",
+    "title": "Photoprotection beyond ultraviolet radiation: a review of tinted sunscreens",
+    "publisher": "Journal of the American Academy of Dermatology 84(5):1393–1397",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/32335182/"
+  },
+  "passeron2018": {
+    "authors": "Passeron T, Picardo M",
+    "year": "2018",
+    "title": "Melasma, a photoaging disorder",
+    "publisher": "Pigment Cell & Melanoma Research 31(4):461–465",
+    "url": "https://doi.org/10.1111/pcmr.12684"
+  },
+  "sheehan1998": {
+    "authors": "Sheehan JM, Potten CS, Young AR",
+    "year": "1998",
+    "title": "Tanning in human skin types II and III offers modest photoprotection against erythema",
+    "publisher": "Photochemistry and Photobiology 68(4):588–592"
+  },
+  "nogueira2004": {
+    "authors": "Nogueira ACS, Joekes I",
+    "year": "2004",
+    "title": "Hair color changes and protein damage caused by ultraviolet radiation",
+    "publisher": "Journal of Photochemistry and Photobiology B: Biology 74(2–3):109–117",
+    "url": "https://doi.org/10.1016/j.jphotobiol.2004.03.001"
+  },
+  "lachiewicz2008": {
+    "authors": "Lachiewicz AM, Berwick M, Wiggins CL, Thomas NE",
+    "year": "2008",
+    "title": "Survival differences between patients with scalp or neck melanoma and those with melanoma of other sites",
+    "publisher": "Archives of Dermatology 144(4):515–521",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/18427046/"
+  },
+  "webb1988": {
+    "authors": "Webb AR, Kline L, Holick MF",
+    "year": "1988",
+    "title": "Influence of season and latitude on the cutaneous synthesis of vitamin D3: exposure to winter sunlight in Boston and Edmonton will not promote vitamin D3 synthesis in human skin",
+    "publisher": "Journal of Clinical Endocrinology & Metabolism 67(2):373–378",
+    "url": "https://doi.org/10.1210/jcem-67-2-373"
+  },
+  "webb1989": {
+    "authors": "Webb AR, DeCosta BR, Holick MF",
+    "year": "1989",
+    "title": "Sunlight regulates the cutaneous production of vitamin D3 by causing its photodegradation",
+    "publisher": "Journal of Clinical Endocrinology & Metabolism 68(5):882–887",
+    "url": "https://doi.org/10.1210/jcem-68-5-882"
+  },
+  "neale2019": {
+    "authors": "Neale RE, Khan SR, Lucas RM, Waterhouse M, Whiteman DC, Olsen CM",
+    "year": "2019",
+    "title": "The effect of sunscreen on vitamin D: a review",
+    "publisher": "British Journal of Dermatology 181(5):907–915",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/30945275/"
+  },
+  "marks1995": {
+    "authors": "Marks R, Foley PA, Jolley D, Knight KR, Harrison J, Thompson SC",
+    "year": "1995",
+    "title": "The effect of regular sunscreen use on vitamin D levels in an Australian population: results of a randomized controlled trial",
+    "publisher": "Archives of Dermatology 131(4):415–421",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/7726582/"
+  },
+  "sund2025": {
+    "authors": "Neale RE, et al.",
+    "year": "2025",
+    "title": "Effect of daily sunscreen application on vitamin D: findings from the open-label randomized controlled Sun-D Trial",
+    "publisher": "British Journal of Dermatology",
+    "url": "https://doi.org/10.1093/bjd/ljaf310"
+  },
+  "cabrol2014": {
+    "authors": "Cabrol NA, Feister U, Häder D-P, et al.",
+    "year": "2014",
+    "title": "Record solar UV irradiance in the tropical Andes",
+    "publisher": "Frontiers in Environmental Science 2:19",
+    "url": "https://doi.org/10.3389/fenvs.2014.00019"
+  },
+  "mckenzie2015": {
+    "authors": "McKenzie RL, Bernhard G, Madronich S, Zaratti F",
+    "year": "2015",
+    "title": "Comment on \"Record solar UV irradiance in the tropical Andes\"",
+    "publisher": "Frontiers in Environmental Science 3:26",
+    "url": "https://doi.org/10.3389/fenvs.2015.00026"
+  },
+  "calbo2005": {
+    "authors": "Calbó J, Pagès D, González J-A",
+    "year": "2005",
+    "title": "Empirical studies of cloud effects on UV radiation: a review",
+    "publisher": "Reviews of Geophysics 43(2):RG2002",
+    "url": "https://doi.org/10.1029/2004RG000155"
+  },
+  "ouyang2017": {
+    "authors": "Ou-Yang H, Jiang LI, Meyer K, Wang SQ, Farberg AS, Rigel DS",
+    "year": "2017",
+    "title": "Sun protection by beach umbrella vs sunscreen with a high sun protection factor: a randomized clinical trial",
+    "publisher": "JAMA Dermatology 153(3):304–308",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/28114650/"
+  },
+  "wang2001": {
+    "authors": "Wang SQ, Kopf AW, Marx J, Bogdan A, Polsky D, Bart RS",
+    "year": "2001",
+    "title": "Reduction of ultraviolet transmission through cotton T-shirt fabrics with low ultraviolet protection by various laundering methods and dyeing: clinical implications",
+    "publisher": "Journal of the American Academy of Dermatology 44(5):767–774"
+  },
+  "arpansa_upf": {
+    "title": "Clothing and fabric testing: the ultraviolet protection factor (UPF) and AS/NZS 4399",
+    "publisher": "Australian Radiation Protection and Nuclear Safety Agency (ARPANSA)",
+    "url": "https://www.arpansa.gov.au/our-services/testing-and-calibration/ultraviolet-radiation-testing/fabric-testing"
+  },
+  "seckmeyer1992": {
+    "authors": "Seckmeyer G, McKenzie RL",
+    "year": "1992",
+    "title": "Increased ultraviolet radiation in New Zealand (45° S) relative to Germany (48° N)",
+    "publisher": "Nature 359:135–137",
+    "url": "https://doi.org/10.1038/359135a0"
+  },
+  "tedetti2006": {
+    "authors": "Tedetti M, Sempéré R",
+    "year": "2006",
+    "title": "Penetration of ultraviolet radiation in the marine environment. A review",
+    "publisher": "Photochemistry and Photobiology 82(2):389–397",
+    "url": "https://doi.org/10.1562/2005-11-09-IR-733"
+  },
+  "fda_sunscreen": {
+    "title": "21 CFR 201.327 — Over-the-counter sunscreen drug products; required labeling based on effectiveness testing",
+    "publisher": "US Food and Drug Administration, Electronic Code of Federal Regulations",
+    "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-C/part-201/subpart-G/section-201.327"
+  },
+  "eu_2006_647": {
+    "title": "Commission Recommendation 2006/647/EC on the efficacy of sunscreen products and the claims made relating thereto",
+    "publisher": "European Commission, Official Journal L 265",
+    "year": "2006",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32006H0647"
+  },
+  "iso24443": {
+    "title": "ISO 24443:2021 — Cosmetics: determination of sunscreen UVA photoprotection in vitro",
+    "publisher": "International Organization for Standardization",
+    "year": "2021",
+    "url": "https://www.iso.org/standard/75059.html"
+  },
+  "turner2020": {
+    "authors": "Turner J, Igoe D, Parisi AV, McGonigle AJ, Amar A, Wainwright L",
+    "year": "2020",
+    "title": "A review on the ability of smartphones to detect ultraviolet (UV) radiation and their potential to be used in UV research and for public education purposes",
+    "publisher": "Science of the Total Environment 706:135873"
+  },
+  "stamnes1988": {
+    "authors": "Stamnes K, Tsay S-C, Wiscombe W, Jayaweera K",
+    "year": "1988",
+    "title": "Numerically stable algorithm for discrete-ordinate-method radiative transfer in multiple scattering and emitting layered media",
+    "publisher": "Applied Optics 27(12):2502–2509",
+    "url": "https://doi.org/10.1364/AO.27.002502"
+  },
+  "bodhaine1999": {
+    "authors": "Bodhaine BA, Wood NB, Dutton EG, Slusser JR",
+    "year": "1999",
+    "title": "On Rayleigh optical depth calculations",
+    "publisher": "Journal of Atmospheric and Oceanic Technology 16(11):1854–1861",
+    "url": "https://doi.org/10.1175/1520-0426(1999)016%3C1854:ORODC%3E2.0.CO;2"
+  },
+  "kasten1989": {
+    "authors": "Kasten F, Young AT",
+    "year": "1989",
+    "title": "Revised optical air mass tables and approximation formula",
+    "publisher": "Applied Optics 28(22):4735–4738",
+    "url": "https://doi.org/10.1364/AO.28.004735"
+  },
+  "bird1986": {
+    "authors": "Bird RE, Riordan C",
+    "year": "1986",
+    "title": "Simple solar spectral model for direct and diffuse irradiance on horizontal and tilted planes at the Earth's surface for cloudless atmospheres",
+    "publisher": "Journal of Climate and Applied Meteorology 25(1):87–97",
+    "url": "https://doi.org/10.1175/1520-0450(1986)025%3C0087:SSSMFD%3E2.0.CO;2"
+  },
+  "astm_g173": {
+    "title": "Reference Air Mass 1.5 Spectra (ASTM G173-03)",
+    "publisher": "National Renewable Energy Laboratory",
+    "url": "https://www.nrel.gov/grid/solar-resource/spectra-am1.5.html"
+  },
+  "noaa_solcalc": {
+    "title": "NOAA Solar Calculator and solar position calculation details",
+    "publisher": "NOAA Global Monitoring Laboratory",
+    "url": "https://gml.noaa.gov/grad/solcalc/"
+  }
+}

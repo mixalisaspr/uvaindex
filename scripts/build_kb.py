@@ -45,6 +45,13 @@ REQUIRED_FIELDS = ["slug", "title", "headline", "description", "date_published"]
 VALID_SCHEMA_TYPES = {"Article", "TechArticle"}
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
+# Inline citation marker used in article bodies: [[cite:id]] or [[cite:a,b]].
+# Ids refer to entries in content/sources.json.
+CITE_RE = re.compile(r"\[\[cite:([a-z0-9_,\- ]+)\]\]")
+MONTHS = ["January", "February", "March", "April", "May", "June", "July",
+          "August", "September", "October", "November", "December"]
+ISSUES_URL = "https://github.com/mixalisaspr/uvaindex/issues"
+
 
 class BuildError(Exception):
     pass
@@ -255,6 +262,92 @@ def hub_sort_key(article: dict):
     return (1, -date.fromisoformat(article["date_published"]).toordinal(), article["slug"])
 
 
+def human_date(iso: str) -> str:
+    y, m, d = (int(x) for x in iso.split("-"))
+    return f"{d} {MONTHS[m - 1]} {y}"
+
+
+def load_sources(errors: list[str]) -> dict:
+    path = CONTENT_DIR / "sources.json"
+    if not path.exists():
+        return {}
+    sources = load_json(path)
+    for sid, src in sources.items():
+        if not re.match(r"^[a-z0-9_-]+$", sid):
+            errors.append(f"content/sources.json: invalid source id '{sid}'")
+        for field in ("title", "publisher"):
+            if not src.get(field):
+                errors.append(f"content/sources.json: '{sid}' is missing '{field}'")
+        url = src.get("url", "")
+        if url and not url.startswith("https://"):
+            errors.append(f"content/sources.json: '{sid}' url must start with https://")
+    return sources
+
+
+def resolve_citations(articles: list[dict], sources: dict, errors: list[str]):
+    """Number each article's [[cite:id]] markers in order of first appearance,
+    replace them with superscript links, and record the ordered source list
+    on the article as article['_sources']."""
+    used = set()
+    for a in articles:
+        order: list[str] = []
+
+        def repl(m, a=a, order=order):
+            out = []
+            for sid in (x.strip() for x in m.group(1).split(",")):
+                if sid not in sources:
+                    errors.append(f"{a['_path']}: cites unknown source '{sid}'")
+                    continue
+                if sid not in order:
+                    order.append(sid)
+                n = order.index(sid) + 1
+                out.append(f'<a href="#src-{n}" aria-label="Source {n}">[{n}]</a>')
+            return f'<sup class="cite">{"".join(out)}</sup>' if out else ""
+
+        a["_body"] = CITE_RE.sub(repl, a["_body"])
+        a["_sources"] = [sources[sid] for sid in order if sid in sources]
+        used.update(order)
+    for sid in sources:
+        if sid not in used:
+            errors.append(f"content/sources.json: source '{sid}' is not cited by any article")
+
+
+def format_source(src: dict) -> str:
+    """One reference as HTML: Authors (Year). Title. Publisher."""
+    lead = ""
+    if src.get("authors"):
+        lead = esc(src["authors"])
+        if src.get("year"):
+            lead += f" ({esc(src['year'])})"
+        lead += ". "
+    title = esc(src["title"])
+    if src.get("url"):
+        title = f'<a href="{esc(src["url"])}" rel="noopener">{title}</a>'
+    tail = f"<em>{esc(src['publisher'])}</em>"
+    if not src.get("authors") and src.get("year"):
+        tail += f", {esc(src['year'])}"
+    return f"{lead}{title}. {tail}."
+
+
+def render_sources_block(article: dict) -> str:
+    """The numbered reference list plus the 'last reviewed' line, appended to
+    the article body."""
+    lines = []
+    if article["_sources"]:
+        lines.append('<section class="sources" id="sources">')
+        lines.append("  <h2>Sources</h2>")
+        lines.append("  <ol>")
+        for n, src in enumerate(article["_sources"], start=1):
+            lines.append(f'    <li id="src-{n}">{format_source(src)}</li>')
+        lines.append("  </ol>")
+        lines.append("</section>")
+    lines.append(
+        f'<p class="reviewed">Last reviewed {human_date(article["date_modified"])}. '
+        f'Spotted an error or a better source? <a href="{ISSUES_URL}" rel="noopener">Tell us on GitHub</a>.</p>'
+    )
+    return "\n".join(lines)
+
+
 def render_related_block(related: list[dict]) -> str:
     if not related:
         return ""
@@ -273,7 +366,7 @@ def render_jsonld_block(data: dict) -> str:
 
 
 def article_jsonld(article: dict, canonical: str) -> dict:
-    return {
+    data = {
         "@context": "https://schema.org",
         "@type": article["schema_type"],
         "headline": article["headline"],
@@ -284,6 +377,19 @@ def article_jsonld(article: dict, canonical: str) -> dict:
         "dateModified": article["date_modified"],
         "mainEntityOfPage": canonical,
     }
+    if article.get("_sources"):
+        data["citation"] = [
+            {k: v for k, v in (
+                ("@type", "CreativeWork"),
+                ("name", src["title"]),
+                ("author", src.get("authors")),
+                ("publisher", src["publisher"]),
+                ("datePublished", src.get("year")),
+                ("url", src.get("url")),
+            ) if v}
+            for src in article["_sources"]
+        ]
+    return data
 
 
 def faq_jsonld(faq: list[dict]) -> dict:
@@ -372,7 +478,8 @@ def render_article(article: dict, all_articles: list[dict], site: dict) -> str:
 
     related = compute_related(article, all_articles, site)
     body_indented = "\n".join(
-        ("        " + line if line else line) for line in article["_body"].rstrip("\n").split("\n")
+        ("        " + line if line else line)
+        for line in (article["_body"].rstrip("\n") + "\n\n" + render_sources_block(article)).split("\n")
     )
     tmpl = load_template("article.tmpl.html")
     return tmpl.substitute(
@@ -630,6 +737,8 @@ def build(check: bool) -> int:
     errors: list[str] = []
     site = load_json(CONTENT_DIR / "site.json")
     articles = load_articles(errors)
+    sources = load_sources(errors)
+    resolve_citations(articles, sources, errors)
     validate_pins(articles, errors)
     validate_links(articles, errors)
 
