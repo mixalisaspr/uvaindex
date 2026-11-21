@@ -17,12 +17,14 @@
 // SHELL is derived from content/site.json and content/learn/*.html; CACHE is
 // a hash of SHELL *and the contents of every file in it*.
 
-const CACHE = 'uvaindex-shell-41d4d0f774';
+const CACHE = 'uvaindex-shell-f91a58521d';
 
 const SHELL = [
     "./",
     "./index.html",
     "./about.html",
+    "./widget.html",
+    "./embed.html",
     "./styles.css",
     "./favicon.svg",
     "./manifest.webmanifest",
@@ -30,12 +32,15 @@ const SHELL = [
     "./js/api.js",
     "./js/chart.js",
     "./js/consent.js",
+    "./js/embed.js",
     "./js/forecast.js",
     "./js/lut.js",
     "./js/solar.js",
     "./js/sw-register.js",
     "./js/tz.js",
     "./js/uva.js",
+    "./js/widget.js",
+    "./js/widget-config.js",
     "./icons/icon-192.png",
     "./icons/icon-512.png",
     "./icons/maskable-192.png",

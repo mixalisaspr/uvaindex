@@ -44,7 +44,8 @@ You author one structured content file; the script regenerates every
 `learn/*.html` page, `learn/index.html`, `learn/tags/*`, `sitemap.xml` and
 `sw.js` from it. `learn/*.html`, `sitemap.xml` and `sw.js` are generated
 output — don't hand-edit them, your changes will be overwritten. The same
-applies to the primary `<nav>` in `index.html` and `about.html`: it is
+applies to the primary `<nav>` in `index.html`, `about.html` and
+`widget.html`: it is
 generated from `templates/_site_nav.tmpl.html` into the region marked by
 `<!-- site-nav:start -->` / `<!-- site-nav:end -->`, so change the nav there
 and re-run the script.
@@ -91,7 +92,8 @@ rather than generating broken output.
    logic changes. Then check it in a browser (the
    [sanity checks](README.md#sanity-checks) in the README are a good start).
 6. After changing a Knowledge Base article **or any file the service worker
-   caches** (the JS, CSS, `index.html`, `about.html`, icons), run
+   caches** (the JS, CSS, `index.html`, `about.html`, `widget.html`,
+   `embed.html`, icons), run
    `python3 scripts/build_kb.py` and commit the regenerated output. The
    service-worker cache name is a hash of those files' contents, so this is
    what makes returning visitors pick up your change; CI fails if it's

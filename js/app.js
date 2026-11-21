@@ -12,6 +12,7 @@ import {
 } from './api.js';
 import { renderChart } from './chart.js';
 import { browserTimeZone, formatClock, formatDay, tzAbbr } from './tz.js';
+import { parseWidgetParams } from './widget-config.js';
 
 const $ = (id) => document.getElementById(id);
 
@@ -541,8 +542,32 @@ function init() {
     lastWidth = w;
   }).observe($('chart'));
 
-  // ...and tries to pull the current location automatically.
-  autoLocate();
+  // A link that names a place (?lat=…&lon=…&name=…, e.g. from the embeddable
+  // widget) opens straight on it; otherwise try the visitor's own location.
+  const linked = parseWidgetParams(window.location.search);
+  if (linked.lat !== null && linked.lon !== null) {
+    const surface = new URLSearchParams(window.location.search).get('surface');
+    if (surface) $('surface').value = linked.surface;
+    if (linked.name) $('place-search').value = linked.name;
+    setLocation({
+      lat: linked.lat,
+      lon: linked.lon,
+      label: linked.name || coordLabel(linked.lat, linked.lon),
+      timezone: linked.tz,
+    });
+    if (!linked.tz) {
+      fetchTimezone(linked.lat, linked.lon)
+        .then((tz) => {
+          if (tz && location?.lat === linked.lat && location?.lon === linked.lon && !location.timezone) {
+            location.timezone = tz;
+            recompute();
+          }
+        })
+        .catch(() => {});
+    }
+  } else {
+    autoLocate();
+  }
 }
 
 document.addEventListener('DOMContentLoaded', init);

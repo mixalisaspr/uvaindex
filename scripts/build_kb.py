@@ -180,7 +180,7 @@ def load_articles(errors: list[str]) -> list[dict]:
 
 def validate_links(articles: list[dict], errors: list[str]):
     slugs = {a["slug"] for a in articles}
-    known_static = {"../", "../about.html", "./", "#omitted"}
+    known_static = {"../", "../about.html", "../widget.html", "./", "#omitted"}
     for a in articles:
         for href in extract_hrefs(a["_body"]):
             if href.startswith(("http://", "https://", "mailto:", "#")):
@@ -500,20 +500,21 @@ NAV_RE = re.compile(
     re.escape(NAV_START) + r".*?" + re.escape(NAV_END), re.DOTALL
 )
 
-# The three pages carrying the primary nav (index.html, about.html and the
+# The pages carrying the primary nav (index.html, about.html, widget.html and the
 # generated Knowledge Base hub) used to keep three hand-copied versions of it,
 # which is how they drifted apart. The nav now has exactly one source —
 # templates/_site_nav.tmpl.html — rendered per page from here.
 def render_site_nav(rel: str, active: str) -> str:
     """rel: path prefix back to the site root ('./' or '../').
-    active: which link is the current page ('calc', 'learn' or 'about')."""
-    if active not in {"calc", "learn", "about"}:
+    active: which link is the current page ('calc', 'learn', 'widget' or 'about')."""
+    if active not in {"calc", "learn", "widget", "about"}:
         raise BuildError(f"render_site_nav: unknown active page '{active}'")
     tmpl = load_template("_site_nav.tmpl.html")
     return tmpl.substitute(
         REL=rel,
         CALC_ACTIVE=' class="active"' if active == "calc" else "",
         LEARN_ACTIVE=' class="active"' if active == "learn" else "",
+        WIDGET_ACTIVE=' class="active"' if active == "widget" else "",
         ABOUT_ACTIVE=' class="active"' if active == "about" else "",
     ).rstrip("\n")
 
@@ -787,7 +788,7 @@ def build(check: bool) -> int:
             rendered[TAGS_DIR / f"{tag}.html"] = render_tag_page(tag, label, tagged, site)
         rendered[TAGS_DIR / "index.html"] = render_tags_index(tag_counts, site)
 
-    for name, active in (("index.html", "calc"), ("about.html", "about")):
+    for name, active in (("index.html", "calc"), ("about.html", "about"), ("widget.html", "widget")):
         patched = patch_static_nav(ROOT / name, active, errors)
         if patched is not None:
             rendered[ROOT / name] = patched
