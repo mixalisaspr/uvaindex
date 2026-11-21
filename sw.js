@@ -17,7 +17,7 @@
 // SHELL is derived from content/site.json and content/learn/*.html; CACHE is
 // a hash of SHELL *and the contents of every file in it*.
 
-const CACHE = 'uvaindex-shell-46066f74e5';
+const CACHE = 'uvaindex-shell-f91a58521d';
 
 const SHELL = [
     "./",
