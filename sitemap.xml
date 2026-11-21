@@ -444,6 +444,8 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
   </url>
   <url>
@@ -1058,6 +1060,8 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
   </url>
   <url>
@@ -1672,6 +1676,8 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
   </url>
   <url>
@@ -2286,6 +2292,8 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
   </url>
   <url>
@@ -2900,6 +2908,8 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
   </url>
   <url>
@@ -3505,6 +3515,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/uva-vs-uvb.html" />
   </url>
   <url>
+    <loc>https://uvaindex.org/ja/learn/what-is-uva-radiation.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
+  </url>
+  <url>
     <loc>https://uvaindex.org/ja/learn/what-time-is-uva-highest.html</loc>
     <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>
@@ -4105,6 +4129,20 @@
     <xhtml:link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/uva-vs-uvb.html" />
+  </url>
+  <url>
+    <loc>https://uvaindex.org/zh/learn/what-is-uva-radiation.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/what-is-uva-radiation.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/what-time-is-uva-highest.html</loc>
