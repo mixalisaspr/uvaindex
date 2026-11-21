@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UVA Index widget</title>
+    <!-- The widget lives inside other sites' pages: keep this framed copy out
+         of search results (the builder page is the one to rank) but let
+         crawlers follow its link. No analytics, no cookies. -->
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://uvaindex.org/widget.html" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --text: #142033;
+        --muted: #5b6b84;
+        --border: #d9e1ec;
+        --track: #e9eef5;
+        --band: #5b6b84;
+        --band-ink: #fff;
+        color-scheme: light;
+      }
+      :root[data-theme='dark'] {
+        --bg: #1b2536;
+        --text: #e8edf6;
+        --muted: #9aa7bd;
+        --border: #2c3a55;
+        --track: #243049;
+        color-scheme: dark;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root[data-theme='auto'] {
+          --bg: #1b2536;
+          --text: #e8edf6;
+          --muted: #9aa7bd;
+          --border: #2c3a55;
+          --track: #243049;
+          color-scheme: dark;
+        }
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; height: 100%; background: transparent; }
+      body {
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        color: var(--text);
+        overflow: hidden;
+      }
+      a.widget {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 12px 14px;
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        color: inherit;
+        text-decoration: none;
+      }
+      a.widget:focus-visible { outline: 2px solid #6aa9ff; outline-offset: -3px; }
+      .top, .foot {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        font-size: 12px;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+      .place {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .reading { display: flex; align-items: center; gap: 10px; margin: 6px 0 8px; }
+      .index {
+        font-size: 40px;
+        line-height: 1;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+        letter-spacing: -0.02em;
+      }
+      .band {
+        padding: 3px 9px;
+        border-radius: 999px;
+        background: var(--band);
+        color: var(--band-ink);
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .label { font-size: 12px; color: var(--muted); line-height: 1.25; }
+      .scale { position: relative; height: 6px; margin: 0 0 9px; }
+      .scale .bar {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2px;
+        height: 100%;
+        border-radius: 3px;
+        overflow: hidden;
+      }
+      .scale .bar span:nth-child(1) { background: #3a7d44; }
+      .scale .bar span:nth-child(2) { background: #f2c14e; }
+      .scale .bar span:nth-child(3) { background: #f08a24; }
+      .scale .bar span:nth-child(4) { background: #e3522f; }
+      .scale .bar span:nth-child(5) { background: #b5179e; }
+      .pointer {
+        position: absolute;
+        top: -3px;
+        width: 4px;
+        height: 12px;
+        margin-left: -2px;
+        border-radius: 2px;
+        background: var(--text);
+        box-shadow: 0 0 0 2px var(--bg);
+        left: 2%;
+        transition: left 0.3s ease;
+      }
+      .lines { font-size: 13px; line-height: 1.45; flex: 1; min-height: 0; }
+      .lines p { margin: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .foot { margin-top: 4px; }
+      .brand { flex: 1; font-weight: 600; }
+      .error { display: none; font-size: 13px; color: var(--muted); }
+
+      /* Badge: one compact row — number, band, place and peak, brand. */
+      .layout-badge a.widget {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 12px;
+      }
+      .layout-badge .reading { margin: 0; gap: 8px; }
+      .layout-badge .index { font-size: 28px; }
+      .layout-badge .band { font-size: 11px; padding: 1px 7px; flex: none; }
+      .layout-badge .top { align-items: center; gap: 6px; }
+      .layout-badge .mid { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+      .layout-badge .top { font-size: 12px; }
+      .layout-badge .lines { font-size: 12px; color: var(--muted); flex: none; }
+      .layout-badge .scale,
+      .layout-badge #w-protect,
+      .layout-badge .label,
+      .layout-badge #w-time,
+      .layout-badge .foot .more { display: none; }
+      .layout-badge .foot { margin: 0; font-size: 11px; }
+      @media (max-width: 299px) {
+        .layout-badge .foot { display: none; }
+      }
+      .layout-card .mid { display: contents; }
+      .layout-card .top { order: -1; }
+
+      .is-loading .index, .is-loading .band, .is-loading .lines { opacity: 0.35; }
+      .is-error .reading, .is-error .scale, .is-error .lines { display: none; }
+      .is-error .error { display: block; flex: 1; padding-top: 8px; }
+    </style>
+  </head>
+  <body class="is-loading">
+    <a id="w-link" class="widget" href="https://uvaindex.org/" target="_blank" rel="noopener">
+      <div class="reading">
+        <span id="w-index" class="index">—</span>
+        <span id="w-band" class="band">…</span>
+        <span class="label">UVA Index<br />now</span>
+      </div>
+      <div class="mid">
+        <div class="top">
+          <span id="w-place" class="place">UVA Index</span>
+          <span id="w-time"></span>
+        </div>
+        <div class="scale" aria-hidden="true">
+          <div class="bar"><span></span><span></span><span></span><span></span><span></span></div>
+          <div id="w-pointer" class="pointer"></div>
+        </div>
+        <div class="lines">
+          <p id="w-peak">Loading…</p>
+          <p id="w-protect"></p>
+        </div>
+        <p id="w-error" class="error" role="status"></p>
+      </div>
+      <div class="foot">
+        <span class="brand">uvaindex.org</span>
+        <span class="more">Full forecast ↗</span>
+      </div>
+    </a>
+    <script type="module" src="js/embed.js"></script>
+  </body>
+</html>

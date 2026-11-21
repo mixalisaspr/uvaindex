@@ -25,12 +25,15 @@
   "disclaimer": "Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href=\"https://uvaindex.org/about.html\">About page</a>.",
   "static_pages": [
     { "loc": "/", "lastmod": "2026-10-07", "changefreq": "weekly", "priority": "1.0" },
-    { "loc": "/about.html", "lastmod": "2026-11-16", "changefreq": "monthly", "priority": "0.8" }
+    { "loc": "/about.html", "lastmod": "2026-11-16", "changefreq": "monthly", "priority": "0.8" },
+    { "loc": "/widget.html", "lastmod": "2026-11-21", "changefreq": "monthly", "priority": "0.8" }
   ],
   "sw_shell_prefix": [
     "./",
     "./index.html",
     "./about.html",
+    "./widget.html",
+    "./embed.html",
     "./styles.css",
     "./favicon.svg",
     "./manifest.webmanifest",
@@ -38,12 +41,15 @@
     "./js/api.js",
     "./js/chart.js",
     "./js/consent.js",
+    "./js/embed.js",
     "./js/forecast.js",
     "./js/lut.js",
     "./js/solar.js",
     "./js/sw-register.js",
     "./js/tz.js",
     "./js/uva.js",
+    "./js/widget.js",
+    "./js/widget-config.js",
     "./icons/icon-192.png",
     "./icons/icon-512.png",
     "./icons/maskable-192.png",

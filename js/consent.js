@@ -100,7 +100,7 @@
     banner.setAttribute('aria-label', 'Analytics cookies');
     banner.innerHTML =
       '<p>We’d like to use Google Analytics cookies to count visits and see ' +
-      'which pages help people. No ads, nothing sold. ' +
+      'which pages help people. Nothing is sold. ' +
       '<a href="' + privacyUrl + '">Privacy details</a></p>' +
       '<div class="consent-actions">' +
       '<button type="button" data-choice="denied">Decline</button>' +

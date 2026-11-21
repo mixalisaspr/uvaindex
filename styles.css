@@ -915,3 +915,97 @@ a.cta:hover {
     max-width: 680px;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Widget builder (widget.html): pick a place and style, preview, copy code.
+   The widget itself (embed.html) carries its own inline styles, since it is
+   framed on other sites.
+   --------------------------------------------------------------------------- */
+
+.widget-builder .builder-heading,
+.widget-builder .builder-sub {
+  font-size: 1rem;
+  color: var(--muted);
+  margin: 0 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.widget-builder .builder-sub {
+  margin: 20px 0 10px;
+}
+
+.widget-builder .builder-sub label {
+  color: inherit;
+}
+
+.widget-builder fieldset.choice {
+  border: 0;
+  padding: 0;
+  margin: 0 0 12px;
+  min-width: 0;
+}
+
+/* A legend won't take part in flex layout, so float it into the label column. */
+.widget-builder fieldset.choice legend {
+  float: left;
+  min-width: 110px;
+  margin-right: 10px;
+  padding: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.widget-builder fieldset.choice label {
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.widget-preview {
+  max-width: 340px;
+}
+
+.widget-credit {
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.widget-credit a {
+  color: var(--accent);
+}
+
+.embed-code {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  background: #0b111c;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  color: var(--text);
+  font: 0.8rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  resize: vertical;
+}
+
+.copy-row {
+  margin-top: 12px;
+}
+
+.copy-row .status {
+  margin: 0;
+}
+
+/* Phones: stack the radio groups under their legend instead of wrapping
+   them around it. */
+@media (max-width: 479px) {
+  .widget-builder fieldset.choice legend {
+    float: none;
+    display: block;
+    margin: 0 0 6px;
+  }
+}

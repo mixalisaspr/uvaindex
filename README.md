@@ -6,7 +6,7 @@
 
 A simple, dependency-free website that estimates **surface UVA irradiance**
 (≈315–400 nm, in W/m²) for a location, date/time and live weather conditions.
-It's **free, ad-free and open source** — live at
+It's **free and open source** — live at
 **[uvaindex.org](https://uvaindex.org)**.
 
 > **UVA is not the UV Index.** Every mainstream weather API serves the
@@ -89,7 +89,10 @@ node scripts/validate.mjs --lat 52.1 --lon 5.18 --csv measured.csv \
 
 ```
 index.html     # UI: location controls, date/time, result + breakdown + chart
+               # (opens on a linked place: /?lat=…&lon=…&name=…&tz=…&surface=…)
 about.html     # About page: why a UVA Index, why it isn't official, how to use it
+widget.html    # "Free widget" page: builder (place, style, theme) + embed code
+embed.html     # the embeddable widget itself (iframe; noindex, no analytics)
 styles.css     # responsive dark styling (calculator + knowledge base)
 js/solar.js    # solar zenith angle + Earth–Sun distance (NOAA algorithm), pure
 js/uva.js      # hybrid UVA model + qualitative bands, pure functions
@@ -101,6 +104,9 @@ js/chart.js    # inline SVG chart of one local day of the UVA Index, pure functi
 js/app.js      # orchestration: wire UI, fetch, compute, render
 js/consent.js  # analytics consent banner (EU/EEA, UK, CH) + Google Analytics loader
 js/sw-register.js # registers sw.js; reloads open pages/PWAs onto a new version
+js/widget-config.js # widget options: URL parsing/building + embed snippet, pure
+js/embed.js    # the widget: fetch, model, render; per-browser 1 h cache
+js/widget.js   # the builder on widget.html
 tests/         # unit tests (node --test, no dependencies)
 learn/         # Knowledge Base: GENERATED educational articles about UVA (see below)
 content/       # Knowledge Base source content + site config (see below)
@@ -136,8 +142,8 @@ content/learn/<slug>.html    # one file per article: JSON meta header + body HTM
 scripts/build_kb.py          # generator: content/ -> learn/, sitemap.xml, sw.js
 ```
 
-The three pages carrying the primary navigation — `index.html`, `about.html`
-and the generated Knowledge Base hub — share a single source for it,
+The pages carrying the primary navigation — `index.html`, `about.html`,
+`widget.html` and the generated Knowledge Base hub — share a single source for it,
 `templates/_site_nav.tmpl.html`. In the two hand-maintained pages the nav sits
 between `<!-- site-nav:start -->` and `<!-- site-nav:end -->` markers that the
 generator rewrites; edit the template, not the pages.
@@ -160,6 +166,23 @@ position, hourly cloud and aerosol data interpolated between hours), giving
 each day's peak, the span when the UVA Index is Moderate (3) or higher, and a
 chart of the selected day. To regenerate `og-image.png`
 after editing the SVG: `npx sharp-cli -i og-image.svg -o og-image.png resize 1200 630`.
+
+## Embeddable widget
+
+`widget.html` lets any site owner pick a place, a style (card or compact
+badge), a theme and the surroundings, preview the live widget and copy a
+snippet. The snippet is an `<iframe>` of `embed.html` plus a plain, visible
+credit line *outside* the iframe that links to the calculator for that place
+(`/?lat=…&lon=…`) — a link inside an iframe counts for the framed page, not
+for the host page.
+
+The widget runs the same model as the calculator in the visitor's browser:
+it fetches Open-Meteo directly (so requests come from each visitor's own IP),
+keeps the response in `localStorage` for up to an hour, recomputes the
+reading every five minutes while visible and refetches once the data is an
+hour old. It sets no cookies and loads no analytics. `embed.html` is
+`noindex, follow` so its many URL variants stay out of search results;
+`widget.html` is the page meant to rank.
 
 ## Run it
 
