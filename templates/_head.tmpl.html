@@ -3,7 +3,7 @@
 
     <!-- Analytics: Google Analytics, loaded only after consent where
          required (EU/EEA, UK, CH) — see js/consent.js -->
-    <script src="${REL}js/consent.js" data-ga-id="$GA_ID" defer></script>
+    <script src="${ASSET_REL}js/consent.js" data-ga-id="$GA_ID" defer></script>
 
     <title>$TITLE</title>
     <meta
@@ -14,9 +14,10 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0f1724" />
     <link rel="canonical" href="$CANONICAL" />
-    <link rel="icon" href="${REL}favicon.svg" type="image/svg+xml" />
-    <link rel="manifest" href="${REL}manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="${REL}icons/apple-touch-icon.png" />
+$HREFLANG
+    <link rel="icon" href="${ASSET_REL}favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="${ASSET_REL}manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="${ASSET_REL}icons/apple-touch-icon.png" />
 
     <meta property="og:type" content="$OG_TYPE" />
     <meta property="og:site_name" content="$SITE_NAME" />
@@ -31,4 +32,4 @@
 
 $JSONLD_BLOCKS
 
-    <link rel="stylesheet" href="${REL}styles.css" />
+    <link rel="stylesheet" href="${ASSET_REL}styles.css" />

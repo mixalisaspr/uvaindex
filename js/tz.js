@@ -102,12 +102,14 @@ export function tzAbbr(date, timeZone) {
   }
 }
 
-// Day label in the location's zone, e.g. "Thu" or "Thu 9 Oct" (long).
-export function formatDay(date, timeZone, { long = false } = {}) {
+// Day label in the location's zone, e.g. "Thu" or "Thu 9 Oct" (long), in
+// `locale`'s own wording and order ("Do., 9. Okt.", "10月9日(木)").
+export function formatDay(date, timeZone, { long = false, locale = 'en-GB' } = {}) {
   const opts = long
     ? { timeZone, weekday: 'short', day: 'numeric', month: 'short' }
     : { timeZone, weekday: 'short' };
-  const parts = new Intl.DateTimeFormat('en-GB', opts).formatToParts(date);
+  if (!locale.startsWith('en')) return new Intl.DateTimeFormat(locale, opts).format(date);
+  const parts = new Intl.DateTimeFormat(locale, opts).formatToParts(date);
   const get = (type) => parts.find((p) => p.type === type)?.value;
   return [get('weekday'), get('day'), get('month')].filter(Boolean).join(' ');
 }

@@ -1,0 +1,91 @@
+{
+  "code": "ja",
+  "path": "ja/",
+  "html_lang": "ja",
+  "hreflang": "ja",
+  "native_name": "日本語",
+  "intl_locale": "ja-JP",
+  "glossary": {
+    "_note": "Fixed terms every Japanese page must use. Brand 'uvaindex.org' and the abbreviations UVA, UVB, UVC, UV, SPF, PA, nm, W/m² stay in Latin script.",
+    "UVA Index": "UVA指数",
+    "UV Index": "UVインデックス",
+    "UVA Index Calculator": "UVA指数計算ツール",
+    "Knowledge Base": "UVAナレッジベース (nav: ナレッジベース)",
+    "Free widget": "無料ウィジェット",
+    "band names (Low, Moderate, High, Very High, Extreme)": "弱い, 中程度, 強い, 非常に強い, 極端に強い",
+    "UVA radiation": "UVA（紫外線A波）— write 'UVA（紫外線A波）' on first mention in an article, then 'UVA'",
+    "UVB": "UVB（紫外線B波）on first mention, then 'UVB'",
+    "irradiance": "放射照度",
+    "sunscreen": "日焼け止め",
+    "broad-spectrum": "ブロードスペクトル（UVA・UVB両対応）",
+    "photoaging": "光老化",
+    "aerosol optical depth": "エアロゾル光学的厚さ",
+    "surroundings (ground cover setting)": "周囲の環境",
+    "solar zenith angle": "太陽天頂角",
+    "cloud cover": "雲量",
+    "sunburn / erythema": "日焼け（サンバーン）/ 紅斑",
+    "tone": "Polite です・ます style, natural and clear for a general audience. Full-width Japanese punctuation (、。「」（）) in prose; keep numbers, units and Latin abbreviations half-width. Do not put spaces between Japanese and Latin text unless needed for readability."
+  },
+  "nav": {
+    "aria": "メインメニュー",
+    "calc": "UVA指数計算ツール",
+    "learn": "ナレッジベース",
+    "widget": "無料ウィジェット",
+    "about": "このサイトについて",
+    "language": "言語"
+  },
+  "crumbs": {
+    "aria": "パンくずリスト",
+    "home": "UVA指数",
+    "kb": "ナレッジベース",
+    "topics": "トピック"
+  },
+  "hub": {
+    "title": "UVAナレッジベース — UVAとUVインデックスを理解する",
+    "description": "UVA（紫外線A波）をわかりやすく解説するガイド集。UVAとは何か、UVBとの違い、健康へのリスク、そして一般的なUVインデックスだけでは不十分な理由と、UVA専用の指数が必要なわけを説明します。",
+    "og_title": "UVAナレッジベース — UVAとUVインデックスを理解する",
+    "og_description": "UVAとは何か、UVBとの違い、健康へのリスク、そしてUVA専用の指数が必要な理由をわかりやすく解説します。",
+    "collection_name": "UVAナレッジベース",
+    "collection_description": "UVAとは何か、UVBとの違い、健康へのリスク、そして一般的なUVインデックスと併せてUVA専用の指数が役立つ理由をわかりやすく解説するガイド集。",
+    "h1": "UVAナレッジベース",
+    "subtitle_html": "紫外線A波（UVA）についての短くわかりやすいガイド集です。UVAとは何か、UVBとどう違うのか、\n          肌にとってなぜ重要なのか、そしておなじみの<strong>UVインデックス</strong>だけでは\n          なぜ全体像がわからないのかを解説します。",
+    "cta": "現在地のUVA指数をリアルタイムで確認する →",
+    "open_source_html": "無料の<strong>オープンソース</strong>です。コードとモデルは\n          <a href=\"https://github.com/mixalisaspr/uvaindex\">GitHub</a>で\n          <a href=\"https://github.com/mixalisaspr/uvaindex/blob/main/LICENSE\">MITライセンス</a>のもと公開しています。"
+  },
+  "tag_page": {
+    "title": "{label} — UVAナレッジベース",
+    "description": "「{label}」に関するナレッジベースの記事。",
+    "subtitle_html": "<strong>{label}</strong>のタグが付いたナレッジベースの記事です。",
+    "cta": "現在地のUVA指数をリアルタイムで確認する →"
+  },
+  "tags_index": {
+    "title": "トピック別に見る — UVAナレッジベース",
+    "description": "UVAナレッジベースの記事をトピック別に見る。",
+    "h1": "トピック別に見る",
+    "subtitle": "基礎から計算方法まで、ナレッジベースのすべてのトピック。",
+    "count_one": "{n}件の記事",
+    "count_other": "{n}件の記事"
+  },
+  "card_more": "読む →",
+  "related_heading": "あわせて読みたい",
+  "sources_heading": "出典",
+  "source_aria": "出典 {n}",
+  "reviewed_html": "最終確認日：{date}。誤りやより良い出典に気づいたら、<a href=\"{issues}\" rel=\"noopener\">GitHubでお知らせください</a>。",
+  "months": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+  "date_format": "{y}年{month}月{d}日",
+  "disclaimer_html": "無料のオープンソースです。UVA指数とUVA放射照度の非公式な計算です。教育目的の情報であり、医学的助言ではありません。詳しくは<a href=\"https://uvaindex.org/ja/about.html\">このサイトについて</a>をご覧ください。",
+  "cookie_settings": "Cookieの設定",
+  "default_cta_text": "現在地のUVA指数をリアルタイムで確認する →",
+  "tags": {
+    "basics": "基礎知識",
+    "comparison": "比較",
+    "environment": "環境と条件",
+    "health": "健康への影響",
+    "uv-index": "UVインデックス",
+    "methodology": "計算方法",
+    "protection": "紫外線対策",
+    "spectrum": "紫外線のスペクトル",
+    "risks": "リスク",
+    "technical": "技術情報"
+  }
+}

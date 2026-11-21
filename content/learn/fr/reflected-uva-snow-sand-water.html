@@ -1,0 +1,230 @@
+<!--meta
+{
+  "slug": "reflected-uva-snow-sand-water",
+  "translated_from": "2026-11-16",
+  "title": "UVA réfléchis : albédo de la neige, du sable, de l'eau et du béton",
+  "headline": "UVA réfléchis : neige, sable, eau et béton",
+  "description": "La réflexion du sol s'ajoute aux UVA que vous recevez, et l'albédo UV n'est pas l'albédo visible. Valeurs de réflexion selon la surface, pourquoi skieurs et plaisanciers brûlent sous le menton, pourquoi l'ombre ne suffit pas à la plage et comment l'indice UVA modélise l'albédo de surface.",
+  "og_title": "UVA réfléchis : neige, sable, eau et béton",
+  "og_description": "La neige réfléchit jusqu'à 90 % des UVA, le sable environ 20 %, l'herbe presque rien. Pourquoi cela change l'endroit où les dommages se produisent, et pourquoi l'ombre ne suffit pas.",
+  "jsonld_description": "Valeurs d'albédo UV de la neige, du sable, de l'eau, du béton et de l'herbe, pourquoi l'albédo UV diffère de l'albédo visible, pourquoi les UVA réfléchis atteignent une peau que le soleil direct ne peut pas atteindre, et comment l'indice UVA applique un facteur d'albédo de surface.",
+  "faq": [
+    {
+      "question": "Quelle quantité d'UV la neige réfléchit-elle ?",
+      "answer": "La neige fraîche et sèche réfléchit environ 80 à 90 % des UV incidents, de loin la valeur la plus élevée de toutes les surfaces naturelles courantes. Une neige plus ancienne, mouillée ou sale descend à environ 50 à 60 %. C'est pourquoi l'ophtalmie des neiges et les coups de soleil inattendus sont bien plus fréquents en montagne qu'à la plage, même si le soleil y paraît plus faible."
+    },
+    {
+      "question": "L'ombre protège-t-elle des UVA à la plage ?",
+      "answer": "En partie seulement. Un parasol bloque le rayonnement direct du soleil, mais une grande part des UVA arrive sous forme de lumière diffuse provenant de toute la voûte céleste, et le sable en renvoie 15 à 25 % supplémentaires depuis le sol. Les mesures sous les parasols de plage montrent généralement qu'ils ne réduisent les UV que de la moitié aux trois quarts environ : l'ombre doit donc être considérée comme un complément à la crème solaire et aux vêtements, pas comme un substitut."
+    },
+    {
+      "question": "Pourquoi les skieurs et les plaisanciers brûlent-ils sous le menton et le nez ?",
+      "answer": "Parce que l'ultraviolet arrive par en dessous. Le soleil direct n'atteint jamais le dessous du menton, les narines, l'intérieur des oreilles ni la peau ombragée par le bord d'un chapeau, mais les UV réfléchis par la neige ou l'eau, si : ils frappent précisément les zones que l'on oublie le plus souvent en appliquant la crème solaire et que l'on croit protégées."
+    }
+  ],
+  "cta_text": "Réglez l'environnement dans le calculateur d'indice UVA →",
+  "breadcrumb_label": "UVA réfléchis"
+}
+-->
+<h1>UVA réfléchis : neige, sable, eau et béton</h1>
+<p class="lead">
+  Presque tout le monde imagine que l'ultraviolet vient d'en haut. Une part
+  importante arrive pourtant <strong>d'en bas</strong>, renvoyée par la surface
+  sur laquelle vous vous tenez. C'est à cause de cette composante réfléchie que
+  le <a href="../">calculateur d'indice&nbsp;UVA</a> vous demande de choisir
+  votre environnement, et elle atteint une peau que la lumière directe du soleil
+  ne peut physiquement pas atteindre : le dessous du menton, les narines, les
+  yeux sous le bord d'un chapeau.
+</p>
+
+<div class="callout">
+  <strong>Le chiffre qui compte :</strong> la neige fraîche réfléchit
+  <strong>80 à 90 %</strong> des UV qui l'atteignent. Le sable sec en réfléchit
+  environ <strong>15 à 25 %</strong>. L'herbe, environ <strong>2 %</strong>.
+  Sous le même soleil, vous pouvez recevoir des doses totales très différentes.
+</div>
+
+<h2>Albédo UV selon la surface</h2>
+<p>
+  L'<strong>albédo</strong> est la fraction du rayonnement incident qu'une
+  surface réfléchit. L'essentiel à comprendre est que
+  <strong>l'albédo UV n'est pas l'albédo visible</strong> : l'apparence d'une
+  surface à l'œil nu renseigne mal sur ce qu'elle fait de
+  l'ultraviolet.[[cite:who_uvi_guide]]
+</p>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Surface</th><th>Albédo UV</th><th>Remarques</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Neige fraîche et sèche</td><td>0,80–0,90</td><td>La grande exception ; un réflecteur presque total</td></tr>
+    <tr><td>Neige ancienne, mouillée ou sale</td><td>0,50–0,60</td><td>Diminue vite à mesure que la neige vieillit et que la poussière s'accumule</td></tr>
+    <tr><td>Sable sec</td><td>0,15–0,25</td><td>Le sable de quartz clair et sec en haut de la fourchette</td></tr>
+    <tr><td>Sable mouillé</td><td>0,07–0,10</td><td>Le film d'eau l'assombrit nettement</td></tr>
+    <tr><td>Écume / moutons</td><td>0,25–0,30</td><td>Bien plus que l'eau qui l'entoure</td></tr>
+    <tr><td>Béton, pavés</td><td>0,08–0,15</td><td>Varie avec l'âge ; le béton neuf est le plus réfléchissant</td></tr>
+    <tr><td>Eau libre (diffus)</td><td>0,03–0,08</td><td>Faible avec un soleil haut ; augmente fortement quand le soleil descend</td></tr>
+    <tr><td>Asphalte</td><td>0,04–0,09</td><td>Faible malgré sa chaleur</td></tr>
+    <tr><td>Terre, roche</td><td>0,04–0,10</td><td>Le calcaire clair dans le haut de la fourchette</td></tr>
+    <tr><td>Herbe, végétation</td><td>0,01–0,04</td><td>Pratiquement un puits à UV</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Quand la luminosité visible vous trompe</h2>
+<ul>
+  <li>
+    <strong>L'herbe paraît d'un vert éclatant et ne réfléchit presque pas d'UV.</strong>
+    La chlorophylle et les tissus des feuilles absorbent fortement l'ultraviolet.
+    Une pelouse est l'une des surfaces à l'albédo UV le plus faible qui soient.
+  </li>
+  <li>
+    <strong>La peinture blanche réfléchit souvent mal les UV.</strong> La plupart
+    des peintures blanches doivent leur blancheur au dioxyde de titane, un
+    puissant <em>absorbeur d'UV</em>, utilisé précisément pour cette raison comme
+    filtre physique dans les crèmes solaires. Un mur blanchi à la chaux peut être
+    éblouissant dans le visible et quelconque dans l'UV.
+  </li>
+  <li>
+    <strong>L'eau est le cas le plus délicat.</strong> Quand on regarde une mer
+    calme d'en haut, la réflexion diffuse des UV est réellement faible : quelques
+    pour cent. Mais la réflexion sur l'eau est en grande partie
+    <em>spéculaire</em>, et la réflexion spéculaire augmente fortement à mesure
+    que le soleil s'approche de l'horizon : en incidence rasante, une surface
+    lisse en réfléchit une grande fraction. Ajoutez le clapot, les facettes des
+    vagues et les moutons, et vous obtenez des reflets brillants venant de
+    nombreux angles à la fois. Les plaisanciers et les nageurs sont bien sûr
+    aussi <em>mouillés</em>, ce qui n'annule aucun UV, mais donne à la peau une
+    sensation de fraîcheur et fait paraître le soleil doux.
+  </li>
+</ul>
+
+<h2>Pourquoi un albédo de 80 % ne signifie pas 80 % d'exposition en plus</h2>
+<p>
+  Voici le point que la plupart des explications passent sous silence, et c'est
+  celui qui réconcilie ces valeurs d'albédo spectaculaires avec les facteurs
+  modestes utilisés dans le modèle. <strong>La réflexion et l'augmentation de
+  la dose sont deux grandeurs différentes.</strong> Les UVA réfléchis vous
+  atteignent par deux voies distinctes, qui se comportent très différemment.
+</p>
+<ol>
+  <li>
+    <strong>Renforcement du rayonnement descendant (modeste).</strong> Les UV
+    renvoyés par la neige remontent, une partie est rediffusée vers le bas par
+    l'atmosphère et s'ajoute à ce qui arrive d'en haut. Cette boucle de diffusion
+    multiple est réelle mais s'accompagne de pertes : pour une surface
+    horizontale par ciel clair, même la neige fraîche n'ajoute généralement
+    qu'environ <strong>10 à 20 %</strong> aux UV descendants, pas 80 %. C'est ce
+    que mesure un capteur plan, et ce que calcule le modèle de ce site.
+  </li>
+  <li>
+    <strong>Flux montant (important, et à la forme du corps).</strong> Les quelque
+    80 % restants repartent directement vers le haut et vous frappent par en
+    dessous. Ils n'apparaissent jamais dans une mesure du rayonnement descendant,
+    mais atteignent de plein fouet le menton, le nez, les paupières, les oreilles
+    et le dessous de la mâchoire. Pour une personne debout sur de la neige
+    fraîche, cela peut à peu près <em>doubler</em> l'exposition corporelle totale.
+  </li>
+</ol>
+<div class="callout">
+  <strong>La conséquence pratique :</strong> un albédo élevé ne rend pas surtout
+  le soleil plus fort ; il change <strong>l'endroit où l'ultraviolet
+  arrive</strong>. Il redirige un flux important précisément vers les zones
+  habituellement non protégées, car personne n'applique sa crème solaire en
+  pensant à une lumière venant d'en bas.
+</div>
+
+<h2>La neige, et pourquoi la montagne en hiver est le cas extrême</h2>
+<p>
+  La neige fraîche est une véritable exception : rien d'autre dans l'expérience
+  courante ne réfléchit les UV comme elle. Ajoutez-y ce qui l'accompagne
+  généralement, et vous obtenez la situation la plus risquée en matière d'UVA
+  en dehors d'un midi tropical :
+</p>
+<ul>
+  <li>De la neige au sol, qui renvoie 80 à 90 % vers le haut.</li>
+  <li>L'<a href="uva-at-altitude.html">altitude</a>, qui ajoute plusieurs pour cent par kilomètre d'air raréfié et pur.</li>
+  <li>Un air de montagne froid, sec et pauvre en aérosols, qui atténue moins que l'air brumeux au niveau de la mer.</li>
+  <li>Des pentes enneigées <em>face</em> à vous autant que sous vos pieds, si bien que la surface réfléchissante occupe une bien plus grande part de votre champ de vision qu'un terrain plat.</li>
+  <li>Des températures basses qui suppriment tout signal sensoriel vous indiquant que vous êtes irradié.</li>
+</ul>
+<p>
+  C'est pourquoi la <strong>photokératite</strong>, ou ophtalmie des neiges
+  (en pratique un coup de soleil de la cornée), est une affection de montagne
+  plutôt que de plage, et pourquoi une
+  <a href="uva-and-your-eyes.html">protection oculaire enveloppante</a>
+  compte davantage sur la neige que partout ailleurs : la lumière arrive par
+  en dessous de la monture des lunettes de soleil ordinaires.
+</p>
+
+<h2>Plages, ombre et le problème du parasol</h2>
+<p>
+  Avec 15 à 25 %, le sable est bien en dessous de la neige, mais l'exposition
+  à la plage a sa propre géométrie. Les UV réfléchis par le sable frappent la
+  face inférieure du parasol et sont rediffusés vers la personne qui se trouve
+  dessous, et <a href="uva-on-cloudy-days.html">une grande part des UVA est de
+  la lumière diffuse du ciel</a> qu'un parasol n'intercepte pas du tout. Les
+  mesures sous les parasols de plage montrent généralement qu'ils ne réduisent
+  l'ultraviolet que de <strong>la moitié aux trois quarts</strong> environ :
+  c'est utile, mais très loin de la protection quasi totale que l'on croit
+  obtenir en se mettant à l'ombre. Dans un essai randomisé mené sur une plage, les personnes qui comptaient uniquement sur un parasol ont totalisé 142 zones du corps présentant un coup de soleil, contre 17 dans le groupe utilisant une crème solaire FPS&nbsp;100 (SPF&nbsp;100), et aucune des deux méthodes n'a complètement empêché les coups de soleil.[[cite:ouyang2017]]
+</p>
+<p>
+  La même logique vaut pour l'ombre d'un arbre isolé, d'une ombrelle ou d'un
+  parasol de terrasse. L'ombre bloque le rayonnement direct. Elle fait
+  relativement peu contre le ciel, et rien contre le sol.
+</p>
+
+<h2>Comment l'indice UVA modélise l'albédo</h2>
+<p>
+  Dans le <a href="../">calculateur</a>, le sélecteur <em>Environnement</em> fixe
+  l'albédo UV <code>r</code> de la zone qui vous entoure, et le modèle ajoute
+  la lumière réfléchie que le ciel rediffuse vers le bas, de manière exacte
+  pour une surface réfléchissant uniformément :
+  facteur = 1&nbsp;÷&nbsp;(1&nbsp;−&nbsp;r&nbsp;×&nbsp;s),
+  où <code>s</code>&nbsp;≈&nbsp;0,3 est l'albédo sphérique de l'atmosphère
+  dans les UVA. En mode <strong>Auto</strong>, il passe à la neige lorsque les
+  prévisions indiquent de la neige au sol.
+</p>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Option du sélecteur</th><th>Albédo r</th><th>Facteur</th><th>Justification</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Herbe, terre ou ville</td><td>0,03</td><td>×1,01</td><td>Faible réflexion ; la référence</td></tr>
+    <tr><td>Eau</td><td>0,07</td><td>×1,02</td><td>Faible réflexion diffuse des UV vue d'en haut, soleil bien levé</td></tr>
+    <tr><td>Sable / plage</td><td>0,15</td><td>×1,05</td><td>Le sable sec réfléchit ~15–25 %</td></tr>
+    <tr><td>Neige</td><td>0,6</td><td>×1,24</td><td>Terrain enneigé avec quelques arbres et bâtiments ; une neige fraîche continue (0,9) atteint ×1,40</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  Ces multiplicateurs semblent faibles à côté du tableau d'albédo ci-dessus,
+  et vous savez maintenant pourquoi : le modèle indique les <strong>UVA
+  descendants sur une surface horizontale dégagée</strong>, il prend donc en
+  compte la voie&nbsp;1 et non la voie&nbsp;2. Le flux montant important qui
+  cause réellement les brûlures du menton et des yeux dépend de la géométrie de
+  votre corps, pas du ciel, et se situe
+  <a href="how-uva-index-is-calculated.html#omitted">explicitement hors du
+  champ du modèle</a>.
+</p>
+<p>
+  Deux remarques pratiques sur l'utilisation du sélecteur. <strong>Le béton et
+  les pavés ne figurent pas parmi les options</strong> : avec 0,08–0,15, ils se
+  situent entre l'herbe et le sable, et l'herbe est l'approximation la plus
+  proche pour une rue en ville. Et <strong>« Eau », à ×1,02, correspond au fait
+  de se tenir au bord ou au-dessus de l'eau avec un soleil assez haut</strong> ;
+  avec un soleil bas, ou sur une mer agitée et brillante, la composante
+  réfléchie réelle est plus élevée que ne le suggère le traitement plan du modèle.
+</p>
+
+<h2>Ce qu'il faut en retenir</h2>
+<ul>
+  <li><strong>Indiquez honnêtement l'environnement</strong> avant de lire votre indice&nbsp;UVA : la neige n'est pas une erreur d'arrondi.</li>
+  <li><strong>Appliquez la crème solaire en pensant à la lumière qui vient d'en bas.</strong> Sous le menton et le nez, le dessous de la mâchoire, les oreilles, les paupières. Sur la neige et sur l'eau, ce sont les zones exposées, pas les zones abritées.</li>
+  <li><strong>Des lunettes enveloppantes sur la neige et sur l'eau</strong>, pas seulement des verres foncés.</li>
+  <li><strong>Ne comptez pas sur l'ombre comme protection</strong> au-dessus d'une surface claire. Sur le sable, elle vaut à peu près la moitié, pas la totalité.</li>
+  <li><strong>Souvenez-vous du piège sensoriel :</strong> l'air froid et l'eau fraîche suppriment la chaleur qui vous pousse normalement à chercher l'ombre, alors que le sol sous vos pieds double votre dose.</li>
+</ul>

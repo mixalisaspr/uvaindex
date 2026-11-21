@@ -3,6 +3,8 @@
 // snippet a site owner puts on their page. Pure functions, shared by the
 // widget itself (js/embed.js) and the builder page (js/widget.js).
 
+import { LANGS, DEFAULT_LANG, normalizeLang, langPath, translator } from './i18n.js';
+
 export const SITE_URL = 'https://uvaindex.org';
 
 // Layouts and the iframe size each one is designed for. The widget's own CSS
@@ -17,7 +19,7 @@ export const MIN_WIDTH = 240;
 export const THEMES = ['light', 'dark', 'auto'];
 export const SURFACES = ['auto', 'grass', 'water', 'sand', 'snow'];
 
-export const DEFAULTS = { layout: 'card', theme: 'light', surface: 'auto' };
+export const DEFAULTS = { layout: 'card', theme: 'light', surface: 'auto', lang: DEFAULT_LANG };
 
 const clampCoord = (v, limit) => {
   if (v === null || v === undefined || String(v).trim() === '') return null;
@@ -61,6 +63,7 @@ export function parseWidgetParams(search) {
     layout: pick(p.get('layout'), Object.keys(LAYOUTS), DEFAULTS.layout),
     theme: pick(p.get('theme'), THEMES, DEFAULTS.theme),
     surface: pick(p.get('surface'), SURFACES, DEFAULTS.surface),
+    lang: pick(p.get('lang'), LANGS, DEFAULTS.lang),
   };
 }
 
@@ -74,7 +77,7 @@ export function widgetQuery(opts) {
   if (name) p.set('name', name);
   const tz = cleanTimeZone(opts.tz);
   if (tz) p.set('tz', tz);
-  for (const key of ['layout', 'theme', 'surface']) {
+  for (const key of ['layout', 'theme', 'surface', 'lang']) {
     if (opts[key] && opts[key] !== DEFAULTS[key]) p.set(key, opts[key]);
   }
   return p.toString();
@@ -85,7 +88,8 @@ export function embedUrl(opts, base = SITE_URL) {
   return `${base}/embed.html?${widgetQuery(opts)}`;
 }
 
-// The full calculator for the same place — where a click on the widget goes.
+// The full calculator for the same place, in the widget's language — where a
+// click on the widget goes.
 export function calculatorUrl(opts, base = SITE_URL) {
   const p = new URLSearchParams();
   p.set('lat', String(roundCoord(opts.lat)));
@@ -95,7 +99,7 @@ export function calculatorUrl(opts, base = SITE_URL) {
   const tz = cleanTimeZone(opts.tz);
   if (tz) p.set('tz', tz);
   if (opts.surface && opts.surface !== DEFAULTS.surface) p.set('surface', opts.surface);
-  return `${base}/?${p}`;
+  return `${base}/${langPath(opts.lang)}?${p}`;
 }
 
 export function escapeHtml(s) {
@@ -113,14 +117,18 @@ export function escapeHtml(s) {
 export function embedSnippet(opts, base = SITE_URL) {
   const size = LAYOUTS[opts.layout] || LAYOUTS[DEFAULTS.layout];
   const name = cleanName(opts.name);
-  const title = name ? `UVA Index for ${name}` : 'UVA Index';
+  const t = translator(normalizeLang(opts.lang));
+  const title = name ? t('snippetTitleFor', { name }) : t('snippetTitle');
   const src = escapeHtml(embedUrl(opts, base));
   const href = escapeHtml(calculatorUrl(opts, base));
-  const place = name ? ` for ${escapeHtml(name)}` : '';
+  const link = `<a href="${href}">${escapeHtml(t('snippetLink'))}</a>`;
+  const credit = name
+    ? t('snippetCreditFor', { link, name: escapeHtml(name) })
+    : t('snippetCredit', { link });
   return [
     `<div class="uvaindex-widget" style="max-width:${size.width}px">`,
     `  <iframe src="${src}" title="${escapeHtml(title)}" width="${size.width}" height="${size.height}" loading="lazy" style="display:block;width:100%;height:${size.height}px;border:0;border-radius:12px"></iframe>`,
-    `  <p style="margin:6px 0 0;font:12px/1.4 system-ui,sans-serif">Live <a href="${href}">UVA Index</a>${place} by uvaindex.org</p>`,
+    `  <p style="margin:6px 0 0;font:12px/1.4 system-ui,sans-serif">${credit}</p>`,
     `</div>`,
   ].join('\n');
 }

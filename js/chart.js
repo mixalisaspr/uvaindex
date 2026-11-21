@@ -4,6 +4,7 @@
 
 import { BANDS, classifyUVA } from './uva.js';
 import { zonedParts, tzAbbr } from './tz.js';
+import { translator } from './i18n.js';
 
 const PAD = { top: 14, right: 14, bottom: 34, left: 32 };
 const H = 220;
@@ -16,10 +17,12 @@ const MIN_W = 280;
 //               its real size on narrow screens instead of being squashed)
 //   now       — optional Date; marked on the curve when it falls in the day
 //   label     — accessible description of the chart
-export function chartSvg({ day, timeZone, width, now, label = '' }) {
+//   lang      — language of the chart's own text (default English)
+export function chartSvg({ day, timeZone, width, now, label = '', lang = 'en' }) {
+  const t = translator(lang);
   const points = (day.points || []).filter((p) => p && isFinite(p.index));
   if (points.length < 2) {
-    return '<p class="chart-empty">Not enough data to plot the day.</p>';
+    return `<p class="chart-empty">${escapeXml(t('chartNoData'))}</p>`;
   }
 
   const W = Math.max(MIN_W, Math.round(width) || 600);
@@ -81,7 +84,7 @@ export function chartSvg({ day, timeZone, width, now, label = '' }) {
       return `<text class="axis" x="${x(p.time).toFixed(1)}" y="${H - 18}" text-anchor="middle">${String(hour).padStart(2, '0')}:00</text>`;
     })
     .join('');
-  const tzText = `<text class="axis axis-note" x="${W - PAD.right}" y="${H - 3}" text-anchor="end">${escapeXml(tzAbbr(first.time, timeZone))} local time</text>`;
+  const tzText = `<text class="axis axis-note" x="${W - PAD.right}" y="${H - 3}" text-anchor="end">${escapeXml(t('chartLocalTime', { tz: tzAbbr(first.time, timeZone) }))}</text>`;
 
   // "Now" marker, at the exact instant, when it falls within this day.
   let marker = '';

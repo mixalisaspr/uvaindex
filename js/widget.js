@@ -3,18 +3,23 @@
 
 import { geocode } from './api.js';
 import { embedSnippet, embedUrl, LAYOUTS, escapeHtml } from './widget-config.js';
+import { pageLang, translator } from './i18n.js';
 
 const $ = (id) => document.getElementById(id);
+const LANG = pageLang();
+const t = translator(LANG);
 
 // Start with a sunny, recognisable example; the owner searches their own.
 const state = {
   lat: 38.7223,
   lon: -9.1393,
-  name: 'Lisbon, Portugal',
+  name: t('builderDefaultPlace'),
   tz: 'Europe/Lisbon',
   layout: 'card',
   theme: 'light',
   surface: 'auto',
+  // The widget speaks the language of the page it was built on.
+  lang: LANG,
 };
 
 // --- preview + code ---------------------------------------------------------
@@ -28,7 +33,7 @@ function update() {
   const src = embedUrl(state, location.origin);
   if (frame.getAttribute('src') !== src) frame.src = src;
   frame.style.height = `${size.height}px`;
-  frame.title = `Preview: UVA Index for ${state.name}`;
+  frame.title = t('builderPreview', { name: state.name });
   $('preview').style.maxWidth = `${size.width}px`;
   $('preview-place').textContent = state.name;
   $('copy-status').textContent = '';
@@ -43,7 +48,7 @@ async function copyCode() {
     $('embed-code').select();
     document.execCommand?.('copy');
   }
-  $('copy-status').textContent = 'Copied — paste it into your page’s HTML.';
+  $('copy-status').textContent = t('builderCopied');
 }
 
 // --- place search (same feel as the calculator's) ---------------------------
@@ -100,7 +105,7 @@ function onInput() {
   if (q.length < 2) return hide();
   timer = setTimeout(async () => {
     try {
-      const found = await geocode(q, 8);
+      const found = await geocode(q, 8, LANG);
       if ($('w-search').value.trim() !== q) return;
       results = found;
       show();
@@ -135,7 +140,7 @@ async function onKeydown(e) {
     e.preventDefault();
     if (results.length) return choose(results[active >= 0 ? active : 0]);
     const q = $('w-search').value.trim();
-    if (q) choose((await geocode(q, 1).catch(() => []))[0]);
+    if (q) choose((await geocode(q, 1, LANG).catch(() => []))[0]);
   }
 }
 

@@ -1,0 +1,90 @@
+{
+  "code": "de",
+  "path": "de/",
+  "html_lang": "de",
+  "hreflang": "de",
+  "native_name": "Deutsch",
+  "intl_locale": "de-DE",
+  "glossary": {
+    "_note": "Fixed terms every German page must use. Brand 'uvaindex.org' and the abbreviations UVA, UVB, UVC, UV, PA, nm, W/m² stay as they are. SPF is 'Lichtschutzfaktor (LSF)' on first use, then 'LSF'.",
+    "UVA Index": "UVA-Index",
+    "UV Index": "UV-Index",
+    "UVA Index Calculator": "UVA-Index-Rechner",
+    "Knowledge Base": "Wissensdatenbank",
+    "Free widget": "Kostenloses Widget",
+    "band names (Low, Moderate, High, Very High, Extreme)": "Niedrig, Mäßig, Hoch, Sehr hoch, Extrem",
+    "UVA radiation": "UVA-Strahlung",
+    "irradiance": "Bestrahlungsstärke",
+    "sunscreen": "Sonnenschutzmittel / Sonnencreme",
+    "broad-spectrum": "Breitband-",
+    "photoaging": "Lichtalterung",
+    "aerosol optical depth": "aerosol-optische Dicke",
+    "surroundings (ground cover setting)": "Umgebung",
+    "solar zenith angle": "Sonnenzenitwinkel",
+    "cloud cover": "Bewölkung",
+    "sunburn / erythema": "Sonnenbrand / Erythem",
+    "tone": "Use 'du'. Clear, friendly German for a general audience. Decimal comma in prose (0,5). Compound nouns with hyphens for abbreviations (UVA-Strahlung, UV-Index)."
+  },
+  "nav": {
+    "aria": "Hauptnavigation",
+    "calc": "UVA-Index-Rechner",
+    "learn": "Wissensdatenbank",
+    "widget": "Kostenloses Widget",
+    "about": "Über uns",
+    "language": "Sprache"
+  },
+  "crumbs": {
+    "aria": "Brotkrumennavigation",
+    "home": "UVA-Index",
+    "kb": "Wissensdatenbank",
+    "topics": "Themen"
+  },
+  "hub": {
+    "title": "UVA-Wissensdatenbank — UVA-Strahlung und den UV-Index verstehen",
+    "description": "Verständliche Ratgeber zur UVA-Strahlung: was UVA ist, wie sie sich von UVB unterscheidet, welche Gesundheitsgefahren sie birgt und warum der übliche UV-Index nicht ausreicht — Argumente für einen eigenen UVA-Index.",
+    "og_title": "UVA-Wissensdatenbank — UVA-Strahlung und den UV-Index verstehen",
+    "og_description": "Verständliche Ratgeber zur UVA-Strahlung, zum Unterschied zu UVB, zu ihren Gesundheitsrisiken und warum wir einen eigenen UVA-Index brauchen.",
+    "collection_name": "UVA-Wissensdatenbank",
+    "collection_description": "Verständliche Ratgeber zur UVA-Strahlung, zum Unterschied zu UVB, zu ihren Gesundheitsrisiken und warum ein eigener UVA-Index neben dem üblichen UV-Index nützlich ist.",
+    "h1": "UVA-Wissensdatenbank",
+    "subtitle_html": "Kurze, verständliche Ratgeber zur Ultraviolett-A-Strahlung — was sie\n          ist, wie sie sich von UVB unterscheidet, warum sie für deine Haut wichtig\n          ist und warum der bekannte <strong>UV-Index</strong> nicht die ganze\n          Geschichte erzählt.",
+    "cta": "Live-UVA-Index für deinen Standort ansehen →",
+    "open_source_html": "Kostenlos und <strong>Open Source</strong> — Code und Modell liegen\n          auf <a href=\"https://github.com/mixalisaspr/uvaindex\">GitHub</a> unter\n          der\n          <a href=\"https://github.com/mixalisaspr/uvaindex/blob/main/LICENSE\">MIT-Lizenz</a>."
+  },
+  "tag_page": {
+    "title": "{label} — UVA-Wissensdatenbank",
+    "description": "Artikel der Wissensdatenbank zum Thema {label}.",
+    "subtitle_html": "Artikel der Wissensdatenbank zum Thema <strong>{label}</strong>.",
+    "cta": "Live-UVA-Index für deinen Standort ansehen →"
+  },
+  "tags_index": {
+    "title": "Nach Thema stöbern — UVA-Wissensdatenbank",
+    "description": "Artikel der UVA-Wissensdatenbank nach Thema durchsuchen.",
+    "h1": "Nach Thema stöbern",
+    "subtitle": "Alle Themen der Wissensdatenbank, von den Grundlagen bis zur Methodik.",
+    "count_one": "{n} Artikel",
+    "count_other": "{n} Artikel"
+  },
+  "card_more": "Lesen →",
+  "related_heading": "Weiterlesen",
+  "sources_heading": "Quellen",
+  "source_aria": "Quelle {n}",
+  "reviewed_html": "Zuletzt geprüft am {date}. Einen Fehler oder eine bessere Quelle gefunden? <a href=\"{issues}\" rel=\"noopener\">Sag es uns auf GitHub</a>.",
+  "months": ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"],
+  "date_format": "{d}. {month} {y}",
+  "disclaimer_html": "Kostenlos und Open Source. Inoffizielle Berechnung des UVA-Index und der UVA-Bestrahlungsstärke. Nur zu Informationszwecken, keine medizinische Beratung. Mehr dazu auf der Seite <a href=\"https://uvaindex.org/de/about.html\">Über uns</a>.",
+  "cookie_settings": "Cookie-Einstellungen",
+  "default_cta_text": "Live-UVA-Index für deinen Standort ansehen →",
+  "tags": {
+    "basics": "Grundlagen",
+    "comparison": "Vergleiche",
+    "environment": "Bedingungen & Umwelt",
+    "health": "Gesundheitliche Auswirkungen",
+    "uv-index": "UV-Index",
+    "methodology": "Methodik",
+    "protection": "Schutz",
+    "spectrum": "UV-Spektrum",
+    "risks": "Risiken",
+    "technical": "Technik"
+  }
+}

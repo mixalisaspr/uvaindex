@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <!-- Primary SEO -->
+    <title>UVA-Index — Live-UVA-Index-Rechner für jeden Ort und jede Uhrzeit</title>
+    <meta
+      name="description"
+      content="Kostenloser UVA-Index-Rechner. Live-UVA-Index für jeden Ort und jede Uhrzeit — geschätzte UVA-Bestrahlungsstärke am Boden (315–400 nm, W/m²) aus Sonnenstand, Bewölkung und Aerosoldaten in Echtzeit."
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/de/" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+
+    <!-- PWA: installable, app-like experience -->
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="UVA-Index" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="UVA-Index" />
+    <meta
+      property="og:title"
+      content="UVA-Index — Live-UVA-Index-Rechner für jeden Ort und jede Uhrzeit"
+    />
+    <meta
+      property="og:description"
+      content="Live-UVA-Index für jeden Ort und jede Uhrzeit — geschätzte UVA-Bestrahlungsstärke am Boden aus Sonnenstand, Bewölkung und Aerosoldaten in Echtzeit."
+    />
+    <meta property="og:url" content="https://uvaindex.org/de/" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="UVA-Index — Live-UVA-Index-Rechner"
+    />
+    <meta
+      name="twitter:description"
+      content="Live-UVA-Index für jeden Ort und jede Uhrzeit, berechnet aus Sonnenstand und Atmosphärendaten in Echtzeit."
+    />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <!-- Structured data: helps search engines understand the page -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "UVA-Index",
+        "url": "https://uvaindex.org/de/",
+        "description": "Live-UVA-Index-Rechner — schätzt die UVA-Bestrahlungsstärke am Boden (315–400 nm, W/m²) für jeden Ort und jede Uhrzeit aus Sonnenstand, Bewölkung und Aerosoldaten in Echtzeit.",
+        "inLanguage": "de",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Was ist der UVA-Index?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Der UVA-Index ist eine Skala von 0–11+, die aus der UVA-Bestrahlungsstärke am Boden (dem ungewichteten Band von 315–400 nm, in W/m²) abgeleitet wird: Die Bestrahlungsstärke wird durch 6 geteilt, sodass eine senkrecht stehende Sonne bei klarem Himmel etwa 11 ergibt — entsprechend dem bekannten Bereich des UV-Index. Die Kategorien folgen den Stufen der WHO: Niedrig (0–2), Mäßig (3–5), Hoch (6–7), Sehr hoch (8–10) und Extrem (11+). Anders als der übliche UV-Index, der nach der Erythemwirkung gewichtet ist und von UVB dominiert wird, erfasst dieser Wert ausschließlich UVA und wird aus der Sonnengeometrie sowie aktuellen Bewölkungs- und Aerosoldaten berechnet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie wird der UVA-Index berechnet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Der Rechner liest die UVA-Strahlung bei klarem Himmel für deinen Sonnenwinkel, den Dunst (aerosol-optische Dicke) und den Luftdruck am Boden aus einer Tabelle ab, die mit einem Strahlungstransportmodell berechnet wurde. Dann addiert er die Reflexion aus der Umgebung, berücksichtigt den Abstand zwischen Erde und Sonne am jeweiligen Tag und wendet schließlich den aktuellen Einfluss der Bewölkung an — alles auf Basis kostenloser Daten von Open-Meteo. Die so ermittelte UVA-Bestrahlungsstärke (W/m²) wird durch 6 geteilt und ergibt den UVA-Index von 0–11+."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- hreflang:start (generated by scripts/build_kb.py — do not edit) -->
+    <!-- hreflang:end -->
+
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <main class="app app--calc">
+      <!-- site-nav:start (generated by scripts/build_kb.py — do not edit) -->
+      <nav class="site-nav" aria-label="Primary">
+        <a href="./" class="active">UVA Index Calculator</a>
+        <a href="./learn/">Knowledge Base</a>
+        <a href="./widget.html">Free widget</a>
+        <a href="./about.html">About</a>
+        <span class="spacer"></span>
+      </nav>
+      <!-- site-nav:end -->
+
+      <header>
+        <h1>UVA-Index</h1>
+        <p class="subtitle">
+          Ein <strong>UVA-Index</strong> live für jeden Ort und jede Uhrzeit —
+          ein eigenes Maß von <strong>0–11+</strong> für die UVA-Strahlung am
+          Boden, nicht der übliche UV-Index.
+        </p>
+      </header>
+
+      <div class="calc-grid">
+        <section class="controls">
+        <div class="row search-row">
+          <div class="search-box">
+            <input
+              id="place-search"
+              type="text"
+              placeholder="Stadt oder Ort suchen …"
+              aria-label="Stadt oder Ort suchen"
+              autocomplete="off"
+              role="combobox"
+              aria-expanded="false"
+              aria-controls="suggestions"
+              aria-autocomplete="list"
+            />
+            <ul id="suggestions" class="suggestions" role="listbox" hidden></ul>
+          </div>
+          <button
+            id="use-location"
+            class="icon-btn"
+            type="button"
+            title="Meinen Standort verwenden"
+            aria-label="Meinen Standort verwenden"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+              <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm8.94 3A8.994 8.994 0 0 0 13 3.06V1h-2v2.06A8.994 8.994 0 0 0 3.06 11H1v2h2.06A8.994 8.994 0 0 0 11 20.94V23h2v-2.06A8.994 8.994 0 0 0 20.94 13H23v-2h-2.06zM12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="row location-row">
+          <span class="loc-pin" aria-hidden="true">📍</span>
+          <span id="location-label" class="location-label">Dein Standort wird ermittelt …</span>
+        </div>
+
+        <div class="row">
+          <label for="surface" title="Was den Boden um dich herum bedeckt. Reflektierende Umgebungen werfen mehr UVA-Strahlung vom Himmel zurück.">Umgebung</label>
+          <select id="surface">
+            <option value="auto">Automatisch (Schnee, falls vorhergesagt)</option>
+            <option value="grass">Gras, Erde oder Stadt</option>
+            <option value="water">Wasser</option>
+            <option value="sand">Sand / Strand</option>
+            <option value="snow">Schnee</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <button id="refresh" type="button" class="primary" disabled>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+              <path d="M17.65 6.35A7.958 7.958 0 0 0 12 4a8 8 0 1 0 7.73 10h-2.08A6 6 0 1 1 12 6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+            </svg>
+            <span id="refresh-label">Aktualisieren</span>
+          </button>
+        </div>
+
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section id="result" class="result" hidden>
+        <div class="readout">
+          <span class="metric-label">UVA-Index jetzt <span id="as-of" class="as-of"></span></span>
+          <div class="uva-scale">
+            <div class="uva-scale-bar" aria-hidden="true">
+              <div class="uva-segment" style="background:#3a7d44">Niedrig</div>
+              <div class="uva-segment" style="background:#f2c14e">Mäßig</div>
+              <div class="uva-segment" style="background:#f08a24">Hoch</div>
+              <div class="uva-segment" style="background:#e3522f">Sehr hoch</div>
+              <div class="uva-segment" style="background:#b5179e">Extrem</div>
+            </div>
+            <div class="uva-pointer-track">
+              <div id="uva-pointer" class="uva-pointer">
+                <span class="uva-pointer-caret" aria-hidden="true">▲</span>
+                <span id="uva-index" class="uva-pointer-number">—</span>
+              </div>
+            </div>
+          </div>
+          <p class="uva-secondary">
+            <strong id="uva-band" class="uva-band">—</strong> ·
+            <span id="uva-value">—</span> W/m² UVA-Bestrahlungsstärke
+          </p>
+        </div>
+
+        <h2 id="forecast-heading">UVA-Vorhersage</h2>
+        <div id="days" class="days" role="group" aria-labelledby="forecast-heading"></div>
+        <p id="day-summary" class="day-summary" aria-live="polite"></p>
+        <div id="chart" class="chart"></div>
+
+        <div class="result-tables">
+          <div class="table-block">
+            <h2>Eingangsdaten</h2>
+            <table class="data-table">
+              <tbody id="params"></tbody>
+            </table>
+          </div>
+
+          <div class="table-block">
+            <h2>Aufschlüsselung des Modells</h2>
+            <table class="data-table">
+              <tbody id="factors"></tbody>
+            </table>
+          </div>
+        </div>
+        <p class="model-note">
+          <a href="learn/how-uva-index-is-calculated.html">Wie wird das
+          berechnet? →</a>
+        </p>
+        </section>
+      </div>
+
+      <footer>
+        <p class="disclaimer">
+          Neu beim Thema UVA? Starte mit der
+          <a href="learn/">Wissensdatenbank</a> — was UVA ist,
+          <a href="learn/uva-vs-uvb.html">wie sie sich von UVB unterscheidet</a> und
+          <a href="learn/uv-index-vs-uva-index.html">warum der UV-Index nicht
+          ausreicht</a>.
+        </p>
+        <p class="disclaimer">
+          Du betreibst einen Reiseblog, eine Praxis oder eine Surfschule? Bau ein
+          <a href="widget.html">kostenloses Live-Widget mit dem UVA-Index</a> in deine Website ein.
+        </p>
+        <p class="disclaimer">
+          Kostenlos und Open Source. Inoffizielle Berechnung des UVA-Index und
+          der UVA-Bestrahlungsstärke. Nur zu Informationszwecken, keine
+          medizinische Beratung. Mehr dazu auf der Seite <a href="about.html">Über uns</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie-Einstellungen</button>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module" src="../js/app.js"></script>
+    <script src="../js/sw-register.js" defer></script>
+  </body>
+</html>

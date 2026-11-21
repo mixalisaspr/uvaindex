@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>Widget gratuito dell'indice UVA per il tuo sito — UV in tempo reale da incorporare</title>
+    <meta
+      name="description"
+      content="Aggiungi al tuo sito un widget gratuito dell'indice UVA in tempo reale con un semplice copia e incolla. Ideale per blog di viaggi, cliniche dermatologiche, scuole di surf e di sci. Nessuna registrazione, nessuna chiave API, nessun cookie."
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/it/widget.html" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Indice UVA" />
+    <meta property="og:title" content="Widget gratuito dell'indice UVA per il tuo sito" />
+    <meta property="og:description" content="L'indice UVA in tempo reale per la tua località, incorporato con un copia e incolla. Gratuito, senza registrazione, senza chiave API, senza cookie." />
+    <meta property="og:url" content="https://uvaindex.org/it/widget.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Widget gratuito dell'indice UVA per il tuo sito" />
+    <meta name="twitter:description" content="L'indice UVA in tempo reale per la tua località, incorporato con un copia e incolla. Gratuito, senza registrazione, senza cookie." />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Widget dell'indice UVA",
+        "url": "https://uvaindex.org/it/widget.html",
+        "description": "Un widget gratuito da incorporare che mostra, per qualsiasi località, l'indice UVA in tempo reale, il picco di oggi e le ore in cui è consigliata la protezione solare.",
+        "inLanguage": "it",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@type": "Organization", "name": "uvaindex.org", "url": "https://uvaindex.org/" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Indice UVA", "item": "https://uvaindex.org/it/" },
+          { "@type": "ListItem", "position": 2, "name": "Widget gratuito", "item": "https://uvaindex.org/it/widget.html" }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Il widget dell'indice UVA è davvero gratuito?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sì. È gratuito sia per i siti personali sia per quelli aziendali, senza registrazione e senza chiave API. L'unica condizione è mantenere visibile e invariata la breve riga di attribuzione sotto il widget." }
+          },
+          {
+            "@type": "Question",
+            "name": "Il widget imposta cookie o traccia i miei visitatori?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Il widget non imposta cookie e non carica strumenti di statistica. Per calcolare la lettura, il browser del visitatore richiede all'API gratuita di Open-Meteo i dati meteo e sugli aerosol per la località che hai scelto e può conservare quella risposta nel proprio spazio di archiviazione fino a un'ora, così le visualizzazioni successive della pagina non devono scaricarla di nuovo." }
+          },
+          {
+            "@type": "Question",
+            "name": "Rallenterà la mia pagina?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Il widget è un piccolo iframe a caricamento differito, senza framework né font esterni: si carica solo quando un visitatore scorre fino alle sue vicinanze e non blocca mai la visualizzazione della tua pagina." }
+          },
+          {
+            "@type": "Question",
+            "name": "Ogni quanto si aggiorna l'indice UVA nel widget?",
+            "acceptedAnswer": { "@type": "Answer", "text": "La lettura viene ricalcolata ogni cinque minuti in base alla posizione esatta del sole, mentre i dati su nuvole e aerosol su cui si basa vengono aggiornati ogni ora." }
+          },
+          {
+            "@type": "Question",
+            "name": "In cosa differisce l'indice UVA dall'indice UV?",
+            "acceptedAnswer": { "@type": "Answer", "text": "L'indice UV standard è ponderato per le scottature e dominato dagli UVB. L'indice UVA misura la banda UVA a onda più lunga (315–400 nm), che favorisce l'invecchiamento della pelle e attraversa le nuvole e i vetri delle finestre, sulla stessa familiare scala da 0 a 11+. È una stima non ufficiale, da usare preferibilmente insieme all'indice UV." }
+          },
+          {
+            "@type": "Question",
+            "name": "Posso aggiungerlo a WordPress, Squarespace, Wix o Shopify?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sì. Incolla il codice in qualsiasi blocco che accetti HTML puro: un blocco HTML personalizzato in WordPress, un blocco Codice in Squarespace, Incorpora HTML in Wix, un elemento Embed in Webflow o una sezione Liquid personalizzato in Shopify." }
+          }
+        ]
+      }
+    </script>
+
+    <!-- hreflang:start (generated by scripts/build_kb.py — do not edit) -->
+    <!-- hreflang:end -->
+
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <!-- site-nav:start (generated by scripts/build_kb.py — do not edit) -->
+      <nav class="site-nav" aria-label="Primary">
+        <a href="./">UVA Index Calculator</a>
+        <a href="./learn/">Knowledge Base</a>
+        <a href="./widget.html" class="active">Free widget</a>
+        <a href="./about.html">About</a>
+        <span class="spacer"></span>
+      </nav>
+      <!-- site-nav:end -->
+
+      <header>
+        <h1>Widget gratuito dell'indice UVA per il tuo sito</h1>
+        <p class="subtitle">
+          Mostra ai tuoi visitatori l'<strong>indice UVA in tempo reale</strong> per
+          la tua località: il valore di questo momento, il picco di oggi e le ore in
+          cui è consigliata la protezione solare. Un copia e incolla, nessuna
+          registrazione, nessuna chiave API, nessun cookie.
+        </p>
+      </header>
+
+      <section class="controls widget-builder" aria-labelledby="builder-heading">
+        <h2 id="builder-heading" class="builder-heading">Crea il tuo widget</h2>
+
+        <div class="row">
+          <label for="w-search">Località</label>
+          <div class="search-box">
+            <input
+              id="w-search"
+              type="text"
+              value="Lisbona, Portogallo"
+              placeholder="Cerca una città, una spiaggia o una località turistica…"
+              autocomplete="off"
+              role="combobox"
+              aria-expanded="false"
+              aria-controls="w-suggestions"
+              aria-autocomplete="list"
+            />
+            <ul id="w-suggestions" class="suggestions" role="listbox" hidden></ul>
+          </div>
+        </div>
+
+        <fieldset class="row choice">
+          <legend>Stile</legend>
+          <label><input type="radio" name="w-layout" value="card" checked /> Scheda</label>
+          <label><input type="radio" name="w-layout" value="badge" /> Badge compatto</label>
+        </fieldset>
+
+        <fieldset class="row choice">
+          <legend>Tema</legend>
+          <label><input type="radio" name="w-theme" value="light" checked /> Chiaro</label>
+          <label><input type="radio" name="w-theme" value="dark" /> Scuro</label>
+          <label><input type="radio" name="w-theme" value="auto" /> Come il visitatore</label>
+        </fieldset>
+
+        <div class="row">
+          <label for="w-surface" title="Un ambiente circostante riflettente fa tornare giù dal cielo più UVA.">Ambiente circostante</label>
+          <select id="w-surface" name="w-surface">
+            <option value="auto">Automatico (neve se prevista)</option>
+            <option value="grass">Erba, terreno o città</option>
+            <option value="water">Acqua — laghi, mare</option>
+            <option value="sand">Sabbia / spiaggia</option>
+            <option value="snow">Neve — località sciistiche</option>
+          </select>
+        </div>
+
+        <h3 class="builder-sub">Anteprima</h3>
+        <div id="preview" class="widget-preview">
+          <iframe
+            id="preview-frame"
+            title="Anteprima: widget dell'indice UVA"
+            loading="lazy"
+            style="display:block;width:100%;height:196px;border:0;border-radius:12px"
+          ></iframe>
+          <p class="widget-credit">
+            <a href="./">Indice UVA</a> in tempo reale per <span id="preview-place">Lisbona, Portogallo</span> da uvaindex.org
+          </p>
+        </div>
+
+        <h3 class="builder-sub"><label for="embed-code">Il tuo codice da incorporare</label></h3>
+        <textarea id="embed-code" class="embed-code" rows="7" readonly spellcheck="false"></textarea>
+        <div class="row copy-row">
+          <button id="copy-code" type="button" class="primary">Copia il codice</button>
+          <span id="copy-status" class="status" role="status" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <article class="prose">
+        <h2>A chi è rivolto</h2>
+        <p>
+          Gli UVA sono la parte della luce solare responsabile di invecchiamento
+          cutaneo, pigmentazione e danni profondi e cumulativi, e il noto
+          indice&nbsp;UV
+          <a href="learn/uv-index-vs-uva-index.html">li registra appena</a>.
+          Una lettura UVA in tempo reale è utile ovunque le persone programmino del
+          tempo all'aperto o abbiano cura della propria pelle:
+        </p>
+        <ul>
+          <li><strong>Blog di viaggi e guide turistiche</strong>: mostra ai lettori com'è davvero il sole oggi nel luogo di cui scrivi.</li>
+          <li><strong>Cliniche dermatologiche, di medicina estetica e di skincare</strong>: dai ai pazienti un motivo quotidiano per usare una crema solare ad ampio spettro, soprattutto nelle giornate nuvolose, quando <a href="learn/uva-on-cloudy-days.html">gli UVA passano comunque</a>.</li>
+          <li><strong>Scuole di surf, kite e vela</strong>: scegli come ambiente circostante <em>Acqua</em> o <em>Sabbia</em>, così la lettura include gli <a href="learn/reflected-uva-snow-sand-water.html">UVA riflessi</a>.</li>
+          <li><strong>Scuole di sci e guide alpine</strong>: la neve riflette gran parte degli UVA, che <a href="learn/uva-at-altitude.html">aumentano con l'altitudine</a>; scegli <em>Neve</em>.</li>
+          <li><strong>Farmacie e negozi di prodotti solari</strong>, <strong>hotel e stabilimenti balneari</strong>, <strong>scuole, asili nido e società sportive</strong> che organizzano attività all'aperto.</li>
+        </ul>
+
+        <h2>Che cosa mostra il widget</h2>
+        <ul>
+          <li>L'<strong>indice UVA attuale</strong> su una scala da 0 a 11+ con la relativa fascia (da Basso a Estremo).</li>
+          <li>Il <strong>picco di oggi</strong> e l'ora approssimativa in cui si verifica, nel fuso orario della località.</li>
+          <li>Le <strong>ore in cui proteggersi</strong>, cioè quando l'indice UVA è Moderato (3) o superiore.</li>
+          <li>Un link alle previsioni complete a cinque giorni e al dettaglio del modello per quel luogo.</li>
+        </ul>
+        <p>
+          Usa esattamente lo stesso modello del
+          <a href="./">calcolatore dell'indice UVA</a>: la posizione del sole, i
+          dati in tempo reale su nuvole e aerosol, l'altitudine e l'ambiente
+          circostante che scegli. Il metodo, le sue fonti e la sua validazione sono
+          descritti in
+          <a href="learn/how-uva-index-is-calculated.html">come si calcola l'indice
+          UVA</a>.
+        </p>
+
+        <h2>Come aggiungerlo al tuo sito</h2>
+        <p>Incolla il codice in qualsiasi punto che accetti HTML puro:</p>
+        <ul>
+          <li><strong>WordPress</strong>: aggiungi un blocco <em>HTML personalizzato</em> (o un widget HTML personalizzato in una barra laterale).</li>
+          <li><strong>Squarespace</strong>: aggiungi un blocco <em>Codice</em>.</li>
+          <li><strong>Wix</strong>: <em>Aggiungi → Codice da incorporare → Incorpora HTML</em>, poi imposta l'altezza del riquadro su quella del widget.</li>
+          <li><strong>Webflow</strong>: inserisci un elemento <em>Embed</em>.</li>
+          <li><strong>Shopify</strong>: una sezione <em>Liquid personalizzato</em>, oppure la vista HTML di una pagina.</li>
+          <li><strong>Ghost, Blogger, HTML semplice</strong>: una scheda HTML o direttamente nel tuo modello.</li>
+        </ul>
+        <p>
+          Il widget si adatta alla larghezza del contenitore fino a
+          340&nbsp;px e funziona fino a una larghezza minima di circa 240&nbsp;px.
+        </p>
+
+        <h2>Condizioni d'uso</h2>
+        <ul>
+          <li><strong>Gratuito per qualsiasi sito</strong>, personale o commerciale. Nessun account e nessuna chiave API.</li>
+          <li>Ti chiediamo di <strong>mantenere la riga di attribuzione</strong> sotto il widget visibile e invariata: è ciò che permette al widget di restare gratuito.</li>
+          <li>L'indice UVA è una <strong>stima non ufficiale basata su un modello</strong>, <a href="about.html">non uno standard ufficiale</a>, e il widget fornisce solo informazioni educative, non un parere medico.</li>
+        </ul>
+
+        <h2>Domande</h2>
+        <h3>Il widget imposta cookie o traccia i miei visitatori?</h3>
+        <p>
+          No. Non imposta cookie e non carica strumenti di statistica, quindi non
+          aggiunge nulla al tuo banner dei cookie. Per calcolare la lettura, il
+          browser del visitatore richiede i dati meteo e sugli aerosol per la
+          località che hai scelto all'API gratuita di <a href="https://open-meteo.com/">Open-Meteo</a>
+          e può conservare quella risposta nel proprio spazio di archiviazione fino
+          a un'ora, così le visualizzazioni successive della pagina non devono
+          scaricarla di nuovo.
+        </p>
+        <h3>Rallenterà la mia pagina?</h3>
+        <p>
+          No. È un piccolo iframe a caricamento differito, senza framework e senza
+          web font: si carica solo quando un visitatore scorre fino alle sue
+          vicinanze e non blocca mai la visualizzazione della tua pagina.
+        </p>
+        <h3>Ogni quanto si aggiorna?</h3>
+        <p>
+          La lettura viene ricalcolata ogni cinque minuti in base alla posizione
+          esatta del sole; i dati su nuvole e aerosol su cui si basa vengono
+          aggiornati ogni ora.
+        </p>
+        <h3>Posso mostrare più di una località?</h3>
+        <p>
+          Sì: crea un widget per ogni luogo e incolla ciascun frammento di codice
+          dove ti serve. Una guida di viaggio può avere un widget diverso in ogni
+          pagina dedicata a una destinazione.
+        </p>
+
+        <a class="cta" href="./">Prova il calcolatore completo dell'indice UVA →</a>
+      </article>
+
+      <footer>
+        <p class="disclaimer">
+          Gratuito e open source. Calcolo non ufficiale dell'indice UVA e
+          dell'irradianza UVA. Solo informazioni educative, non un parere medico.
+          Maggiori dettagli nella pagina <a href="about.html">Chi siamo</a>.
+          · <button type="button" class="link-btn" data-consent-open>Impostazioni cookie</button>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module" src="../js/widget.js"></script>
+    <script src="../js/sw-register.js" defer></script>
+  </body>
+</html>

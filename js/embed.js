@@ -8,9 +8,16 @@ import { buildForecast } from './forecast.js';
 import { fetchHourly, fetchTimezone } from './api.js';
 import { browserTimeZone, formatClock } from './tz.js';
 import { parseWidgetParams, calculatorUrl, SITE_URL } from './widget-config.js';
+import { translator, bandLabel, localeFor } from './i18n.js';
 
 const $ = (id) => document.getElementById(id);
 const opts = parseWidgetParams(location.search);
+const t = translator(opts.lang);
+const numberFormat = new Intl.NumberFormat(localeFor(opts.lang), {
+  minimumFractionDigits: 1,
+  maximumFractionDigits: 1,
+  useGrouping: false,
+});
 
 // Refetch the weather hourly; recompute "now" more often from what we have.
 const FETCH_TTL_MS = 60 * 60 * 1000;
@@ -66,7 +73,7 @@ async function load() {
 
 // --- rendering --------------------------------------------------------------
 
-const fmt = (v) => (typeof v === 'number' && isFinite(v) ? v.toFixed(1) : '—');
+const fmt = (v) => (typeof v === 'number' && isFinite(v) ? numberFormat.format(v) : '—');
 
 // Round to 5 minutes: the curve is modelled, finer would be false precision.
 function clock(date) {
@@ -103,30 +110,35 @@ function render() {
   const index = reading ? reading.index : NaN;
   const band = reading?.band;
   $('w-index').textContent = fmt(index);
-  $('w-band').textContent = band ? band.label : '—';
+  const bandName = band ? bandLabel(band.level, opts.lang) : '—';
+  $('w-band').textContent = bandName;
   // Moderate and High are light colours: they need dark text on top.
   const root = document.documentElement;
   root.style.setProperty('--band', band ? band.color : 'var(--muted)');
   root.style.setProperty('--band-ink', band && (band.level === 1 || band.level === 2) ? '#1a1300' : '#fff');
   if ($('w-pointer')) $('w-pointer').style.left = `${pointerPosition(reading ? index : 0)}%`;
 
-  let peakLine = 'No forecast for today';
+  let peakLine = t('widgetNoForecast');
   let protectLine = '';
   if (today?.peak) {
-    const peak = `${fmt(today.peak.index)} at ${clock(today.peak.time)}`;
-    peakLine = opts.layout === 'badge' ? `Peak ${peak}` : `Today’s peak ${peak}`;
+    const peak = t('widgetPeakAt', { index: fmt(today.peak.index), time: clock(today.peak.time) });
+    peakLine = t(opts.layout === 'badge' ? 'widgetPeakShort' : 'widgetPeakLong', { peak });
     protectLine = today.protect
-      ? `Protect ${clock(today.protect.start)}–${clock(today.protect.end)}`
-      : 'Below Moderate all day';
+      ? t('widgetProtect', { start: clock(today.protect.start), end: clock(today.protect.end) })
+      : t('widgetNoProtect');
   }
   $('w-peak').textContent = peakLine;
   if ($('w-protect')) $('w-protect').textContent = protectLine;
   $('w-time').textContent = formatClock(now, data.tz);
 
   const summary = reading
-    ? `UVA Index ${fmt(index)}, ${band.label}${opts.name ? ` in ${opts.name}` : ''}. ${peakLine}. ${protectLine}`
-    : 'UVA Index unavailable';
-  $('w-link').setAttribute('aria-label', `${summary}. Open the full forecast on uvaindex.org`);
+    ? [
+        t(opts.name ? 'widgetSummaryIn' : 'widgetSummary', { index: fmt(index), band: bandName, name: opts.name }),
+        peakLine,
+        protectLine,
+      ].filter(Boolean).join('. ')
+    : t('widgetUnavailable');
+  $('w-link').setAttribute('aria-label', t('widgetOpen', { summary }));
   document.body.classList.remove('is-loading');
 }
 
@@ -156,21 +168,32 @@ async function refresh() {
     await load();
     render();
   } catch {
-    showError('UVA data is unavailable right now.');
+    showError(t('widgetError'));
   }
 }
 
+// The page's fixed text, in the widget's language.
+function localize() {
+  const root = document.documentElement;
+  root.lang = { zh: 'zh-Hans' }[opts.lang] || opts.lang;
+  document.title = t('widgetTitle');
+  $('w-now').innerHTML = t('widgetNowHtml');
+  $('w-peak').textContent = t('widgetLoading');
+  $('w-more').textContent = t('widgetMore');
+}
+
 function init() {
+  localize();
   document.documentElement.dataset.theme = opts.theme;
   document.body.classList.add(`layout-${opts.layout}`);
   // The badge is one short row: the band chip joins the place line so the
   // number can stand alone on the left.
   if (opts.layout === 'badge') $('w-place').before($('w-band'));
-  $('w-place').textContent = opts.name || 'UVA Index';
+  $('w-place').textContent = opts.name || t('widgetBrand');
 
   if (opts.lat === null || opts.lon === null) {
     $('w-link').href = `${SITE_URL}/widget.html`;
-    showError('Set a location for this widget.');
+    showError(t('widgetNoLocation'));
     return;
   }
   $('w-link').href = linkHref();

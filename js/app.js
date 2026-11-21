@@ -13,6 +13,12 @@ import {
 import { renderChart } from './chart.js';
 import { browserTimeZone, formatClock, formatDay, tzAbbr } from './tz.js';
 import { parseWidgetParams } from './widget-config.js';
+import { pageLang, localeFor, translator, bandLabel } from './i18n.js';
+
+const LANG = pageLang();
+const LOCALE = localeFor(LANG);
+const t = translator(LANG);
+const band$ = (band) => (band ? bandLabel(band.level, LANG) : '');
 
 const $ = (id) => document.getElementById(id);
 
@@ -63,11 +69,11 @@ function distanceKm(lat1, lon1, lat2, lon2) {
 // automatic attempts (page load).
 function useBrowserLocation({ silent = false } = {}) {
   if (!navigator.geolocation) {
-    if (!silent) setStatus('Geolocation not supported by this browser.', true);
+    if (!silent) setStatus(t('geoUnsupported'), true);
     return;
   }
   setLocating(true);
-  if (!silent) setStatus('Finding your location…');
+  if (!silent) setStatus(t('findingLocation'));
   const seq = ++locationSeq;
   navigator.geolocation.getCurrentPosition(
     async (pos) => {
@@ -76,10 +82,10 @@ function useBrowserLocation({ silent = false } = {}) {
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
       hideSuggestions();
-      setLocationLabel('Locating nearest place…');
+      setLocationLabel(t('locatingPlace'));
       // Resolve city name and timezone in parallel.
       const [name, tz] = await Promise.all([
-        reverseGeocode(lat, lon).catch(() => null),
+        reverseGeocode(lat, lon, LANG).catch(() => null),
         fetchTimezone(lat, lon).catch(() => null),
       ]);
       setLocating(false);
@@ -90,9 +96,9 @@ function useBrowserLocation({ silent = false } = {}) {
       setLocating(false);
       if (seq !== locationSeq) return;
       if (!silent) {
-        setStatus(`Could not get location: ${err.message}`, true);
+        setStatus(t('locationFailed', { msg: err.message }), true);
       } else if (!location) {
-        setLocationLabel('Search for a place to begin');
+        setLocationLabel(t('searchToBegin'));
       }
     },
     { enableHighAccuracy: false, timeout: 10000 }
@@ -134,17 +140,17 @@ function selectPlace(r) {
 async function searchLocation() {
   const q = $('place-search').value.trim();
   if (!q) return;
-  setStatus('Searching…');
+  setStatus(t('searching'));
   try {
-    const results = await geocode(q);
+    const results = await geocode(q, 5, LANG);
     if ($('place-search').value.trim() !== q) return; // query changed meanwhile
     if (!results.length) {
-      setStatus('No matching place found.', true);
+      setStatus(t('noPlace'), true);
       return;
     }
     selectPlace(rankSuggestions(results)[0]);
   } catch (e) {
-    setStatus(`Search failed: ${e.message}`, true);
+    setStatus(t('searchFailed', { msg: e.message }), true);
   }
 }
 
@@ -182,7 +188,7 @@ function onSearchInput() {
   }
   suggestTimer = setTimeout(async () => {
     try {
-      const results = await geocode(q, 8);
+      const results = await geocode(q, 8, LANG);
       // Ignore stale responses: the box has since been edited or cleared,
       // and a newer request owns the dropdown.
       if ($('place-search').value.trim() !== q) return;
@@ -258,10 +264,9 @@ function onSearchKeydown(e) {
   }
 }
 
+const populationFormat = new Intl.NumberFormat(LOCALE, { notation: 'compact', maximumFractionDigits: 1 });
 function formatPopulation(p) {
-  if (p >= 1e6) return `${(p / 1e6).toFixed(p >= 1e7 ? 0 : 1)}M`;
-  if (p >= 1e3) return `${Math.round(p / 1e3)}k`;
-  return String(p);
+  return populationFormat.format(p);
 }
 
 function escapeHtml(s) {
@@ -276,14 +281,14 @@ function escapeHtml(s) {
 // previously denied permission, so reloads stay quiet.
 async function autoLocate() {
   if (!navigator.geolocation) {
-    setLocationLabel('Search for a place to begin');
+    setLocationLabel(t('searchToBegin'));
     return;
   }
   try {
     if (navigator.permissions) {
       const status = await navigator.permissions.query({ name: 'geolocation' });
       if (status.state === 'denied') {
-        setLocationLabel('Search for a place to begin');
+        setLocationLabel(t('searchToBegin'));
         return;
       }
     }
@@ -304,13 +309,13 @@ function timeZone() {
 // Fetch fresh atmosphere for the current location, then recompute.
 async function refresh() {
   if (!location) {
-    setStatus('Choose a location first.', true);
+    setStatus(t('chooseLocation'), true);
     return;
   }
   const seq = ++fetchSeq;
   const loc = location;
   setRefreshing(true);
-  setStatus('Fetching atmospheric data…');
+  setStatus(t('fetching'));
   try {
     const hourly = await fetchHourly(loc.lat, loc.lon);
     if (seq !== fetchSeq) return; // a newer refresh (or location) took over
@@ -319,7 +324,7 @@ async function refresh() {
     setStatus('');
   } catch (e) {
     if (seq !== fetchSeq) return;
-    setStatus(`Calculation failed: ${e.message}`, true);
+    setStatus(t('calcFailed', { msg: e.message }), true);
   } finally {
     if (seq === fetchSeq) setRefreshing(false);
   }
@@ -344,13 +349,22 @@ function recompute() {
 function setRefreshing(on) {
   $('refresh').disabled = on || !location;
   $('refresh').classList.toggle('spinning', on);
-  $('refresh-label').textContent = on ? 'Refreshing…' : 'Refresh';
+  $('refresh-label').textContent = on ? t('refreshing') : t('refresh');
 }
 
 // --- rendering --------------------------------------------------------------
 
+// Numbers in the page's own conventions (7.5 / 7,5), without thousands
+// separators so "1234 m" reads the same everywhere.
+const numberFormats = new Map();
 function fmt(v, digits = 1) {
-  return typeof v === 'number' && isFinite(v) ? v.toFixed(digits) : '—';
+  if (typeof v !== 'number' || !isFinite(v)) return '—';
+  let f = numberFormats.get(digits);
+  if (!f) {
+    f = new Intl.NumberFormat(LOCALE, { minimumFractionDigits: digits, maximumFractionDigits: digits, useGrouping: false });
+    numberFormats.set(digits, f);
+  }
+  return f.format(v);
 }
 
 // Maps a UVA index value to a left-percentage position on the 5-segment scale.
@@ -377,20 +391,24 @@ function roundedClock(date) {
 }
 
 function dayName(day, i) {
-  if (i === 0) return 'Today';
-  if (i === 1) return 'Tomorrow';
-  return formatDay(day.start, timeZone(), { long: true });
+  if (i === 0) return t('today');
+  if (i === 1) return t('tomorrow');
+  return formatDay(day.start, timeZone(), { long: true, locale: LOCALE });
 }
 
 // One line describing a day: its peak and when protection is advised.
 function summaryLine(day, i) {
   const { peak, protect } = day.summary;
   if (!peak) return '';
-  const when = i === 0 ? 'Today' : dayName(day, i);
-  let line = `${when}: peak ${fmt(peak.index)} (${peak.band.label}) around ${roundedClock(peak.time)}`;
+  let line = t('summaryPeak', {
+    day: dayName(day, i),
+    index: fmt(peak.index),
+    band: band$(peak.band),
+    time: roundedClock(peak.time),
+  });
   line += protect
-    ? ` · Moderate or higher ${roundedClock(protect.start)}–${roundedClock(protect.end)}`
-    : ' · below Moderate all day';
+    ? t('summaryProtect', { start: roundedClock(protect.start), end: roundedClock(protect.end) })
+    : t('summaryNoProtect');
   return line;
 }
 
@@ -405,7 +423,7 @@ function render() {
   $('uva-index').textContent = fmt(index, 1);
   $('uva-index').style.color = band ? band.color : '';
   $('uva-pointer').style.left = uvaPointerPosition(now ? index : 0) + '%';
-  $('uva-band').textContent = band ? band.label : '—';
+  $('uva-band').textContent = band ? band$(band) : '—';
   $('uva-value').textContent = fmt(now?.uva, 1);
   $('as-of').textContent = `· ${formatClock(data.fetchedAt, tz)} ${tzAbbr(data.fetchedAt, tz)}`;
 
@@ -418,13 +436,14 @@ function renderDays() {
   $('days').innerHTML = forecast.days
     .map((day, i) => {
       const peak = day.summary.peak;
-      const name = i === 0 ? 'Today' : formatDay(day.start, timeZone());
+      const name = i === 0 ? t('today') : formatDay(day.start, timeZone(), { locale: LOCALE });
+      const aria = t('dayAria', { day: dayName(day, i), index: fmt(peak?.index), band: band$(peak?.band) });
       return (
         `<button type="button" class="day" data-i="${i}" aria-pressed="${i === selectedDay}"` +
-        ` aria-label="${dayName(day, i)}: peak ${fmt(peak?.index)} ${peak?.band.label ?? ''}">` +
-        `<span class="day-name">${name}</span>` +
+        ` aria-label="${escapeHtml(aria)}">` +
+        `<span class="day-name">${escapeHtml(name)}</span>` +
         `<span class="day-peak" style="color:${peak?.band.color ?? 'inherit'}">${fmt(peak?.index)}</span>` +
-        `<span class="day-band">${peak?.band.label ?? '—'}</span>` +
+        `<span class="day-band">${peak ? escapeHtml(band$(peak.band)) : '—'}</span>` +
         `</button>`
       );
     })
@@ -435,7 +454,7 @@ function renderSelectedDay() {
   const day = forecast.days[selectedDay];
   if (!day) {
     $('day-summary').textContent = '';
-    $('chart').innerHTML = '<p class="chart-empty">No forecast data for this location.</p>';
+    $('chart').innerHTML = `<p class="chart-empty">${escapeHtml(t('noForecast'))}</p>`;
     return;
   }
   const line = summaryLine(day, selectedDay);
@@ -444,7 +463,8 @@ function renderSelectedDay() {
     day,
     timeZone: timeZone(),
     now: forecast.now?.time,
-    label: `UVA Index through the day. ${line}`,
+    label: t('chartLabel', { line }),
+    lang: LANG,
   });
 }
 
@@ -461,50 +481,48 @@ function selectDay(i) {
   renderSelectedDay();
 }
 
-const SURFACE_LABELS = {
-  grass: 'grass/town',
-  water: 'water',
-  sand: 'sand / beach',
-  snow: 'snow',
-};
-
 function renderTables(now) {
   const atm = now?.atm ?? {};
   const sun = now?.sun ?? {};
   const auto = $('surface').value === 'auto';
-  const surfaceText = now?.surface
-    ? `${SURFACE_LABELS[now.surface]}${auto ? ' (auto)' : ''}, albedo ${fmt(now.albedo, 2)}`
-    : '—';
+  let surfaceText = '—';
+  if (now?.surface) {
+    const name = t(`surfaces.${now.surface}`);
+    surfaceText = t('surfaceText', {
+      surface: auto ? t('surfaceAuto', { surface: name }) : name,
+      albedo: fmt(now.albedo, 2),
+    });
+  }
   const rows = [
-    ['Solar zenith angle', `${fmt(sun.zenith)}°`],
-    ['Solar elevation', `${fmt(sun.elevation)}°`],
-    ['Earth–Sun distance', sun.distanceAU != null ? `${fmt(sun.distanceAU, 4)} AU` : '—'],
-    ['Elevation', `${fmt(data.hourly.elevationM, 0)} m`],
-    ['Surface pressure', now?.pressureHpa != null ? `${fmt(now.pressureHpa, 0)} hPa` : '—'],
-    ['Cloud cover', atm.cloudCover != null ? `${fmt(atm.cloudCover, 0)} %` : '—'],
-    ['Aerosol optical depth', fmt(atm.aod, 2)],
-    ['Snow depth', atm.snowDepth != null ? `${fmt(atm.snowDepth * 100, 0)} cm` : '—'],
-    ['Surroundings', surfaceText],
-    ['Surface ozone (info)', atm.ozone != null ? `${fmt(atm.ozone, 0)} µg/m³` : '—'],
-    ['UV Index (cross-check)', fmt(atm.uvIndex, 1)],
-    ['UV Index clear sky', fmt(atm.uvIndexClearSky, 1)],
+    [t('rows.zenith'), `${fmt(sun.zenith)}°`],
+    [t('rows.elevationAngle'), `${fmt(sun.elevation)}°`],
+    [t('rows.distance'), sun.distanceAU != null ? `${fmt(sun.distanceAU, 4)} AU` : '—'],
+    [t('rows.elevation'), `${fmt(data.hourly.elevationM, 0)} m`],
+    [t('rows.pressure'), now?.pressureHpa != null ? `${fmt(now.pressureHpa, 0)} hPa` : '—'],
+    [t('rows.cloudCover'), atm.cloudCover != null ? `${fmt(atm.cloudCover, 0)} %` : '—'],
+    [t('rows.aod'), fmt(atm.aod, 2)],
+    [t('rows.snowDepth'), atm.snowDepth != null ? `${fmt(atm.snowDepth * 100, 0)} cm` : '—'],
+    [t('rows.surroundings'), surfaceText],
+    [t('rows.ozone'), atm.ozone != null ? `${fmt(atm.ozone, 0)} µg/m³` : '—'],
+    [t('rows.uvIndex'), fmt(atm.uvIndex, 1)],
+    [t('rows.uvIndexClear'), fmt(atm.uvIndexClearSky, 1)],
   ];
 
   const f = now?.factors ?? {};
   const factorRows = [
-    ['Clear-sky baseline', `${fmt(f.baseline, 1)} W/m²`],
-    ['× Altitude', `×${fmt(f.altitude, 3)}`],
-    ['× Aerosol', `×${fmt(f.aerosol, 3)}`],
-    ['× Surroundings', `×${fmt(f.albedo, 3)}`],
-    ['× Earth–Sun distance', `×${fmt(f.distance, 3)}`],
-    ['× Cloud', `×${fmt(f.cloud, 3)}`],
+    [t('factors.baseline'), `${fmt(f.baseline, 1)} W/m²`],
+    [t('factors.altitude'), `×${fmt(f.altitude, 3)}`],
+    [t('factors.aerosol'), `×${fmt(f.aerosol, 3)}`],
+    [t('factors.surroundings'), `×${fmt(f.albedo, 3)}`],
+    [t('factors.distance'), `×${fmt(f.distance, 3)}`],
+    [t('factors.cloud'), `×${fmt(f.cloud, 3)}`],
   ];
 
   $('params').innerHTML = rows
-    .map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`)
+    .map(([k, v]) => `<tr><td>${escapeHtml(k)}</td><td>${escapeHtml(v)}</td></tr>`)
     .join('');
   $('factors').innerHTML = factorRows
-    .map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`)
+    .map(([k, v]) => `<tr><td>${escapeHtml(k)}</td><td>${escapeHtml(v)}</td></tr>`)
     .join('');
 }
 

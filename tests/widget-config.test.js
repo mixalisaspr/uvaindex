@@ -22,6 +22,7 @@ test('parseWidgetParams reads a full embed URL', () => {
     layout: 'badge',
     theme: 'dark',
     surface: 'sand',
+    lang: 'en',
   });
 });
 
@@ -90,4 +91,16 @@ test('embedSnippet escapes the place name', () => {
   const html = embedSnippet({ lat: 1, lon: 2, name: '<b>"Tom & Jerry\'s"</b>', layout: 'card' });
   assert.ok(!html.includes('<b>'));
   assert.ok(html.includes('&lt;b&gt;&quot;Tom &amp; Jerry&#39;s&quot;&lt;/b&gt;'));
+});
+
+test('lang: parsed, kept in the embed URL, and used for the calculator link and credit', () => {
+  assert.equal(parseWidgetParams('?lat=1&lon=2&lang=de').lang, 'de');
+  assert.equal(parseWidgetParams('?lat=1&lon=2&lang=xx').lang, 'en');
+  assert.ok(!widgetQuery({ ...lisbon, ...DEFAULTS }).includes('lang='), 'English is the default');
+  const opts = { ...lisbon, ...DEFAULTS, lang: 'fr', name: 'Lisbonne, Portugal' };
+  assert.equal(parseWidgetParams(widgetQuery(opts)).lang, 'fr');
+  assert.equal(new URL(calculatorUrl(opts)).pathname, '/fr/');
+  const html = embedSnippet(opts);
+  assert.ok(html.includes('title="Indice UVA pour Lisbonne, Portugal"'));
+  assert.ok(html.includes('>Indice UVA</a> en direct pour Lisbonne, Portugal par uvaindex.org'));
 });

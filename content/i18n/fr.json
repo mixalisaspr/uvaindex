@@ -1,0 +1,90 @@
+{
+  "code": "fr",
+  "path": "fr/",
+  "html_lang": "fr",
+  "hreflang": "fr",
+  "native_name": "Français",
+  "intl_locale": "fr-FR",
+  "glossary": {
+    "_note": "Fixed terms every French page must use. Brand 'uvaindex.org' and the abbreviations UVA, UVB, UVC, UV, SPF (write 'FPS (SPF)' on first use, then 'FPS'), PA, nm, W/m² stay as they are.",
+    "UVA Index": "indice UVA (capitalise as 'Indice UVA' only at the start of a sentence or in titles)",
+    "UV Index": "indice UV",
+    "UVA Index Calculator": "Calculateur d'indice UVA",
+    "Knowledge Base": "Base de connaissances",
+    "Free widget": "Widget gratuit",
+    "band names (Low, Moderate, High, Very High, Extreme)": "Faible, Modéré, Élevé, Très élevé, Extrême",
+    "UVA radiation": "rayonnement UVA",
+    "irradiance": "éclairement énergétique (irradiance)",
+    "sunscreen": "crème solaire / protection solaire",
+    "broad-spectrum": "à large spectre",
+    "photoaging": "photovieillissement",
+    "aerosol optical depth": "épaisseur optique des aérosols",
+    "surroundings (ground cover setting)": "environnement",
+    "solar zenith angle": "angle zénithal solaire",
+    "cloud cover": "couverture nuageuse",
+    "sunburn / erythema": "coup de soleil / érythème",
+    "tone": "Use 'vous'. Clear, friendly French for a general audience. Decimal comma in prose (0,5); French typography (no-break space before : ; ? ! and inside « »)."
+  },
+  "nav": {
+    "aria": "Principale",
+    "calc": "Calculateur d'indice UVA",
+    "learn": "Base de connaissances",
+    "widget": "Widget gratuit",
+    "about": "À propos",
+    "language": "Langue"
+  },
+  "crumbs": {
+    "aria": "Fil d'Ariane",
+    "home": "Indice UVA",
+    "kb": "Base de connaissances",
+    "topics": "Thèmes"
+  },
+  "hub": {
+    "title": "Base de connaissances UVA — Comprendre le rayonnement UVA et l'indice UV",
+    "description": "Des guides clairs sur le rayonnement UVA : ce qu'il est, en quoi il diffère des UVB, ses dangers pour la santé et pourquoi l'indice UV standard ne suffit pas — plaidoyer pour un indice UVA dédié.",
+    "og_title": "Base de connaissances UVA — Comprendre le rayonnement UVA et l'indice UV",
+    "og_description": "Des guides clairs sur le rayonnement UVA, sa différence avec les UVB, ses risques pour la santé et pourquoi il faut un indice UVA dédié.",
+    "collection_name": "Base de connaissances UVA",
+    "collection_description": "Des guides clairs sur le rayonnement UVA, sa différence avec les UVB, ses risques pour la santé et l'utilité d'un indice UVA dédié en complément de l'indice UV standard.",
+    "h1": "Base de connaissances UVA",
+    "subtitle_html": "Des guides courts et clairs sur le rayonnement ultraviolet&nbsp;A : ce\n          qu'il est, en quoi il diffère des UVB, pourquoi il compte pour votre peau\n          et pourquoi l'<strong>indice&nbsp;UV</strong> habituel ne dit pas tout.",
+    "cta": "Consultez l'indice UVA en direct pour votre position →",
+    "open_source_html": "Gratuit et <strong>open source</strong> — le code et le modèle sont\n          sur <a href=\"https://github.com/mixalisaspr/uvaindex\">GitHub</a> sous\n          <a href=\"https://github.com/mixalisaspr/uvaindex/blob/main/LICENSE\">licence\n          MIT</a>."
+  },
+  "tag_page": {
+    "title": "{label} — Base de connaissances UVA",
+    "description": "Articles de la Base de connaissances sur le thème : {label_lower}.",
+    "subtitle_html": "Articles de la Base de connaissances classés sous <strong>{label}</strong>.",
+    "cta": "Consultez l'indice UVA en direct pour votre position →"
+  },
+  "tags_index": {
+    "title": "Parcourir par thème — Base de connaissances UVA",
+    "description": "Parcourez les articles de la Base de connaissances UVA par thème.",
+    "h1": "Parcourir par thème",
+    "subtitle": "Tous les thèmes de la Base de connaissances, des notions de base à la méthodologie.",
+    "count_one": "{n} article",
+    "count_other": "{n} articles"
+  },
+  "card_more": "Lire →",
+  "related_heading": "À lire aussi",
+  "sources_heading": "Sources",
+  "source_aria": "Source {n}",
+  "reviewed_html": "Dernière révision le {date}. Vous avez repéré une erreur ou une meilleure source ? <a href=\"{issues}\" rel=\"noopener\">Dites-le-nous sur GitHub</a>.",
+  "months": ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"],
+  "date_format": "{d} {month} {y}",
+  "disclaimer_html": "Gratuit et open source. Calcul non officiel de l'indice UVA et de l'éclairement UVA. Information éducative uniquement, pas un avis médical. Plus d'informations sur la page <a href=\"https://uvaindex.org/fr/about.html\">À propos</a>.",
+  "cookie_settings": "Paramètres des cookies",
+  "default_cta_text": "Consultez l'indice UVA en direct pour votre position →",
+  "tags": {
+    "basics": "Notions de base",
+    "comparison": "Comparaisons",
+    "environment": "Conditions et environnement",
+    "health": "Effets sur la santé",
+    "uv-index": "Indice UV",
+    "methodology": "Méthodologie",
+    "protection": "Protection",
+    "spectrum": "Spectre UV",
+    "risks": "Risques",
+    "technical": "Technique"
+  }
+}

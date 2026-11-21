@@ -14,7 +14,25 @@
   const script = document.currentScript;
   const GA_ID = script && script.dataset.gaId;
   const KEY = 'uvaindex-consent';
-  const privacyUrl = new URL('../about.html#privacy', script ? script.src : location.href).href;
+
+  // The banner speaks the page's language (<html lang>) and links to that
+  // language's privacy notice: /about.html, /de/about.html...
+  const TEXT = {
+    en: ['Analytics cookies', 'We’d like to use Google Analytics cookies to count visits and see which pages help people.', 'Privacy details', 'Decline', 'Accept'],
+    es: ['Cookies de analítica', 'Nos gustaría usar cookies de Google Analytics para contar las visitas y ver qué páginas resultan útiles.', 'Detalles de privacidad', 'Rechazar', 'Aceptar'],
+    fr: ['Cookies de mesure d’audience', 'Nous aimerions utiliser les cookies de Google Analytics pour compter les visites et voir quelles pages sont utiles.', 'Confidentialité', 'Refuser', 'Accepter'],
+    de: ['Analyse-Cookies', 'Wir würden gern Cookies von Google Analytics verwenden, um Besuche zu zählen und zu sehen, welche Seiten weiterhelfen.', 'Datenschutzhinweise', 'Ablehnen', 'Akzeptieren'],
+    it: ['Cookie statistici', 'Vorremmo usare i cookie di Google Analytics per contare le visite e capire quali pagine sono utili.', 'Dettagli sulla privacy', 'Rifiuta', 'Accetta'],
+    ja: ['アクセス解析Cookie', '訪問数を数え、どのページが役立っているかを知るために、Google AnalyticsのCookieを使用したいと考えています。', 'プライバシーの詳細', '拒否する', '同意する'],
+    zh: ['分析 Cookie', '我们希望使用 Google Analytics 的 Cookie 来统计访问量，了解哪些页面对大家有帮助。', '隐私详情', '拒绝', '接受'],
+  };
+  const lang = (document.documentElement.lang || 'en').toLowerCase().split('-')[0];
+  const code = TEXT[lang] ? lang : 'en';
+  const [LABEL, MESSAGE, PRIVACY, DECLINE, ACCEPT] = TEXT[code];
+  const privacyUrl = new URL(
+    '../' + (code === 'en' ? '' : code + '/') + 'about.html#privacy',
+    script ? script.src : location.href
+  ).href;
 
   // Timezones of the EU/EEA, UK and Switzerland — a privacy-preserving stand-in
   // for "where is the visitor" (no IP lookup). Over-inclusive on purpose:
@@ -97,14 +115,13 @@
     banner = document.createElement('div');
     banner.className = 'consent';
     banner.setAttribute('role', 'dialog');
-    banner.setAttribute('aria-label', 'Analytics cookies');
+    banner.setAttribute('aria-label', LABEL);
     banner.innerHTML =
-      '<p>We’d like to use Google Analytics cookies to count visits and see ' +
-      'which pages help people. ' +
-      '<a href="' + privacyUrl + '">Privacy details</a></p>' +
+      '<p>' + MESSAGE + ' ' +
+      '<a href="' + privacyUrl + '">' + PRIVACY + '</a></p>' +
       '<div class="consent-actions">' +
-      '<button type="button" data-choice="denied">Decline</button>' +
-      '<button type="button" data-choice="granted">Accept</button>' +
+      '<button type="button" data-choice="denied">' + DECLINE + '</button>' +
+      '<button type="button" data-choice="granted">' + ACCEPT + '</button>' +
       '</div>';
     banner.addEventListener('click', (e) => {
       const btn = e.target.closest('[data-choice]');

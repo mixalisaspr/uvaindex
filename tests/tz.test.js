@@ -56,3 +56,10 @@ test('day labels', () => {
   assert.equal(formatDay(d, 'Australia/Sydney'), 'Sat');
   assert.equal(formatDay(d, 'Australia/Sydney', { long: true }), 'Sat 10 Oct');
 });
+
+test('day labels in other languages', () => {
+  const d = new Date('2026-10-09T13:00:00Z'); // Sat 10 Oct in Sydney
+  assert.equal(formatDay(d, 'Australia/Sydney', { long: true, locale: 'en-GB' }), 'Sat 10 Oct');
+  assert.match(formatDay(d, 'Australia/Sydney', { long: true, locale: 'de-DE' }), /10\. Okt/);
+  assert.match(formatDay(d, 'Australia/Sydney', { long: true, locale: 'ja-JP' }), /10月10日/);
+});
