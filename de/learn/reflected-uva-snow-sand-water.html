@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>Reflektiertes UVA: Albedo von Schnee, Sand, Wasser und Beton erklärt</title>
+    <meta
+      name="description"
+      content="Die Reflexion des Bodens erhöht das UVA, das du abbekommst – und die UV-Albedo ist nicht die sichtbare Albedo. Reflexionswerte nach Oberfläche, warum Skifahrer und Bootsfahrer unter dem Kinn verbrennen, warum Schatten am Strand nicht reicht und wie der UVA-Index die Albedo der Oberfläche modelliert."
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/de/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA-Index" />
+    <meta property="og:title" content="Reflektiertes UVA: Schnee, Sand, Wasser und Beton" />
+    <meta property="og:description" content="Schnee reflektiert bis zu 90 % des UVA, Sand rund 20 %, Gras fast nichts. Warum das verändert, wo der Schaden entsteht – und warum Schatten nicht reicht." />
+    <meta property="og:url" content="https://uvaindex.org/de/learn/reflected-uva-snow-sand-water.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Reflektiertes UVA: Schnee, Sand, Wasser und Beton",
+        "description": "UV-Albedo-Werte für Schnee, Sand, Wasser, Beton und Gras, warum sich die UV-Albedo von der sichtbaren Albedo unterscheidet, warum reflektiertes UVA Haut erreicht, an die direkte Sonne nicht gelangt, und wie der UVA-Index einen Albedo-Faktor für die Oberfläche anwendet.",
+        "inLanguage": "de",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-02",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/de/learn/reflected-uva-snow-sand-water.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Global Solar UV Index: A Practical Guide",
+            "publisher": "World Health Organization, WMO, UNEP and ICNIRP",
+            "datePublished": "2002",
+            "url": "https://www.who.int/publications/i/item/9241590076"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Sun protection by beach umbrella vs sunscreen with a high sun protection factor: a randomized clinical trial",
+            "author": "Ou-Yang H, Jiang LI, Meyer K, Wang SQ, Farberg AS, Rigel DS",
+            "publisher": "JAMA Dermatology 153(3):304–308",
+            "datePublished": "2017",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/28114650/"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Wie viel UV-Strahlung reflektiert Schnee?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Frischer, trockener Schnee reflektiert etwa 80–90 % der einfallenden UV-Strahlung – mit Abstand am meisten von allen verbreiteten natürlichen Oberflächen. Älterer, nasser oder verschmutzter Schnee sinkt auf etwa 50–60 %. Deshalb sind Schneeblindheit und unerwarteter Sonnenbrand in den Bergen weit häufiger als am Strand, obwohl sich die Sonne dort schwächer anfühlt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Schützt Schatten am Strand vor UVA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nur teilweise. Ein Sonnenschirm hält den direkten Sonnenstrahl ab, doch ein großer Teil des UVA kommt als diffuses Himmelslicht aus dem gesamten Himmelsgewölbe, und der Sand wirft weitere 15–25 % von unten zurück. Messungen unter Strandschirmen zeigen typischerweise, dass sie die UV-Strahlung nur um etwa die Hälfte bis drei Viertel verringern. Schatten sollte daher als Ergänzung zu Sonnencreme und Kleidung gelten, nicht als Ersatz."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Warum verbrennen Skifahrer und Bootsfahrer unter Kinn und Nase?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Weil die UV-Strahlung von unten kommt. Direkte Sonne erreicht nie die Unterseite des Kinns, die Nasenlöcher, die Innenseite der Ohren oder die Haut im Schatten einer Hutkrempe – UV-Strahlung, die von Schnee oder Wasser reflektiert wird, aber schon. Sie trifft genau die Stellen, die beim Eincremen am häufigsten vergessen werden und die man für geschützt hält."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA-Index",
+            "item": "https://uvaindex.org/de/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Wissensdatenbank",
+            "item": "https://uvaindex.org/de/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Reflektiertes UVA",
+            "item": "https://uvaindex.org/de/learn/reflected-uva-snow-sand-water.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="Brotkrumennavigation">
+          <a href="../">UVA-Index</a><span class="sep">›</span><a href="./">Wissensdatenbank</a><span class="sep">›</span>Reflektiertes UVA
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="Sprache: Deutsch"><span class="lang-icon" aria-hidden="true">🌐</span> Deutsch</summary>
+          <ul>
+            <li><a href="../../learn/reflected-uva-snow-sand-water.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/reflected-uva-snow-sand-water.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/reflected-uva-snow-sand-water.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="reflected-uva-snow-sand-water.html" hreflang="de" lang="de" aria-current="true">Deutsch</a></li>
+            <li><a href="../../it/learn/reflected-uva-snow-sand-water.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/reflected-uva-snow-sand-water.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../zh/learn/reflected-uva-snow-sand-water.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>Reflektiertes UVA: Schnee, Sand, Wasser und Beton</h1>
+        <p class="lead">
+          Fast alle stellen sich vor, dass UV-Strahlung von oben kommt. Ein
+          beträchtlicher Teil kommt aber von <strong>unten</strong> – zurückgeworfen
+          von dem, worauf du stehst. Dieser reflektierte Anteil ist der Grund, warum
+          der <a href="../">UVA-Index-Rechner</a> dich nach der Bodenbeschaffenheit
+          fragt, und warum er Haut erreicht, an die direktes Sonnenlicht physikalisch
+          gar nicht gelangen kann: die Unterseite des Kinns, die Nasenlöcher, die
+          Augen unter einer Hutkrempe.
+        </p>
+
+        <div class="callout">
+          <strong>Die entscheidende Zahl:</strong> Frischer Schnee reflektiert
+          <strong>80–90 %</strong> der UV-Strahlung, die auf ihn fällt. Trockener Sand
+          reflektiert etwa <strong>15–25 %</strong>. Gras reflektiert etwa
+          <strong>2 %</strong>. Du kannst im selben Sonnenlicht stehen und eine sehr
+          unterschiedliche Gesamtdosis abbekommen.
+        </div>
+
+        <h2>UV-Albedo nach Oberfläche</h2>
+        <p>
+          Die <strong>Albedo</strong> ist der Anteil der einfallenden Strahlung, den
+          eine Oberfläche reflektiert. Entscheidend ist:
+          <strong>Die UV-Albedo ist nicht die sichtbare Albedo</strong> – wie eine
+          Oberfläche für dein Auge aussieht, verrät wenig darüber, was sie mit
+          UV-Strahlung macht.<sup class="cite"><a href="#src-1" aria-label="Quelle 1">[1]</a></sup>
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Oberfläche</th><th>UV-Albedo</th><th>Anmerkungen</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Frischer, trockener Schnee</td><td>0,80–0,90</td><td>Der große Ausreißer; reflektiert fast alles</td></tr>
+            <tr><td>Alter, nasser oder verschmutzter Schnee</td><td>0,50–0,60</td><td>Sinkt schnell, wenn der Schnee altert und sich Staub ansammelt</td></tr>
+            <tr><td>Trockener Sand</td><td>0,15–0,25</td><td>Heller, trockener Quarzsand am oberen Ende der Spanne</td></tr>
+            <tr><td>Nasser Sand</td><td>0,07–0,10</td><td>Der Wasserfilm dunkelt ihn deutlich ab</td></tr>
+            <tr><td>Meeresschaum / Schaumkronen</td><td>0,25–0,30</td><td>Viel höher als das umgebende Wasser</td></tr>
+            <tr><td>Beton, Pflaster</td><td>0,08–0,15</td><td>Hängt vom Alter ab; neuer Beton am höchsten</td></tr>
+            <tr><td>Offenes Wasser (diffus)</td><td>0,03–0,08</td><td>Niedrig bei hoher Sonne; steigt stark, wenn die Sonne sinkt</td></tr>
+            <tr><td>Asphalt</td><td>0,04–0,09</td><td>Niedrig, obwohl er sich stark aufheizt</td></tr>
+            <tr><td>Erde, Fels</td><td>0,04–0,10</td><td>Heller Kalkstein am oberen Ende</td></tr>
+            <tr><td>Gras, Vegetation</td><td>0,01–0,04</td><td>Schluckt UV-Strahlung praktisch vollständig</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <h2>Wo dich die sichtbare Helligkeit täuscht</h2>
+        <ul>
+          <li>
+            <strong>Gras sieht leuchtend grün aus und reflektiert fast keine
+            UV-Strahlung.</strong> Chlorophyll und Blattgewebe absorbieren UV stark.
+            Ein Rasen gehört zu den Oberflächen mit der niedrigsten UV-Albedo
+            überhaupt.
+          </li>
+          <li>
+            <strong>Weiße Farbe reflektiert UV oft schlecht.</strong> Die meisten
+            weißen Farben verdanken ihr Weiß dem Titandioxid – einem starken
+            <em>UV-Absorber</em>, der genau deshalb als physikalischer Filter in
+            Sonnencreme verwendet wird. Eine weiß getünchte Wand kann im sichtbaren
+            Licht blenden und im UV unauffällig sein.
+          </li>
+          <li>
+            <strong>Wasser ist der schwierigste Fall.</strong> Wenn du auf ein ruhiges
+            Meer hinabblickst, ist die diffuse UV-Reflexion tatsächlich gering – ein
+            paar Prozent. Die Reflexion an Wasser ist aber größtenteils
+            <em>spiegelnd</em>, und die spiegelnde Reflexion steigt steil an, je
+            näher die Sonne dem Horizont kommt: Bei streifendem Einfall reflektiert
+            eine glatte Oberfläche einen großen Anteil. Kommen Kabbelwellen,
+            Wellenflanken und Schaumkronen hinzu, entstehen helle Lichtreflexe aus
+            vielen Winkeln zugleich. Bootsfahrer und Schwimmer sind außerdem
+            natürlich <em>nass</em> – was keinerlei UV-Strahlung aufhebt, die Haut
+            aber kühl und die Sonne mild wirken lässt.
+          </li>
+        </ul>
+
+        <h2>Warum 80 % Albedo nicht 80 % mehr Belastung bedeuten</h2>
+        <p>
+          Diesen Punkt überspringen die meisten Erklärungen, dabei bringt gerade er
+          die dramatischen Albedo-Werte mit den bescheidenen Faktoren im Modell in
+          Einklang. <strong>Reflexionsgrad und Dosiserhöhung sind zwei verschiedene
+          Größen.</strong> Reflektiertes UVA erreicht dich auf zwei unterschiedlichen
+          Wegen, und die verhalten sich sehr verschieden.
+        </p>
+        <ol>
+          <li>
+            <strong>Verstärkung der abwärts gerichteten Strahlung (gering).</strong>
+            UV-Strahlung, die vom Schnee zurückgeworfen wird, wandert nach oben, ein
+            Teil davon wird von der Atmosphäre wieder nach unten gestreut und kommt zu
+            dem hinzu, was von oben eintrifft. Diese Mehrfachstreuung ist real, aber
+            verlustreich: Für eine waagerechte Fläche unter klarem Himmel erhöht selbst
+            frischer Schnee die abwärts gerichtete UV-Strahlung typischerweise nur um
+            etwa <strong>10–20 %</strong>, nicht um 80 %. Genau das misst ein flacher
+            Sensor – und das Modell dieser Website.
+          </li>
+          <li>
+            <strong>Aufwärts gerichteter Strahlungsfluss (groß und körperbezogen).</strong>
+            Die übrigen rund 80 % gehen direkt wieder nach oben und treffen dich von
+            unten. In einer Messung der abwärts gerichteten Strahlung tauchen sie gar
+            nicht auf, landen aber direkt auf Kinn, Nase, Augenlidern, Ohren und der
+            Unterseite deines Kiefers. Für eine stehende Person kann das die
+            Gesamtbelastung des Körpers über frischem Schnee ungefähr
+            <em>verdoppeln</em>.
+          </li>
+        </ol>
+        <div class="callout">
+          <strong>Die praktische Folge:</strong> Eine hohe Albedo macht die Sonne
+          nicht in erster Linie stärker – sie verändert, <strong>wo die UV-Strahlung
+          landet</strong>. Sie lenkt einen großen Strahlungsfluss genau auf die
+          Stellen, die gewohnheitsmäßig ungeschützt sind, weil niemand beim Eincremen
+          an Licht von unten denkt.
+        </div>
+
+        <h2>Schnee – und warum winterliche Berge der Extremfall sind</h2>
+        <p>
+          Frischer Schnee ist ein echter Ausreißer – nichts sonst aus dem Alltag
+          reflektiert UV-Strahlung so stark. Zusammen mit allem, was mit ihm einhergeht,
+          ergibt sich die riskanteste UVA-Situation außerhalb der tropischen
+          Mittagszeit:
+        </p>
+        <ul>
+          <li>Schnee am Boden, der 80–90 % nach oben zurückwirft.</li>
+          <li>Die <a href="uva-at-altitude.html">Höhe</a>, die pro Kilometer dünner, sauberer Luft einige Prozent hinzufügt.</li>
+          <li>Kalte, trockene, aerosolarme Bergluft, die weniger abschwächt als dunstige Luft auf Meereshöhe.</li>
+          <li>Verschneite Hänge, die dir <em>gegenüber</em> liegen und nicht nur unter dir, sodass die reflektierende Fläche viel mehr von deinem Blickfeld ausfüllt als flacher Boden.</li>
+          <li>Niedrige Temperaturen, die jedes Sinnessignal dafür beseitigen, dass du bestrahlt wirst.</li>
+        </ul>
+        <p>
+          Deshalb ist die <strong>Photokeratitis</strong> – Schneeblindheit, im Grunde
+          ein Sonnenbrand der Hornhaut – ein Leiden der Berge und nicht des Strandes,
+          und deshalb ist ein <a href="uva-and-your-eyes.html">seitlich umschließender
+          Augenschutz</a> auf Schnee wichtiger als irgendwo sonst: Das Licht kommt von
+          unterhalb des Rahmens einer normalen Sonnenbrille.
+        </p>
+
+        <h2>Strände, Schatten und das Problem mit dem Sonnenschirm</h2>
+        <p>
+          Sand liegt mit 15–25 % weit unter Schnee, aber die Belastung am Strand hat
+          ihre eigene Geometrie. Vom Sand reflektierte UV-Strahlung trifft die
+          Unterseite eines Sonnenschirms und wird auf die Person darunter gestreut,
+          und <a href="uva-on-cloudy-days.html">ein großer Teil des UVA ist diffuses
+          Himmelslicht</a>, das ein Schirm überhaupt nicht abfängt. Messungen an
+          Strandschirmen zeigen typischerweise, dass sie die UV-Strahlung nur um etwa
+          <strong>die Hälfte bis drei Viertel</strong> verringern – nützlich, aber weit
+          entfernt von dem nahezu vollständigen Schutz, den man zu bekommen glaubt,
+          wenn man in den Schatten geht. In einer randomisierten Studie an einem Strand
+          verzeichneten die Teilnehmenden, die sich allein auf einen Schirm verließen,
+          zusammen 142 Körperstellen mit Sonnenbrand, gegenüber 17 in der Gruppe mit
+          Sonnencreme mit LSF&nbsp;100 – und keine der beiden Methoden verhinderte
+          Sonnenbrand vollständig.<sup class="cite"><a href="#src-2" aria-label="Quelle 2">[2]</a></sup>
+        </p>
+        <p>
+          Dieselbe Logik gilt für den Schatten eines einzelnen Baums, eines
+          Sonnenschirms oder eines Terrassenschirms. Schatten blockt den direkten
+          Strahl. Gegen den Himmel hilft er relativ wenig, gegen den Boden gar nicht.
+        </p>
+
+        <h2>Wie der UVA-Index die Albedo modelliert</h2>
+        <p>
+          Im <a href="../">Rechner</a> legt die Auswahl <em>Umgebung</em> die
+          UV-Albedo <code>r</code> der Fläche um dich herum fest, und das Modell
+          addiert das reflektierte Licht, das der Himmel wieder nach unten streut –
+          exakt für eine gleichmäßig reflektierende Oberfläche: Faktor =
+          1&nbsp;÷&nbsp;(1&nbsp;−&nbsp;r&nbsp;×&nbsp;s), wobei <code>s</code>&nbsp;≈&nbsp;0,3
+          die sphärische Albedo der Atmosphäre im UVA ist. Bei
+          <strong>Automatisch</strong> wechselt sie zu Schnee, wenn die Vorhersage
+          Schnee am Boden meldet.
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Auswahloption</th><th>Albedo r</th><th>Faktor</th><th>Begründung</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Gras, Erde oder Stadt</td><td>0,03</td><td>×1,01</td><td>Geringe Reflexion; der Ausgangswert</td></tr>
+            <tr><td>Wasser</td><td>0,07</td><td>×1,02</td><td>Geringe diffuse UV-Reflexion von oben bei hoch stehender Sonne</td></tr>
+            <tr><td>Sand / Strand</td><td>0,15</td><td>×1,05</td><td>Trockener Sand reflektiert ~15–25 %</td></tr>
+            <tr><td>Schnee</td><td>0,6</td><td>×1,24</td><td>Verschneites Gelände mit einigen Bäumen und Gebäuden; geschlossener frischer Schnee (0,9) erreicht ×1,40</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          Diese Multiplikatoren wirken neben der Albedo-Tabelle oben klein, und jetzt
+          weißt du, warum: Das Modell gibt die <strong>abwärts gerichtete UVA-Strahlung
+          auf einer offenen, waagerechten Fläche</strong> an, erfasst also Weg&nbsp;1
+          und nicht Weg&nbsp;2. Der große aufwärts gerichtete Strahlungsfluss, der
+          tatsächlich Verbrennungen an Kinn und Augen verursacht, ist eine Eigenschaft
+          deiner Körpergeometrie, nicht des Himmels, und liegt
+          <a href="how-uva-index-is-calculated.html#omitted">ausdrücklich außerhalb
+          des Modells</a>.
+        </p>
+        <p>
+          Zwei praktische Hinweise zur Auswahl. <strong>Beton und Pflaster stehen
+          nicht zur Wahl</strong> – mit 0,08–0,15 liegen sie zwischen Gras und Sand,
+          und Gras ist für eine Straße in der Stadt die bessere Näherung. Und
+          <strong>„Wasser“ mit ×1,02 beschreibt das Stehen neben oder über Wasser bei
+          einigermaßen hoch stehender Sonne</strong>; bei tief stehender Sonne oder auf
+          einer hellen, bewegten See ist der tatsächliche reflektierte Anteil höher,
+          als die flache Behandlung im Modell vermuten lässt.
+        </p>
+
+        <h2>Was du daraus mitnehmen solltest</h2>
+        <ul>
+          <li><strong>Stell die Umgebung ehrlich ein</strong>, bevor du deinen UVA-Index abliest – Schnee ist kein Rundungsfehler.</li>
+          <li><strong>Creme auch die nach unten gewandten Stellen ein.</strong> Unter Kinn und Nase, die Unterseite des Kiefers, die Ohren, die Augenlider. Auf Schnee und Wasser sind das die exponierten Stellen, nicht die geschützten.</li>
+          <li><strong>Seitlich umschließende Brillen auf Schnee und Wasser</strong>, nicht nur dunkle Gläser.</li>
+          <li><strong>Zähl Schatten über einer hellen Oberfläche nicht als Schutz.</strong> Über Sand bringt er ungefähr die Hälfte, nicht alles.</li>
+          <li><strong>Denk an die Sinnesfalle:</strong> Kalte Luft und kühles Wasser nehmen dir die Wärme, die dir sonst sagt, dass du in den Schatten gehen solltest, während der Boden unter dir deine Dosis verdoppelt.</li>
+        </ul>
+
+        <section class="sources" id="sources">
+          <h2>Quellen</h2>
+          <ol>
+            <li id="src-1"><a href="https://www.who.int/publications/i/item/9241590076" rel="noopener">Global Solar UV Index: A Practical Guide</a>. <em>World Health Organization, WMO, UNEP and ICNIRP</em>, 2002.</li>
+            <li id="src-2">Ou-Yang H, Jiang LI, Meyer K, Wang SQ, Farberg AS, Rigel DS (2017). <a href="https://pubmed.ncbi.nlm.nih.gov/28114650/" rel="noopener">Sun protection by beach umbrella vs sunscreen with a high sun protection factor: a randomized clinical trial</a>. <em>JAMA Dermatology 153(3):304–308</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">Zuletzt geprüft am 16. November 2026. Einen Fehler oder eine bessere Quelle gefunden? <a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">Sag es uns auf GitHub</a>.</p>
+
+        <a class="cta" href="../">Stell im UVA-Index-Rechner deine Umgebung ein →</a>
+      </article>
+
+      <aside class="related">
+        <h2>Weiterlesen</h2>
+        <ul>
+          <li><a href="uva-at-altitude.html">UVA in der Höhe: Berge, Wandern und Fliegen</a></li>
+          <li><a href="how-uva-index-is-calculated.html">Wie der UVA-Index berechnet wird</a></li>
+          <li><a href="what-is-uva-radiation.html">Was ist UVA-Strahlung?</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          Kostenlos und Open Source. Inoffizielle Berechnung des UVA-Index und der UVA-Bestrahlungsstärke. Nur zu Informationszwecken, keine medizinische Beratung. Mehr dazu auf der Seite <a href="https://uvaindex.org/de/about.html">Über uns</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie-Einstellungen</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

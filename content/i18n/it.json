@@ -1,0 +1,90 @@
+{
+  "code": "it",
+  "path": "it/",
+  "html_lang": "it",
+  "hreflang": "it",
+  "native_name": "Italiano",
+  "intl_locale": "it-IT",
+  "glossary": {
+    "_note": "Fixed terms every Italian page must use. Brand 'uvaindex.org' and the abbreviations UVA, UVB, UVC, UV, SPF, PA, nm, W/m² stay as they are.",
+    "UVA Index": "indice UVA (capitalise as 'Indice UVA' only at the start of a sentence or in titles)",
+    "UV Index": "indice UV",
+    "UVA Index Calculator": "Calcolatore dell'indice UVA",
+    "Knowledge Base": "Guide UVA (the section name; use 'guida/guide' for individual articles)",
+    "Free widget": "Widget gratuito",
+    "band names (Low, Moderate, High, Very High, Extreme)": "Basso, Moderato, Alto, Molto alto, Estremo",
+    "UVA radiation": "radiazione UVA",
+    "irradiance": "irradianza",
+    "sunscreen": "crema solare / protezione solare",
+    "broad-spectrum": "ad ampio spettro",
+    "photoaging": "fotoinvecchiamento",
+    "aerosol optical depth": "spessore ottico degli aerosol",
+    "surroundings (ground cover setting)": "ambiente circostante",
+    "solar zenith angle": "angolo zenitale solare",
+    "cloud cover": "copertura nuvolosa",
+    "sunburn / erythema": "scottatura / eritema",
+    "tone": "Use 'tu'. Clear, friendly Italian for a general audience. Decimal comma in prose (0,5)."
+  },
+  "nav": {
+    "aria": "Principale",
+    "calc": "Calcolatore dell'indice UVA",
+    "learn": "Guide UVA",
+    "widget": "Widget gratuito",
+    "about": "Chi siamo",
+    "language": "Lingua"
+  },
+  "crumbs": {
+    "aria": "Percorso di navigazione",
+    "home": "Indice UVA",
+    "kb": "Guide UVA",
+    "topics": "Argomenti"
+  },
+  "hub": {
+    "title": "Guide UVA — Capire la radiazione UVA e l'indice UV",
+    "description": "Guide chiare sulla radiazione UVA: che cos'è, in cosa differisce dagli UVB, i rischi per la salute e perché l'indice UV standard non basta — le ragioni di un indice UVA dedicato.",
+    "og_title": "Guide UVA — Capire la radiazione UVA e l'indice UV",
+    "og_description": "Guide chiare sulla radiazione UVA, sulla differenza con gli UVB, sui rischi per la salute e sul perché serve un indice UVA dedicato.",
+    "collection_name": "Guide UVA",
+    "collection_description": "Guide chiare sulla radiazione UVA, sulla differenza con gli UVB, sui rischi per la salute e sull'utilità di un indice UVA dedicato accanto all'indice UV standard.",
+    "h1": "Guide UVA",
+    "subtitle_html": "Guide brevi e chiare sulla radiazione ultravioletta&nbsp;A: che cos'è,\n          in cosa differisce dagli UVB, perché conta per la tua pelle e perché il\n          noto <strong>indice&nbsp;UV</strong> non racconta tutta la storia.",
+    "cta": "Controlla l'indice UVA in tempo reale per la tua posizione →",
+    "open_source_html": "Gratuito e <strong>open source</strong>: il codice e il modello sono\n          su <a href=\"https://github.com/mixalisaspr/uvaindex\">GitHub</a> con\n          <a href=\"https://github.com/mixalisaspr/uvaindex/blob/main/LICENSE\">licenza\n          MIT</a>."
+  },
+  "tag_page": {
+    "title": "{label} — Guide UVA",
+    "description": "Guide UVA sull'argomento: {label_lower}.",
+    "subtitle_html": "Guide UVA con l'etichetta <strong>{label}</strong>.",
+    "cta": "Controlla l'indice UVA in tempo reale per la tua posizione →"
+  },
+  "tags_index": {
+    "title": "Sfoglia per argomento — Guide UVA",
+    "description": "Sfoglia le Guide UVA per argomento.",
+    "h1": "Sfoglia per argomento",
+    "subtitle": "Tutti gli argomenti delle Guide UVA, dalle basi alla metodologia.",
+    "count_one": "{n} articolo",
+    "count_other": "{n} articoli"
+  },
+  "card_more": "Leggi →",
+  "related_heading": "Continua a leggere",
+  "sources_heading": "Fonti",
+  "source_aria": "Fonte {n}",
+  "reviewed_html": "Ultima revisione: {date}. Hai notato un errore o conosci una fonte migliore? <a href=\"{issues}\" rel=\"noopener\">Segnalacelo su GitHub</a>.",
+  "months": ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"],
+  "date_format": "{d} {month} {y}",
+  "disclaimer_html": "Gratuito e open source. Calcolo non ufficiale dell'indice UVA e dell'irradianza UVA. Solo informazioni educative, non un parere medico. Maggiori dettagli nella pagina <a href=\"https://uvaindex.org/it/about.html\">Chi siamo</a>.",
+  "cookie_settings": "Impostazioni cookie",
+  "default_cta_text": "Controlla l'indice UVA in tempo reale per la tua posizione →",
+  "tags": {
+    "basics": "Nozioni di base",
+    "comparison": "Confronti",
+    "environment": "Condizioni e ambiente",
+    "health": "Effetti sulla salute",
+    "uv-index": "Indice UV",
+    "methodology": "Metodologia",
+    "protection": "Protezione",
+    "spectrum": "Spettro UV",
+    "risks": "Rischi",
+    "technical": "Tecnica"
+  }
+}

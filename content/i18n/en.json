@@ -1,0 +1,70 @@
+{
+  "code": "en",
+  "path": "",
+  "html_lang": "en",
+  "hreflang": "en",
+  "native_name": "English",
+  "intl_locale": "en-GB",
+  "nav": {
+    "aria": "Primary",
+    "calc": "UVA Index Calculator",
+    "learn": "Knowledge Base",
+    "widget": "Free widget",
+    "about": "About",
+    "language": "Language"
+  },
+  "crumbs": {
+    "aria": "Breadcrumb",
+    "home": "UVA Index",
+    "kb": "Knowledge Base",
+    "topics": "Topics"
+  },
+  "hub": {
+    "title": "UVA Knowledge Base — Understanding UVA Radiation & the UV Index",
+    "description": "Plain-English guides to UVA radiation: what UVA is, how UVA differs from UVB, the health dangers of UVA, and why the standard UV Index isn't enough — making the case for a dedicated UVA Index.",
+    "og_title": "UVA Knowledge Base — Understanding UVA Radiation & the UV Index",
+    "og_description": "Plain-English guides to UVA radiation, how it differs from UVB, its health risks, and why we need a dedicated UVA Index.",
+    "collection_name": "UVA Knowledge Base",
+    "collection_description": "Plain-English guides to UVA radiation, how it differs from UVB, its health risks, and why a dedicated UVA Index is useful alongside the standard UV Index.",
+    "h1": "UVA Knowledge Base",
+    "subtitle_html": "Short, plain-English guides to ultraviolet&nbsp;A radiation — what it\n          is, how it differs from UVB, why it matters for your skin, and why the\n          familiar <strong>UV&nbsp;Index</strong> doesn't tell the whole story.",
+    "cta": "Check the live UVA Index for your location →",
+    "open_source_html": "Free and <strong>open source</strong> — the code and model are\n          on <a href=\"https://github.com/mixalisaspr/uvaindex\">GitHub</a> under\n          the\n          <a href=\"https://github.com/mixalisaspr/uvaindex/blob/main/LICENSE\">MIT\n          License</a>."
+  },
+  "tag_page": {
+    "title": "{label} — UVA Knowledge Base",
+    "description": "Knowledge Base articles about {label_lower}.",
+    "subtitle_html": "Knowledge Base articles tagged <strong>{label}</strong>.",
+    "cta": "Check the live UVA Index for your location →"
+  },
+  "tags_index": {
+    "title": "Browse by Topic — UVA Knowledge Base",
+    "description": "Browse UVA Knowledge Base articles by topic.",
+    "h1": "Browse by topic",
+    "subtitle": "All Knowledge Base topics, from basics to methodology.",
+    "count_one": "{n} article",
+    "count_other": "{n} articles"
+  },
+  "card_more": "Read →",
+  "related_heading": "Keep reading",
+  "sources_heading": "Sources",
+  "source_aria": "Source {n}",
+  "reviewed_html": "Last reviewed {date}. Spotted an error or a better source? <a href=\"{issues}\" rel=\"noopener\">Tell us on GitHub</a>.",
+  "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+  "date_format": "{d} {month} {y}",
+  "disclaimer_html": "Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href=\"https://uvaindex.org/about.html\">About page</a>.",
+  "cookie_settings": "Cookie settings",
+  "default_cta_text": "See the live UVA Index for your location →",
+  "tags": {
+    "basics": "Basics",
+    "comparison": "Comparisons",
+    "environment": "Conditions & environment",
+    "health": "Health effects",
+    "uv-index": "UV Index",
+    "methodology": "Methodology",
+    "protection": "Protection",
+    "spectrum": "UV spectrum",
+    "risks": "Risks",
+    "technical": "Technical"
+  }
+}

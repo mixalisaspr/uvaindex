@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>Comment l'indice UVA est calculé — modèle, paramètres et limites</title>
+    <meta
+      name="description"
+      content="La méthode complète de notre indice UVA : comment l'éclairement énergétique UVA au sol (315–400 nm, W/m²) est obtenu à partir d'une table de transfert radiatif et de données en temps réel sur les nuages, la brume, la pression et la neige, les formules et hypothèses exactes, sa validation, et les facteurs que nous laissons de côté."
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/fr/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/how-uva-index-is-calculated.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Indice UVA" />
+    <meta property="og:title" content="Comment l'indice UVA est calculé — modèle, paramètres et limites" />
+    <meta property="og:description" content="La méthode complète de notre indice UVA : les formules, les données en temps réel, les coefficients, et les facteurs que nous laissons délibérément de côté." />
+    <meta property="og:url" content="https://uvaindex.org/fr/learn/how-uva-index-is-calculated.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Comment l'indice UVA est calculé",
+        "description": "La méthode de l'indice UVA : obtention de l'éclairement énergétique UVA au sol (315–400 nm) à partir d'une table de transfert radiatif et de données en temps réel sur les nuages, les aérosols, la pression et la neige, les formules et hypothèses utilisées, la validation, et les facteurs délibérément omis.",
+        "inLanguage": "fr",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-06-27",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/fr/learn/how-uva-index-is-calculated.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "NOAA Solar Calculator and solar position calculation details",
+            "publisher": "NOAA Global Monitoring Laboratory",
+            "url": "https://gml.noaa.gov/grad/solcalc/"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Numerically stable algorithm for discrete-ordinate-method radiative transfer in multiple scattering and emitting layered media",
+            "author": "Stamnes K, Tsay S-C, Wiscombe W, Jayaweera K",
+            "publisher": "Applied Optics 27(12):2502–2509",
+            "datePublished": "1988",
+            "url": "https://doi.org/10.1364/AO.27.002502"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Revised optical air mass tables and approximation formula",
+            "author": "Kasten F, Young AT",
+            "publisher": "Applied Optics 28(22):4735–4738",
+            "datePublished": "1989",
+            "url": "https://doi.org/10.1364/AO.28.004735"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Reference Air Mass 1.5 Spectra (ASTM G173-03)",
+            "publisher": "National Renewable Energy Laboratory",
+            "url": "https://www.nrel.gov/grid/solar-resource/spectra-am1.5.html"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "On Rayleigh optical depth calculations",
+            "author": "Bodhaine BA, Wood NB, Dutton EG, Slusser JR",
+            "publisher": "Journal of Atmospheric and Oceanic Technology 16(11):1854–1861",
+            "datePublished": "1999",
+            "url": "https://doi.org/10.1175/1520-0426(1999)016%3C1854:ORODC%3E2.0.CO;2"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Simple solar spectral model for direct and diffuse irradiance on horizontal and tilted planes at the Earth's surface for cloudless atmospheres",
+            "author": "Bird RE, Riordan C",
+            "publisher": "Journal of Climate and Applied Meteorology 25(1):87–97",
+            "datePublished": "1986",
+            "url": "https://doi.org/10.1175/1520-0450(1986)025%3C0087:SSSMFD%3E2.0.CO;2"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Increase in solar UV radiation with altitude",
+            "author": "Blumthaler M, Ambach W, Ellinger R",
+            "publisher": "Journal of Photochemistry and Photobiology B: Biology 39(2):130–134",
+            "datePublished": "1997",
+            "url": "https://doi.org/10.1016/S1011-1344(96)00018-8"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Comment l'indice UVA est-il calculé ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les UVA par ciel clair sont lus dans une table calculée avec un modèle de transfert radiatif (DISORT) en fonction de l'angle du soleil, de la brume (épaisseur optique des aérosols) et de la pression atmosphérique en surface — environ 64 W/m² pour un soleil au zénith en air pur au niveau de la mer. Cette valeur est ensuite multipliée par des facteurs tenant compte de la réflexion par votre environnement, de la distance Terre–Soleil du jour et de la couverture nuageuse en temps réel. L'éclairement obtenu en W/m² est divisé par six pour donner l'indice de 0 à 11+."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle est la précision de l'indice UVA ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "C'est le résultat d'un modèle et non une mesure, et la structure de ses erreurs est prévisible. Le cas le plus fiable est celui d'un ciel clair avec le soleil bien haut, car la géométrie solaire domine et les corrections sont faibles. Le cas le moins fiable est celui des nuages fragmentés, avec une sous-estimation, car le modèle ne fait qu'atténuer et ne peut pas reproduire l'effet d'amplification par les nuages, lorsque le soleil, dans une trouée entre des cumulus lumineux, dépasse brièvement les valeurs par ciel clair. En termes relatifs, les valeurs obtenues avec le soleil près de l'horizon sont les moins fiables."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi le modèle ignore-t-il l'ozone en temps réel ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Parce que l'ozone n'a presque pas d'effet sur les UVA. L'ozone absorbe fortement dans les UVB et seulement faiblement à l'extrémité courte de la bande UVA : diviser par deux la colonne d'ozone ne modifie donc les UVA que de quelques pour cent, alors que les UV érythémaux doublent à peu près. La table de transfert radiatif fixe l'ozone à une valeur typique de 300 unités Dobson ; la source de données gratuite ne fournit que l'ozone de surface en µg/m³, et non la colonne totale dont un tel terme aurait besoin, si bien que l'ozone de surface est affiché à titre indicatif uniquement."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Indice UVA",
+            "item": "https://uvaindex.org/fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Base de connaissances",
+            "item": "https://uvaindex.org/fr/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Comment l'indice UVA est calculé",
+            "item": "https://uvaindex.org/fr/learn/how-uva-index-is-calculated.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="../">Indice UVA</a><span class="sep">›</span><a href="./">Base de connaissances</a><span class="sep">›</span>Comment l'indice UVA est calculé
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="Langue: Français"><span class="lang-icon" aria-hidden="true">🌐</span> Français</summary>
+          <ul>
+            <li><a href="../../learn/how-uva-index-is-calculated.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/how-uva-index-is-calculated.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="how-uva-index-is-calculated.html" hreflang="fr" lang="fr" aria-current="true">Français</a></li>
+            <li><a href="../../de/learn/how-uva-index-is-calculated.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/how-uva-index-is-calculated.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/how-uva-index-is-calculated.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../zh/learn/how-uva-index-is-calculated.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>Comment l'indice UVA est calculé</h1>
+        <p class="lead">
+          Cette page est le complément technique du calculateur. Elle explique
+          précisément comment nous estimons l'<strong>éclairement énergétique UVA au
+          sol</strong> (la bande 315–400&nbsp;nm non pondérée, en W/m²), comment nous
+          le convertissons en <strong>indice&nbsp;UVA de 0 à 11+</strong>, chaque
+          paramètre et coefficient que nous utilisons — et, tout aussi important,
+          <a href="#omitted">les facteurs que nous laissons délibérément de côté</a>.
+        </p>
+
+        <div class="callout">
+          <strong>Pourquoi un modèle ?</strong> Aucune grande API météo gratuite ne
+          fournit les UVA seuls — toutes publient l'<a href="uv-index-vs-uva-index.html">indice&nbsp;UV</a>
+          à pondération érythémale, qui reflète surtout les UVB. Au lieu de lire les
+          UVA dans une API, nous les <strong>calculons</strong> donc à partir de la
+          physique de la position du soleil et de données atmosphériques en temps réel
+          dont nous savons qu'elles influent sur les UVA.
+        </div>
+
+        <h2>Le modèle en une ligne</h2>
+        <p>
+          L'éclairement UVA est une valeur par ciel clair issue d'un calcul de
+          transfert radiatif, multipliée par une courte série de facteurs
+          correspondant aux conditions du moment :
+        </p>
+        <div class="callout">
+          <strong>UVA = référence × altitude × aérosols × environnement × distance Terre–Soleil × nuages</strong>
+        </div>
+        <p>
+          Chaque facteur vaut <code>1</code> par défaut (aucun effet) lorsque la
+          donnée correspondante manque : l'estimation se dégrade ainsi progressivement
+          au lieu d'échouer. Chaque facteur est aussi affiché dans le tableau
+          <em>Détail du modèle</em> du calculateur, ce qui permet de retracer toute
+          valeur jusqu'à ses composantes.
+        </p>
+
+        <h2>Étape 1 — Position du soleil</h2>
+        <p>
+          Le principal déterminant des UVA est la hauteur du soleil dans le ciel.
+          Nous calculons l'<strong>angle zénithal solaire</strong> <code>θ</code>
+          (0° = au zénith, 90° = à l'horizon) dans le navigateur à partir de votre
+          latitude, de votre longitude et de l'instant, à l'aide de
+          l'<strong>algorithme de position solaire de la NOAA</strong> — les mêmes
+          calculs que ceux du NOAA Solar Calculator.<sup class="cite"><a href="#src-1" aria-label="Source 1">[1]</a></sup> Le même algorithme fournit la
+          <strong>distance Terre–Soleil</strong> utilisée à l'étape&nbsp;5. Lorsque le
+          soleil est sous l'horizon, les UVA sont indiqués à <strong>0</strong>.
+        </p>
+
+        <h2>Étape 2 — Ciel clair, à partir d'une table de transfert radiatif</h2>
+        <p>
+          Plutôt qu'une courbe ajustée à la main, la partie « ciel clair » du modèle
+          provient d'un calcul physique effectué une fois pour toutes, à l'avance. Nous
+          avons exécuté <strong>DISORT</strong> — le solveur de diffusion multiple de
+          référence en sciences de l'atmosphère<sup class="cite"><a href="#src-2" aria-label="Source 2">[2]</a></sup> — sur une atmosphère modèle en couches pour
+          chaque combinaison de :
+        </p>
+        <ul>
+          <li><strong>angle du soleil</strong>, de 0 à 90° par pas de 5° ;</li>
+          <li><strong>épaisseur optique des aérosols</strong> (brume, à 550&nbsp;nm), de 0 à 3 ;</li>
+          <li><strong>pression atmosphérique en surface</strong>, de 500 à 1060&nbsp;hPa (du niveau de la mer à environ 5 500&nbsp;m),</li>
+        </ul>
+        <p>
+          puis intégré le résultat sur 315–400&nbsp;nm. La page interpole cette table
+          (environ 1 800 valeurs, 13&nbsp;Ko) pour vos conditions. La table restitue, à
+          partir des principes physiques, tout ce que les anciennes règles empiriques
+          approximaient :
+        </p>
+        <ul>
+          <li>
+            <strong>La diminution avec l'angle du soleil</strong>, y compris la part
+            importante des UVA qui arrive sous forme de lumière diffuse du ciel — c'est
+            pourquoi les UVA baissent bien plus lentement que les UVB lorsque le soleil
+            descend.
+          </li>
+          <li>
+            <strong>La diffusion de Rayleigh par l'air</strong>, ajustée selon la
+            pression réelle en surface, ce qui fait intervenir l'altitude.
+          </li>
+          <li>
+            <strong>La brume</strong>, avec son véritable compromis entre rayonnement
+            direct et diffus : les aérosols retirent de la lumière au faisceau direct,
+            mais en diffusent la majeure partie vers l'avant, si bien qu'une grande
+            partie atteint tout de même le sol sous forme de lumière du ciel.
+          </li>
+          <li>
+            <strong>L'absorption par l'ozone</strong> à l'extrémité courte de la bande,
+            pour une valeur typique de 300 unités Dobson.
+          </li>
+          <li>
+            <strong>La courbure de l'atmosphère</strong> pour un soleil bas (la masse
+            d'air de Kasten–Young<sup class="cite"><a href="#src-3" aria-label="Source 3">[3]</a></sup>), qu'une atmosphère plane en 1/cos θ surestime près
+            de l'horizon.
+          </li>
+        </ul>
+        <p>L'atmosphère retenue :</p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Élément</th><th>Hypothèse</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Lumière du soleil au-dessus de l'atmosphère</td><td>Spectre extraterrestre ASTM G173-03<sup class="cite"><a href="#src-4" aria-label="Source 4">[4]</a></sup>, 85,5&nbsp;W/m² sur 315–400&nbsp;nm</td></tr>
+            <tr><td>Air (Rayleigh)</td><td>Épaisseur optique de Bodhaine et al. (1999)<sup class="cite"><a href="#src-5" aria-label="Source 5">[5]</a></sup> × pression ÷ 1013,25&nbsp;hPa</td></tr>
+            <tr><td>Ozone</td><td>300&nbsp;DU, centré à 22&nbsp;km</td></tr>
+            <tr><td>Aérosols</td><td>Exposant d'Ångström 1,14, albédo de diffusion simple 0,92, facteur d'asymétrie 0,70, hauteur d'échelle 1,5&nbsp;km</td></tr>
+            <tr><td>Solveur</td><td>DISORT, 16 flux, 17 couches, intervalles spectraux de 2,5&nbsp;nm</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          Pour un soleil au zénith en air pur au niveau de la mer, la table donne
+          <strong>64,5&nbsp;W/m²</strong> ; une brume modérée (AOD&nbsp;0,15) réduit
+          cette valeur d'environ 5 % avec le soleil haut et de 9 à 12 % avec le soleil
+          bas. À titre de vérification, la composante directe concorde à 1 % près
+          avec le modèle indépendant SPECTRL2 du NREL<sup class="cite"><a href="#src-6" aria-label="Source 6">[6]</a></sup> pour tous les angles du soleil testés ;
+          l'estimation plus simple du rayonnement diffus de SPECTRL2 donne le plus
+          souvent des valeurs inférieures de 4 à 18 %, comme on peut s'y attendre
+          d'un modèle qui ne résout pas la diffusion multiple.
+          Le générateur, <code>scripts/build_lut.py</code>, se trouve dans le dépôt :
+          chacun peut le relancer ou le modifier.
+        </p>
+
+        <h2>Étape 3 — Altitude (pression atmosphérique)</h2>
+        <p>
+          En altitude, il y a moins d'air au-dessus de vous pour renvoyer les UVA vers
+          l'espace par diffusion. Le modèle lit la <strong>pression en surface</strong>
+          prévue (avec, à défaut, une atmosphère standard pour l'altitude du terrain)
+          et laisse la table faire le reste. En air pur, cela représente environ
+          <strong>+3 % par kilomètre</strong>. Les valeurs plus élevées souvent mesurées pour les UVA en montagne — environ 9 %/km dans une étude alpine<sup class="cite"><a href="#src-7" aria-label="Source 7">[7]</a></sup> — viennent surtout du fait de laisser la brume derrière soi dans les
+          vallées, et le modèle en tient compte séparément grâce aux données
+          d'aérosols pour votre position. <a href="uva-at-altitude.html">Les UVA en
+          altitude</a> détaille les chiffres.
+        </p>
+
+        <h2>Étape 4 — Environnement (réflexion par la surface)</h2>
+        <p>
+          Un environnement clair réfléchit les UVA vers le haut, et le ciel en renvoie
+          une partie vers le bas par diffusion. Pour une surface d'albédo UV
+          <code>r</code>, la table fournit aussi l'<strong>albédo sphérique</strong>
+          <code>s</code> de l'atmosphère (environ 0,3 dans les UVA), et l'augmentation
+          est exacte pour une surface réfléchissant uniformément :
+        </p>
+        <div class="callout">
+          <strong>facteur d'environnement = 1 ÷ (1 − r × s)</strong>
+        </div>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Environnement</th><th>Albédo UV r</th><th>Facteur</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Herbe, terre ou ville</td><td>0,03</td><td>×1,01</td></tr>
+            <tr><td>Eau</td><td>0,07</td><td>×1,02</td></tr>
+            <tr><td>Sable / plage</td><td>0,15</td><td>×1,05</td></tr>
+            <tr><td>Terrain enneigé</td><td>0,6</td><td>×1,24</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          Ce qui compte, c'est l'<em>environnement</em> — la zone d'environ un
+          kilomètre autour de vous —, et pas seulement le sol sous vos pieds, car la
+          lumière réfléchie doit être renvoyée vers le bas par le ciel. En mode
+          <strong>Auto</strong> (par défaut), le calculateur passe à « Neige » lorsque
+          les prévisions indiquent 5&nbsp;cm ou plus au sol. Une neige fraîche et
+          intacte (r&nbsp;≈&nbsp;0,9) atteint environ ×1,40. Le flux bien plus
+          important réfléchi directement <em>vers le haut</em> atteint votre menton,
+          votre nez et vos yeux plutôt qu'une surface horizontale : il ne fait donc pas
+          partie de ce chiffre ;
+          <a href="reflected-uva-snow-sand-water.html">Les UVA réfléchis</a> explique
+          cette distinction.
+        </p>
+
+        <h2>Étape 5 — Distance Terre–Soleil</h2>
+        <p>
+          L'orbite terrestre est légèrement elliptique : la Terre est au plus près du
+          soleil début janvier (0,983&nbsp;UA) et au plus loin début juillet
+          (1,017&nbsp;UA). La lumière du soleil varie selon l'inverse du carré de la
+          distance :
+        </p>
+        <div class="callout">
+          <strong>facteur de distance = 1 ÷ r<sub>UA</sub>²</strong>
+        </div>
+        <p>
+          Cela représente <strong>+3,4 %</strong> en janvier et <strong>−3,3 %</strong>
+          en juillet — l'une des raisons pour lesquelles un été de l'hémisphère Sud est
+          un peu plus intense qu'un été de l'hémisphère Nord à la même latitude.
+        </p>
+
+        <h2>Étape 6 — Nuages</h2>
+        <p>
+          Les nuages sont l'influence la plus variable sur les UVA au sol : le modèle
+          utilise donc la meilleure donnée disponible pour votre position, selon deux
+          niveaux.
+        </p>
+        <p>
+          <strong>En priorité — à partir des données UV en temps réel.</strong>
+          Open-Meteo publie à la fois l'indice&nbsp;UV réel et un indice&nbsp;UV par
+          ciel clair pour la même heure. Leur rapport correspond à la transmission
+          érythémale des nuages pour le ciel réel au-dessus de vous, ce qui est plus
+          fiable que n'importe quelle paramétrisation d'un pourcentage de couverture.
+          La transmission des UVA en est déduite ainsi :
+        </p>
+        <div class="callout">
+          <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>γ</sup>, avec γ = 1</strong>
+        </div>
+        <p>
+          Sous une couverture nuageuse épaisse, les UVA peuvent passer un peu mieux
+          que ne l'indique l'indice UV pondéré vers les UVB, mais les mesures varient
+          selon le type de nuage (voir
+          <a href="uva-on-cloudy-days.html">les UVA par temps nuageux</a>) : tant que
+          l'ampleur de cet effet n'est pas établie, la valeur neutre est utilisée. γ
+          est le seul coefficient nuageux que la validation décrite plus bas est
+          conçue pour calibrer.
+        </p>
+        <p>
+          <strong>À défaut — paramétrique, à partir de la couverture nuageuse.</strong>
+          Lorsque la paire de données UV en temps réel n'est pas disponible (par
+          exemple au-delà d'environ cinq jours), nous utilisons le pourcentage de
+          couverture nuageuse totale indiqué :
+        </p>
+        <div class="callout">
+          <strong>facteur nuageux = 1 − 0,4 × (couverture ÷ 100)<sup>1,5</sup></strong>
+        </div>
+        <p>
+          La courbe est volontairement douce, car une « couverture de 100 % »
+          indiquée décrit la <em>part du ciel couverte</em>, et non l'épaisseur
+          optique — un ciel couvert est bien plus souvent un stratus mince qu'une base
+          d'orage. Avec une couverture de 100 %, il reste environ
+          <strong>60 %</strong> des UVA par ciel clair. Les nuages atténuent les UVA ;
+          ils les éliminent rarement.
+        </p>
+
+        <h2>De l'éclairement à l'indice de 0 à 11+</h2>
+        <p>
+          L'éclairement brut en W/m² est précis mais peu parlant : nous le plaçons
+          donc sur une échelle de 0 à 11+, comme l'indice&nbsp;UV. La conversion se
+          fait avec une seule constante :
+        </p>
+        <div class="callout">
+          <strong>Indice UVA = éclairement UVA ÷ 6</strong>
+        </div>
+        <p>
+          Le diviseur 6 a été choisi pour qu'un soleil au zénith par ciel clair
+          (~64–66&nbsp;W/m²) donne environ <strong>11</strong> — la même impression de
+          haut d'échelle qu'un indice&nbsp;UV tropical maximal. Comme l'indice est
+          strictement proportionnel à l'éclairement, les deux chiffres disent la même
+          chose, et chaque limite de catégorie ci-dessous correspond simplement à la
+          valeur de l'indice multipliée par six. Les catégories reprennent les noms et
+          couleurs bien connus de l'indice&nbsp;UV de l'OMS :
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Indice UVA</th><th>Catégorie</th><th>≈ Éclairement</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Moins de 3</td><td>Faible</td><td>Moins de 18 W/m²</td></tr>
+            <tr><td>De 3 à moins de 6</td><td>Modéré</td><td>De 18 à moins de 36 W/m²</td></tr>
+            <tr><td>De 6 à moins de 8</td><td>Élevé</td><td>De 36 à moins de 48 W/m²</td></tr>
+            <tr><td>De 8 à moins de 11</td><td>Très élevé</td><td>De 48 à moins de 66 W/m²</td></tr>
+            <tr><td>11 et plus</td><td>Extrême</td><td>66 W/m² et plus</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <h2>Les données d'entrée en un coup d'œil</h2>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Donnée</th><th>Source</th><th>Utilisation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Latitude / longitude</td><td>Géolocalisation ou recherche de lieu</td><td>Position du soleil</td></tr>
+            <tr><td>Angle zénithal solaire, distance Terre–Soleil</td><td>Calculés (NOAA)</td><td>Table ciel clair, facteur de distance</td></tr>
+            <tr><td>Pression en surface</td><td>Open-Meteo Forecast</td><td>Table ciel clair (altitude)</td></tr>
+            <tr><td>Altitude du terrain</td><td>Open-Meteo Forecast</td><td>Pression par défaut</td></tr>
+            <tr><td>Épaisseur optique des aérosols</td><td>Open-Meteo Air-Quality (CAMS)</td><td>Table ciel clair (brume)</td></tr>
+            <tr><td>Indice UV et indice UV par ciel clair</td><td>Open-Meteo Air-Quality (CAMS)</td><td>Facteur nuageux</td></tr>
+            <tr><td>Couverture nuageuse</td><td>Open-Meteo Forecast</td><td>Nuages par défaut</td></tr>
+            <tr><td>Épaisseur de neige</td><td>Open-Meteo Forecast</td><td>Environnement en mode Auto</td></tr>
+            <tr><td>Environnement</td><td>Vous (ou Auto)</td><td>Facteur d'environnement</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          Le même modèle trace aussi les <em>Prévisions UVA</em> : il est évalué
+          toutes les 15 minutes pour aujourd'hui et les quatre jours suivants (dans le
+          fuseau horaire du lieu), la position du soleil étant calculée exactement à
+          chaque pas et les valeurs horaires de nuages et d'aérosols interpolées entre
+          les heures. Le maximum de chaque jour et la plage horaire pendant laquelle
+          l'indice UVA est Modéré (3) ou plus proviennent de cette courbe. Les
+          prévisions de qualité de l'air qui fournissent l'indice UV et les aérosols
+          ne portent qu'à environ quatre à cinq jours ; au-delà, le modèle se rabat sur
+          sa courbe de couverture nuageuse, si bien que les jours suivants sont plus
+          approximatifs.
+        </p>
+
+        <h2 id="omitted">Ce que nous ne prenons pas en compte</h2>
+        <p>
+          Il s'agit d'une <strong>estimation conçue pour la clarté et la transparence,
+          et non d'une mesure radiométrique étalonnée</strong>. Plusieurs effets réels
+          sont simplifiés ou volontairement omis — les connaître vous indique quand
+          vous fier au chiffre et quand le considérer comme une indication
+          approximative :
+        </p>
+        <ul>
+          <li>
+            <strong>L'ozone en temps réel.</strong> La table fixe la colonne totale
+            d'ozone à 300&nbsp;DU. Les colonnes réelles vont d'environ 250 à
+            450&nbsp;DU, ce qui ne modifie les UVA que de un ou deux pour cent, et la
+            source gratuite indique l'ozone <em>de surface</em> (µg/m³) plutôt que la
+            colonne : il est donc affiché à titre indicatif uniquement.
+          </li>
+          <li>
+            <strong>Le type d'aérosol local.</strong> La table suppose un aérosol
+            continental typique. La poussière désertique (qui absorbe davantage dans
+            les UV et présente un spectre plus plat) et la fumée des feux de forêt sont
+            différentes : les jours de forte poussière ou de fumée comportent donc plus
+            d'incertitude que la seule AOD ne le laisse penser.
+          </li>
+          <li>
+            <strong>Le type et la structure des nuages.</strong> L'effet des nuages
+            provient de l'indice UV d'un modèle de prévision à maille grossière
+            (~40&nbsp;km). La superposition des couches nuageuses et les effets « de
+            bord » des nuages fragmentés (qui peuvent brièvement <em>porter</em> les
+            UVA au-dessus des valeurs par ciel clair) ne sont pas modélisés.
+          </li>
+          <li>
+            <strong>La géométrie locale et l'ombre.</strong> Les bâtiments, les arbres,
+            le relief, l'inclinaison et l'orientation des surfaces, ainsi que la
+            posture de votre corps modifient tous l'exposition réelle et ne sont pas
+            pris en compte.
+          </li>
+          <li>
+            <strong>Le verre et les espaces intérieurs.</strong> L'estimation
+            s'applique à une personne à l'extérieur, à découvert. Les UVA traversent le
+            verre à vitre, contrairement à la plupart des UVB : l'exposition à
+            l'intérieur ou en voiture est donc différente et n'est pas modélisée.
+          </li>
+          <li>
+            <strong>Les autres absorbeurs mineurs</strong> (NO₂, SO₂) et la variation
+            de l'albédo de surface selon la longueur d'onde ne sont pas inclus.
+          </li>
+        </ul>
+
+        <h2 id="validation">Comment le modèle est vérifié</h2>
+        <p>
+          Le dépôt comprend un script de validation,
+          <code>scripts/validate.mjs</code>, qui rejoue des données d'entrée archivées
+          pour des dates passées à travers exactement le même code que celui du
+          calculateur, et compare le résultat heure par heure à des données UVA
+          indépendantes : le service POWER de la NASA (UVA dérivés de mesures
+          satellitaires des instruments CERES, disponibles dans le monde entier) ou un
+          fichier de mesures au sol issues d'un radiomètre UVA. Il indique le biais et
+          l'erreur selon l'angle du soleil et la nébulosité, vérifie la table ciel
+          clair seule, et ajuste l'exposant nuageux γ ainsi qu'une autre source de
+          données nuageuses. Les résultats de cette comparaison seront publiés ici ;
+          d'ici là, considérez le terme nuageux comme la partie la moins certaine du
+          modèle.
+        </p>
+
+        <div class="callout">
+          <strong>Conçu pour être recalibré.</strong> Les quelques coefficients
+          ajustables restants se trouvent dans un seul bloc <code>MODEL</code>, et la
+          table ciel clair peut être régénérée avec d'autres hypothèses, sans toucher
+          au reste de l'application. Le code source complet est sur
+          <a href="https://github.com/mixalisaspr/uvaindex">GitHub</a>.
+        </div>
+
+        <h2>Alors, quelle est sa précision ?</h2>
+        <p>
+          Considérez-le comme un guide <strong>relatif</strong> bien fondé : il rend
+          compte de la variation des UVA selon la hauteur du soleil, la saison, votre
+          latitude et votre altitude, ainsi que les nuages et la brume du jour — et il
+          se comporte correctement dans les cas extrêmes (soleil de midi par ciel clair
+          élevé, nuit à zéro, forte baisse par ciel très couvert, valeurs plus élevées
+          en altitude). La valeur <em>absolue</em> en W/m² est une estimation
+          physiquement raisonnable, et non une mesure de qualité instrumentale. Pour
+          comprendre pourquoi cette estimation existe, consultez
+          <a href="../about.html">À propos de ce site</a>.
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>Sources</h2>
+          <ol>
+            <li id="src-1"><a href="https://gml.noaa.gov/grad/solcalc/" rel="noopener">NOAA Solar Calculator and solar position calculation details</a>. <em>NOAA Global Monitoring Laboratory</em>.</li>
+            <li id="src-2">Stamnes K, Tsay S-C, Wiscombe W, Jayaweera K (1988). <a href="https://doi.org/10.1364/AO.27.002502" rel="noopener">Numerically stable algorithm for discrete-ordinate-method radiative transfer in multiple scattering and emitting layered media</a>. <em>Applied Optics 27(12):2502–2509</em>.</li>
+            <li id="src-3">Kasten F, Young AT (1989). <a href="https://doi.org/10.1364/AO.28.004735" rel="noopener">Revised optical air mass tables and approximation formula</a>. <em>Applied Optics 28(22):4735–4738</em>.</li>
+            <li id="src-4"><a href="https://www.nrel.gov/grid/solar-resource/spectra-am1.5.html" rel="noopener">Reference Air Mass 1.5 Spectra (ASTM G173-03)</a>. <em>National Renewable Energy Laboratory</em>.</li>
+            <li id="src-5">Bodhaine BA, Wood NB, Dutton EG, Slusser JR (1999). <a href="https://doi.org/10.1175/1520-0426(1999)016%3C1854:ORODC%3E2.0.CO;2" rel="noopener">On Rayleigh optical depth calculations</a>. <em>Journal of Atmospheric and Oceanic Technology 16(11):1854–1861</em>.</li>
+            <li id="src-6">Bird RE, Riordan C (1986). <a href="https://doi.org/10.1175/1520-0450(1986)025%3C0087:SSSMFD%3E2.0.CO;2" rel="noopener">Simple solar spectral model for direct and diffuse irradiance on horizontal and tilted planes at the Earth's surface for cloudless atmospheres</a>. <em>Journal of Climate and Applied Meteorology 25(1):87–97</em>.</li>
+            <li id="src-7">Blumthaler M, Ambach W, Ellinger R (1997). <a href="https://doi.org/10.1016/S1011-1344(96)00018-8" rel="noopener">Increase in solar UV radiation with altitude</a>. <em>Journal of Photochemistry and Photobiology B: Biology 39(2):130–134</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">Dernière révision le 16 novembre 2026. Vous avez repéré une erreur ou une meilleure source ? <a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">Dites-le-nous sur GitHub</a>.</p>
+
+        <a class="cta" href="../">Essayez le calculateur d'indice UVA et consultez le détail →</a>
+      </article>
+
+      <aside class="related">
+        <h2>À lire aussi</h2>
+        <ul>
+          <li><a href="uv-index-vs-uva-index.html">Pourquoi l'indice UV ne suffit pas</a></li>
+          <li><a href="what-is-uva-radiation.html">Qu'est-ce que le rayonnement UVA ?</a></li>
+          <li><a href="uva-vs-uvb.html">UVA et UVB : quelle différence ?</a></li>
+          <li><a href="../about.html">À propos de ce site</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          Gratuit et open source. Calcul non officiel de l'indice UVA et de l'éclairement UVA. Information éducative uniquement, pas un avis médical. Plus d'informations sur la page <a href="https://uvaindex.org/fr/about.html">À propos</a>.
+          · <button type="button" class="link-btn" data-consent-open>Paramètres des cookies</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

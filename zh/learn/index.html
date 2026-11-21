@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>UVA 知识库 — 了解 UVA 辐射与紫外线指数</title>
+    <meta
+      name="description"
+      content="通俗易懂的 UVA 辐射指南：UVA 是什么、与 UVB 有何不同、对健康有哪些危害，以及为什么标准紫外线指数还不够——为什么需要专门的 UVA 指数。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/zh/learn/" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="UVA 指数" />
+    <meta property="og:title" content="UVA 知识库 — 了解 UVA 辐射与紫外线指数" />
+    <meta property="og:description" content="通俗易懂的 UVA 辐射指南：与 UVB 的区别、健康风险，以及为什么我们需要专门的 UVA 指数。" />
+    <meta property="og:url" content="https://uvaindex.org/zh/learn/" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "UVA 知识库",
+        "url": "https://uvaindex.org/zh/learn/",
+        "inLanguage": "zh-Hans",
+        "description": "通俗易懂的 UVA 辐射指南：与 UVB 的区别、健康风险，以及为什么在标准紫外线指数之外还需要专门的 UVA 指数。",
+        "hasPart": [
+          {
+            "@type": "Article",
+            "name": "什么是 UVA 辐射？",
+            "url": "https://uvaindex.org/zh/learn/what-is-uva-radiation.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA 和 UVB 有什么区别？",
+            "url": "https://uvaindex.org/zh/learn/uva-vs-uvb.html"
+          },
+          {
+            "@type": "Article",
+            "name": "紫外线指数与 UVA 指数：两者各自衡量什么",
+            "url": "https://uvaindex.org/zh/learn/uv-index-vs-uva-index.html"
+          },
+          {
+            "@type": "Article",
+            "name": "紫外线指数等级详解——以及它遗漏了什么",
+            "url": "https://uvaindex.org/zh/learn/uv-index-scale-explained.html"
+          },
+          {
+            "@type": "TechArticle",
+            "name": "UVA 指数是如何计算的",
+            "url": "https://uvaindex.org/zh/learn/how-uva-index-is-calculated.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA 辐射的危害",
+            "url": "https://uvaindex.org/zh/learn/dangers-of-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA 一天中什么时候最强？看日变化曲线",
+            "url": "https://uvaindex.org/zh/learn/what-time-is-uva-highest.html"
+          },
+          {
+            "@type": "Article",
+            "name": "阴天的 UVA：能透过多少",
+            "url": "https://uvaindex.org/zh/learn/uva-on-cloudy-days.html"
+          },
+          {
+            "@type": "Article",
+            "name": "为什么 UVA 随季节的变化远小于 UVB",
+            "url": "https://uvaindex.org/zh/learn/does-uva-change-with-the-seasons.html"
+          },
+          {
+            "@type": "Article",
+            "name": "世界各地的 UVA：为什么纬度的影响比你想象的小",
+            "url": "https://uvaindex.org/zh/learn/uva-by-latitude-and-location.html"
+          },
+          {
+            "@type": "Article",
+            "name": "高海拔的 UVA：登山、徒步与乘飞机",
+            "url": "https://uvaindex.org/zh/learn/uva-at-altitude.html"
+          },
+          {
+            "@type": "Article",
+            "name": "反射的 UVA：雪地、沙滩、水面和混凝土",
+            "url": "https://uvaindex.org/zh/learn/reflected-uva-snow-sand-water.html"
+          },
+          {
+            "@type": "Article",
+            "name": "玻璃能挡住 UVA 吗？窗户、汽车与防紫外线膜",
+            "url": "https://uvaindex.org/zh/learn/does-glass-block-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "衣服能阻挡 UVA 吗？UPF 等级与真正有效的方法",
+            "url": "https://uvaindex.org/zh/learn/does-clothing-block-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA 防晒标识全解读：PA+++、UVA 圆圈标志、星级与临界波长",
+            "url": "https://uvaindex.org/zh/learn/uva-sunscreen-labels-explained.html"
+          },
+          {
+            "@type": "Article",
+            "name": "防晒霜到底要涂多少——以及为什么 UVA 防护受影响最大",
+            "url": "https://uvaindex.org/zh/learn/sunscreen-application-uva-protection.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA 与眼睛：太阳镜、UV400、白内障和翼状胬肉",
+            "url": "https://uvaindex.org/zh/learn/uva-and-your-eyes.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA 与皮肤老化：光老化究竟是怎样发生的",
+            "url": "https://uvaindex.org/zh/learn/uva-and-skin-aging.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA 会让人晒黑吗？晒黑、晒伤与“打底晒黑”的误区",
+            "url": "https://uvaindex.org/zh/learn/does-uva-tan-or-burn.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA 与维生素 D：只有代价，毫无益处",
+            "url": "https://uvaindex.org/zh/learn/uva-and-vitamin-d.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA、黑色素与色素沉着：黄褐斑、色沉与肤色",
+            "url": "https://uvaindex.org/zh/learn/uva-melasma-and-skin-tone.html"
+          },
+          {
+            "@type": "Article",
+            "name": "光敏性：让 UVA 变得危险的药物与疾病",
+            "url": "https://uvaindex.org/zh/learn/uva-photosensitivity-medications.html"
+          },
+          {
+            "@type": "Article",
+            "name": "室内 UVA：美甲灯、日光浴床，以及你的灯具到底发出什么",
+            "url": "https://uvaindex.org/zh/learn/indoor-uva-nail-lamps-tanning-beds.html"
+          },
+          {
+            "@type": "TechArticle",
+            "name": "如何自己测量 UVA：测量仪、卡片与手机的误区",
+            "url": "https://uvaindex.org/zh/learn/how-to-measure-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "物理防晒霜与化学防晒霜：哪种防 UVA 更好？",
+            "url": "https://uvaindex.org/zh/learn/mineral-vs-chemical-sunscreen-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "水能阻挡 UVA 吗？游泳、浮潜与防晒霜",
+            "url": "https://uvaindex.org/zh/learn/does-water-block-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "婴幼儿和儿童防晒",
+            "url": "https://uvaindex.org/zh/learn/sun-protection-for-children-and-babies.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA 会损伤头发吗？发色、蛋白质与头皮",
+            "url": "https://uvaindex.org/zh/learn/does-uva-damage-hair.html"
+          },
+          {
+            "@type": "Article",
+            "name": "需要每天涂防晒霜吗？",
+            "url": "https://uvaindex.org/zh/learn/do-you-need-sunscreen-every-day.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--hub">
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../">UVA 指数计算器</a>
+        <a href="../learn/" class="active">知识库</a>
+        <a href="../widget.html">免费小组件</a>
+        <a href="../about.html">关于</a>
+        <span class="spacer"></span>
+        <details class="lang-switch">
+          <summary aria-label="语言: 简体中文"><span class="lang-icon" aria-hidden="true">🌐</span> 简体中文</summary>
+          <ul>
+            <li><a href="../../learn/" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="./" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">简体中文</a></li>
+          </ul>
+        </details>
+      </nav>
+
+      <header>
+        <h1>UVA 知识库</h1>
+        <p class="subtitle">
+          关于长波紫外线（UVA）的简明指南——它是什么、与 UVB 有何不同、
+          为什么对你的皮肤很重要，以及为什么人们熟悉的<strong>紫外线指数</strong>
+          并不能说明全部情况。
+        </p>
+      </header>
+
+      <ul class="kb-list">
+        <li>
+          <a class="kb-card" href="what-is-uva-radiation.html">
+            <h2>什么是 UVA 辐射？</h2>
+            <p>
+              UVA 是紫外线中波长较长的波段（315–400 nm）。了解它在紫外光谱中的位置，为什么到达地面的紫外线中约 95% 是 UVA，以及它在一天中、云层下和玻璃后的表现。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-vs-uvb.html">
+            <h2>UVA 和 UVB 有什么区别？</h2>
+            <p>
+              UVA 与 UVB 全面对比：波长、各自穿透皮肤的深度、晒伤与光老化、维生素 D、在皮肤癌中的作用，以及云层、玻璃、一天中的时间和季节对两者的影响。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uv-index-vs-uva-index.html">
+            <h2>紫外线指数与 UVA 指数：两者各自衡量什么</h2>
+            <p>
+              紫外线指数是按红斑加权的，所以以 UVB 为主，几乎反映不出 UVA。本文介绍两种指数各自衡量什么，UV 指数低而 UVA 很高的情形，以及如何解读 0–11+ 的 UVA 指数等级。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uv-index-scale-explained.html">
+            <h2>紫外线指数等级详解——以及它遗漏了什么</h2>
+            <p>
+              紫外线指数的数字是什么意思、0–11+ 的刻度从何而来、世界卫生组织的等级颜色和建议、它实际能有多高——以及导致它低估 UVA 的红斑加权。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="how-uva-index-is-calculated.html">
+            <h2>UVA 指数是如何计算的</h2>
+            <p>
+              UVA 指数背后的完整方法：如何根据辐射传输查找表以及实时云量、霾、气压和积雪数据推算地表 UVA 辐照度（315–400 nm，W/m²），具体公式与假设、如何验证，以及我们没有考虑哪些因素。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="dangers-of-uva.html">
+            <h2>UVA 辐射的危害</h2>
+            <p>
+              UVA 对健康的影响：光老化和皱纹、通过活性氧造成的间接 DNA 损伤、皮肤癌和黑色素瘤风险、眼部损伤、免疫抑制和光敏反应——以及减少暴露的实用方法。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="what-time-is-uva-highest.html">
+            <h2>UVA 一天中什么时候最强？看日变化曲线</h2>
+            <p>
+              UVA 在太阳正午达到峰值——但它的曲线比紫外线指数的平缓得多，所以上午和傍晚的 UVA 占比要高得多。本文给出逐小时的数据，说明影子法则为什么失灵，以及为什么太阳正午很少恰好是 12:00。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-on-cloudy-days.html">
+            <h2>阴天的 UVA：能透过多少</h2>
+            <p>
+              云层对 UVA 的削弱远小于对阳光亮度的削弱——而且碎云还可能让 UVA 短暂超过晴空水平。不同云型的透射率，云下 UVA 与 UVB 的比较，云增强效应，以及 UVA 指数如何模拟云的影响。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-uva-change-with-the-seasons.html">
+            <h2>为什么 UVA 随季节的变化远小于 UVB</h2>
+            <p>
+              臭氧对 UVB 吸收很强，对 UVA 几乎不吸收，所以冬季低垂的太阳会让 UVB 大幅下降，而 UVA 只是小幅减少。用数字说明为什么冬季和清晨的紫外线中 UVA 比例格外高——以及为什么紫外线指数低从来不代表 UVA 低。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-by-latitude-and-location.html">
+            <h2>世界各地的 UVA：为什么纬度的影响比你想象的小</h2>
+            <p>
+              臭氧几乎不吸收 UVA，因此 UVA 从赤道到两极的递减远比紫外线指数平缓。世界各城市的晴空 UVA 指数峰值，为什么南半球的紫外线更强，以及真正造成各地差异的因素。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-at-altitude.html">
+            <h2>高海拔的 UVA：登山、徒步与乘飞机</h2>
+            <p>
+              紫外线随海拔升高而增强——但 UVA 的增幅低于常说的每 1000 m 增加 10%，那是红斑紫外线的数值。为什么海拔梯度因波长而异，积雪和洁净空气如何叠加放大，以及驾驶舱 UVA 和飞行员黑色素瘤研究的发现。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="reflected-uva-snow-sand-water.html">
+            <h2>反射的 UVA：雪地、沙滩、水面和混凝土</h2>
+            <p>
+              地面反射会增加你受到的 UVA——而紫外线反照率并不等于可见光反照率。各类地表的反射率数值，为什么滑雪者和划船者下巴底下会晒伤，为什么在海滩上遮阴不够用，以及 UVA 指数如何模拟地表反照率。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-glass-block-uva.html">
+            <h2>玻璃能挡住 UVA 吗？窗户、汽车与防紫外线膜</h2>
+            <p>
+              普通窗玻璃几乎能挡住全部 UVB，却会让相当大比例的 UVA 透过。家中、办公室和汽车玻璃各能透过多少 UVA，为什么前挡风玻璃与侧窗不同，司机皮肤癌研究发现了什么，以及如何选择防紫外线膜。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-clothing-block-uva.html">
+            <h2>衣服能阻挡 UVA 吗？UPF 等级与真正有效的方法</h2>
+            <p>
+              UPF 是按红斑加权的，所以和 SPF 一样，它实际上衡量的是 UVB——这就是为什么欧洲标准另外加了一项 UVA 限值。本文介绍不同材质、颜色和织法面料的透射率，布料变湿或被拉伸时会怎样，以及帽子和阴凉处的实际效果。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-sunscreen-labels-explained.html">
+            <h2>UVA 防晒标识全解读：PA+++、UVA 圆圈标志、星级与临界波长</h2>
+            <p>
+              SPF 几乎只衡量 UVB。教你读懂真正的 UVA 防护：欧盟圆圈 UVA 标志、日本 PA 体系、Boots 星级、美国广谱测试、阿伏苯宗的光稳定性，以及各地可用的 UVA 过滤剂。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="sunscreen-application-uva-protection.html">
+            <h2>防晒霜到底要涂多少——以及为什么 UVA 防护受影响最大</h2>
+            <p>
+              防晒霜的测试用量是 2 mg/cm²，实际涂抹量却只有其四分之一，而防护效果会随涂抹厚度呈指数下降。为什么涂得不够和光降解对 UVA 防护打击最大，以及茶匙法则和两指法则。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-and-your-eyes.html">
+            <h2>UVA 与眼睛：太阳镜、UV400、白内障和翼状胬肉</h2>
+            <p>
+              UVA 如何到达并损伤眼睛，UV400、EN ISO 12312-1 和 ANSI Z80.3 究竟保证了什么，为什么没有紫外线过滤的深色镜片可能比不戴更糟，以及为什么镜框形状比镜片深浅更重要。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-and-skin-aging.html">
+            <h2>UVA 与皮肤老化：光老化究竟是怎样发生的</h2>
+            <p>
+              UVA 能到达真皮层，并驱动分解胶原蛋白的酶。本文介绍从光子到皱纹的完整机制、证明每天使用防晒霜可阻止可测量老化的试验、来自卡车司机和双胞胎的证据，以及真正能修复损伤的方法。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-uva-tan-or-burn.html">
+            <h2>UVA 会让人晒黑吗？晒黑、晒伤与“打底晒黑”的误区</h2>
+            <p>
+              UVA 能在几分钟内通过氧化你原有的黑色素使皮肤变黑——而这种晒黑几乎没有防护作用。本文介绍三种不同的晒黑反应、UVA 为什么几乎不会引起晒伤，以及这对日光浴床和“打底晒黑”说法意味着什么。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-and-vitamin-d.html">
+            <h2>UVA 与维生素 D：只有代价，毫无益处</h2>
+            <p>
+              维生素 D 的合成由 295–300 nm 附近一小段 UVB 驱动，在 315 nm 以下就完全停止。UVA 一点也不产生维生素 D——这让冬日阳光、窗边的光照和日光浴床成了只有暴露、毫无回报的照射。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-melasma-and-skin-tone.html">
+            <h2>UVA、黑色素与色素沉着：黄褐斑、色沉与肤色</h2>
+            <p>
+              导致黄褐斑和炎症后色素沉着的主要是 UVA 和可见光，而远非 UVB——这就是含氧化铁的有色防晒霜效果优于透明防晒霜的原因。不同 Fitzpatrick 皮肤类型中，黑色素能防什么、不能防什么。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-photosensitivity-medications.html">
+            <h2>光敏性：让 UVA 变得危险的药物与疾病</h2>
+            <p>
+              大多数药物光敏反应由 UVA 引起，所以隔着车窗、办公室窗户或在阴天也会发生。本文介绍光毒性与光变态反应的区别、主要药物类别、多形性日光疹、红斑狼疮和卟啉病，以及真正有效的防护方法。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="indoor-uva-nail-lamps-tanning-beds.html">
+            <h2>室内 UVA：美甲灯、日光浴床，以及你的灯具到底发出什么</h2>
+            <p>
+              光疗美甲灯几乎是纯 UVA，日光浴床的光谱严重偏向 UVA，而屏幕根本不发出紫外线。各种室内光源实际发出多少 UVA、以 W/m² 计与正午阳光相比如何，以及真正的风险在哪里。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="how-to-measure-uva.html">
+            <h2>如何自己测量 UVA：测量仪、卡片与手机的误区</h2>
+            <p>
+              真正测量 UVA 需要什么——分光辐射计、宽带辐射计、廉价的消费级测量仪和光致变色卡片各自的局限，为什么你的智能手机几乎肯定无法测量紫外线，以及如何判断任何读数是否可信。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="mineral-vs-chemical-sunscreen-uva.html">
+            <h2>物理防晒霜与化学防晒霜：哪种防 UVA 更好？</h2>
+            <p>
+              从 UVA 覆盖范围、光稳定性、泛白、敏感肌、珊瑚礁法规和人体吸收等方面比较氧化锌、二氧化钛和有机防晒剂。为什么“物理防晒反射、化学防晒吸收”的说法大多是错的，以及该怎么选。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-water-block-uva.html">
+            <h2>水能阻挡 UVA 吗？游泳、浮潜与防晒霜</h2>
+            <p>
+              水是一道很弱的紫外线屏障：UVA 在清澈的水中比 UVB 穿透得深得多，在水下半米处你仍会受到大量照射，而湿皮肤上的防晒霜流失得很快。本文介绍泳池、海洋和湖泊中的情况，以及“防水”究竟是什么意思。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="sun-protection-for-children-and-babies.html">
+            <h2>婴幼儿和儿童防晒</h2>
+            <p>
+              为什么儿童的皮肤和眼睛更容易受紫外线伤害，婴儿几岁可以用防晒霜，孩子该选哪种防晒霜，以及更为重要的遮阴、衣物、帽子和太阳镜习惯。另附“18 岁前受到一生中 80% 日晒”这一说法的辟谣。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-uva-damage-hair.html">
+            <h2>UVA 会损伤头发吗？发色、蛋白质与头皮</h2>
+            <p>
+              阳光会以两种方式损伤头发：UVA 分解黑色素和染料，使发色褪去、变浅；UVB 则会降解发干的蛋白质。为什么金发、白发和染过的头发受损最严重，头发能为头皮提供多少保护，以及真正有效的方法。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="do-you-need-sunscreen-every-day.html">
+            <h2>需要每天涂防晒霜吗？</h2>
+            <p>
+              每天涂防晒霜值不值得，取决于你实际受到多少 UVA，而不只是天气或紫外线指数。按情境逐一分析——阴天、冬季、靠窗工作、开车、屏幕、深色皮肤——以及每日防晒试验的证据。
+            </p>
+            <span class="kb-more">阅读 →</span>
+          </a>
+        </li>
+
+      </ul>
+
+      <a class="cta" href="../">查看你所在位置的实时 UVA 指数 →</a>
+
+      <footer>
+        <p class="disclaimer">
+          免费且开源。非官方的 UVA 指数与 UVA 辐照度计算。仅供科普参考，不构成医疗建议。更多信息请见<a href="https://uvaindex.org/zh/about.html">关于</a>页面。
+          · <button type="button" class="link-btn" data-consent-open>Cookie 设置</button>
+        </p>
+        <p class="disclaimer">
+          免费且<strong>开源</strong>——代码和模型以
+          <a href="https://github.com/mixalisaspr/uvaindex/blob/main/LICENSE">MIT 许可证</a>
+          发布在 <a href="https://github.com/mixalisaspr/uvaindex">GitHub</a> 上。
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

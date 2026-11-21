@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <!-- Primary SEO -->
+    <title>Indice UVA — Calcolatore dell'indice UVA in tempo reale per luogo e ora</title>
+    <meta
+      name="description"
+      content="Calcolatore gratuito dell'indice UVA. Ottieni l'indice UVA in tempo reale per qualsiasi luogo e ora: una stima dell'irradianza UVA al suolo (315–400 nm, W/m²) basata su posizione del sole, copertura nuvolosa e dati sugli aerosol in tempo reale."
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/it/" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+
+    <!-- PWA: installable, app-like experience -->
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Indice UVA" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Indice UVA" />
+    <meta
+      property="og:title"
+      content="Indice UVA — Calcolatore dell'indice UVA in tempo reale per luogo e ora"
+    />
+    <meta
+      property="og:description"
+      content="Ottieni l'indice UVA in tempo reale per qualsiasi luogo e ora: una stima dell'irradianza UVA al suolo basata su posizione del sole, copertura nuvolosa e dati sugli aerosol in tempo reale."
+    />
+    <meta property="og:url" content="https://uvaindex.org/it/" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Indice UVA — Calcolatore dell'indice UVA in tempo reale"
+    />
+    <meta
+      name="twitter:description"
+      content="Ottieni l'indice UVA in tempo reale per qualsiasi luogo e ora, calcolato dalla posizione del sole e da dati atmosferici in tempo reale."
+    />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <!-- Structured data: helps search engines understand the page -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Indice UVA",
+        "url": "https://uvaindex.org/it/",
+        "description": "Calcolatore dell'indice UVA in tempo reale: stima l'irradianza UVA al suolo (315–400 nm, W/m²) per qualsiasi luogo e ora a partire da posizione del sole, copertura nuvolosa e dati sugli aerosol in tempo reale.",
+        "inLanguage": "it",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Che cos'è l'indice UVA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "L'indice UVA è una scala da 0 a 11+ ricavata dall'irradianza UVA al suolo (la banda 315–400 nm non ponderata, in W/m²): l'irradianza viene divisa per 6, così che con cielo sereno e sole allo zenit il valore sia circa 11, in linea con l'intervallo del noto indice UV. Le categorie seguono le fasce dell'OMS: Basso (0–2), Moderato (3–5), Alto (6–7), Molto alto (8–10) ed Estremo (11+). A differenza dell'indice UV standard, che è ponderato per l'eritema e dominato dagli UVB, questo valore isola gli UVA ed è ricavato dalla geometria solare insieme a dati in tempo reale su nuvole e aerosol."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Come si calcola l'indice UVA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ricava gli UVA a cielo sereno per l'angolo del sole, la foschia (spessore ottico degli aerosol) e la pressione al suolo da una tabella calcolata con un modello di trasferimento radiativo, aggiunge la riflessione dell'ambiente circostante e la distanza Terra–Sole del giorno, poi applica l'effetto delle nuvole in tempo reale, il tutto con dati gratuiti di Open-Meteo. L'irradianza UVA risultante (W/m²) viene divisa per 6 per ottenere l'indice UVA da 0 a 11+."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- hreflang:start (generated by scripts/build_kb.py — do not edit) -->
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/" />
+    <!-- hreflang:end -->
+
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <main class="app app--calc">
+      <!-- site-nav:start (generated by scripts/build_kb.py — do not edit) -->
+      <nav class="site-nav" aria-label="Principale">
+        <a href="./" class="active">Calcolatore dell'indice UVA</a>
+        <a href="./learn/">Guide UVA</a>
+        <a href="./widget.html">Widget gratuito</a>
+        <a href="./about.html">Chi siamo</a>
+        <span class="spacer"></span>
+        <details class="lang-switch">
+          <summary aria-label="Lingua: Italiano"><span class="lang-icon" aria-hidden="true">🌐</span> Italiano</summary>
+          <ul>
+            <li><a href="../" hreflang="en" lang="en">English</a></li>
+            <li><a href="../es/" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../de/" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="./" hreflang="it" lang="it" aria-current="true">Italiano</a></li>
+            <li><a href="../ja/" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../zh/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </nav>
+      <!-- site-nav:end -->
+
+      <header>
+        <h1>Indice UVA</h1>
+        <p class="subtitle">
+          Un <strong>indice UVA</strong> in tempo reale per qualsiasi luogo e ora:
+          una misura dedicata degli UVA al suolo, da <strong>0 a 11+</strong>, e non
+          il normale indice&nbsp;UV.
+        </p>
+      </header>
+
+      <div class="calc-grid">
+        <section class="controls">
+        <div class="row search-row">
+          <div class="search-box">
+            <input
+              id="place-search"
+              type="text"
+              placeholder="Cerca una città o un luogo…"
+              aria-label="Cerca una città o un luogo"
+              autocomplete="off"
+              role="combobox"
+              aria-expanded="false"
+              aria-controls="suggestions"
+              aria-autocomplete="list"
+            />
+            <ul id="suggestions" class="suggestions" role="listbox" hidden></ul>
+          </div>
+          <button
+            id="use-location"
+            class="icon-btn"
+            type="button"
+            title="Usa la mia posizione"
+            aria-label="Usa la mia posizione"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+              <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm8.94 3A8.994 8.994 0 0 0 13 3.06V1h-2v2.06A8.994 8.994 0 0 0 3.06 11H1v2h2.06A8.994 8.994 0 0 0 11 20.94V23h2v-2.06A8.994 8.994 0 0 0 20.94 13H23v-2h-2.06zM12 19a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="row location-row">
+          <span class="loc-pin" aria-hidden="true">📍</span>
+          <span id="location-label" class="location-label">Rilevamento della tua posizione…</span>
+        </div>
+
+        <div class="row">
+          <label for="surface" title="Che cosa ricopre la zona intorno a te. Un ambiente circostante riflettente fa tornare giù dal cielo più UVA.">Ambiente circostante</label>
+          <select id="surface">
+            <option value="auto">Automatico (neve se prevista)</option>
+            <option value="grass">Erba, terreno o città</option>
+            <option value="water">Acqua</option>
+            <option value="sand">Sabbia / spiaggia</option>
+            <option value="snow">Neve</option>
+          </select>
+        </div>
+
+        <div class="row">
+          <button id="refresh" type="button" class="primary" disabled>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+              <path d="M17.65 6.35A7.958 7.958 0 0 0 12 4a8 8 0 1 0 7.73 10h-2.08A6 6 0 1 1 12 6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+            </svg>
+            <span id="refresh-label">Aggiorna</span>
+          </button>
+        </div>
+
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+
+      <section id="result" class="result" hidden>
+        <div class="readout">
+          <span class="metric-label">Indice UVA attuale <span id="as-of" class="as-of"></span></span>
+          <div class="uva-scale">
+            <div class="uva-scale-bar" aria-hidden="true">
+              <div class="uva-segment" style="background:#3a7d44">Basso</div>
+              <div class="uva-segment" style="background:#f2c14e">Moderato</div>
+              <div class="uva-segment" style="background:#f08a24">Alto</div>
+              <div class="uva-segment" style="background:#e3522f">Molto alto</div>
+              <div class="uva-segment" style="background:#b5179e">Estremo</div>
+            </div>
+            <div class="uva-pointer-track">
+              <div id="uva-pointer" class="uva-pointer">
+                <span class="uva-pointer-caret" aria-hidden="true">▲</span>
+                <span id="uva-index" class="uva-pointer-number">—</span>
+              </div>
+            </div>
+          </div>
+          <p class="uva-secondary">
+            <strong id="uva-band" class="uva-band">—</strong> ·
+            <span id="uva-value">—</span> W/m² di irradianza UVA
+          </p>
+        </div>
+
+        <h2 id="forecast-heading">Previsioni UVA</h2>
+        <div id="days" class="days" role="group" aria-labelledby="forecast-heading"></div>
+        <p id="day-summary" class="day-summary" aria-live="polite"></p>
+        <div id="chart" class="chart"></div>
+
+        <div class="result-tables">
+          <div class="table-block">
+            <h2>Dati di ingresso</h2>
+            <table class="data-table">
+              <tbody id="params"></tbody>
+            </table>
+          </div>
+
+          <div class="table-block">
+            <h2>Dettaglio del modello</h2>
+            <table class="data-table">
+              <tbody id="factors"></tbody>
+            </table>
+          </div>
+        </div>
+        <p class="model-note">
+          <a href="learn/how-uva-index-is-calculated.html">Come viene
+          calcolato? →</a>
+        </p>
+        </section>
+      </div>
+
+      <footer>
+        <p class="disclaimer">
+          Sei alle prime armi con gli UVA? Inizia dalle
+          <a href="learn/">Guide UVA</a>: che cosa sono gli UVA,
+          <a href="learn/uva-vs-uvb.html">in cosa differiscono dagli UVB</a> e
+          <a href="learn/uv-index-vs-uva-index.html">perché l'indice UV non
+          basta</a>.
+        </p>
+        <p class="disclaimer">
+          Gratuito e open source. Calcolo non ufficiale dell'indice UVA e
+          dell'irradianza UVA. Solo informazioni educative, non un parere medico.
+          Maggiori dettagli nella pagina <a href="about.html">Chi siamo</a>.
+          · <button type="button" class="link-btn" data-consent-open>Impostazioni cookie</button>
+        </p>
+      </footer>
+    </main>
+
+    <script type="module" src="../js/app.js"></script>
+    <script src="../js/sw-register.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,264 @@
+<!--meta
+{
+  "slug": "how-to-measure-uva",
+  "translated_from": "2026-11-16",
+  "title": "UVA messen: Messgeräte, UV-Karten und warum Handys es nicht können",
+  "headline": "UVA selbst messen: Messgeräte, Karten und Handy-Mythen",
+  "description": "Was es wirklich braucht, um UVA zu messen — Spektroradiometer, Breitband-Radiometer, günstige Verbrauchermessgeräte und photochrome Karten —, wo jedes davon versagt, warum dein Smartphone mit ziemlicher Sicherheit kein Ultraviolett messen kann und wie du jeden Messwert auf Plausibilität prüfst.",
+  "og_title": "UVA selbst messen",
+  "og_description": "Vom Spektroradiometer für 50.000 £ über das Taschenmessgerät für 15 £ bis zu Perlen, die ihre Farbe wechseln — was dir jedes davon wirklich verrät und warum dein Handy dir gar nichts verrät.",
+  "jsonld_description": "Ein technischer Leitfaden zur Messung von Ultraviolett A: Geräteklassen vom Spektroradiometer bis zum Photodioden-Messgerät für Verbraucher, die Fehler bei spektraler Empfindlichkeit und Kosinus-Charakteristik, die günstige Geräte dominieren, warum Smartphones kein UV erfassen können und wie du einen Messwert anhand modellierter Werte überprüfst.",
+  "faq": [
+    {
+      "question": "Kann mein Handy UV messen?",
+      "answer": "Mit ziemlicher Sicherheit nicht. Von seltenen Ausnahmen wie Samsungs Galaxy Note 4 aus dem Jahr 2014 abgesehen, haben Smartphones keinen UV-Sensor. Der Umgebungslichtsensor reagiert auf sichtbares Licht und ist gegen Infrarot gefiltert; die Kamera sitzt hinter einem UV/IR-Sperrfilter, und das Linsenglas würde auch ohne diesen den Großteil der UVA-Strahlung blockieren. Apps, die einen UV-Index anzeigen, laden für deine Koordinaten eine Vorhersage von einer Wetter-API herunter — das ist nützlich, aber es ist eine Prognose für deine Gegend, keine Messung deiner unmittelbaren Umgebung."
+    },
+    {
+      "question": "Sind günstige UV-Messgeräte genau?",
+      "answer": "Für relative Vergleiche oft ausreichend. Für absolute Werte häufig nicht. Die beiden vorherrschenden Fehler sind die spektrale Fehlanpassung — die Kombination aus Detektor und Filter bildet die Empfindlichkeitskurve, die sie zu haben behauptet, nur näherungsweise nach — und eine schlechte Kosinus-Charakteristik, bei der schräg einfallendes Licht zu gering gezählt wird, weil dem Sensor ein geeigneter Diffusor fehlt. Beide Fehler wachsen genau dann, wenn das Spektrum von klarer Mittagssonne abweicht: bei Bewölkung, bei tiefem Sonnenstand, in Innenräumen und unter künstlichen Lampen."
+    },
+    {
+      "question": "Wie prüfe ich, ob ein UV-Messwert plausibel ist?",
+      "answer": "Mach vier Tests. Nachts sollte das Gerät null anzeigen. Der Höchstwert sollte am wahren Sonnenmittag liegen, nicht um 12 Uhr nach der Uhr. Hinter einem geschlossenen Fenster sollte der Wert stark abfallen, wenn das Gerät erythemgewichtet misst, und viel weniger, wenn es tatsächlich UVA misst. Und sein Tagesverlauf sollte ein gleichmäßiger, breiter Bogen sein. Ein Gerät, das einen dieser Tests nicht besteht, misst nicht das, was es zu messen behauptet."
+    }
+  ],
+  "cta_text": "Vergleiche dein Messgerät mit dem modellierten UVA-Index →",
+  "breadcrumb_label": "UVA messen"
+}
+-->
+<h1>UVA selbst messen: Messgeräte, Karten und Handy-Mythen</h1>
+<p class="lead">
+  Diese Seite <em>modelliert</em> UVA, statt sie zu messen — aus einem
+  Grund, den wir offen sagen wollen: Ultraviolett richtig zu messen, ist
+  wirklich schwierig, und die Instrumente, die das gut können, kosten mehr
+  als ein Auto. Was folgt, ist ein ehrlicher Überblick darüber, was es
+  gibt, was dir jede Geräteklasse tatsächlich verrät und wie du einen
+  echten Messwert von einer nur plausibel aussehenden Zahl unterscheidest.
+</p>
+
+<h2>Die Geräteklassen</h2>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Gerät</th><th>Was es tut</th><th>Typische Kosten</th><th>Geeignet für</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Scannendes Spektroradiometer</td><td>Löst die Bestrahlungsstärke Wellenlänge für Wellenlänge auf</td><td>30.000–100.000+ £</td><td>Referenzmessung; jede Gewichtung wird nachträglich berechnet</td></tr>
+    <tr><td>Breitband-Radiometer</td><td>Filter und Detektor auf eine Ziel-Empfindlichkeitskurve abgestimmt</td><td>1.500–6.000 £</td><td>Dauerüberwachung eines einzelnen, festgelegten Bandes</td></tr>
+    <tr><td>Photodioden-Messgerät für Verbraucher</td><td>Photodiode aus Silizium, SiC oder GaN plus Filter</td><td>15–300 £</td><td>Relative Vergleiche; grobe Unterschiede erkennen</td></tr>
+    <tr><td>Photochrome Karte oder Perle</td><td>Farbstoff dunkelt bei UV-Einwirkung nach</td><td>1–10 £</td><td>Zeigen, dass es UV gibt; Unterricht</td></tr>
+    <tr><td>Polysulfon-Filmplakette</td><td>Verschiebung der Absorbanz summiert die kumulative Dosis auf</td><td>Gering, pro Plakette</td><td>Studien zur persönlichen Dosis über Stunden oder Tage</td></tr>
+    <tr><td>Smartphone</td><td>Fast nie irgendetwas — UV-Sensoren in Handys sind eine Seltenheit</td><td>—</td><td>Eine Vorhersage anzeigen, keine Messung</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Die Referenz: Spektroradiometer</h2>
+<p>
+  Ein Doppelmonochromator-Spektroradiometer zerlegt einfallendes Licht und
+  misst jeden schmalen Wellenlängenabschnitt einzeln, typischerweise von
+  etwa 290&nbsp;nm bis 400&nbsp;nm oder darüber hinaus. Weil es das ganze
+  Spektrum liefert, lässt sich jede Gewichtung nachträglich per Software
+  anwenden: erythemgewichtet für einen <a href="uv-index-scale-explained.html">UV-Index</a>,
+  nach Vitamin&nbsp;D für eine Syntheserate oder ganz ohne Gewichtung für
+  das ungewichtete Integral über 315–400&nbsp;nm, das diese Seite UVA nennt.
+</p>
+<p>
+  Genau diese Flexibilität macht es zur Referenz. Jedes andere Gerät legt
+  eine Gewichtung fest in der Hardware an und lässt sich nicht umfunktionieren.
+  Die Nachteile sind Kosten, Größe, die Notwendigkeit regelmäßiger
+  Kalibrierung mit rückführbaren Normallampen, Temperaturstabilisierung und
+  Scanzeiten, die so lang sind, dass eine vorbeiziehende Wolke eine Messung
+  verfälschen kann.
+</p>
+
+<h2>Breitband-Radiometer</h2>
+<p>
+  Sie verwenden einen Stapel optischer Filter und einen Detektor, die so
+  ausgelegt sind, dass die gemeinsame Empfindlichkeit einer Zielkurve
+  nahekommt. Zwei Arten sind hier wichtig:
+</p>
+<ul>
+  <li>
+    <strong>Erythem-Biometer</strong> bilden das CIE-Wirkungsspektrum für
+    Sonnenbrand nach. Diese setzen die meisten nationalen UV-Messnetze ein,
+    und aus ihnen stammen die meisten veröffentlichten „UV-Index“-Beobachtungen.
+  </li>
+  <li>
+    <strong>UVA-Radiometer</strong> streben eine flache Empfindlichkeit über
+    etwa 315–400&nbsp;nm an. Sie messen die Größe, die diese Seite
+    modelliert, und sind die einzigen erschwinglichen Instrumente, die das tun.
+  </li>
+</ul>
+<p>
+  Sie sind robust, wetterfest und zeichnen kontinuierlich auf. Ihre Schwäche
+  ist, dass die Empfindlichkeitskurve immer nur eine Näherung ist und mit
+  alternden Filtern driftet — weshalb ernsthafte Messstationen jährlich
+  gegen ein Spektroradiometer nachkalibrieren.
+</p>
+
+<h2>Verbrauchermessgeräte: Was du tatsächlich kaufst</h2>
+<p>
+  Ein UV-Taschenmessgerät besteht aus einer Photodiode, einem Filter und
+  einem Mikrocontroller, der einen Umrechnungsfaktor anwendet. Ob die
+  angezeigte Zahl etwas bedeutet, hängt von drei Dingen ab, die
+  Datenblätter selten erwähnen.
+</p>
+<ul>
+  <li>
+    <strong>Detektormaterial.</strong> Einfache Silizium-Photodioden
+    reagieren stark im sichtbaren und nahen Infrarotbereich und sind daher
+    vollständig auf Filter angewiesen, um vielleicht 99,9 % des tatsächlich
+    auftreffenden Lichts auszusperren — eine anspruchsvolle Anforderung, die
+    bei niedrigen Kosten nur ungleichmäßig erfüllt wird. Detektoren aus
+    Siliziumkarbid und Galliumnitrid sind von Natur aus
+    <em>blind für sichtbares Licht</em>: Wegen ihrer Bandlücke reagieren sie
+    oberhalb des Ultravioletts kaum noch. Ein Messgerät, das SiC oder GaN
+    angibt, ist ein deutlich besseres Instrument als eines ohne solche Angabe.
+  </li>
+  <li>
+    <strong>Kosinus-Charakteristik.</strong> Ein flacher Sensor muss Licht,
+    das unter 60° zur Senkrechten einfällt, nur halb so stark gewichten wie
+    Licht, das senkrecht von oben kommt, denn so funktioniert die
+    Bestrahlungsstärke auf einer horizontalen Fläche. Dafür braucht es einen
+    richtig geformten Diffusor. Günstige Messgeräte mit einem bloßen Fenster
+    zeigen für flach einfallendes Licht deutlich zu wenig an — genau für das
+    diffuse Himmelslicht, das einen großen Teil der UVA-Strahlung trägt.
+  </li>
+  <li>
+    <strong>Spektrale Annahme.</strong> Die meisten Verbrauchermessgeräte
+    zeigen einen „UV-Index“ an, der aus einem einzigen Breitband-Messwert
+    abgeleitet wird, indem ein Standard-Sonnenspektrum bei klarem Himmel
+    angenommen wird. Ändert sich das Spektrum, gilt die Annahme nicht mehr.
+    Bei Bewölkung, tief stehender Sonne, hinter Glas oder unter einer
+    Nagellampe oder auf der Sonnenbank hat die tatsächliche Spektralform
+    nichts mit der angenommenen zu tun, und der angezeigte Index kann
+    erheblich danebenliegen — in beide Richtungen.
+  </li>
+</ul>
+<div class="callout">
+  <strong>Die praktische Regel:</strong> Behandle ein Verbrauchermessgerät
+  als Vergleichsinstrument, nicht als kalibriertes Messgerät. „Ist es hier
+  heller als dort?“, „Hat die Folie geholfen?“, „Wie viel hält dieses
+  Sonnendach ab?“ — solche Fragen beantwortet es gut. „Wie hoch ist die
+  absolute UVA-Bestrahlungsstärke in W/m²?“ dagegen nicht.
+</div>
+
+<h2>Karten, Perlen und Plaketten</h2>
+<p>
+  Photochrome UV-Karten und die Perlen, die für Unterrichtsexperimente
+  verkauft werden, enthalten Spiropyran- oder Spirooxazin-Farbstoffe, die
+  unter ultravioletter Strahlung ihre Farbe ändern. Sie eignen sich
+  hervorragend, um etwas Unsichtbares sichtbar zu machen — leg eine Perle
+  hinter ein Fenster und eine hinter Sonnencreme, und der Unterschied ist
+  sofort da und überzeugend.
+</p>
+<p>
+  Was sie nicht können, ist quantifizieren. Die Reaktion ist nichtlinear,
+  sättigt schnell, bildet sich mit der Zeit zurück, driftet mit der
+  Temperatur, und ihre spektrale Empfindlichkeit ist eine Eigenschaft des
+  Farbstoffs und nicht irgendwie standardisiert. Zwei Karten verschiedener
+  Hersteller zeigen Unterschiedliches an, und keine ist nach einer
+  anerkannten Kurve gewichtet.
+</p>
+<p>
+  <strong>Polysulfon-Filmdosimetrie</strong> ist die ernsthafte Variante
+  derselben Idee. Ein dünner Film, der als Plakette getragen wird, ändert
+  seine optische Absorbanz proportional zur kumulativen UV-Dosis und wird
+  hinterher in einem Spektralphotometer ausgelesen. Seine Empfindlichkeit
+  ist eine grobe Näherung der Erythemkurve, was ihn zum klassischen
+  Werkzeug für Studien zur persönlichen Sonnenbrand-Dosis macht — und aus
+  demselben Grund zu einem schlechten Instrument speziell für UVA.
+</p>
+
+<h2>Warum dein Handy das nicht kann</h2>
+<p>
+  Das muss man deutlich sagen, weil die App-Stores etwas anderes nahelegen.
+  <strong>Fast kein Smartphone hat einen UV-Sensor.</strong> Samsungs Galaxy Note&nbsp;4 von 2014 war eine kurzlebige Ausnahme, und Forschende haben Handykameras unter kontrollierten Bedingungen UV-Signale entlockt,[[cite:turner2020]] doch beides ist keine kalibrierte Messung mit einem gewöhnlichen Handy. Drei voneinander unabhängige Hürden stehen im Weg:
+</p>
+<ul>
+  <li>
+    <strong>Der Umgebungslichtsensor</strong> ist dafür gebaut, die
+    wahrgenommene Helligkeit zum Dimmen des Bildschirms zu verfolgen. Er ist
+    so gefiltert, dass er der photopischen Empfindlichkeit des menschlichen
+    Auges nahekommt und Infrarot unterdrückt. Einen Ultraviolett-Kanal hat
+    er nicht.
+  </li>
+  <li>
+    <strong>Der Kamerasensor</strong> sitzt hinter einem UV/IR-Sperrfilter,
+    der genau dafür eingebaut ist, nicht sichtbares Licht daran zu hindern,
+    die Farbtreue zu verschlechtern.
+  </li>
+  <li>
+    <strong>Die Linse</strong> besteht aus Glas oder optischem Kunststoff,
+    der schon für sich allein im gesamten UVA-Bereich stark absorbiert —
+    dieselbe Physik, die unter
+    <a href="does-glass-block-uva.html">blockiert Glas UVA</a> erklärt wird.
+  </li>
+</ul>
+<p>
+  Jede App, die eine UV-Zahl anzeigt, macht also dasselbe wie der Rechner
+  dieser Seite: Sie nimmt deine Koordinaten und ruft einen Wert ab oder
+  berechnet ihn. Das ist legitim und nützlich — es ist nur keine Messung,
+  und eine App, die etwas anderes suggeriert, indem sie dich auffordert,
+  dein Handy in den Himmel zu halten, gibt sich als etwas aus, das sie
+  nicht ist. Aufsteckbare und Bluetooth-UV-Zubehörteile sind etwas anderes:
+  Sie enthalten echte Photodioden und unterliegen denselben Vorbehalten wie
+  jedes andere Verbrauchermessgerät.
+</p>
+
+<h2>Jeden Messwert auf Plausibilität prüfen</h2>
+<p>
+  Ganz gleich, welches Gerät du hast: Diese fünf Prüfungen decken die
+  meisten Probleme auf, ganz ohne Referenzausrüstung:
+</p>
+<ol>
+  <li><strong>Nachts zeigt es null.</strong> Ein Nachtwert über null deutet auf Streulicht, einen Offset-Fehler oder durchsickerndes Infrarot hin.</li>
+  <li><strong>Der Höchstwert liegt am wahren Sonnenmittag</strong>, der oft eine Stunde oder mehr von 12 Uhr nach der Uhr abweicht — siehe <a href="what-time-is-uva-highest.html">wann UVA am höchsten ist</a>. Ein Höchstwert um Punkt 12:00 während der Sommerzeit ist ein Zeichen dafür, dass das Gerät einen modellierten Wert anzeigt, statt ihn zu messen.</li>
+  <li><strong>Der Tagesverlauf ist ein gleichmäßiger, breiter Bogen</strong>, kein Plateau und keine Stufe. Stufen deuten auf eine grobe interne Quantisierung hin.</li>
+  <li><strong>Hinter einem geschlossenen Fenster verhält sich der Messwert aufschlussreich.</strong> Ein erythemgewichtetes Gerät sollte fast auf null fallen, weil Glas nahezu die gesamte UVB-Strahlung entfernt. Ein echtes UVA-Gerät sollte einen großen Teil behalten. Wenn dein „UVA-Messgerät“ drinnen an einem sonnigen Fenster nahe null anzeigt, misst es kein UVA.</li>
+  <li><strong>Im Schatten sinkt der Wert, aber nicht auf null.</strong> Stell dich in vollen Schatten mit offenem Himmel über dir, und ein korrektes Instrument zeigt immer noch einen beträchtlichen Wert an — das ist diffuses Himmelslicht. Ein Gerät, das im offenen Schatten nahe null anzeigt, hat eine fehlerhafte Kosinus-Charakteristik.</li>
+</ol>
+
+<h2>Ein Messgerät mit dieser Seite vergleichen</h2>
+<p>
+  Wenn du ein UVA-Messgerät mit dem
+  <a href="how-uva-index-is-calculated.html">modellierten Wert</a> hier
+  vergleichen willst, müssen zuerst drei Dinge übereinstimmen:
+</p>
+<ul>
+  <li>
+    <strong>Dieselbe Größe.</strong> Das Modell gibt die ungewichtete
+    Bestrahlungsstärke über etwa 315–400&nbsp;nm in W/m² aus, und der
+    <a href="uv-index-vs-uva-index.html">UVA-Index</a> ist dieser Wert
+    geteilt durch sechs. Ein Messgerät, das einen erythemgewichteten
+    „UV-Index“ anzeigt, misst eine andere physikalische Größe, und eine
+    Übereinstimmung ist nicht zu erwarten.
+  </li>
+  <li>
+    <strong>Dieselbe Geometrie.</strong> Das Modell geht von der
+    Bestrahlungsstärke auf eine horizontale Fläche aus. Halte den Sensor
+    waagerecht, nach oben gerichtet, fern von Wänden und reflektierendem
+    Untergrund.
+  </li>
+  <li>
+    <strong>Die richtigen Bedingungen.</strong> Vergleiche bei klarem Himmel
+    und hoch stehender Sonne. Bei aufgelockerter Bewölkung berücksichtigt
+    das Modell nur die Abschwächung und kann die
+    <a href="uva-on-cloudy-days.html">Wolkenverstärkung</a> nicht abbilden,
+    sodass echte Messwerte es berechtigterweise übersteigen können.
+  </li>
+</ul>
+<p>
+  Unter diesen Bedingungen wäre eine Übereinstimmung innerhalb von etwa
+  20 % ein gutes Ergebnis für einen modellierten Wert im Vergleich zu einem
+  Verbrauchergerät — und wenn du mit einem ordnungsgemäß kalibrierten Gerät
+  eine systematische Abweichung findest, ist das wirklich nützliche
+  Information. Das Validierungsskript des Projekts,
+  <code>scripts/validate.mjs</code>, nimmt eine CSV-Datei mit Messwerten
+  samt Zeitstempeln entgegen und gibt die Abweichung des Modells nach
+  Sonnenstand und Bewölkung aus — die übrigen Koeffizienten stehen in einem
+  einzigen Block in <code>js/uva.js</code>, eigens damit sie anhand echter
+  Messungen neu kalibriert werden können, und das Projekt freut sich über
+  solche Beiträge.
+</p>

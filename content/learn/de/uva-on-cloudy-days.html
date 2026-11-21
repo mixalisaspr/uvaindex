@@ -1,0 +1,239 @@
+<!--meta
+{
+  "slug": "uva-on-cloudy-days",
+  "translated_from": "2026-11-16",
+  "title": "UVA bei bewölktem Himmel: Wie viel durchkommt & Wolkenverstärkung",
+  "headline": "UVA an bewölkten Tagen: Wie viel durchkommt",
+  "description": "Wolken schwächen UVA weit weniger ab als das Sonnenlicht – und aufgelockerte Bewölkung kann UVA kurzzeitig über den Wert bei klarem Himmel treiben. Durchlässigkeit nach Wolkenart, UVA und UVB unter Wolken im Vergleich, der Effekt der Wolkenverstärkung und wie der UVA-Index ihn modelliert.",
+  "og_title": "UVA an bewölkten Tagen: Wie viel kommt wirklich durch?",
+  "og_description": "Ein bedeckter Himmel verringert UVA weit weniger als die Helligkeit – und aufgelockerte Bewölkung kann es über den Wert bei klarem Himmel heben. Was die Zahlen wirklich sagen.",
+  "jsonld_description": "Wie viel UVA je nach Wolkenart durch die Wolken dringt, wie sich UVA und UVB unter Wolken unterscheiden, der Verstärkungseffekt durch aufgelockerte Bewölkung, der UVA über die Werte bei klarem Himmel heben kann, und wie der UVA-Index die Bewölkung parametrisiert.",
+  "faq": [
+    {
+      "question": "Kann man an einem bewölkten Tag UV-Schäden bekommen?",
+      "answer": "Ja. Dünne oder aufgelockerte Bewölkung lässt typischerweise 80–100 % des UVA durch, und selbst eine dichte geschlossene Wolkendecke lässt meist noch 20–40 % passieren. Weil Wolken sichtbare Helligkeit und Wärme viel wirksamer entfernen als UV-Strahlung, fühlt sich ein bedeckter Tag weit sicherer an, als er ist – dir fehlen die Sinnessignale, während der Großteil des UVA bleibt."
+    },
+    {
+      "question": "Was ist der Effekt der Wolkenverstärkung?",
+      "answer": "Wenn die Sonne in einer Lücke zwischen hellen Quellwolken (Cumulus) steht, bekommst du den vollen direkten Strahl ab und zusätzlich Licht, das von den sonnenbeschienenen Seiten der umliegenden Wolken gestreut wird. Die Summe kann den Wert bei klarem Himmel im selben Moment übersteigen, typischerweise um 5–25 % und kurzzeitig gelegentlich mehr. Es ist ein realer, wiederholt gemessener Effekt, und er bedeutet, dass ein teilweise bewölkter Himmel nicht automatisch sicherer ist als ein klarer."
+    },
+    {
+      "question": "Dringt UVA besser durch Wolken als UVB?",
+      "answer": "Unter dichten Wolken kann UVA etwas besser durchkommen als UVB, weil die längeren Wege innerhalb der Wolke das Ozon mehr UVB absorbieren lassen – die Messungen unterscheiden sich allerdings je nach Wolkenart. Beide dringen weit besser durch Wolken als sichtbares Licht, sodass ein bedeckter Himmel immer noch eine beträchtliche UVA-Dosis liefert."
+    }
+  ],
+  "cta_text": "Prüf den heutigen UVA-Index – mitsamt Wolken →",
+  "breadcrumb_label": "UVA an bewölkten Tagen"
+}
+-->
+<h1>UVA an bewölkten Tagen: Wie viel durchkommt</h1>
+<p class="lead">
+  „Es ist bedeckt, mir passiert nichts“ ist einer der zuverlässigsten Wege,
+  deine UV-Belastung zu unterschätzen – und das gilt <em>besonders</em> für
+  UVA. Wolken entfernen sehr gut, was du spüren kannst – Helligkeit und
+  Wärme –, und vergleichsweise schlecht die langwellige UV-Strahlung, die du
+  nicht spürst. An einem grauen Tag hast du die Warnsignale verloren, aber
+  einen Großteil der Dosis behalten.
+</p>
+
+<div class="callout">
+  <strong>Die wichtigsten Zahlen:</strong> Dünne oder aufgelockerte Bewölkung
+  lässt typischerweise <strong>80–100 %</strong> des UVA durch. Eine
+  vollständige, dichte Wolkendecke lässt meist immer noch
+  <strong>20–40 %</strong> passieren. Und unter aufgelockerten Quellwolken kann
+  UVA den Wert bei klarem Himmel kurzzeitig sogar übertreffen.
+</div>
+
+<h2>Durchlässigkeit nach Wolkenart</h2>
+<p>
+  „Bewölkt“ umfasst alles von einem schwachen, hohen Schleier bis zur
+  schwarzen Gewitterwolkenbasis, und der Unterschied zwischen ihnen beträgt
+  mehr als eine Größenordnung. Physikalisch zählt nicht, wie viel vom Himmel
+  bedeckt ist, sondern die <strong>optische Dicke</strong> dessen, was ihn
+  bedeckt – wie viel flüssiges Wasser sich in der Säule zwischen dir und der
+  Sonne befindet.
+</p>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Himmel</th><th>Wolken</th><th>Durchgelassenes UVA</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Klar</td><td>—</td><td>100 % (Referenz)</td></tr>
+    <tr><td>Dünner hoher Schleier</td><td>Cirrus, Cirrostratus</td><td>~80–95 %</td></tr>
+    <tr><td>Locker / aufgelockert, Sonne sichtbar</td><td>Schönwetter-Cumulus</td><td>~90–110 %</td></tr>
+    <tr><td>Aufgelockert, Sonne verdeckt</td><td>Cumulus, Altocumulus</td><td>~50–80 %</td></tr>
+    <tr><td>Geschlossene graue Wolkendecke</td><td>Altostratus, Stratus</td><td>~30–60 %</td></tr>
+    <tr><td>Dichte, dunkle Wolkendecke</td><td>Nimbostratus, Gewitterwolken</td><td>~10–30 %</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  Beachte die dritte Zeile. Unter lockerer Bewölkung mit der Sonne in einer
+  Lücke kann der Wert <em>über</em> 100 % liegen – das ist der
+  Verstärkungseffekt, der weiter unten erklärt wird, und kein Tippfehler.
+</p>
+
+<h2>Warum UV-Strahlung besser durch Wolken dringt als sichtbares Licht</h2>
+<p>
+  Wolken schwächen UV-Strahlung – UVA ebenso wie das Sonnenbrand verursachende
+  <a href="uva-vs-uvb.html">UVB</a> – weniger ab als sichtbares Licht. Dabei
+  wirken zwei Mechanismen.[[cite:calbo2005]]
+</p>
+<ul>
+  <li>
+    <strong>Wolkentröpfchen streuen, statt zu absorbieren.</strong>
+    Wassertröpfchen sind im Vergleich zu UV-Wellenlängen groß, deshalb lenken
+    sie UV-Strahlung meist nur um, statt sie zu vernichten. Ein Photon, das in
+    eine Wolke eintritt, hat gute Chancen, sie irgendwann nach unten wieder zu
+    verlassen – nur aus einer anderen Richtung. Deshalb ist ein bedeckter
+    Himmel gleichmäßig hell statt dunkel: Die Energie kommt weiterhin an, sie
+    hat nur ihre Richtung verloren.
+  </li>
+  <li>
+    <strong>UV-Strahlung ist ohnehin größtenteils diffus.</strong> Selbst bei
+    vollkommen klarem Himmel kommt ein großer Teil der UV-Strahlung am Boden
+    als gestreutes Himmelslicht aus dem gesamten Himmelsgewölbe und nicht
+    direkt von der Sonnenscheibe – bei hoch stehender Sonne etwa ein Drittel
+    bis die Hälfte des UVA, bei sinkender Sonne mehr. Wolken entfernen vor
+    allem den direkten Strahl, nehmen also einen kleineren Anteil der
+    UV-Strahlung weg als des sichtbaren Lichts, das größtenteils direkt von
+    der Sonne kommt. Dieselbe Tatsache erklärt, warum
+    <a href="reflected-uva-snow-sand-water.html">Schatten weniger vor UVA
+    schützt, als es scheint</a>: Unter einem Schirm entfernst du die Sonne,
+    nicht den Himmel.
+  </li>
+</ul>
+
+<h2>UVA und UVB unter Wolken im Vergleich</h2>
+<p>
+  <strong>Unter dichten Wolken kann UVA etwas besser durchkommen als
+  UVB</strong>, weil die längeren Wege innerhalb der Wolke das Ozon mehr UVB
+  absorbieren lassen. Jede Streuung in und unter einer Wolke verlängert den Weg
+  eines Photons und damit die Chance, auf ein Ozonmolekül zu treffen; Ozon
+  absorbiert stark im UVB und kaum im UVA, also kostet der Umweg mehr UVB.
+</p>
+<p>
+  Die Messungen unterscheiden sich allerdings je nach Wolkenart. Licht, das
+  eine Wolke nach oben reflektiert, wird teilweise von der Luft darüber wieder
+  nach unten gestreut, und Luft streut kürzere Wellenlängen stärker – deshalb
+  wurde unter manchen gleichmäßigen Wolkenschichten gemessen, dass stattdessen
+  das UVB etwas besser durchkommt. So oder so ist der Unterschied zwischen
+  beiden gering – und beide dringen weit besser durch als das Licht und die
+  Wärme, die du spüren kannst.
+</p>
+
+<h2>Der Effekt der Wolkenverstärkung</h2>
+<p>
+  Das überrascht viele: <strong>Ein teilweise bewölkter Himmel kann mehr UVA
+  liefern als ein klarer.</strong>
+</p>
+<p>
+  Die Geometrie ist einfach. Steht die Sonne in einer klaren Lücke zwischen
+  hellen Quellwolken, bekommst du den gesamten direkten Strahl ab, genau wie
+  bei klarem Himmel – plus zusätzliche Strahlung, die von den strahlend hellen,
+  sonnenbeschienenen Flanken der Wolken rund um die Lücke gestreut wird. Nichts
+  wird abgezogen, etwas kommt hinzu. Gemessene Verstärkungen liegen häufig im
+  Bereich von <strong>5–25 %</strong>, mit kurzzeitig höheren
+  Spitzen,[[cite:calbo2005]] vor allem wenn zusätzlich eine helle Oberfläche
+  wie Schnee Licht von unten zurückwirft.
+</p>
+<div class="callout">
+  <strong>Warum das für dein Verhalten wichtig ist:</strong> „Teilweise
+  bewölkt“ klingt nach einem Grund, sich zu entspannen. Physikalisch ist es der
+  Himmelszustand, der am ehesten UVA <em>über</em> dem Wert bei klarem Himmel
+  liefert – während der zeitweilige Schatten den Tag kühler und angenehmer
+  wirken lässt, sodass man länger draußen bleibt.
+</div>
+<p>
+  Der Effekt tritt episodisch und kurzlebig auf: Er gilt, solange die Sonne in
+  einer Lücke steht, und weicht einer echten Abschwächung, sobald eine Wolke
+  davorzieht. Über einen Nachmittag gemittelt liegt aufgelockerte Bewölkung
+  meist etwas unter klarem Himmel. Die momentanen Spitzenwerte sind aber real,
+  und niemand erwartet sie bei einer Vorhersage mit Wolken.
+</p>
+
+<h2>Was das in der Praxis ändert</h2>
+<ul>
+  <li>
+    <strong>Bedeckt heißt nicht frei.</strong> Bei 30–60 % Durchlässigkeit kann
+    ein Nachmittag im Freien unter grauem Himmel im Hochsommer immer noch mehr
+    UVA liefern als ein klarer Tag im tiefsten Winter. Die Rechnung findest du
+    unter <a href="does-uva-change-with-the-seasons.html">warum sich UVA mit den
+    Jahreszeiten so wenig ändert</a>.
+  </li>
+  <li>
+    <strong>Die übliche Warnung bleibt aus.</strong> Wolken entfernen UVB
+    schneller als UVA, deshalb wird der Sonnenbrand, der normalerweise eine
+    Überdosis anzeigt, stärker unterdrückt als das UVA, das Lichtalterung und
+    Pigmentierung verursacht. Wolken verschieben die Belastung genauso in
+    Richtung UVA wie Glas und ein niedriger Sonnenstand.
+  </li>
+  <li>
+    <strong>Der Bewölkungsgrad in Prozent ist ein schwacher Anhaltspunkt.</strong>
+    „90 % Bewölkung“ in einer Vorhersage beschreibt, wie viel Himmel verdeckt
+    ist, nicht wie dick die verdeckenden Wolken sind. Neunzig Prozent dünner
+    Cirrus und neunzig Prozent Nimbostratus unterscheiden sich in dem, was bei
+    dir ankommt, um den Faktor fünf.
+  </li>
+  <li>
+    <strong>Lichtempfindliche Menschen sollten Wolken als fast bedeutungslos
+    betrachten.</strong> Wenn deine Schwelle niedrig ist, überschreitet auch ein
+    Tag mit 40 % sie noch. Mehr dazu unter
+    <a href="uva-photosensitivity-medications.html">UVA-Lichtempfindlichkeit</a>.
+  </li>
+</ul>
+
+<h2>Wie der UVA-Index mit Wolken umgeht</h2>
+<p>
+  Die Bewölkung ist die am stärksten schwankende Eingangsgröße für den
+  <a href="../">UVA-Index</a> dieser Website, und das Modell behandelt sie auf
+  zwei Arten, je nachdem, welche Daten für deinen Standort verfügbar sind.
+</p>
+<p>
+  <strong>Bevorzugt: abgeleitet aus aktuellen UV-Daten.</strong> Open-Meteo
+  veröffentlicht für dieselbe Stunde sowohl den tatsächlichen UV-Index als auch
+  einen UV-Index bei klarem Himmel. Ihr Verhältnis ist eine gemessene
+  erythemwirksame Wolkendurchlässigkeit für den echten Himmel über dir – weit
+  besser als jede Parametrisierung eines Bewölkungsgrads. Weil der Unterschied
+  zwischen der Durchlässigkeit für UVA und der erythemwirksamen Durchlässigkeit
+  gering ist und je nach Wolkenart schwankt (siehe oben), wird diese
+  Durchlässigkeit unverändert auf UVA angewendet:
+</p>
+<div class="callout">
+  <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>γ</sup>, mit γ = 1</strong>
+</div>
+<p>
+  Eine dichte Wolkendecke, die die erythemwirksame UV-Strahlung auf 30 %
+  verringert, lässt etwa 30 % des UVA übrig. Der Exponent γ wird als
+  ausdrücklicher Koeffizient geführt, weil er der Teil des Modells ist, den man
+  am ehesten mit Messungen überprüfen sollte; das Validierungsskript des
+  Projekts passt ihn an unabhängige UVA-Daten an.
+</p>
+<p>
+  <strong>Ersatzweise: parametrisch, aus dem Bewölkungsgrad.</strong> Wenn das
+  Paar aktueller UV-Werte nicht verfügbar ist, greift das Modell auf den
+  gemeldeten Gesamtbewölkungsgrad zurück:
+</p>
+<div class="callout">
+  <strong>Wolkenfaktor = 1 − 0,4 × (Bedeckung ÷ 100)<sup>1,5</sup></strong>
+</div>
+<p>
+  Die Kurve ist bewusst sanft, weil eine gemeldete „100 % Bedeckung“ eine
+  Aussage über die Himmelsbedeckung ist, nicht über die optische Dicke – das
+  richtige durchschnittliche Verhalten bei voller Bedeckung ist daher eine
+  mäßige Verringerung auf etwa <strong>60 %</strong>, keine Verdunkelung. Die
+  vollständige Herleitung steht zusammen mit allen anderen Koeffizienten unter
+  <a href="how-uva-index-is-calculated.html">So wird der UVA-Index
+  berechnet</a>.
+</p>
+<p>
+  Eine ehrliche Einschränkung: <strong>Das Modell bildet die
+  Wolkenverstärkung nicht ab.</strong> Beide Wege rechnen nur mit
+  Abschwächung, ein Faktor über 1 kommt also nie vor. Unter aufgelockerten
+  Quellwolken mit der Sonne in einer Lücke kann das tatsächliche UVA höher sein,
+  als der UVA-Index angibt. Das ist unter den
+  <a href="how-uva-index-is-calculated.html#omitted">bewusst weggelassenen
+  Faktoren</a> aufgeführt, und es ist der eine Fall, in dem der Wert eher zu
+  niedrig als zu hoch ausfällt.
+</p>

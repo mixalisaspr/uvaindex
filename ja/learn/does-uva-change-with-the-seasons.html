@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>UVAは季節で変わる？冬の紫外線の大部分がUVAである理由</title>
+    <meta
+      name="description"
+      content="オゾンはUVBを強く吸収しますが、UVAはほとんど吸収しません。そのため、冬の低い太陽ではUVBが激減する一方、UVAはわずかしか減りません。冬や早朝の紫外線でUVAの割合が不釣り合いに高い理由を数値とともに解説し、UVインデックスが低くてもUVAが低いとは限らない理由を説明します。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/ja/learn/does-uva-change-with-the-seasons.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-change-with-the-seasons.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-change-with-the-seasons.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-change-with-the-seasons.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/does-uva-change-with-the-seasons.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/does-uva-change-with-the-seasons.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/does-uva-change-with-the-seasons.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/does-uva-change-with-the-seasons.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/does-uva-change-with-the-seasons.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA指数" />
+    <meta property="og:title" content="UVAは季節で変わる？" />
+    <meta property="og:description" content="冬にはUVBがおよそ10分の1に激減しますが、UVAは3〜4分の1にしか減りません。UVインデックスが低くてもUVAが低いとは限らない理由を解説します。" />
+    <meta property="og:url" content="https://uvaindex.org/ja/learn/does-uva-change-with-the-seasons.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "UVAがUVBほど季節によって変わらない理由",
+        "description": "オゾンの吸収の非対称性によって、冬にUVBは激減する一方でUVAはわずかしか減らない理由、冬や早朝の紫外線でUVAの割合が不釣り合いに高い理由、そしてそれがUVインデックスの読み方にとって何を意味するのかを解説します。",
+        "inLanguage": "ja",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-02",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/ja/learn/does-uva-change-with-the-seasons.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Global Solar UV Index: A Practical Guide",
+            "publisher": "World Health Organization, WMO, UNEP and ICNIRP",
+            "datePublished": "2002",
+            "url": "https://www.who.int/publications/i/item/9241590076"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "冬にも日焼け止めは必要ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "UVAに関しては、屋外でそれなりの時間を過ごすのであれば必要です。中緯度では、冬の日中のUVAは通常、真夏の値の4分の1から3分の1ですが、日焼け（サンバーン）を起こすUVBはおよそ10分の1に減ります。光老化や色素沈着を引き起こす曝露は、日焼け（サンバーン）が実質的に起こらなくなっても、一年中続きます。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "UVAは一年中同じですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "いいえ。そう言い切るのは言い過ぎです。冬には太陽が低くなり、その光が大気中を通る経路が長くなるため、UVAは実際に減ります。緯度50度では、12月の晴天時の日中のUVAは、6月の値のおよそ4分の1です。ポイントは、UVBが2〜3倍急激に減るため、冬の日光では相対的にUVAの割合がはるかに高くなるということです。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "UVインデックスが低くてもUVAが低いとは限らないのはなぜですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "UVインデックスは日焼け（サンバーン）に合わせて重み付けされているため、主にUVBを測る指標だからです。UVインデックスを下げる条件の多く（低い太陽、冬、早朝、窓ガラス）は、UVAよりもUVBを強く抑え、厚い雲もわずかにそうすることがあります。そのため、UVインデックスが低いほど、残っている紫外線に占めるUVAの割合が大きくなり、指数が実際のUVAの線量を表す度合いは低くなります。"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA指数",
+            "item": "https://uvaindex.org/ja/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "ナレッジベース",
+            "item": "https://uvaindex.org/ja/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "季節とUVA",
+            "item": "https://uvaindex.org/ja/learn/does-uva-change-with-the-seasons.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <a href="../">UVA指数</a><span class="sep">›</span><a href="./">ナレッジベース</a><span class="sep">›</span>季節とUVA
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="言語: 日本語"><span class="lang-icon" aria-hidden="true">🌐</span> 日本語</summary>
+          <ul>
+            <li><a href="../../learn/does-uva-change-with-the-seasons.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/does-uva-change-with-the-seasons.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/does-uva-change-with-the-seasons.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/does-uva-change-with-the-seasons.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/does-uva-change-with-the-seasons.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="does-uva-change-with-the-seasons.html" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+            <li><a href="../../zh/learn/does-uva-change-with-the-seasons.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>UVAがUVBほど季節によって変わらない理由</h1>
+        <p class="lead">
+          UVA（紫外線A波）は「一年中一定」だとよく言われます。これは正確ではなく、正確な話のほうが
+          もっと興味深いものです。UVAは冬に<em>実際に</em>減りますが、UVB（紫外線B波）は2〜3倍急激に減ります。
+          その結果、冬の日光や、早朝・夕方の日光では、<strong>UVAの割合が不釣り合いに高く</strong>
+          なります。これこそが、日焼け（サンバーン）で重み付けされたUVインデックスでは実際の紫外線の
+          曝露を表せない、最も大きな理由です。
+        </p>
+
+        <div class="callout">
+          <strong>訂正しておくべき点：</strong>UVAは季節を通じて一定ではありません。
+          緯度50°では、12月の晴天時の日中のUVAは、6月の値のおよそ<strong>4分の1</strong>です。
+          同じ期間に、UVインデックスは通常<strong>8〜10分の1</strong>に下がります。
+          変わるのは<em>比率</em>であって、UVAの絶対量が変わらないわけではありません。
+        </div>
+
+        <h2>原因：オゾンはUVBを吸収し、UVAは素通りさせる</h2>
+        <p>
+          オゾンによる紫外線の吸収は緩やかに変化するのではなく、崖のように急激に落ちます。
+          UVBの帯域では、300&nbsp;nmから320&nbsp;nmまでの間に吸収断面積が何<em>桁</em>も
+          小さくなり、<a href="what-is-uva-radiation.html">UVAの帯域</a>の中ほどに達するころには、
+          オゾンは実質的に透明です。実用上、オゾンはUVBに作用し、UVAには手を出さない
+          フィルターなのです。
+        </p>
+        <p>
+          ここに幾何学が加わります。冬や早朝・夕方のように太陽が低いとき、その光は浅い角度で
+          大気に入り、あなたに届くまでにはるかに長い経路を通ります。太陽天頂角が73°のとき、
+          その経路は太陽が真上にあるときのおよそ<strong>3.4倍</strong>の長さになります。
+        </p>
+        <p>
+          この2つを合わせると、非対称性ははっきりします。強い吸収体の中を通る経路が長くなれば、
+          UVBは指数関数的に取り除かれます。一方、その波長をほとんど吸収しないものの中を通る経路が
+          長くなっても、失われる量は比較的わずかです。UVAが失われるのは主に散乱によるもので、
+          その影響ははるかに穏やかです。<strong>UVBを激減させる同じ低い太陽でも、
+          UVAは少し削られるだけなのです。</strong>
+        </p>
+
+        <h2>緯度50°での数値</h2>
+        <p>
+          このサイトの放射伝達モデルによる晴天時の値です。プラハ、バンクーバー、フランクフルトなどの
+          中緯度の地点で、6月の晴れた日中と12月の晴れた日中を比べています。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th></th><th>6月の正午</th><th>12月の正午</th><th>冬／夏</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>太陽天頂角</td><td>約27°</td><td>約73°</td><td>—</td></tr>
+            <tr><td>相対的な経路長</td><td>約1.1×</td><td>約3.4×</td><td>3倍長い</td></tr>
+            <tr><td>UVインデックス（紅斑紫外線、主にUVB）</td><td>約7–8</td><td>約0.7–1</td><td><strong>÷ 8–10</strong></td></tr>
+            <tr><td>UVA放射照度</td><td>約50 W/m²</td><td>約13 W/m²</td><td><strong>÷ 4</strong></td></tr>
+            <tr><td>UVA指数</td><td>約8</td><td>約2</td><td>÷ 4</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          最後の列を見比べてください。冬もUVAを見逃してくれるわけではなく、約4分の1に減らします。
+          しかし、日焼け（サンバーン）を起こす帯域はおよそ10分の1に減らします。UVインデックス1あたりで見ると、
+          冬の正午は夏の正午の<strong>およそ2倍</strong>のUVAを届けていることになります。
+        </p>
+        <p>
+          さらに2つの小さな効果が同じ方向に働きます。北半球の中緯度では、オゾン全量が冬の終わりから
+          春にかけて<em>最大</em>になり、経路が最も長くなるちょうどその時期に、UVBをさらに抑えます。
+          また、地球は1月上旬に太陽に最も近づき、大気上端での放射照度が約3.4%高くなります。
+          このわずかな上乗せは、ほぼすべてがUVAとして地上に届きます。増えたUVBは、届く途中で
+          吸収されてしまうからです。
+        </p>
+
+        <h2>同じ理屈は毎日にも当てはまる</h2>
+        <p>
+          季節と時刻は同じ現象です。どちらも太陽天頂角が変化しているだけです。そのため、
+          一日の変化の曲線は、一年の変化の曲線と同じ形になります。
+        </p>
+        <ul>
+          <li><strong>真夏の日中</strong> — 太陽が高く、経路が短い。浴びる日光の中で最もUVBが多く、UVインデックスが最も役に立つときです。</li>
+          <li><strong>午前の半ばと午後の半ば</strong> — UVBはすでに急速に減っていますが、UVAはまだピーク近くです。「4時に外にいただけなのに」という典型的な曝露です。</li>
+          <li><strong>早朝、夕方、そして冬の間ずっと</strong> — UVBはほとんどなくなっています。残っているのはほぼ純粋なUVAで、量は少ないものの、ゼロにはほど遠いレベルです。</li>
+        </ul>
+        <p>
+          <em>一日のUVA指数</em>のグラフ（<a href="../">計算ツール</a>に表示されます）が、同じ日の
+          UVインデックスの曲線よりも目に見えて裾野が広いのはこのためです。どちらも
+          南中時刻にピークを迎えますが、UVAの曲線はより早く上がり、より遅く下がり、
+          決してそれほど急激には落ちません。
+        </p>
+
+        <div class="callout">
+          <strong>よくある例を訂正すると：</strong>「1月のUVインデックス2」と
+          「7月の午前7&nbsp;時のUVインデックス2」を、異なる曝露のパターンであるかのように
+          対比することがあります。実際には、両者は驚くほど<em>似ています</em>。緯度50°では、
+          どちらも太陽天頂角が73–74°付近のときに起こるため、どちらも同じようにUVAの多いスペクトルを
+          持っています。これが本当の教訓です。<strong>UVインデックスが低いということは、
+          たいていUVAの多い空を意味します</strong>。UVインデックスが低くなる最もよくある理由である
+          低い太陽やガラスは、UVBを優先的に抑えるからです。厚い雲もバランスをUVA側に傾けることが
+          ありますが、その程度はわずかで、すべての種類の雲で起こるわけではありません。
+        </div>
+
+        <h2>UVAを別に測るべき理由</h2>
+        <p>
+          UVインデックスは、「この日光でどのくらい早く日焼け（サンバーン）するか」という一つの問いには
+          よく答えてくれます。日焼け（サンバーン）はほぼすべてUVBによるものなので、指数はUVBに連動します。<sup class="cite"><a href="#src-1" aria-label="出典 1">[1]</a></sup>
+          これは正当な設計上の選択であり、8月にビーチへ行くかどうかを決めるには適切な道具です。
+        </p>
+        <p>
+          しかしそれは、この指数が<strong>UVAが大部分を占める条件下でこそ、系統的に役に立たなくなる</strong>
+          ことを意味します。そしてその条件は、一年の大部分、一日の大部分、そして人々が実際に
+          屋外にいる時間の大部分にあたります。光老化、色素沈着、そして
+          <a href="dangers-of-uva.html">UVAが引き起こす</a>累積的な損傷は、日焼け（サンバーン）のような
+          季節性はありません。日焼け（サンバーン）に合わせて重み付けされた数値では、それらは常に過小に表されてしまいます。
+        </p>
+        <p>
+          UVA専用の<a href="uv-index-vs-uva-index.html">UVA指数</a>は、UVインデックスに
+          取って代わるものではありません。1つ目の数値を正しく読むために必要な、2つ目の数値なのです。
+        </p>
+
+        <h2>何を変えればよいか</h2>
+        <ul>
+          <li><strong>10月に日焼け止めをしまわないでください。</strong>定期的に屋外にいるなら、UVA防御効果の表示がある製品を一年中使うのが現実的な対応です。SPFはUVBの指標なので、ここではSPFの数値よりも<a href="uva-sunscreen-labels-explained.html">UVA表示の読み方</a>のほうが重要です。</li>
+          <li><strong>冬の山の日は、曝露の多い日として扱いましょう。</strong>冬はUVAを4分の1に抑えますが、<a href="uva-at-altitude.html">標高</a>と<a href="reflected-uva-snow-sand-water.html">雪のアルベド</a>がどちらもそれを大きく押し戻します。スキーの条件は、冬の中でUVAが本当に夏の日に匹敵する唯一の状況です。</li>
+          <li><strong>「日中の時間帯以外」をUVAに対して安全だと考えるのはやめましょう。</strong>午前10&nbsp;時〜午後4&nbsp;時というルールは、UVBのルールです。</li>
+          <li><strong>実際の数値を確認しましょう。</strong>冬や早朝のUVAは少ないものの無視できるほどではなく、その違いを見えるようにするためにこそ<a href="../">UVA指数</a>があります。</li>
+        </ul>
+
+        <section class="sources" id="sources">
+          <h2>出典</h2>
+          <ol>
+            <li id="src-1"><a href="https://www.who.int/publications/i/item/9241590076" rel="noopener">Global Solar UV Index: A Practical Guide</a>. <em>World Health Organization, WMO, UNEP and ICNIRP</em>, 2002.</li>
+          </ol>
+        </section>
+        <p class="reviewed">最終確認日：2026年11月16日。誤りやより良い出典に気づいたら、<a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">GitHubでお知らせください</a>。</p>
+
+        <a class="cta" href="../">UVA指数が一日の中でどう変わるかを確認する →</a>
+      </article>
+
+      <aside class="related">
+        <h2>あわせて読みたい</h2>
+        <ul>
+          <li><a href="uv-index-vs-uva-index.html">UVインデックスとUVA指数：それぞれが測っているもの</a></li>
+          <li><a href="uva-vs-uvb.html">UVAとUVBの違いとは？</a></li>
+          <li><a href="uva-on-cloudy-days.html">曇りの日のUVA：どれだけ届くのか</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          無料のオープンソースです。UVA指数とUVA放射照度の非公式な計算です。教育目的の情報であり、医学的助言ではありません。詳しくは<a href="https://uvaindex.org/ja/about.html">このサイトについて</a>をご覧ください。
+          · <button type="button" class="link-btn" data-consent-open>Cookieの設定</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

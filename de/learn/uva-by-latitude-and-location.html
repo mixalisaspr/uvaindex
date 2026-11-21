@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>UVA nach Breitengrad: Warum der Ort für UVA weniger zählt als für UVB</title>
+    <meta
+      name="description"
+      content="Ozon absorbiert UVA kaum, deshalb ist das Gefälle vom Äquator zu den Polen bei UVA viel flacher als beim UV-Index. Höchster UVA-Index bei klarem Himmel für Städte weltweit, warum die Südhalbkugel stärker bestrahlt wird und was lokale Unterschiede tatsächlich ausmacht."
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/de/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/uva-by-latitude-and-location.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA-Index" />
+    <meta property="og:title" content="UVA rund um die Welt: Der Breitengrad zählt weniger, als du denkst" />
+    <meta property="og:description" content="Vom Äquator bis Island sinkt der höchste UV-Index um etwa 60 %. Der höchste UVA-Wert sinkt um weniger als 30 %. Hier erfährst du, warum." />
+    <meta property="og:url" content="https://uvaindex.org/de/learn/uva-by-latitude-and-location.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "UVA rund um die Welt: Warum der Breitengrad weniger zählt, als du denkst",
+        "description": "Wie die UVA-Strahlung am Boden mit Breitengrad und Ort variiert: höchster UVA-Index bei klarem Himmel für Städte weltweit, berechnet mit dem Modell dieser Website, warum die Ozonsäule das UVA-Gefälle gegenüber dem erythemgewichteten UV-Index abflacht, und die Effekte von Perihel und Ozon, die die UV-Strahlung auf der Südhalbkugel erhöhen.",
+        "inLanguage": "de",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-29",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/de/learn/uva-by-latitude-and-location.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Increased ultraviolet radiation in New Zealand (45° S) relative to Germany (48° N)",
+            "author": "Seckmeyer G, McKenzie RL",
+            "publisher": "Nature 359:135–137",
+            "datePublished": "1992",
+            "url": "https://doi.org/10.1038/359135a0"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Wo auf der Welt ist UVA am höchsten?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Überall dort, wo eine senkrecht stehende Sonne mit großer Höhe und dünner Luft zusammenkommt: Die tropischen Anden und das Andenhochland (Altiplano) führen die Liste an, gefolgt vom tibetischen Hochland, den Hochländern im tropischen Ostafrika und hoch gelegenen tropischen Inseln. Auf Meereshöhe wird das Maximum allein durch die senkrecht stehende Sonne bestimmt, deshalb erreicht jeder Ort in den Tropen ungefähr denselben Höchstwert."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Verändert sich UVA stark mit dem Breitengrad?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Weniger als der UV-Index. Zwischen dem Äquator und London sinkt der höchste UV-Index bei klarem Himmel um etwa 40 %, der höchste UVA-Index aber nur um etwa 14 %. Der Grund ist Ozon: Die atmosphärische Säule absorbiert UVB stark und UVA kaum, sodass der längere Weg durch die Atmosphäre in höheren Breiten den Bereich, der Sonnenbrand verursacht, weit stärker abschwächt als den, der die Haut altern lässt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Warum ist die UV-Strahlung in Australien und Neuseeland höher?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Drei Effekte verstärken sich gegenseitig. Die Erde ist Anfang Januar, also im Südsommer, der Sonne am nächsten, was etwa 7 % mehr Sonnenstrahlung bringt, als der Nordsommer erhält. Über den mittleren Breiten der Südhalbkugel liegt eine dünnere Ozonsäule als über den entsprechenden nördlichen Breiten. Und über den südlichen Ozeanen gibt es weit weniger Industrieaerosol. Zusammen heben diese Effekte die UVA-Strahlung auf der Südhalbkugel um einige Prozent über die Werte im Norden bei vergleichbarem Breitengrad – und die Sonnenbrand verursachende UV-Strahlung deutlich stärker."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA-Index",
+            "item": "https://uvaindex.org/de/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Wissensdatenbank",
+            "item": "https://uvaindex.org/de/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UVA nach Breitengrad und Ort",
+            "item": "https://uvaindex.org/de/learn/uva-by-latitude-and-location.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="Brotkrumennavigation">
+          <a href="../">UVA-Index</a><span class="sep">›</span><a href="./">Wissensdatenbank</a><span class="sep">›</span>UVA nach Breitengrad und Ort
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="Sprache: Deutsch"><span class="lang-icon" aria-hidden="true">🌐</span> Deutsch</summary>
+          <ul>
+            <li><a href="../../learn/uva-by-latitude-and-location.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/uva-by-latitude-and-location.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/uva-by-latitude-and-location.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="uva-by-latitude-and-location.html" hreflang="de" lang="de" aria-current="true">Deutsch</a></li>
+            <li><a href="../../it/learn/uva-by-latitude-and-location.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/uva-by-latitude-and-location.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../zh/learn/uva-by-latitude-and-location.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>UVA rund um die Welt: Warum der Breitengrad weniger zählt, als du denkst</h1>
+        <p class="lead">
+          Jeder weiß, dass die Sonne in den Tropen erbarmungslos ist und in
+          Nordeuropa nicht. Für Sonnenbrand stimmt diese Intuition. Für UVA stimmt sie
+          viel weniger – das Gefälle vom Äquator zu den Polen, durch das der
+          UV-Index auf dem Weg nach Norden einbricht, ist größtenteils ein
+          Ozoneffekt, und Ozon ist für UVA fast durchlässig. Das Ergebnis ist eine
+          Welt, in der der UVA-Höchstwert sehr viel gleichmäßiger verteilt ist als das
+          höchste Sonnenbrandrisiko.
+        </p>
+
+        <h2>Warum sich die beiden Gefälle unterscheiden</h2>
+        <p>
+          Zwei Dinge verändern sich, wenn du dich vom Äquator entfernst. Die maximale
+          Sonnenhöhe sinkt, und der Weg durch die Atmosphäre bei diesem Maximum wird
+          länger. Beides verringert die UV-Strahlung am Boden – aber über
+          unterschiedliche Mechanismen und mit unterschiedlichen spektralen Folgen.
+        </p>
+        <ul>
+          <li>
+            <strong>Die Geometrie ist farbenblind.</strong> Eine tiefer stehende Sonne
+            verteilt dieselbe Energie auf mehr Boden, und diese Verdünnung wirkt bei
+            jeder Wellenlänge gleich. Das ist der cos(Zenit)-Term, und er trifft UVA
+            und UVB gleichermaßen.
+          </li>
+          <li>
+            <strong>Die Absorption ist es nicht.</strong> Ein längerer Weg bedeutet
+            mehr Ozonmoleküle im Weg. Die Hartley- und Huggins-Absorptionsbanden des
+            Ozons sind im UVB stark und fallen im UVA steil ab. Der zusätzliche Weg
+            kostet also viel UVB und fast kein UVA.
+          </li>
+        </ul>
+        <p>
+          Hinzu kommt, dass die Ozonsäule selbst mit dem Breitengrad variiert – dünner
+          über den Tropen, typischerweise etwa 250–280 Dobson-Einheiten (DU), und
+          dicker über den mittleren und hohen Breiten, oft 300–400 DU mit einem
+          Maximum im Frühling. Diese Schwankung fügt einen zweiten, UVB-spezifischen
+          Abzug zum Weglängeneffekt hinzu und lässt UVA wiederum weitgehend unberührt.
+        </p>
+        <div class="callout">
+          Deshalb hält das Modell dieser Website das Ozon bei typischen
+          300&nbsp;Dobson-Einheiten fest, statt es live zu verfolgen. Eine Halbierung
+          der Ozonsäule würde UVA nur um wenige Prozent verändern, die
+          erythemwirksame UV-Strahlung dagegen ungefähr verdoppeln. Für UVA ist das ein
+          Rundungsfehler; für den <a href="uv-index-scale-explained.html">UV-Index</a>
+          ist es ein Term erster Ordnung.
+        </div>
+
+        <h2>Höchster UVA-Index, Stadt für Stadt</h2>
+        <p>
+          Die Tabelle unten zeigt für jeden Ort den UVA-Index im
+          <strong>günstigsten Fall</strong>: klarer Himmel, Meereshöhe, sofern nicht
+          anders angegeben, kein Aerosol, zum Sonnenhöchststand an dem Tag des Jahres,
+          an dem die Sonne am höchsten steigt, einschließlich des Abstands zwischen
+          Erde und Sonne an diesem Tag. Für tropische Orte ist das der Zeitpunkt, an
+          dem die Sonne senkrecht über ihnen steht, anderswo die Sommersonnenwende.
+          Die Werte wurden mit dem <a href="how-uva-index-is-calculated.html">Modell</a>
+          dieser Website berechnet. Die Spalte zum UV-Index ist ein grober Wert für
+          typische beobachtete Sommermaxima bei klarem Himmel und dient eher der
+          Veranschaulichung als der Genauigkeit.
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Ort</th><th>Breitengrad</th><th>Höhe</th><th>Kleinster Sonnenzenitwinkel</th><th>Höchster UVA-Index</th><th>≈ Höchster UV-Index</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Quito, Ecuador</td><td>0,2° S</td><td>2850 m</td><td>0°</td><td>11,7</td><td>~14–16</td></tr>
+            <tr><td>Mexiko-Stadt, Mexiko</td><td>19,4° N</td><td>2240 m</td><td>0°</td><td>11,2</td><td>~13–15</td></tr>
+            <tr><td>Nairobi, Kenia</td><td>1,3° S</td><td>1795 m</td><td>0°</td><td>11,5</td><td>~13–15</td></tr>
+            <tr><td>Singapur</td><td>1,4° N</td><td>Meereshöhe</td><td>0°</td><td>10,9</td><td>~12–13</td></tr>
+            <tr><td>Miami, USA</td><td>25,8° N</td><td>Meereshöhe</td><td>2°</td><td>10,5</td><td>~11</td></tr>
+            <tr><td>Kairo, Ägypten</td><td>30,0° N</td><td>Meereshöhe</td><td>7°</td><td>10,4</td><td>~11</td></tr>
+            <tr><td>Sydney, Australien</td><td>33,9° S</td><td>Meereshöhe</td><td>10°</td><td>11,0</td><td>~11–12</td></tr>
+            <tr><td>Los Angeles, USA</td><td>34,1° N</td><td>Meereshöhe</td><td>11°</td><td>10,3</td><td>~10</td></tr>
+            <tr><td>Athen, Griechenland</td><td>38,0° N</td><td>Meereshöhe</td><td>15°</td><td>10,1</td><td>~9–10</td></tr>
+            <tr><td>New York, USA</td><td>40,7° N</td><td>Meereshöhe</td><td>17°</td><td>9,9</td><td>~9</td></tr>
+            <tr><td>Rom, Italien</td><td>41,9° N</td><td>Meereshöhe</td><td>18°</td><td>9,9</td><td>~9</td></tr>
+            <tr><td>Toronto, Kanada</td><td>43,7° N</td><td>Meereshöhe</td><td>20°</td><td>9,7</td><td>~8–9</td></tr>
+            <tr><td>Paris, Frankreich</td><td>48,9° N</td><td>Meereshöhe</td><td>25°</td><td>9,3</td><td>~8</td></tr>
+            <tr><td>London, Vereinigtes Königreich</td><td>51,5° N</td><td>Meereshöhe</td><td>28°</td><td>9,0</td><td>~7</td></tr>
+            <tr><td>Berlin, Deutschland</td><td>52,5° N</td><td>Meereshöhe</td><td>29°</td><td>8,9</td><td>~7</td></tr>
+            <tr><td>Stockholm, Schweden</td><td>59,3° N</td><td>Meereshöhe</td><td>36°</td><td>8,0</td><td>~6</td></tr>
+            <tr><td>Reykjavík, Island</td><td>64,2° N</td><td>Meereshöhe</td><td>41°</td><td>7,3</td><td>~4–5</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="callout">
+          <strong>Vergleich die beiden rechten Spalten miteinander.</strong> Von
+          Singapur bis Reykjavík sinkt der höchste UV-Index um etwa 60 %. Der höchste
+          UVA-Index sinkt um <strong>ein Drittel</strong>. Von Singapur bis London
+          halbiert sich der UV-Index ungefähr, während UVA nur um
+          <strong>17 %</strong> zurückgeht – Londons bester Sommertag liegt, was UVA
+          angeht, weniger als ein Fünftel unter einem tropischen.
+        </div>
+        <p>
+          Die Tabelle zeigt noch zwei weitere Dinge. <strong>Höhe schlägt
+          Breitengrad.</strong> Quito, Mexiko-Stadt und Nairobi führen die Liste nicht
+          wegen ihrer Lage zwischen Nord und Süd an, sondern weil sie so hoch liegen –
+          dünnere Luft bringt etwa 3 % pro Kilometer, noch bevor man den Dunst des
+          Tieflands hinter sich lässt –, und jede dieser Städte übertrifft das
+          nominelle obere Ende der Skala. Auch Sydney liegt bei fast demselben
+          Breitengrad knapp vor Los Angeles: Sein Sommer fällt in den Januar, wenn die
+          Erde der Sonne am nächsten ist. <a href="uva-at-altitude.html">UVA in der
+          Höhe</a> erklärt, warum. Und <strong>die Tropen sind gesättigt.</strong>
+          Sobald die Sonne senkrecht über einem Ort stehen kann, bringt größere Nähe
+          zum Äquator nichts mehr – Singapur und Miami erreichen denselben Höchstwert,
+          nur an verschiedenen Tagen.
+        </p>
+
+        <h2>Auf der Südhalbkugel ist die Strahlung stärker</h2>
+        <p>
+          Bei gleichem Breitengrad übertrifft die UV-Strahlung auf der Südhalbkugel
+          die im Norden – um einige Prozent bei UVA und deutlich stärker bei der
+          Sonnenbrand verursachenden UV-Strahlung. Drei voneinander unabhängige Effekte
+          addieren sich:
+        </p>
+        <ul>
+          <li>
+            <strong>Perihel.</strong> Die Erdbahn ist elliptisch, und die Erde ist
+            Anfang Januar der Sonne am nächsten – auf dem Höhepunkt des Südsommers.
+            Das bringt dem Südsommer etwa <strong>7 % mehr</strong> Sonnenstrahlung,
+            als der Nordsommer im Aphel im Juli erhält. Anders als fast alles andere
+            hier gilt das für jede Wellenlänge gleichermaßen und hebt UVA also genauso
+            an wie UVB.
+          </li>
+          <li>
+            <strong>Dünneres Ozon.</strong> Über den mittleren Breiten der
+            Südhalbkugel liegt eine geringere Ozonsäule als über den entsprechenden
+            nördlichen Breiten, teils wegen der atmosphärischen Zirkulation, teils als
+            Nachwirkung des antarktischen Ozonlochs. Dieser Effekt betrifft speziell
+            UVB und kann groß sein: Ein klassischer Vergleich ergab, dass die Sonnenbrand
+            verursachende UV-Strahlung im Sommer in Neuseeland ungefähr doppelt so hoch
+            war wie in Deutschland bei ähnlichem Breitengrad.<sup class="cite"><a href="#src-1" aria-label="Quelle 1">[1]</a></sup>
+          </li>
+          <li>
+            <strong>Sauberere Luft.</strong> Über den südlichen Ozeanen liegt weit
+            weniger industrielles und kontinentales Aerosol, sodass auf dem Weg nach
+            unten weniger gestreut und absorbiert wird.
+          </li>
+        </ul>
+        <p>
+          Das ist ein wesentlicher Grund dafür, dass Australien und Neuseeland die
+          höchsten Melanomraten der Welt haben und ihre Sonnenschutzkampagnen die am
+          weitesten entwickelten überhaupt sind.
+        </p>
+
+        <h2>Was sich lokal tatsächlich unterscheidet</h2>
+        <p>
+          Der Breitengrad legt die Obergrenze fest. Von Tag zu Tag bewegt alles andere
+          deinen Wert – und meist nicht das, was man erwartet:
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Faktor</th><th>Wirkung auf UVA</th><th>Wirkung auf den UV-Index</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Tageszeit</td><td>Groß</td><td>Größer</td></tr>
+            <tr><td>Jahreszeit</td><td>Mäßig</td><td>Groß</td></tr>
+            <tr><td>Bewölkung</td><td>Groß, schwankend</td><td>Größer</td></tr>
+            <tr><td>Höhe</td><td>~6 % pro km</td><td>~8–10 % pro km</td></tr>
+            <tr><td>Ozonsäule</td><td>Vernachlässigbar</td><td>Groß</td></tr>
+            <tr><td>Aerosol, Dunst, Staub</td><td>Mäßig</td><td>Mäßig</td></tr>
+            <tr><td>Schnee oder Sand unter den Füßen</td><td>Mäßige Zunahme</td><td>Mäßige Zunahme</td></tr>
+            <tr><td>Breitengrad</td><td>Gering</td><td>Groß</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          Um die beiden untersten Zeilen geht es auf dieser Seite. Wenn du dein
+          Sonnenbrandrisiko wissen willst, gehört die Frage, wo auf dem Planeten du
+          bist, zu den ersten. Wenn du deine UVA-Dosis wissen willst, gehört sie zu den
+          letzten – <a href="what-time-is-uva-highest.html">wie spät es ist</a> und
+          <a href="uva-on-cloudy-days.html">was der Himmel macht</a>, zählt weit
+          mehr.
+        </p>
+
+        <h2>Eine Einschränkung zu diesen Zahlen</h2>
+        <p>
+          Jeder Wert in der Städtetabelle ist eine Obergrenze: ein vollkommen klarer,
+          aerosolfreier Himmel am einzigen besten Tag des Jahres. Echte Messwerte
+          liegen darunter, oft deutlich, und der Abstand ist in feuchten, dunstigen
+          oder wolkigen Klimazonen größer als in trockenen, klaren. Singapurs
+          tatsächlicher Tageshöchstwert liegt wegen Quellbewölkung häufig weit unter
+          11, während Kairo seine Obergrenze regelmäßig fast erreicht.
+        </p>
+        <p>
+          Für einen echten Wert dort, wo du gerade bist, ruft der
+          <a href="../">Rechner</a> aktuelle Daten zu Bewölkung, Aerosol und Höhe für
+          deine Koordinaten ab, statt vom günstigsten Fall auszugehen.
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>Quellen</h2>
+          <ol>
+            <li id="src-1">Seckmeyer G, McKenzie RL (1992). <a href="https://doi.org/10.1038/359135a0" rel="noopener">Increased ultraviolet radiation in New Zealand (45° S) relative to Germany (48° N)</a>. <em>Nature 359:135–137</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">Zuletzt geprüft am 16. November 2026. Einen Fehler oder eine bessere Quelle gefunden? <a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">Sag es uns auf GitHub</a>.</p>
+
+        <a class="cta" href="../">UVA-Index für jeden Ort der Erde abrufen →</a>
+      </article>
+
+      <aside class="related">
+        <h2>Weiterlesen</h2>
+        <ul>
+          <li><a href="uva-at-altitude.html">UVA in der Höhe: Berge, Wandern und Fliegen</a></li>
+          <li><a href="does-uva-change-with-the-seasons.html">Warum sich UVA mit den Jahreszeiten viel weniger ändert als UVB</a></li>
+          <li><a href="what-time-is-uva-highest.html">Wann ist UVA am höchsten? Der Tagesverlauf</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          Kostenlos und Open Source. Inoffizielle Berechnung des UVA-Index und der UVA-Bestrahlungsstärke. Nur zu Informationszwecken, keine medizinische Beratung. Mehr dazu auf der Seite <a href="https://uvaindex.org/de/about.html">Über uns</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie-Einstellungen</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

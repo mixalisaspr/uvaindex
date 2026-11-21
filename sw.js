@@ -12,12 +12,14 @@
 //    straight away, and js/sw-register.js reloads open pages onto it.
 //  • Open-Meteo and other third-party requests are never touched — UVA needs
 //    fresh weather data.
+//  • Translated Knowledge Base articles are not precached (it would multiply
+//    the install size); they come from the network when visited.
 //
 // GENERATED FILE — do not edit by hand. Run `python3 scripts/build_kb.py`.
 // SHELL is derived from content/site.json and content/learn/*.html; CACHE is
 // a hash of SHELL *and the contents of every file in it*.
 
-const CACHE = 'uvaindex-shell-f91a58521d';
+const CACHE = 'uvaindex-shell-c5dbaa8ac1';
 
 const SHELL = [
     "./",
@@ -34,6 +36,7 @@ const SHELL = [
     "./js/consent.js",
     "./js/embed.js",
     "./js/forecast.js",
+    "./js/i18n.js",
     "./js/lut.js",
     "./js/solar.js",
     "./js/sw-register.js",
@@ -46,6 +49,30 @@ const SHELL = [
     "./icons/maskable-192.png",
     "./icons/maskable-512.png",
     "./icons/apple-touch-icon.png",
+    "./es/",
+    "./es/index.html",
+    "./es/about.html",
+    "./es/widget.html",
+    "./fr/",
+    "./fr/index.html",
+    "./fr/about.html",
+    "./fr/widget.html",
+    "./de/",
+    "./de/index.html",
+    "./de/about.html",
+    "./de/widget.html",
+    "./it/",
+    "./it/index.html",
+    "./it/about.html",
+    "./it/widget.html",
+    "./ja/",
+    "./ja/index.html",
+    "./ja/about.html",
+    "./ja/widget.html",
+    "./zh/",
+    "./zh/index.html",
+    "./zh/about.html",
+    "./zh/widget.html",
     "./learn/",
     "./learn/index.html",
     "./learn/dangers-of-uva.html",
@@ -91,6 +118,10 @@ const SHELL = [
     "./learn/tags/uv-index.html"
   ];
 
+// Language folders (/es/, /de/...): offline, a page in one of them falls back
+// to that language's calculator.
+const LANG_DIRS = ["es", "fr", "de", "it", "ja", "zh"];
+
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches
@@ -129,7 +160,10 @@ self.addEventListener('fetch', (event) => {
       } catch (err) {
         // Offline and not precached: a page falls back to the calculator.
         if (req.mode === 'navigate') {
-          const shell = await cache.match('./index.html');
+          const scope = new URL(self.registration.scope).pathname;
+          const dir = url.pathname.slice(scope.length).split('/')[0];
+          const home = LANG_DIRS.includes(dir) ? `./${dir}/index.html` : './index.html';
+          const shell = (await cache.match(home)) || (await cache.match('./index.html'));
           if (shell) return shell;
         }
         throw err;

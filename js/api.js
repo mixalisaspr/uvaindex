@@ -16,11 +16,15 @@ async function getJson(url) {
   return res.json();
 }
 
+// Place names come back in the page's language where the services have them
+// (two-letter codes; both speak en, es, fr, de, it, ja and zh).
+const apiLang = (lang) => (/^[a-z]{2}$/.test(lang) ? lang : 'en');
+
 // Search places by name. Returns an array of { name, country, admin1,
 // latitude, longitude, population }. `count` controls how many candidates the
 // caller gets back (used to populate the search-as-you-type suggestions).
-export async function geocode(name, count = 5) {
-  const url = `${GEOCODE_URL}?name=${encodeURIComponent(name)}&count=${count}&language=en&format=json`;
+export async function geocode(name, count = 5, lang = 'en') {
+  const url = `${GEOCODE_URL}?name=${encodeURIComponent(name)}&count=${count}&language=${apiLang(lang)}&format=json`;
   const data = await getJson(url);
   return (data.results || []).map((r) => ({
     name: r.name,
@@ -43,8 +47,8 @@ export async function fetchTimezone(lat, lon) {
 
 // Turn GPS coordinates into the nearest city/town label. Best-effort: if the
 // reverse-geocode service is unreachable the caller falls back to coordLabel().
-export async function reverseGeocode(lat, lon) {
-  const url = `${REVERSE_GEOCODE_URL}?latitude=${lat}&longitude=${lon}&localityLanguage=en`;
+export async function reverseGeocode(lat, lon, lang = 'en') {
+  const url = `${REVERSE_GEOCODE_URL}?latitude=${lat}&longitude=${lon}&localityLanguage=${apiLang(lang)}`;
   const data = await getJson(url);
   const place =
     data.city || data.locality || data.principalSubdivision || null;

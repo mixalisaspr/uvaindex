@@ -1,0 +1,238 @@
+<!--meta
+{
+  "slug": "what-time-is-uva-highest",
+  "translated_from": "2026-11-16",
+  "title": "A che ora gli UVA sono più alti? La curva giornaliera degli UVA, ora per ora",
+  "headline": "A che ora gli UVA sono più alti? La curva giornaliera",
+  "description": "Gli UVA raggiungono il picco al mezzogiorno solare — ma la loro curva è molto più piatta di quella dell'indice UV, quindi la mattina e il tardo pomeriggio portano in proporzione molti più UVA. I valori ora per ora, perché la regola dell'ombra non funziona e perché il mezzogiorno solare cade di rado alle 12:00.",
+  "og_title": "A che ora gli UVA sono più alti?",
+  "og_description": "La curva giornaliera degli UVA è molto più piatta di quella dell'indice UV. A quattro ore dal mezzogiorno solare hai perso il 63% degli UV che scottano, ma solo il 42% degli UVA.",
+  "jsonld_description": "Come variano gli UVA al suolo nel corso della giornata: il calo secondo cos(zenit), un confronto ora per ora con gli UV eritemali, perché la regola delle 10–16 e la regola dell'ombra sono regole per gli UVB e come trovare il vero mezzogiorno solare.",
+  "faq": [
+    {
+      "question": "A che ora del giorno gli UVA sono più alti?",
+      "answer": "Gli UVA raggiungono il picco al mezzogiorno solare — il momento in cui il sole è più alto, che cade di rado alle 12:00 dell'orologio. Ciò che distingue gli UVA è la lentezza con cui calano prima e dopo: a quattro ore dal mezzogiorno solare sono ancora a circa il 58% del picco, mentre gli UV eritemali sono scesi a circa il 37%."
+    },
+    {
+      "question": "Gli UV sono alti di mattina?",
+      "answer": "In termini di scottature, non molto — gli UV eritemali tre ore prima del mezzogiorno solare sono circa il 59% del picco. In termini di UVA, decisamente di più: circa il 75% del picco nello stesso momento. Il sole del mattino e del tardo pomeriggio è sproporzionatamente ricco di UVA, perché il lungo percorso nell'atmosfera elimina gli UVB in modo molto più efficace degli UVA."
+    },
+    {
+      "question": "La regola dell'ombra funziona per gli UVA?",
+      "answer": "Solo in modo approssimativo. La regola — se la tua ombra è più corta della tua altezza, gli UV sono forti — corrisponde a un angolo zenitale solare di 45°, che alle medie latitudini in piena estate si raggiunge a circa tre ore e un quarto prima e dopo il mezzogiorno solare. Fuori da quella finestra gli UV eritemali sono davvero calati bruscamente, ma gli UVA sono ancora a più della metà del picco, quindi un'ombra \"sicura\" non significa una dose bassa di UVA."
+    }
+  ],
+  "cta_text": "Guarda la curva oraria degli UVA di oggi per la tua posizione →",
+  "breadcrumb_label": "A che ora gli UVA sono più alti?"
+}
+-->
+<h1>A che ora gli UVA sono più alti? La curva giornaliera</h1>
+<p class="lead">
+  Gli UVA raggiungono il picco al mezzogiorno solare, per lo stesso motivo
+  per cui lo fa tutto il resto nel cielo: è il momento in cui il sole è più
+  alto e la sua luce compie il percorso più breve attraverso l'atmosfera.
+  La parte interessante non è il picco. È la <em>forma</em> — la curva
+  giornaliera degli UVA è nettamente più piatta di quella
+  dell'indice&nbsp;UV, il che significa che tutti i consigli sugli orari
+  che hai assimilato sono tarati sulla banda sbagliata.
+</p>
+
+<div class="callout">
+  <strong>Il dato principale:</strong> a quattro ore prima o dopo il
+  mezzogiorno solare, gli UV eritemali sono scesi a circa il
+  <strong>37%</strong> del picco — ma gli UVA sono ancora al
+  <strong>58%</strong>. Rispetto a mezzogiorno, la luce del tardo
+  pomeriggio è circa <strong>1,6 volte più ricca di UVA</strong>.
+</div>
+
+<h2>Perché la curva ha questa forma</h2>
+<p>
+  Entrambe le bande si indeboliscono quando il sole scende, per due motivi
+  distinti. Il primo è puramente geometrico: un fascio che colpisce il
+  suolo di sbieco distribuisce la stessa energia su un'area più ampia.
+  Questo effetto è proporzionale al coseno dell'angolo zenitale solare e
+  tratta allo stesso modo tutte le lunghezze d'onda.
+</p>
+<p>
+  Il secondo motivo è l'assorbimento, e non tratta allo stesso modo le
+  lunghezze d'onda. Quando il sole scende, la luce attraversa uno spessore
+  di atmosfera sempre maggiore — la <strong>massa d'aria</strong> aumenta —
+  e ogni chilometro di percorso in più significa più ozono di mezzo.
+  L'ozono assorbe fortemente negli UVB e solo debolissimamente negli UVA.
+  Così l'allungarsi del percorso penalizza la banda che scotta molto più di
+  quella che fa invecchiare.
+</p>
+<p>
+  Combinando i due effetti, l'irradianza al suolo cala all'incirca come una
+  potenza del coseno dell'angolo zenitale, con un esponente diverso per
+  ciascuna banda. Nel modello di trasferimento radiativo di questo sito, gli UVA calano circa come <strong>cos(z)<sup>1,2</sup></strong>. Gli UV eritemali
+  si comportano più come <strong>cos(z)<sup>2,2</sup></strong>, perché il
+  termine dell'ozono si somma alla geometria. Tutta la storia sta in quella
+  differenza di un'unità nell'esponente.
+</p>
+
+<h2>Ora per ora</h2>
+<p>
+  La tabella qui sotto si riferisce a una giornata di piena estate a cielo
+  sereno a 40°&nbsp;N — Europa meridionale, Mediterraneo settentrionale,
+  New York, Pechino. I valori sono percentuali del picco di mezzogiorno di
+  ciascuna banda, quindi le colonne sono direttamente confrontabili nella
+  forma, non nell'intensità.
+</p>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Dal mezzogiorno solare</th><th>Angolo zenitale del sole</th><th>UVA (% del picco)</th><th>UV eritemali (% del picco)</th><th>Arricchimento in UVA</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>0 h</td><td>17°</td><td>100%</td><td>100%</td><td>1,00×</td></tr>
+    <tr><td>±1 h</td><td>21°</td><td>97%</td><td>95%</td><td>1,03×</td></tr>
+    <tr><td>±2 h</td><td>30°</td><td>88%</td><td>80%</td><td>1,11×</td></tr>
+    <tr><td>±3 h</td><td>41°</td><td>75%</td><td>59%</td><td>1,27×</td></tr>
+    <tr><td>±4 h</td><td>53°</td><td>58%</td><td>37%</td><td>1,58×</td></tr>
+    <tr><td>±5 h</td><td>64°</td><td>39%</td><td>18%</td><td>2,19×</td></tr>
+    <tr><td>±6 h</td><td>75°</td><td>21%</td><td>6%</td><td>3,75×</td></tr>
+    <tr><td>±7 h</td><td>86°</td><td>5%</td><td>0,4%</td><td>13×</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  In termini assoluti, quel picco di mezzogiorno corrisponde a un indice
+  UVA di circa <strong>10,5</strong> con cielo sereno al livello del mare —
+  pienamente nella fascia Molto&nbsp;alto. Tre ore dopo è ancora intorno a
+  <strong>7,8</strong> — il limite superiore della fascia Alto. Anche a
+  quattro ore di distanza segna circa <strong>6,0</strong>, ancora appena
+  dentro la fascia Alto, e solo a cinque ore un cielo sereno di piena
+  estate scende finalmente a <strong>4,1</strong>, cioè Moderato. Le
+  <a href="uv-index-vs-uva-index.html">descrizioni delle fasce</a> spiegano
+  cosa conviene fare a ciascuno di questi livelli.
+</p>
+<div class="callout">
+  <strong>La colonna "Arricchimento in UVA" è il risultato pratico.</strong>
+  A fine giornata l'ultravioletto che ti raggiunge non è solo diminuito — ha
+  cambiato composizione. Ciò che resta è in misura sproporzionata la banda
+  che causa fotoinvecchiamento e pigmentazione, e in misura sproporzionata
+  non la banda che te ne fa accorgere.
+</div>
+
+<h2>Perché "evita le ore dalle 10 alle 16" è una regola per gli UVB</h2>
+<p>
+  Il consiglio standard di stare lontano dal sole tra le 10:00 e le 16:00 è
+  un messaggio di salute pubblica sensato ed è mirato esattamente alle
+  scottature.[[cite:who_uvi_guide]] Guarda la colonna eritemale: quella
+  finestra racchiude davvero la grande maggioranza degli UV che scottano,
+  quindi come consiglio per evitare le scottature funziona.
+</p>
+<p>
+  Come consiglio sugli UVA è molto più debole. Prendi una giornata di piena
+  estate alle medie latitudini in cui il mezzogiorno solare cade alle
+  13:00. Le sei ore dalle 10:00 alle 16:00 contengono la maggior parte della
+  dose eritemale — ma le ore dalle 08:00 alle 10:00 e dalle 16:00 alle
+  18:00, che la regola considera libere, viaggiano a circa il 40–75% del
+  picco di UVA. Un'ora all'aperto alle 17:00 non è un'ora senza UVA. È gran
+  parte di un'ora di mezzogiorno, senza i segnali d'allarme.
+</p>
+<p>
+  Lo stesso ragionamento vale per la <strong>regola dell'ombra</strong> —
+  se la tua ombra è più lunga della tua altezza, gli UV sarebbero bassi.
+  Questo corrisponde a un angolo zenitale di 45°, che la tabella colloca a
+  circa tre ore e un quarto dal mezzogiorno solare. Oltre quel punto, gli
+  UV eritemali calano davvero in fretta. Gli UVA sono ancora sopra la metà
+  del picco.
+</p>
+
+<h2>Il mezzogiorno solare non è alle 12:00</h2>
+<p>
+  Tutto ciò che precede è misurato a partire dal <strong>mezzogiorno
+  solare</strong> — l'istante in cui il sole attraversa il tuo meridiano
+  locale. Sull'orologio può cadere molto lontano da mezzogiorno, e si
+  sommano tre effetti distinti:
+</p>
+<ul>
+  <li>
+    <strong>L'ora legale</strong> sposta il mezzogiorno solare un'ora più
+    tardi, intorno alle 13:00 per tutta l'estate. Già solo questo significa
+    che il vero picco cade più vicino all'inizio di una tipica pausa pranzo
+    che a mezzogiorno.
+  </li>
+  <li>
+    <strong>La tua longitudine all'interno del fuso orario.</strong> I fusi
+    orari sono larghi un'ora, ma sono politici. Al margine occidentale di un
+    fuso il sole è in ritardo. La Spagna adotta l'ora dell'Europa centrale
+    pur trovandosi sulla longitudine di Greenwich, quindi in estate il
+    mezzogiorno solare in Galizia arriva dopo le 14:30. La Cina usa un unico
+    fuso orario su una longitudine pari a cinque fusi; a Kashgar il
+    mezzogiorno solare è vicino alle 15:00.
+  </li>
+  <li>
+    <strong>L'equazione del tempo</strong> — l'orbita terrestre è
+    ellittica e il suo asse inclinato, quindi il mezzogiorno solare si
+    sposta fino a circa ±16 minuti nel corso dell'anno, indipendentemente da
+    tutto il resto.
+  </li>
+</ul>
+<p>
+  La conseguenza pratica: <strong>non dare per scontato che il picco degli
+  UV sia a mezzogiorno.</strong> In gran parte dell'Europa in estate è più
+  vicino alle 13:30, e in alcune zone della Spagna e della Cina occidentale
+  parecchio più tardi. Il calcolatore di questo sito lavora con le tue
+  coordinate reali e la vera posizione del sole, quindi il grafico orario
+  mostra dove cade davvero il picco per te, non dove lo suggerisce
+  l'orologio.
+</p>
+
+<h2>Cosa cambia la forma</h2>
+<p>
+  La curva pulita qui sopra presuppone un cielo sereno. La realtà la
+  distorce in modi prevedibili:
+</p>
+<ul>
+  <li>
+    <strong>La stagione la appiattisce o la accentua.</strong> In inverno il
+    sole non sale mai molto, quindi tutta la curva è compressa e bassa — ma
+    sproporzionatamente ricca di UVA, perché il sole basso significa un
+    lungo percorso nell'ozono per tutto il giorno.
+    <a href="does-uva-change-with-the-seasons.html">Gli UVA nelle stagioni</a>
+    esamina i numeri.
+  </li>
+  <li>
+    <strong>La latitudine fissa il tetto.</strong> Più vicino all'equatore il
+    picco di mezzogiorno è più alto e la curva più ampia.
+    <a href="uva-by-latitude-and-location.html">Gli UVA secondo la latitudine</a>
+    propone il confronto.
+  </li>
+  <li>
+    <strong>Le nuvole aggiungono rumore, non una tendenza.</strong> Un campo
+    di cumuli di passaggio può far variare la lettura di un fattore due nel
+    giro di minuti, e una nuvolosità sparsa può spingerla brevemente
+    <em>sopra</em> la linea del cielo sereno — vedi
+    <a href="uva-on-cloudy-days.html">gli UVA nelle giornate nuvolose</a>.
+  </li>
+  <li>
+    <strong>Il terreno la tronca.</strong> In una valle o in una strada di
+    città il sole scompare dietro un ostacolo molto prima di quanto
+    indicherebbe la curva geometrica — anche se gli UVA diffusi dal cielo
+    aperto continuano ad arrivare, ed è per questo che l'ombra è una misura
+    parziale e non completa.
+  </li>
+  <li>
+    <strong>Mattina e pomeriggio non sono del tutto simmetrici.</strong> Le
+    nubi convettive di solito si formano nel corso della giornata e il
+    carico di aerosol spesso differisce tra mattina e pomeriggio, quindi il
+    ramo pomeridiano reale di solito resta un po' sotto quello mattutino.
+  </li>
+</ul>
+
+<h2>Come usare queste informazioni</h2>
+<p>
+  Se vuoi evitare le scottature, evitare certe ore del giorno è efficace:
+  la curva eritemale ha un picco netto, quindi qualche ora all'ombra
+  elimina gran parte del rischio. Se vuoi limitare gli UVA — per il
+  fotoinvecchiamento, il melasma, una condizione di fotosensibilità o
+  l'esposizione degli occhi — gli orari sono uno strumento molto più
+  grossolano, perché la curva contro cui combatti è ampia. In questo caso
+  la risposta non è la pianificazione ma le <strong>barriere</strong>:
+  crema solare, <a href="does-clothing-block-uva.html">vestiti</a> e
+  <a href="uva-and-your-eyes.html">lenti UV400</a>, che funzionano
+  altrettanto bene alle 09:00 e alle 13:00.
+</p>

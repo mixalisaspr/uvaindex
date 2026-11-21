@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>UVA-Wissensdatenbank — UVA-Strahlung und den UV-Index verstehen</title>
+    <meta
+      name="description"
+      content="Verständliche Ratgeber zur UVA-Strahlung: was UVA ist, wie sie sich von UVB unterscheidet, welche Gesundheitsgefahren sie birgt und warum der übliche UV-Index nicht ausreicht — Argumente für einen eigenen UVA-Index."
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/de/learn/" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="UVA-Index" />
+    <meta property="og:title" content="UVA-Wissensdatenbank — UVA-Strahlung und den UV-Index verstehen" />
+    <meta property="og:description" content="Verständliche Ratgeber zur UVA-Strahlung, zum Unterschied zu UVB, zu ihren Gesundheitsrisiken und warum wir einen eigenen UVA-Index brauchen." />
+    <meta property="og:url" content="https://uvaindex.org/de/learn/" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "UVA-Wissensdatenbank",
+        "url": "https://uvaindex.org/de/learn/",
+        "inLanguage": "de",
+        "description": "Verständliche Ratgeber zur UVA-Strahlung, zum Unterschied zu UVB, zu ihren Gesundheitsrisiken und warum ein eigener UVA-Index neben dem üblichen UV-Index nützlich ist.",
+        "hasPart": [
+          {
+            "@type": "Article",
+            "name": "Was ist UVA-Strahlung?",
+            "url": "https://uvaindex.org/de/learn/what-is-uva-radiation.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA vs. UVB: Was ist der Unterschied?",
+            "url": "https://uvaindex.org/de/learn/uva-vs-uvb.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UV-Index vs. UVA-Index: Was beide messen",
+            "url": "https://uvaindex.org/de/learn/uv-index-vs-uva-index.html"
+          },
+          {
+            "@type": "Article",
+            "name": "Die UV-Index-Skala erklärt — und was sie auslässt",
+            "url": "https://uvaindex.org/de/learn/uv-index-scale-explained.html"
+          },
+          {
+            "@type": "TechArticle",
+            "name": "Wie der UVA-Index berechnet wird",
+            "url": "https://uvaindex.org/de/learn/how-uva-index-is-calculated.html"
+          },
+          {
+            "@type": "Article",
+            "name": "Die Gefahren der UVA-Strahlung",
+            "url": "https://uvaindex.org/de/learn/dangers-of-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "Wann ist UVA am höchsten? Der Tagesverlauf",
+            "url": "https://uvaindex.org/de/learn/what-time-is-uva-highest.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA an bewölkten Tagen: Wie viel durchkommt",
+            "url": "https://uvaindex.org/de/learn/uva-on-cloudy-days.html"
+          },
+          {
+            "@type": "Article",
+            "name": "Warum sich UVA mit den Jahreszeiten viel weniger ändert als UVB",
+            "url": "https://uvaindex.org/de/learn/does-uva-change-with-the-seasons.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA rund um die Welt: Warum der Breitengrad weniger zählt, als du denkst",
+            "url": "https://uvaindex.org/de/learn/uva-by-latitude-and-location.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA in der Höhe: Berge, Wandern und Fliegen",
+            "url": "https://uvaindex.org/de/learn/uva-at-altitude.html"
+          },
+          {
+            "@type": "Article",
+            "name": "Reflektiertes UVA: Schnee, Sand, Wasser und Beton",
+            "url": "https://uvaindex.org/de/learn/reflected-uva-snow-sand-water.html"
+          },
+          {
+            "@type": "Article",
+            "name": "Blockt Glas UVA? Fenster, Autos und UV-Schutzfolie",
+            "url": "https://uvaindex.org/de/learn/does-glass-block-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "Blockiert Kleidung UVA? UPF-Werte und was wirklich hilft",
+            "url": "https://uvaindex.org/de/learn/does-clothing-block-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA-Kennzeichnung auf Sonnencreme entschlüsselt: PA+++, UVA-Kreis, Sterne und kritische Wellenlänge",
+            "url": "https://uvaindex.org/de/learn/uva-sunscreen-labels-explained.html"
+          },
+          {
+            "@type": "Article",
+            "name": "Wie viel Sonnencreme du wirklich brauchst – und warum der UVA-Schutz am meisten leidet",
+            "url": "https://uvaindex.org/de/learn/sunscreen-application-uva-protection.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA und deine Augen: Sonnenbrillen, UV400, Grauer Star und Pterygium",
+            "url": "https://uvaindex.org/de/learn/uva-and-your-eyes.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA und Hautalterung: Wie Lichtalterung wirklich entsteht",
+            "url": "https://uvaindex.org/de/learn/uva-and-skin-aging.html"
+          },
+          {
+            "@type": "Article",
+            "name": "Bräunt UVA? Bräunung, Sonnenbrand und der Mythos der Grundbräune",
+            "url": "https://uvaindex.org/de/learn/does-uva-tan-or-burn.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA und Vitamin D: alle Kosten, kein Nutzen",
+            "url": "https://uvaindex.org/de/learn/uva-and-vitamin-d.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA, Melanin und Pigmentierung: Melasma, Hyperpigmentierung und Hautton",
+            "url": "https://uvaindex.org/de/learn/uva-melasma-and-skin-tone.html"
+          },
+          {
+            "@type": "Article",
+            "name": "Lichtempfindlichkeit: Medikamente und Erkrankungen, die UVA gefährlich machen",
+            "url": "https://uvaindex.org/de/learn/uva-photosensitivity-medications.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA in Innenräumen: Nagellampen, Solarien und was deine Lampen wirklich abgeben",
+            "url": "https://uvaindex.org/de/learn/indoor-uva-nail-lamps-tanning-beds.html"
+          },
+          {
+            "@type": "TechArticle",
+            "name": "UVA selbst messen: Messgeräte, Karten und Handy-Mythen",
+            "url": "https://uvaindex.org/de/learn/how-to-measure-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "Mineralische oder chemische Sonnencreme: Was ist besser gegen UVA?",
+            "url": "https://uvaindex.org/de/learn/mineral-vs-chemical-sunscreen-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "Blockiert Wasser UVA? Schwimmen, Schnorcheln und Sonnencreme",
+            "url": "https://uvaindex.org/de/learn/does-water-block-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "Sonnenschutz für Babys und Kinder",
+            "url": "https://uvaindex.org/de/learn/sun-protection-for-children-and-babies.html"
+          },
+          {
+            "@type": "Article",
+            "name": "Schadet UVA den Haaren? Farbe, Protein und deine Kopfhaut",
+            "url": "https://uvaindex.org/de/learn/does-uva-damage-hair.html"
+          },
+          {
+            "@type": "Article",
+            "name": "Brauchst du jeden Tag Sonnencreme?",
+            "url": "https://uvaindex.org/de/learn/do-you-need-sunscreen-every-day.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--hub">
+      <nav class="site-nav" aria-label="Hauptnavigation">
+        <a href="../">UVA-Index-Rechner</a>
+        <a href="../learn/" class="active">Wissensdatenbank</a>
+        <a href="../widget.html">Kostenloses Widget</a>
+        <a href="../about.html">Über uns</a>
+        <span class="spacer"></span>
+        <details class="lang-switch">
+          <summary aria-label="Sprache: Deutsch"><span class="lang-icon" aria-hidden="true">🌐</span> Deutsch</summary>
+          <ul>
+            <li><a href="../../learn/" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="./" hreflang="de" lang="de" aria-current="true">Deutsch</a></li>
+            <li><a href="../../it/learn/" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../zh/learn/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </nav>
+
+      <header>
+        <h1>UVA-Wissensdatenbank</h1>
+        <p class="subtitle">
+          Kurze, verständliche Ratgeber zur Ultraviolett-A-Strahlung — was sie
+          ist, wie sie sich von UVB unterscheidet, warum sie für deine Haut wichtig
+          ist und warum der bekannte <strong>UV-Index</strong> nicht die ganze
+          Geschichte erzählt.
+        </p>
+      </header>
+
+      <ul class="kb-list">
+        <li>
+          <a class="kb-card" href="what-is-uva-radiation.html">
+            <h2>Was ist UVA-Strahlung?</h2>
+            <p>
+              UVA ist der langwellige Bereich des ultravioletten Lichts (315–400 nm). Erfahre, wo er im UV-Spektrum liegt, warum ~95 % der UV-Strahlung am Boden UVA sind und wie sich UVA im Tagesverlauf, unter Wolken und hinter Glas verhält.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-vs-uvb.html">
+            <h2>UVA vs. UVB: Was ist der Unterschied?</h2>
+            <p>
+              UVA und UVB im Vergleich: Wellenlänge, wie tief jede Strahlung in die Haut eindringt, Sonnenbrand vs. Lichtalterung, Vitamin D, ihre Rolle bei Hautkrebs und wie Wolken, Glas, Tageszeit und Jahreszeit sie jeweils beeinflussen.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uv-index-vs-uva-index.html">
+            <h2>UV-Index vs. UVA-Index: Was beide messen</h2>
+            <p>
+              Der UV-Index ist erythemgewichtet, wird also von UVB dominiert und erfasst UVA kaum. Was jeder Index misst, in welchen Situationen ein niedriger UV-Index mit hoher UVA-Strahlung einhergeht und wie du die UVA-Index-Skala von 0 bis 11+ liest.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uv-index-scale-explained.html">
+            <h2>Die UV-Index-Skala erklärt — und was sie auslässt</h2>
+            <p>
+              Was die Zahlen des UV-Index bedeuten, woher die Skala von 0–11+ stammt, die Farben und Empfehlungen der WHO für die einzelnen Stufen, wie hoch der Wert tatsächlich steigen kann — und die Erythemgewichtung, durch die er UVA zu niedrig ausweist.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="how-uva-index-is-calculated.html">
+            <h2>Wie der UVA-Index berechnet wird</h2>
+            <p>
+              Die vollständige Methode hinter unserem UVA-Index: wie die UVA-Bestrahlungsstärke am Boden (315–400 nm, W/m²) aus einer Strahlungstransfer-Tabelle plus aktuellen Daten zu Wolken, Dunst, Luftdruck und Schnee abgeleitet wird, die genauen Formeln und Annahmen, wie das Modell geprüft wird und welche Faktoren wir weglassen.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="dangers-of-uva.html">
+            <h2>Die Gefahren der UVA-Strahlung</h2>
+            <p>
+              Die gesundheitlichen Auswirkungen von UVA: Lichtalterung und Falten, indirekte DNA-Schäden durch reaktive Sauerstoffspezies, Risiko für Hautkrebs und Melanome, Augenschäden, Immunsuppression und Lichtempfindlichkeit — plus praktische Tipps, wie du die Exposition verringerst.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="what-time-is-uva-highest.html">
+            <h2>Wann ist UVA am höchsten? Der Tagesverlauf</h2>
+            <p>
+              UVA erreicht sein Maximum am wahren Sonnenmittag — doch seine Kurve ist viel flacher als die des UV-Index, sodass Vormittage und späte Nachmittage anteilig deutlich mehr UVA bringen. Werte Stunde für Stunde, warum die Schattenregel versagt und warum der Sonnenmittag selten um 12:00 Uhr liegt.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-on-cloudy-days.html">
+            <h2>UVA an bewölkten Tagen: Wie viel durchkommt</h2>
+            <p>
+              Wolken schwächen UVA weit weniger ab als das Sonnenlicht – und aufgelockerte Bewölkung kann UVA kurzzeitig über den Wert bei klarem Himmel treiben. Durchlässigkeit nach Wolkenart, UVA und UVB unter Wolken im Vergleich, der Effekt der Wolkenverstärkung und wie der UVA-Index ihn modelliert.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-uva-change-with-the-seasons.html">
+            <h2>Warum sich UVA mit den Jahreszeiten viel weniger ändert als UVB</h2>
+            <p>
+              Ozon absorbiert UVB stark und UVA kaum, daher bricht UVB bei tief stehender Wintersonne ein, während UVA nur mäßig sinkt. Warum UV-Strahlung im Winter und am frühen Morgen überproportional aus UVA besteht, mit Zahlen — und warum ein niedriger UV-Index nie wenig UVA bedeutet.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-by-latitude-and-location.html">
+            <h2>UVA rund um die Welt: Warum der Breitengrad weniger zählt, als du denkst</h2>
+            <p>
+              Ozon absorbiert UVA kaum, deshalb ist das Gefälle vom Äquator zu den Polen bei UVA viel flacher als beim UV-Index. Höchster UVA-Index bei klarem Himmel für Städte weltweit, warum die Südhalbkugel stärker bestrahlt wird und was lokale Unterschiede tatsächlich ausmacht.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-at-altitude.html">
+            <h2>UVA in der Höhe: Berge, Wandern und Fliegen</h2>
+            <p>
+              UV-Strahlung nimmt mit der Höhe zu — UVA aber langsamer als die oft zitierten 10 % pro 1000 m, denn das ist ein Wert für erythemwirksame Strahlung. Warum der Höhengradient von der Wellenlänge abhängt, wie Schnee und saubere Luft ihn verstärken und was Forschung zu UVA im Cockpit und zu Melanomen bei Piloten zeigt.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="reflected-uva-snow-sand-water.html">
+            <h2>Reflektiertes UVA: Schnee, Sand, Wasser und Beton</h2>
+            <p>
+              Die Reflexion des Bodens erhöht das UVA, das du abbekommst – und die UV-Albedo ist nicht die sichtbare Albedo. Reflexionswerte nach Oberfläche, warum Skifahrer und Bootsfahrer unter dem Kinn verbrennen, warum Schatten am Strand nicht reicht und wie der UVA-Index die Albedo der Oberfläche modelliert.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-glass-block-uva.html">
+            <h2>Blockt Glas UVA? Fenster, Autos und UV-Schutzfolie</h2>
+            <p>
+              Normales Fensterglas hält fast das gesamte UVB auf, lässt aber einen großen Teil des UVA durch. Wie viel durch Fenster zu Hause, im Büro und im Auto dringt, warum sich Windschutzscheiben von Seitenscheiben unterscheiden, was Studien zu Hautkrebs bei Autofahrern zeigen und wie du UV-Folie auswählst.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-clothing-block-uva.html">
+            <h2>Blockiert Kleidung UVA? UPF-Werte und was wirklich hilft</h2>
+            <p>
+              Der UPF ist erythemgewichtet und damit wie der Lichtschutzfaktor (LSF) eigentlich ein UVB-Maß — deshalb ergänzt die europäische Norm einen eigenen UVA-Grenzwert. Durchlässigkeit von Stoffen nach Material, Farbe und Webart, was passiert, wenn Stoff nass oder gedehnt wird, und wie gut Hüte und Schatten wirklich schützen.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-sunscreen-labels-explained.html">
+            <h2>UVA-Kennzeichnung auf Sonnencreme entschlüsselt: PA+++, UVA-Kreis, Sterne und kritische Wellenlänge</h2>
+            <p>
+              Der LSF misst fast ausschließlich UVB. So liest du den tatsächlichen UVA-Schutz ab: das EU-Logo mit UVA im Kreis, das japanische PA-System, die Boots-Sterne, den US-Breitbandtest, die Photostabilität von Avobenzon und welche UVA-Filter wo erhältlich sind.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="sunscreen-application-uva-protection.html">
+            <h2>Wie viel Sonnencreme du wirklich brauchst – und warum der UVA-Schutz am meisten leidet</h2>
+            <p>
+              Sonnencreme wird mit 2 mg/cm² getestet, aber nur mit einem Viertel davon aufgetragen – und der Schutz sinkt exponentiell mit der Schichtdicke. Warum zu dünnes Auftragen und photochemischer Abbau den UVA-Schutz am stärksten treffen, dazu die Teelöffel- und die Zwei-Finger-Regel.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-and-your-eyes.html">
+            <h2>UVA und deine Augen: Sonnenbrillen, UV400, Grauer Star und Pterygium</h2>
+            <p>
+              Wie UVA das Auge erreicht und schädigt, was UV400, EN ISO 12312-1 und ANSI Z80.3 wirklich garantieren, warum dunkle Gläser ohne UV-Filter schlimmer sein können als gar keine und warum die Form der Fassung wichtiger ist als die Tönung der Gläser.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-and-skin-aging.html">
+            <h2>UVA und Hautalterung: Wie Lichtalterung wirklich entsteht</h2>
+            <p>
+              UVA erreicht die Lederhaut und treibt die Enzyme an, die Kollagen abbauen. Der Mechanismus vom Photon bis zur Falte, die Studie, die zeigt, dass tägliche Sonnencreme messbare Hautalterung stoppt, die Belege von Lkw-Fahrern und Zwillingen und was den Schaden wirklich repariert.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-uva-tan-or-burn.html">
+            <h2>Bräunt UVA? Bräunung, Sonnenbrand und der Mythos der Grundbräune</h2>
+            <p>
+              UVA dunkelt die Haut innerhalb von Minuten nach, indem es bereits vorhandenes Melanin oxidiert — eine Bräune, die fast keinen Schutz bietet. Die drei verschiedenen Bräunungsreaktionen, warum UVA kaum Sonnenbrand verursacht und was das für Solarien und die Idee der Grundbräune bedeutet.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-and-vitamin-d.html">
+            <h2>UVA und Vitamin D: alle Kosten, kein Nutzen</h2>
+            <p>
+              Die Vitamin-D-Bildung wird von einem schmalen UVB-Bereich um 295–300 nm angetrieben und hört unterhalb von 315 nm ganz auf. UVA bildet überhaupt kein Vitamin D — damit sind Wintersonne, Licht durchs Fenster und Solarien reine Exposition ohne Gegenwert.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-melasma-and-skin-tone.html">
+            <h2>UVA, Melanin und Pigmentierung: Melasma, Hyperpigmentierung und Hautton</h2>
+            <p>
+              UVA und sichtbares Licht verursachen Melasma und postinflammatorische Hyperpigmentierung weit stärker als UVB — deshalb schneiden getönte Sonnenschutzmittel mit Eisenoxiden besser ab als farblose. Wovor Melanin bei den verschiedenen Fitzpatrick-Hauttypen schützt und wovor nicht.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-photosensitivity-medications.html">
+            <h2>Lichtempfindlichkeit: Medikamente und Erkrankungen, die UVA gefährlich machen</h2>
+            <p>
+              Die meisten arzneimittelbedingten Lichtempfindlichkeiten werden durch UVA ausgelöst — deshalb treten sie auch hinter Auto- und Bürofenstern und an bedeckten Tagen auf. Phototoxische vs. photoallergische Reaktionen, die wichtigsten Wirkstoffklassen, polymorphe Lichtdermatose, Lupus und Porphyrie und welcher Schutz wirklich hilft.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="indoor-uva-nail-lamps-tanning-beds.html">
+            <h2>UVA in Innenräumen: Nagellampen, Solarien und was deine Lampen wirklich abgeben</h2>
+            <p>
+              Gel-Nagellampen geben fast reines UVA ab, Solarien haben stark zu UVA verschobene Spektren und Bildschirme senden überhaupt kein UV aus. Was jede Quelle in Innenräumen tatsächlich abgibt, wie sie in W/m² im Vergleich zur Mittagssonne abschneidet und wo die echten Risiken liegen.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="how-to-measure-uva.html">
+            <h2>UVA selbst messen: Messgeräte, Karten und Handy-Mythen</h2>
+            <p>
+              Was es wirklich braucht, um UVA zu messen — Spektroradiometer, Breitband-Radiometer, günstige Verbrauchermessgeräte und photochrome Karten —, wo jedes davon versagt, warum dein Smartphone mit ziemlicher Sicherheit kein Ultraviolett messen kann und wie du jeden Messwert auf Plausibilität prüfst.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="mineral-vs-chemical-sunscreen-uva.html">
+            <h2>Mineralische oder chemische Sonnencreme: Was ist besser gegen UVA?</h2>
+            <p>
+              Zinkoxid, Titandioxid und organische Filter im Vergleich: UVA-Abdeckung, Photostabilität, Weißeleffekt, empfindliche Haut, Riff-Vorschriften und Aufnahme in den Körper. Warum die Geschichte „mineralisch reflektiert, chemisch absorbiert“ größtenteils falsch ist und wie du richtig auswählst.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-water-block-uva.html">
+            <h2>Blockiert Wasser UVA? Schwimmen, Schnorcheln und Sonnencreme</h2>
+            <p>
+              Wasser ist ein schwacher UV-Schutz: UVA dringt in klares Wasser viel tiefer ein als UVB, in einem halben Meter Tiefe bist du noch stark exponiert, und auf nasser Haut geht Sonnencreme schnell verloren. Was in Pools, im Meer und in Seen passiert und was „wasserfest“ wirklich bedeutet.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="sun-protection-for-children-and-babies.html">
+            <h2>Sonnenschutz für Babys und Kinder</h2>
+            <p>
+              Warum Haut und Augen von Kindern empfindlicher auf UV-Strahlung reagieren, ab wann Babys Sonnencreme benutzen dürfen, welche Sonnencreme für Kinder geeignet ist und warum Schatten, Kleidung, Hut und Sonnenbrille wichtiger sind. Dazu der Mythos „80 % der lebenslangen Sonnenbelastung vor 18“.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-uva-damage-hair.html">
+            <h2>Schadet UVA den Haaren? Farbe, Protein und deine Kopfhaut</h2>
+            <p>
+              Sonnenlicht schädigt das Haar auf zwei Arten: UVA lässt die Farbe verblassen und hellt sie auf, indem es Melanin und Farbstoffe abbaut, während UVB das Protein des Haarschafts angreift. Warum blondes, graues und gefärbtes Haar am meisten leidet, wie gut Haar die Kopfhaut schützt und was wirklich hilft.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="do-you-need-sunscreen-every-day.html">
+            <h2>Brauchst du jeden Tag Sonnencreme?</h2>
+            <p>
+              Ob sich tägliche Sonnencreme lohnt, hängt davon ab, wie viel UVA du tatsächlich abbekommst – nicht vom Wetter oder allein vom UV-Index. Ein Ratgeber Situation für Situation – bewölkte Tage, Winter, Arbeit am Fenster, Autofahren, Bildschirme, dunklere Haut – und was die Studie zur täglichen Sonnencreme zeigt.
+            </p>
+            <span class="kb-more">Lesen →</span>
+          </a>
+        </li>
+
+      </ul>
+
+      <a class="cta" href="../">Live-UVA-Index für deinen Standort ansehen →</a>
+
+      <footer>
+        <p class="disclaimer">
+          Kostenlos und Open Source. Inoffizielle Berechnung des UVA-Index und der UVA-Bestrahlungsstärke. Nur zu Informationszwecken, keine medizinische Beratung. Mehr dazu auf der Seite <a href="https://uvaindex.org/de/about.html">Über uns</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie-Einstellungen</button>
+        </p>
+        <p class="disclaimer">
+          Kostenlos und <strong>Open Source</strong> — Code und Modell liegen
+          auf <a href="https://github.com/mixalisaspr/uvaindex">GitHub</a> unter
+          der
+          <a href="https://github.com/mixalisaspr/uvaindex/blob/main/LICENSE">MIT-Lizenz</a>.
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,260 @@
+<!--meta
+{
+  "slug": "how-to-measure-uva",
+  "translated_from": "2026-11-16",
+  "title": "Cómo medir la radiación UVA: medidores, tarjetas UV y por qué el móvil no sirve",
+  "headline": "Cómo medir la UVA tú mismo: medidores, tarjetas y mitos sobre el móvil",
+  "description": "Qué hace falta para medir de verdad la UVA —espectrorradiómetros, radiómetros de banda ancha, medidores de consumo baratos y tarjetas fotocrómicas—, dónde falla cada uno, por qué tu smartphone casi con seguridad no puede medir el ultravioleta y cómo comprobar si una lectura es verosímil.",
+  "og_title": "Cómo medir la UVA tú mismo",
+  "og_description": "De espectrorradiómetros de 50.000 £ a medidores de bolsillo de 15 £ y cuentas que cambian de color: lo que de verdad te dice cada uno y por qué tu móvil no te dice nada.",
+  "jsonld_description": "Guía técnica para medir la radiación ultravioleta A: tipos de instrumentos, desde espectrorradiómetros hasta medidores de consumo con fotodiodo, los errores de respuesta espectral y de respuesta coseno que dominan en los dispositivos baratos, por qué los smartphones no pueden detectar la UV y cómo validar una lectura frente a valores modelizados.",
+  "faq": [
+    {
+      "question": "¿Puede mi móvil medir la radiación UV?",
+      "answer": "Casi con seguridad, no. Salvo raras excepciones, como el Galaxy Note 4 de Samsung de 2014, los smartphones no llevan sensor UV. El sensor de luz ambiental responde a la luz visible y está filtrado contra el infrarrojo; la cámara está detrás de un filtro de corte UV/IR, y el cristal de la lente bloquearía la mayor parte de la UVA incluso sin él. Las aplicaciones que muestran un índice UV descargan una previsión para tus coordenadas desde una API meteorológica, lo cual es útil, pero es una predicción para tu zona, no una medición de tu entorno."
+    },
+    {
+      "question": "¿Son precisos los medidores UV baratos?",
+      "answer": "Para comparaciones relativas, a menudo son suficientes. Para valores absolutos, con frecuencia no. Los dos errores principales son el desajuste espectral —la combinación de detector y filtro solo se aproxima a la curva de respuesta que dice tener— y una mala respuesta coseno, por la que la luz que llega en ángulo se cuenta de menos porque el sensor carece de un difusor adecuado. Ambos errores aumentan justo cuando el espectro se aleja del de un sol de mediodía con cielo despejado: con nubes, con el sol bajo, en interiores y bajo lámparas artificiales."
+    },
+    {
+      "question": "¿Cómo compruebo si una lectura UV es verosímil?",
+      "answer": "Haz cuatro pruebas. Debe marcar cero de noche. Debe alcanzar su máximo al mediodía solar, no al mediodía del reloj. A través de una ventana cerrada debe caer bruscamente si tiene ponderación eritemática, y mucho menos si de verdad mide UVA. Y su curva diaria debe ser un arco amplio y suave. Un dispositivo que falle cualquiera de ellas no está midiendo lo que dice medir."
+    }
+  ],
+  "cta_text": "Compara tu medidor con el índice UVA modelizado →",
+  "breadcrumb_label": "Cómo medir la UVA"
+}
+-->
+<h1>Cómo medir la UVA tú mismo: medidores, tarjetas y mitos sobre el móvil</h1>
+<p class="lead">
+  Este sitio <em>modeliza</em> la UVA en lugar de medirla, por un motivo
+  que conviene explicar desde el principio: medir bien el ultravioleta es
+  realmente difícil, y los instrumentos que lo hacen bien cuestan más que
+  un coche. Lo que sigue es un repaso honesto de lo que hay disponible, de
+  lo que de verdad te dice cada tipo de dispositivo y de cómo distinguir
+  una lectura real de una cifra que solo parece creíble.
+</p>
+
+<h2>Tipos de instrumentos</h2>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Instrumento</th><th>Qué hace</th><th>Coste habitual</th><th>Útil para</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Espectrorradiómetro de barrido</td><td>Resuelve la irradiancia longitud de onda a longitud de onda</td><td>30.000–100.000+ £</td><td>Medición de referencia; cualquier ponderación se calcula después</td></tr>
+    <tr><td>Radiómetro de banda ancha</td><td>Filtro y detector ajustados a una única curva de respuesta objetivo</td><td>1.500–6.000 £</td><td>Monitorización continua de una sola banda definida</td></tr>
+    <tr><td>Medidor de consumo con fotodiodo</td><td>Fotodiodo de silicio, SiC o GaN más un filtro</td><td>15–300 £</td><td>Comparaciones relativas; detectar diferencias grandes</td></tr>
+    <tr><td>Tarjeta o cuenta fotocrómica</td><td>Un tinte se oscurece con la exposición a la UV</td><td>1–10 £</td><td>Demostrar que la UV existe; enseñanza</td></tr>
+    <tr><td>Dosímetro de película de polisulfona</td><td>El cambio de absorbancia integra la dosis acumulada</td><td>Bajo, por dosímetro</td><td>Estudios de dosis personal durante horas o días</td></tr>
+    <tr><td>Smartphone</td><td>Casi nunca nada: los sensores UV en móviles son una rareza</td><td>—</td><td>Mostrar una previsión, no una medición</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>La referencia: los espectrorradiómetros</h2>
+<p>
+  Un espectrorradiómetro de doble monocromador dispersa la luz entrante y
+  mide por separado cada estrecha franja de longitud de onda, normalmente
+  desde unos 290&nbsp;nm hasta 400&nbsp;nm o más. Como obtiene el espectro
+  completo, cualquier ponderación puede aplicarse después por software:
+  la eritemática para un <a href="uv-index-scale-explained.html">índice&nbsp;UV</a>,
+  la de la vitamina&nbsp;D para una tasa de síntesis, o ninguna ponderación
+  para la integral no ponderada de 315–400&nbsp;nm que este sitio llama UVA.
+</p>
+<p>
+  Esa flexibilidad es precisamente la razón por la que es la referencia.
+  Todos los demás dispositivos llevan una ponderación fijada en el hardware
+  y no pueden reutilizarse para otra cosa. Los inconvenientes son el coste,
+  el tamaño, la necesidad de calibrarlo con regularidad frente a lámparas
+  patrón trazables, la estabilización de temperatura y unos tiempos de
+  barrido tan largos que una nube pasajera puede estropear una medición.
+</p>
+
+<h2>Radiómetros de banda ancha</h2>
+<p>
+  Usan una pila de filtros ópticos y un detector diseñados para que la
+  respuesta combinada se aproxime a una curva objetivo. Aquí importan dos
+  tipos:
+</p>
+<ul>
+  <li>
+    <strong>Biómetros eritemáticos</strong>, que se aproximan al espectro de
+    acción de la quemadura solar de la CIE. Son los que despliegan la mayoría
+    de las redes nacionales de monitorización UV y de los que proceden la
+    mayoría de las observaciones de «índice UV» publicadas.
+  </li>
+  <li>
+    <strong>Radiómetros UVA</strong>, que buscan una respuesta plana en
+    aproximadamente 315–400&nbsp;nm. Miden la magnitud que modeliza este
+    sitio y son los únicos instrumentos asequibles que lo hacen.
+  </li>
+</ul>
+<p>
+  Son robustos, resistentes a la intemperie y registran datos de forma
+  continua. Su punto débil es que la curva de respuesta nunca deja de ser
+  una aproximación, y se desvía a medida que envejecen los filtros; por eso
+  las instalaciones serias se recalibran cada año frente a un
+  espectrorradiómetro.
+</p>
+
+<h2>Medidores de consumo: qué estás comprando en realidad</h2>
+<p>
+  Un medidor UV de bolsillo es un fotodiodo, un filtro y un
+  microcontrolador que aplica un factor de conversión. Que la cifra que
+  muestra signifique algo depende de tres cosas que las fichas técnicas
+  rara vez mencionan.
+</p>
+<ul>
+  <li>
+    <strong>Química del detector.</strong> Los fotodiodos de silicio simples
+    responden con fuerza en todo el visible y el infrarrojo cercano, así que
+    dependen por completo del filtrado para rechazar quizá el 99,9&nbsp;% de
+    la luz que realmente les llega, una exigencia que a bajo coste se cumple
+    de forma desigual. Los detectores de carburo de silicio y de nitruro de
+    galio son intrínsecamente <em>ciegos al visible</em>: su banda prohibida
+    hace que apenas respondan por encima del ultravioleta. Un medidor que
+    especifica SiC o GaN es un instrumento bastante mejor que uno que no lo
+    especifica.
+  </li>
+  <li>
+    <strong>Respuesta coseno.</strong> Un sensor plano debe contar la luz
+    que llega a 60° de la vertical con la mitad de peso que la que llega
+    directamente desde arriba, porque así funciona la irradiancia sobre una
+    superficie horizontal. Para lograrlo hace falta un difusor con la forma
+    adecuada. Los medidores baratos con una ventana desnuda leen muy por
+    debajo la luz de ángulo bajo, justo la luz difusa del cielo, que
+    transporta una gran parte de la UVA.
+  </li>
+  <li>
+    <strong>Supuesto espectral.</strong> La mayoría de los medidores de
+    consumo muestran un «índice UV» obtenido a partir de una única lectura
+    de banda ancha suponiendo un espectro solar estándar de cielo despejado.
+    Si cambia el espectro, el supuesto falla. Con nubes, con el sol bajo,
+    detrás de un cristal o bajo una lámpara de uñas o una cama solar, la
+    forma espectral real no se parece en nada a la supuesta, y el índice
+    mostrado puede equivocarse por mucho, en cualquier dirección.
+  </li>
+</ul>
+<div class="callout">
+  <strong>La regla práctica:</strong> trata un medidor de consumo como un
+  comparador, no como un instrumento calibrado. «¿Hay más radiación aquí
+  que allí?», «¿ha servido la lámina?», «¿cuánto reduce este toldo?» son
+  preguntas que responde bien. «¿Cuál es la irradiancia UVA absoluta en
+  W/m²?», no.
+</div>
+
+<h2>Tarjetas, cuentas y dosímetros</h2>
+<p>
+  Las tarjetas UV fotocrómicas y las cuentas que se venden para
+  demostraciones en clase contienen tintes de espiropirano o espirooxazina
+  que cambian de color con la exposición al ultravioleta. Son excelentes
+  para hacer visible algo invisible: pon una cuenta detrás de una ventana y
+  otra detrás de protector solar y la diferencia es inmediata y
+  convincente.
+</p>
+<p>
+  Lo que no pueden hacer es cuantificar. Su respuesta no es lineal, se
+  satura rápido, se restablece con el tiempo, varía con la temperatura y su
+  sensibilidad espectral es una propiedad del tinte, no algo normalizado.
+  Dos tarjetas de fabricantes distintos no coincidirán, y ninguna está
+  ponderada según una curva reconocida.
+</p>
+<p>
+  <strong>La dosimetría con película de polisulfona</strong> es la versión
+  seria de la misma idea. Una película fina que se lleva como una
+  insignia cambia su absorbancia óptica en proporción a la dosis UV
+  acumulada, que se lee después en un espectrofotómetro. Su respuesta es
+  una aproximación burda de la curva eritemática, lo que la convierte en
+  la herramienta clásica para estudios de dosis personal de quemadura
+  solar y, por la misma razón, en un mal instrumento para la UVA en
+  concreto.
+</p>
+
+<h2>Por qué tu móvil no puede hacerlo</h2>
+<p>
+  Conviene decirlo claramente, porque las tiendas de aplicaciones sugieren lo contrario.
+  <strong>Casi ningún smartphone lleva un sensor UV.</strong> El Galaxy Note&nbsp;4 de Samsung de 2014 fue una excepción efímera, y algunos investigadores han conseguido extraer señales UV de las cámaras de móviles en condiciones controladas,[[cite:turner2020]] pero ninguna de las dos cosas equivale a una medición calibrada en un móvil corriente. Hay tres barreras independientes:
+</p>
+<ul>
+  <li>
+    <strong>El sensor de luz ambiental</strong> está diseñado para seguir el
+    brillo percibido y atenuar la pantalla. Está filtrado para aproximarse a
+    la respuesta fotópica humana y rechazar el infrarrojo. No tiene canal
+    ultravioleta.
+  </li>
+  <li>
+    <strong>El sensor de la cámara</strong> está detrás de un filtro de
+    corte UV/IR, colocado precisamente para impedir que la luz no visible
+    degrade la fidelidad del color.
+  </li>
+  <li>
+    <strong>La lente</strong> es de vidrio o de plástico óptico, que por sí
+    solo absorbe con fuerza en todo el rango UVA; es la misma física que se
+    explica en
+    <a href="does-glass-block-uva.html">¿el cristal bloquea la UVA?</a>.
+  </li>
+</ul>
+<p>
+  Así que cualquier aplicación que muestre una cifra UV hace lo mismo que
+  la calculadora de este sitio: toma tus coordenadas y obtiene o calcula un
+  valor. Es algo legítimo y útil; simplemente no es una medición, y una
+  aplicación que da a entender lo contrario pidiéndote que apuntes el móvil
+  al cielo se está presentando de forma engañosa. Los accesorios UV de pinza
+  o Bluetooth son otra cosa: contienen fotodiodos reales y están sujetos a
+  las mismas salvedades que cualquier otro medidor de consumo.
+</p>
+
+<h2>Cómo comprobar si una lectura es verosímil</h2>
+<p>
+  Sea cual sea tu dispositivo, estas cinco comprobaciones dejarán al
+  descubierto la mayoría de los problemas sin ningún equipo de referencia:
+</p>
+<ol>
+  <li><strong>De noche marca cero.</strong> Una lectura nocturna distinta de cero indica luz parásita, un error de desplazamiento o una fuga de infrarrojo.</li>
+  <li><strong>El máximo cae en el mediodía solar</strong>, que a menudo está a una hora o más del mediodía del reloj; consulta <a href="what-time-is-uva-highest.html">a qué hora es más alta la UVA</a>. Un máximo exactamente a las 12:00 durante el horario de verano es señal de que el dispositivo muestra un valor modelizado en lugar de detectarlo.</li>
+  <li><strong>La curva diaria es un arco amplio y suave</strong>, no una meseta ni un escalón. Los escalones apuntan a una cuantización interna gruesa.</li>
+  <li><strong>Detrás de una ventana cerrada, la lectura se comporta de forma reveladora.</strong> Un dispositivo con ponderación eritemática debería caer casi a cero, porque el vidrio elimina casi toda la UVB. Un auténtico dispositivo UVA debería conservar una gran parte. Si tu «medidor UVA» marca casi cero en interiores junto a una ventana soleada, no está midiendo UVA.</li>
+  <li><strong>La sombra la reduce, pero no a cero.</strong> Ponte a la sombra total con el cielo abierto encima y un instrumento correcto seguirá marcando bastante: es la luz difusa del cielo. Un dispositivo que marca casi cero a la sombra abierta tiene una respuesta coseno defectuosa.</li>
+</ol>
+
+<h2>Comparar un medidor con este sitio</h2>
+<p>
+  Si quieres comparar un medidor UVA con el
+  <a href="how-uva-index-is-calculated.html">valor modelizado</a> de aquí,
+  antes tienen que coincidir tres cosas:
+</p>
+<ul>
+  <li>
+    <strong>La misma magnitud.</strong> El modelo da la irradiancia no
+    ponderada en aproximadamente 315–400&nbsp;nm en W/m², y el
+    <a href="uv-index-vs-uva-index.html">índice UVA</a> es esa cifra
+    dividida entre seis. Un medidor que da un «índice UV» eritemático mide
+    otra magnitud física y no cabe esperar que coincidan.
+  </li>
+  <li>
+    <strong>La misma geometría.</strong> El modelo supone irradiancia sobre
+    una superficie horizontal. Mantén el sensor nivelado, mirando hacia
+    arriba, lejos de paredes y de suelos reflectantes.
+  </li>
+  <li>
+    <strong>Las condiciones adecuadas.</strong> Compara con cielo despejado
+    y el sol bien alto. Con nubes dispersas, el modelo solo contempla la
+    atenuación y no puede reproducir el
+    <a href="uva-on-cloudy-days.html">realce por nubes</a>, así que las
+    lecturas reales pueden superarlo legítimamente.
+  </li>
+</ul>
+<p>
+  En esas condiciones, una coincidencia de aproximadamente un 20&nbsp;%
+  sería un buen resultado para un valor modelizado frente a un instrumento
+  de consumo, y si encuentras un desfase sistemático con un dispositivo
+  bien calibrado, es información realmente útil. El script de validación
+  del proyecto, <code>scripts/validate.mjs</code>, toma un CSV de lecturas
+  con marca de tiempo e informa del sesgo del modelo frente a ellas según
+  el ángulo del sol y la nubosidad; los coeficientes restantes están en un
+  único bloque de <code>js/uva.js</code> precisamente para poder
+  recalibrarlos con mediciones reales, y el proyecto agradece ese tipo de
+  contribuciones.
+</p>

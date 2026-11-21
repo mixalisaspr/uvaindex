@@ -1,0 +1,410 @@
+<!--meta
+{
+  "slug": "how-uva-index-is-calculated",
+  "translated_from": "2026-11-16",
+  "title": "Wie der UVA-Index berechnet wird — Modell, Parameter & Grenzen",
+  "headline": "Wie der UVA-Index berechnet wird",
+  "description": "Die vollständige Methode hinter unserem UVA-Index: wie die UVA-Bestrahlungsstärke am Boden (315–400 nm, W/m²) aus einer Strahlungstransfer-Tabelle plus aktuellen Daten zu Wolken, Dunst, Luftdruck und Schnee abgeleitet wird, die genauen Formeln und Annahmen, wie das Modell geprüft wird und welche Faktoren wir weglassen.",
+  "og_title": "Wie der UVA-Index berechnet wird — Modell, Parameter & Grenzen",
+  "og_description": "Die vollständige Methode hinter unserem UVA-Index: die Formeln, die Live-Eingangsdaten, die Koeffizienten und die Faktoren, die wir bewusst weglassen.",
+  "jsonld_description": "Die Methode hinter dem UVA-Index: Ableitung der UVA-Bestrahlungsstärke am Boden (315–400 nm) aus einer Strahlungstransfer-Tabelle plus aktuellen Daten zu Wolken, Aerosolen, Luftdruck und Schnee, die verwendeten Formeln und Annahmen, die Validierung und die bewusst weggelassenen Faktoren.",
+  "faq": [
+    {
+      "question": "Wie wird der UVA-Index berechnet?",
+      "answer": "Die UVA-Strahlung bei klarem Himmel wird in einer Tabelle nachgeschlagen, die mit einem Strahlungstransfermodell (DISORT) für den Sonnenstand, den Dunst (aerosol-optische Dicke) und den Luftdruck am Boden berechnet wurde — etwa 64 W/m² bei senkrecht stehender Sonne in sauberer Luft auf Meereshöhe. Dieser Wert wird dann mit Faktoren für die Reflexion aus deiner Umgebung, den Abstand zwischen Erde und Sonne am jeweiligen Tag und die aktuelle Bewölkung multipliziert. Die resultierende Bestrahlungsstärke in W/m² wird durch sechs geteilt und ergibt so den Index von 0 bis 11+."
+    },
+    {
+      "question": "Wie genau ist der UVA-Index?",
+      "answer": "Er ist ein Modellergebnis und keine Messung, und seine Fehler folgen einem vorhersehbaren Muster. Am zuverlässigsten ist er bei klarem Himmel und hoch stehender Sonne, weil dann die Sonnengeometrie dominiert und die Korrekturen klein sind. Am wenigsten zuverlässig und tendenziell zu niedrig ist er bei aufgelockerter Bewölkung, denn das Modell berücksichtigt nur Abschwächung und kann den Wolkenverstärkungseffekt nicht abbilden, bei dem Sonne in einer Lücke zwischen hellen Cumuluswolken kurzzeitig über den Werten bei klarem Himmel liegt. Werte bei Sonne nahe am Horizont sind relativ gesehen am wenigsten zuverlässig."
+    },
+    {
+      "question": "Warum ignoriert das Modell das aktuelle Ozon?",
+      "answer": "Weil Ozon UVA kaum beeinflusst. Ozon absorbiert stark im UVB und nur schwach am kurzwelligen Ende des UVA-Bereichs, sodass eine Halbierung der Ozonsäule UVA nur um wenige Prozent verändert, die erythemwirksame UV-Strahlung aber ungefähr verdoppelt. Die Strahlungstransfer-Tabelle setzt Ozon auf typische 300 Dobson-Einheiten; die kostenlose Datenquelle liefert nur bodennahes Ozon in µg/m³, nicht die Gesamtsäule, die ein solcher Term bräuchte, daher wird bodennahes Ozon nur zur Information angezeigt."
+    }
+  ],
+  "related_pins": [
+    { "slug": "uv-index-vs-uva-index", "label": "Warum der UV-Index nicht reicht" },
+    "what-is-uva-radiation",
+    "uva-vs-uvb",
+    { "href": "../about.html", "label": "Über diese Website" }
+  ],
+  "cta_text": "Probiere den UVA-Index-Rechner aus und sieh dir die Aufschlüsselung an →",
+  "breadcrumb_label": "Wie der UVA-Index berechnet wird"
+}
+-->
+<h1>Wie der UVA-Index berechnet wird</h1>
+<p class="lead">
+  Dies ist die technische Ergänzung zum Rechner. Hier erfährst du genau,
+  wie wir die <strong>UVA-Bestrahlungsstärke am Boden</strong> schätzen
+  (der ungewichtete Bereich von 315–400&nbsp;nm, in W/m²), wie wir daraus
+  den <strong>UVA-Index von 0–11+</strong> machen, welche Parameter und
+  Koeffizienten wir verwenden — und, genauso wichtig,
+  <a href="#omitted">welche Faktoren wir bewusst weglassen</a>.
+</p>
+
+<div class="callout">
+  <strong>Warum überhaupt ein Modell?</strong> Keine gängige kostenlose
+  Wetter-API liefert reine UVA-Werte — alle veröffentlichen den
+  erythemgewichteten
+  <a href="uv-index-vs-uva-index.html">UV-Index</a>, der überwiegend
+  UVB abbildet. Statt UVA also aus einer API abzulesen, <strong>berechnen</strong>
+  wir sie aus der Physik des Sonnenstands, ergänzt um
+  aktuelle atmosphärische Daten, von denen wir wissen, dass sie UVA beeinflussen.
+</div>
+
+<h2>Das Modell in einer Zeile</h2>
+<p>
+  Die UVA-Bestrahlungsstärke ist ein Wert für klaren Himmel aus einer
+  Strahlungstransferrechnung, multipliziert mit einer kurzen Kette von
+  Faktoren für die momentanen Bedingungen:
+</p>
+<div class="callout">
+  <strong>UVA = Grundwert × Höhe × Aerosol × Umgebung × Erde-Sonne-Abstand × Wolken</strong>
+</div>
+<p>
+  Jeder Faktor steht standardmäßig auf <code>1</code> (keine Wirkung), wenn
+  seine Eingangsdaten fehlen, sodass die Schätzung schrittweise ungenauer
+  wird, statt ganz auszufallen. Jeder Faktor wird außerdem in der Tabelle
+  <em>Modellaufschlüsselung</em> des Rechners angezeigt, sodass sich jeder
+  Wert auf seine Bestandteile zurückführen lässt.
+</p>
+
+<h2>Schritt 1 — Sonnenstand</h2>
+<p>
+  Der mit Abstand wichtigste Einflussfaktor auf UVA ist, wie hoch die Sonne
+  am Himmel steht. Wir berechnen den <strong>Sonnenzenitwinkel</strong>
+  <code>θ</code> (0° = senkrecht über dir, 90° = am Horizont) direkt im
+  Browser aus deinem Breitengrad, Längengrad und dem Zeitpunkt, und zwar mit
+  dem <strong>NOAA-Algorithmus zur Sonnenposition</strong> — derselben
+  Mathematik, die hinter dem NOAA Solar Calculator steckt.[[cite:noaa_solcalc]] Derselbe Algorithmus liefert auch den
+  <strong>Erde-Sonne-Abstand</strong>, der in Schritt&nbsp;5 verwendet wird.
+  Steht die Sonne unter dem Horizont, wird UVA als <strong>0</strong> angegeben.
+</p>
+
+<h2>Schritt 2 — Klarer Himmel, aus einer Strahlungstransfer-Tabelle</h2>
+<p>
+  Statt einer von Hand angepassten Kurve stammt der Klarhimmel-Teil des
+  Modells aus einer physikalischen Rechnung, die einmal im Voraus
+  durchgeführt wurde. Wir haben
+  <strong>DISORT</strong> — den in der Atmosphärenforschung üblichen Löser für Mehrfachstreuung[[cite:stamnes1988]] — über eine geschichtete Modellatmosphäre für jede
+  Kombination folgender Größen laufen lassen:
+</p>
+<ul>
+  <li><strong>Sonnenwinkel</strong>, 0–90° in 5°-Schritten;</li>
+  <li><strong>aerosol-optische Dicke</strong> (Dunst, bei 550&nbsp;nm), 0–3;</li>
+  <li><strong>Luftdruck am Boden</strong>, 500–1060&nbsp;hPa (Meereshöhe bis etwa 5.500&nbsp;m),</li>
+</ul>
+<p>
+  und das Ergebnis über 315–400&nbsp;nm integriert. Die Seite interpoliert
+  diese Tabelle (etwa 1.800 Zahlen, 13&nbsp;KB) für deine Bedingungen. Die
+  Tabelle erfasst aus physikalischen Grundprinzipien alles, was die alten
+  Faustregeln nur näherungsweise abbildeten:
+</p>
+<ul>
+  <li>
+    <strong>Den Abfall mit dem Sonnenwinkel</strong>, einschließlich des
+    großen Anteils der UVA-Strahlung, der als diffuses Himmelslicht ankommt —
+    deshalb nimmt UVA bei sinkender Sonne viel langsamer ab als UVB.
+  </li>
+  <li>
+    <strong>Die Rayleigh-Streuung an der Luft</strong>, skaliert mit dem
+    tatsächlichen Luftdruck am Boden — so fließt die Höhe ein.
+  </li>
+  <li>
+    <strong>Dunst</strong> mit seinem realen Wechselspiel zwischen direkter
+    und diffuser Strahlung: Aerosole entfernen Licht aus dem direkten
+    Strahl, streuen den Großteil davon aber nach vorne, sodass viel davon
+    trotzdem als Himmelslicht den Boden erreicht.
+  </li>
+  <li>
+    Die <strong>Ozon</strong>-Absorption am kurzwelligen Ende des Bereichs,
+    bei typischen 300 Dobson-Einheiten.
+  </li>
+  <li>
+    <strong>Die Krümmung der Atmosphäre</strong> bei tief stehender Sonne (die Luftmasse nach Kasten–Young[[cite:kasten1989]]), die ein Ansatz mit flacher Atmosphäre (1/cos θ) nahe
+    dem Horizont überschätzt.
+  </li>
+</ul>
+<p>Die angenommene Atmosphäre:</p>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Bestandteil</th><th>Annahme</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Sonnenlicht oberhalb der Atmosphäre</td><td>Extraterrestrisches Spektrum ASTM G173-03[[cite:astm_g173]], 85,5&nbsp;W/m² über 315–400&nbsp;nm</td></tr>
+    <tr><td>Luft (Rayleigh)</td><td>Optische Dicke nach Bodhaine et al. (1999)[[cite:bodhaine1999]] × Luftdruck ÷ 1013,25&nbsp;hPa</td></tr>
+    <tr><td>Ozon</td><td>300&nbsp;DU, Schwerpunkt in 22&nbsp;km Höhe</td></tr>
+    <tr><td>Aerosol</td><td>Ångström-Exponent 1,14, Einfachstreualbedo 0,92, Asymmetrie 0,70, Skalenhöhe 1,5&nbsp;km</td></tr>
+    <tr><td>Löser</td><td>DISORT, 16 Streams, 17 Schichten, spektrale Intervalle von 2,5&nbsp;nm</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  Bei senkrecht stehender Sonne in sauberer Luft auf Meereshöhe ergibt die
+  Tabelle <strong>64,5&nbsp;W/m²</strong>; mäßiger Dunst (AOD&nbsp;0,15)
+  verringert das um etwa 5 % bei hoch stehender und um 9–12 % bei tief
+  stehender Sonne. Zur Kontrolle: Der Direktstrahlungsanteil stimmt bei
+  jedem getesteten Sonnenwinkel auf 1 % genau mit dem unabhängigen
+  SPECTRL2-Modell des NREL[[cite:bird1986]] überein; die einfachere Schätzung des
+  diffusen Himmelslichts in SPECTRL2 fällt meist 4–18 % niedriger aus, wie
+  man es von einem Modell erwartet, das die Mehrfachstreuung nicht löst.
+  Der Generator, <code>scripts/build_lut.py</code>, liegt im Repository,
+  damit ihn jeder erneut ausführen oder ändern kann.
+</p>
+
+<h2>Schritt 3 — Höhe (Luftdruck)</h2>
+<p>
+  In der Höhe liegt weniger Luft über dir, die UVA zurück ins All streuen
+  kann. Das Modell liest den <strong>Luftdruck am Boden</strong> aus der
+  Vorhersage (ersatzweise eine Standardatmosphäre für die Geländehöhe) und
+  überlässt den Rest der Tabelle. In sauberer Luft macht das etwa
+  <strong>+3 % pro Kilometer</strong> aus. Die größeren Werte, die in den Bergen oft für UVA gemessen werden — etwa 9 %/km in einer Studie in den Alpen[[cite:blumthaler1997]] —, entstehen überwiegend dadurch, dass man den Dunst in den
+  Tälern hinter sich lässt, und das erfasst das Modell separat über die
+  Aerosoldaten für deinen Standort. <a href="uva-at-altitude.html">UVA in der Höhe</a>
+  rechnet die Zahlen durch.
+</p>
+
+<h2>Schritt 4 — Umgebung (Reflexion am Boden)</h2>
+<p>
+  Helle Umgebungen reflektieren UVA nach oben, und der Himmel streut einen
+  Teil davon wieder nach unten. Für eine Oberfläche mit der UV-Albedo
+  <code>r</code> liefert die Tabelle auch die <strong>sphärische Albedo</strong>
+  <code>s</code> der Atmosphäre (etwa 0,3 im UVA), und für eine gleichmäßig
+  reflektierende Oberfläche ist die Verstärkung exakt:
+</p>
+<div class="callout">
+  <strong>Umgebungsfaktor = 1 ÷ (1 − r × s)</strong>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Umgebung</th><th>UV-Albedo r</th><th>Faktor</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Gras, Erde oder Stadt</td><td>0,03</td><td>×1,01</td></tr>
+    <tr><td>Wasser</td><td>0,07</td><td>×1,02</td></tr>
+    <tr><td>Sand / Strand</td><td>0,15</td><td>×1,05</td></tr>
+    <tr><td>Schneebedecktes Gelände</td><td>0,6</td><td>×1,24</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  Entscheidend ist die <em>Umgebung</em> — die Fläche im Umkreis von
+  Kilometern um dich herum — und nicht nur der Boden unter deinen Füßen,
+  denn das reflektierte Licht muss vom Himmel wieder herunterkommen. Auf
+  <strong>Auto</strong> (der Standardeinstellung) schaltet der Rechner auf
+  Schnee um, wenn die Vorhersage 5&nbsp;cm oder mehr Schnee am Boden meldet.
+  Frischer, geschlossener Schnee (r&nbsp;≈&nbsp;0,9) erreicht etwa ×1,40.
+  Der viel größere Strahlungsfluss, der direkt nach <em>oben</em>
+  reflektiert wird, trifft dein Kinn, deine Nase und deine Augen statt einer
+  waagerechten Fläche und ist deshalb nicht Teil dieser Zahl;
+  <a href="reflected-uva-snow-sand-water.html">Reflektierte UVA-Strahlung</a>
+  erklärt den Unterschied.
+</p>
+
+<h2>Schritt 5 — Erde-Sonne-Abstand</h2>
+<p>
+  Die Erdumlaufbahn ist leicht elliptisch: Anfang Januar ist die Erde der
+  Sonne am nächsten (0,983&nbsp;AU), Anfang Juli am weitesten entfernt
+  (1,017&nbsp;AU). Das Sonnenlicht nimmt mit dem Quadrat des Abstands ab:
+</p>
+<div class="callout">
+  <strong>Abstandsfaktor = 1 ÷ r<sub>AU</sub>²</strong>
+</div>
+<p>
+  Das sind <strong>+3,4 %</strong> im Januar und <strong>−3,3 %</strong> im
+  Juli — ein Grund, warum ein Sommer auf der Südhalbkugel etwas stärker ist
+  als einer auf der Nordhalbkugel bei gleichem Breitengrad.
+</p>
+
+<h2>Schritt 6 — Wolken</h2>
+<p>
+  Wolken sind der veränderlichste Einfluss auf die UVA-Strahlung am Boden,
+  daher verwendet das Modell die beste für deinen Standort verfügbare
+  Eingangsgröße, in zwei Stufen.
+</p>
+<p>
+  <strong>Bevorzugt — abgeleitet aus aktuellen UV-Daten.</strong> Open-Meteo
+  veröffentlicht für dieselbe Stunde sowohl den tatsächlichen UV-Index
+  als auch einen UV-Index für klaren Himmel. Ihr Verhältnis ist die
+  erythemwirksame Wolkentransmission für den realen Himmel über dir, und das
+  ist besser als jede Parametrisierung eines Bedeckungsgrads in Prozent. Die
+  Transmission für UVA wird daraus abgeleitet als
+</p>
+<div class="callout">
+  <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>γ</sup>, mit γ = 1</strong>
+</div>
+<p>
+  Unter dichten Wolken kann UVA etwas besser durchkommen als der
+  UVB-gewichtete UV-Index, aber die Messungen schwanken je nach Wolkentyp
+  (siehe <a href="uva-on-cloudy-days.html">UVA an bewölkten Tagen</a>);
+  solange die Größe dieses Effekts nicht geklärt ist, wird daher der
+  neutrale Wert verwendet. γ ist der einzige Wolkenkoeffizient, den die
+  unten beschriebene Validierung kalibrieren soll.
+</p>
+<p>
+  <strong>Ersatz — parametrisch, aus der Bewölkung.</strong> Wenn das
+  aktuelle UV-Wertepaar nicht verfügbar ist (zum Beispiel mehr als etwa fünf
+  Tage im Voraus), greifen wir auf den gemeldeten Gesamtbedeckungsgrad in
+  Prozent zurück:
+</p>
+<div class="callout">
+  <strong>Wolkenfaktor = 1 − 0,4 × (Bedeckung ÷ 100)<sup>1,5</sup></strong>
+</div>
+<p>
+  Die Kurve ist bewusst sanft, denn eine gemeldete „Bedeckung von 100 %“ ist
+  eine Aussage über die <em>Himmelsbedeckung</em>, nicht über die optische
+  Dicke — ein bedeckter Himmel ist viel häufiger dünner Stratus als eine
+  Gewitterwolke. Bei 100 % Bedeckung bleiben so etwa <strong>60 %</strong>
+  der UVA-Strahlung bei klarem Himmel übrig. Wolken dämpfen UVA; sie
+  schalten sie nur selten ganz aus.
+</p>
+
+<h2>Von der Bestrahlungsstärke zum Index von 0–11+</h2>
+<p>
+  Die rohe Bestrahlungsstärke in W/m² ist präzise, aber ungewohnt, daher
+  bringen wir sie auf eine Skala von 0–11+, genau wie beim UV-Index.
+  Die Umrechnung ist eine einzige Konstante:
+</p>
+<div class="callout">
+  <strong>UVA-Index = UVA-Bestrahlungsstärke ÷ 6</strong>
+</div>
+<p>
+  Der Divisor 6 ist so gewählt, dass eine senkrecht stehende Sonne bei
+  klarem Himmel (~64–66&nbsp;W/m²) etwa <strong>11</strong> ergibt — dasselbe
+  Gefühl vom oberen Skalenende wie ein tropischer Spitzenwert des
+  UV-Index. Da der Index streng proportional zur Bestrahlungsstärke ist,
+  erzählen beide Zahlen dieselbe Geschichte, und jede Bandgrenze unten ist
+  einfach der Indexwert mal sechs. Die Kategorien übernehmen die bekannten
+  Bezeichnungen und Farben des UV-Index der WHO:
+</p>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>UVA-Index</th><th>Stufe</th><th>≈ Bestrahlungsstärke</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Unter 3</td><td>Niedrig</td><td>Unter 18 W/m²</td></tr>
+    <tr><td>3 bis unter 6</td><td>Mäßig</td><td>18 bis unter 36 W/m²</td></tr>
+    <tr><td>6 bis unter 8</td><td>Hoch</td><td>36 bis unter 48 W/m²</td></tr>
+    <tr><td>8 bis unter 11</td><td>Sehr hoch</td><td>48 bis unter 66 W/m²</td></tr>
+    <tr><td>11 und mehr</td><td>Extrem</td><td>66 W/m² und mehr</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Die Eingangsdaten im Überblick</h2>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Eingangsgröße</th><th>Quelle</th><th>Verwendet für</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Breitengrad / Längengrad</td><td>Standortbestimmung oder Ortssuche</td><td>Sonnenstand</td></tr>
+    <tr><td>Sonnenzenitwinkel, Erde-Sonne-Abstand</td><td>Berechnet (NOAA)</td><td>Klarhimmel-Tabelle, Abstandsfaktor</td></tr>
+    <tr><td>Luftdruck am Boden</td><td>Open-Meteo Forecast</td><td>Klarhimmel-Tabelle (Höhe)</td></tr>
+    <tr><td>Geländehöhe</td><td>Open-Meteo Forecast</td><td>Ersatz für den Luftdruck</td></tr>
+    <tr><td>Aerosol-optische Dicke</td><td>Open-Meteo Air-Quality (CAMS)</td><td>Klarhimmel-Tabelle (Dunst)</td></tr>
+    <tr><td>UV-Index &amp; UV-Index bei klarem Himmel</td><td>Open-Meteo Air-Quality (CAMS)</td><td>Wolkenfaktor</td></tr>
+    <tr><td>Bewölkung</td><td>Open-Meteo Forecast</td><td>Wolken-Ersatzwert</td></tr>
+    <tr><td>Schneehöhe</td><td>Open-Meteo Forecast</td><td>Automatische Umgebung</td></tr>
+    <tr><td>Umgebung</td><td>Du (oder Auto)</td><td>Umgebungsfaktor</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  Dasselbe Modell erzeugt auch die <em>UVA-Vorhersage</em>: Es wird für heute
+  und die nächsten vier Tage alle 15 Minuten ausgewertet (in der Zeitzone des
+  jeweiligen Orts), wobei der Sonnenstand bei jedem Schritt exakt berechnet
+  und die stündlichen Wolken- und Aerosolwerte zwischen den Stunden
+  interpoliert werden. Der Tageshöchstwert und der Zeitraum, in dem der
+  UVA-Index Mäßig (3) oder höher ist, stammen aus dieser Kurve. Die
+  Luftqualitätsvorhersage, die den UV-Index und die Aerosolwerte liefert,
+  reicht nur etwa vier bis fünf Tage in die Zukunft; danach greift das Modell
+  auf seine Bewölkungskurve zurück, sodass spätere Tage ungenauer sind.
+</p>
+
+<h2 id="omitted">Was wir nicht berücksichtigen</h2>
+<p>
+  Dies ist eine <strong>Schätzung, die auf Verständlichkeit und Transparenz
+  ausgelegt ist, keine kalibrierte radiometrische Messung</strong>. Mehrere
+  reale Effekte werden bewusst vereinfacht oder weggelassen — wenn du sie
+  kennst, weißt du, wann du der Zahl trauen kannst und wann du sie als grobe
+  Orientierung betrachten solltest:
+</p>
+<ul>
+  <li>
+    <strong>Aktuelles Ozon.</strong> Die Tabelle setzt das Gesamtsäulenozon
+    auf 300&nbsp;DU. Reale Säulen liegen etwa zwischen 250 und 450&nbsp;DU,
+    was UVA nur um ein paar Prozent verschiebt, und die kostenlose
+    Datenquelle meldet <em>bodennahes</em> Ozon (µg/m³) statt der Säule,
+    daher wird es nur zur Information angezeigt.
+  </li>
+  <li>
+    <strong>Lokaler Aerosoltyp.</strong> Die Tabelle geht von einem typischen
+    kontinentalen Aerosol aus. Wüstenstaub (der im UV stärker absorbiert und
+    ein flacheres Spektrum hat) und Rauch von Waldbränden verhalten sich
+    anders, sodass Tage mit starkem Staub oder Rauch unsicherer sind, als die
+    AOD allein vermuten lässt.
+  </li>
+  <li>
+    <strong>Wolkentyp und -struktur.</strong> Der Wolkeneffekt stammt aus dem
+    UV-Index eines groben (~40&nbsp;km) Vorhersagemodells. Wolkenschichtung
+    und „Rand“-Effekte bei aufgelockerter Bewölkung (die UVA kurzzeitig über
+    den Wert bei klarem Himmel <em>anheben</em> können) werden nicht
+    modelliert.
+  </li>
+  <li>
+    <strong>Lokale Geometrie und Schatten.</strong> Gebäude, Bäume, Gelände,
+    Neigung und Ausrichtung von Flächen sowie deine Körperhaltung verändern
+    die tatsächliche Exposition und werden nicht berücksichtigt.
+  </li>
+  <li>
+    <strong>Glas und Innenräume.</strong> Die Schätzung gilt für den
+    Aufenthalt im Freien. UVA dringt durch Fensterglas, UVB dagegen
+    größtenteils nicht, daher unterscheidet sich die Exposition in Innenräumen
+    oder im Auto und wird nicht modelliert.
+  </li>
+  <li>
+    <strong>Weitere schwache Absorber</strong> (NO₂, SO₂) und die
+    Wellenlängenabhängigkeit der Bodenalbedo sind nicht enthalten.
+  </li>
+</ul>
+
+<h2 id="validation">Wie das Modell geprüft wird</h2>
+<p>
+  Das Repository enthält ein Validierungsskript,
+  <code>scripts/validate.mjs</code>, das archivierte Eingangsdaten für
+  vergangene Tage durch genau den Code laufen lässt, den der Rechner
+  verwendet, und das Ergebnis Stunde für Stunde mit unabhängigen UVA-Daten
+  vergleicht: dem POWER-Dienst der NASA (satellitengestützte UVA-Werte der
+  CERES-Instrumente, weltweit verfügbar) oder einer Datei mit
+  Bodenmessungen eines UVA-Radiometers. Es gibt die systematische Abweichung
+  und den Fehler nach Sonnenwinkel und Bewölkung aus, prüft die
+  Klarhimmel-Tabelle für sich allein und passt den Wolkenexponenten γ sowie
+  eine alternative Wolkenquelle an. Die Ergebnisse dieses Vergleichs werden
+  hier veröffentlicht; bis dahin solltest du den Wolkenterm als den
+  unsichersten Teil des Modells betrachten.
+</p>
+
+<div class="callout">
+  <strong>Auf Neukalibrierung ausgelegt.</strong> Die wenigen verbleibenden
+  einstellbaren Koeffizienten stehen in einem einzigen <code>MODEL</code>-Block,
+  und die Klarhimmel-Tabelle lässt sich mit anderen Annahmen neu erzeugen,
+  ohne den Rest der App anzufassen. Der vollständige Quellcode liegt auf
+  <a href="https://github.com/mixalisaspr/uvaindex">GitHub</a>.
+</div>
+
+<h2>Wie genau ist das Ganze also?</h2>
+<p>
+  Betrachte es als gut begründete <strong>relative</strong> Orientierung: Es
+  erfasst, wie sich UVA mit dem Sonnenstand, der Jahreszeit, deinem
+  Breitengrad und deiner Höhe sowie mit den Wolken und dem Dunst des Tages
+  ändert — und es verhält sich an den Extremen korrekt (klare Mittagssonne
+  ergibt hohe Werte, nachts ist der Wert null, dichte Bewölkung lässt ihn
+  stark sinken, größere Höhe ergibt höhere Werte). Der <em>absolute</em>
+  Wert in W/m² ist eine physikalisch plausible Schätzung, kein Messwert in
+  Instrumentenqualität. Warum es diese Schätzung überhaupt gibt, erfährst du
+  unter <a href="../about.html">Über diese Website</a>.
+</p>

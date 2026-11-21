@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>¿A qué hora es más alta la UVA? La curva diaria de la UVA, hora a hora</title>
+    <meta
+      name="description"
+      content="La UVA alcanza su máximo al mediodía solar, pero su curva es mucho más plana que la del índice UV, así que las mañanas y las últimas horas de la tarde llevan proporcionalmente mucha más UVA. Cifras hora a hora, por qué falla la regla de la sombra y por qué el mediodía solar rara vez es a las 12:00."
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/es/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Índice UVA" />
+    <meta property="og:title" content="¿A qué hora es más alta la UVA?" />
+    <meta property="og:description" content="La curva diaria de la UVA es mucho más plana que la del índice UV. A cuatro horas del mediodía solar has perdido el 63 % de la UV que quema, pero solo el 42 % de la UVA." />
+    <meta property="og:url" content="https://uvaindex.org/es/learn/what-time-is-uva-highest.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "¿A qué hora es más alta la radiación UVA? La curva diaria",
+        "description": "Cómo varía la UVA en superficie a lo largo del día: la caída según cos(cenit), una comparación hora a hora con la UV eritemática, por qué la regla de las 10 a las 4 y la regla de la sombra son reglas de la UVB, y cómo encontrar el verdadero mediodía solar.",
+        "inLanguage": "es",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-29",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/es/learn/what-time-is-uva-highest.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Global Solar UV Index: A Practical Guide",
+            "publisher": "World Health Organization, WMO, UNEP and ICNIRP",
+            "datePublished": "2002",
+            "url": "https://www.who.int/publications/i/item/9241590076"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿A qué hora del día es más alta la UVA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La UVA alcanza su máximo al mediodía solar, el momento en que el sol está más alto, que rara vez coincide con las 12:00 del reloj. Lo que distingue a la UVA es lo despacio que baja a ambos lados: a cuatro horas del mediodía solar sigue en torno al 58 % de su máximo, mientras que la UV eritemática ha bajado a alrededor del 37 %."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿La UV es alta por la mañana?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En cuanto a quemaduras, no mucho: la UV eritemática tres horas antes del mediodía solar es aproximadamente el 59 % del máximo. En cuanto a UVA, bastante más: alrededor del 75 % del máximo en ese mismo momento. El sol de la mañana y de última hora de la tarde es desproporcionadamente rico en UVA, porque el largo recorrido por la atmósfera elimina la UVB con mucha más eficacia que la UVA."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Sirve la regla de la sombra para la UVA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Solo a grandes rasgos. La regla —si tu sombra es más corta que tu altura, la UV es fuerte— marca un ángulo cenital solar de 45°, que en pleno verano en latitudes medias está a unas tres horas y cuarto a cada lado del mediodía solar. Fuera de ese intervalo la UV eritemática sí ha bajado mucho, pero la UVA sigue por encima de la mitad de su máximo, así que una sombra «segura» no significa una dosis de UVA baja."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Índice UVA",
+            "item": "https://uvaindex.org/es/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Base de conocimientos",
+            "item": "https://uvaindex.org/es/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "¿A qué hora es más alta la UVA?",
+            "item": "https://uvaindex.org/es/learn/what-time-is-uva-highest.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+          <a href="../">Índice UVA</a><span class="sep">›</span><a href="./">Base de conocimientos</a><span class="sep">›</span>¿A qué hora es más alta la UVA?
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="Idioma: Español"><span class="lang-icon" aria-hidden="true">🌐</span> Español</summary>
+          <ul>
+            <li><a href="../../learn/what-time-is-uva-highest.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="what-time-is-uva-highest.html" hreflang="es" lang="es" aria-current="true">Español</a></li>
+            <li><a href="../../fr/learn/what-time-is-uva-highest.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/what-time-is-uva-highest.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/what-time-is-uva-highest.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/what-time-is-uva-highest.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../zh/learn/what-time-is-uva-highest.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>¿A qué hora es más alta la radiación UVA? La curva diaria</h1>
+        <p class="lead">
+          La UVA alcanza su máximo al mediodía solar, por la misma razón que todo
+          lo demás en el cielo: es cuando el sol está más alto y su luz recorre el
+          camino más corto a través de la atmósfera. Lo interesante no es el
+          máximo. Es la <em>forma</em>: la curva diaria de la UVA es notablemente
+          más plana que la del índice&nbsp;UV, lo que significa que todos los
+          consejos sobre horarios que conoces están pensados para la banda
+          equivocada.
+        </p>
+
+        <div class="callout">
+          <strong>Lo esencial:</strong> a cuatro horas a cada lado del mediodía
+          solar, la UV eritemática ha bajado a alrededor del <strong>37&nbsp;%</strong>
+          de su máximo, pero la UVA sigue en el <strong>58&nbsp;%</strong>. En
+          comparación con el mediodía, la luz solar de última hora de la tarde es
+          aproximadamente <strong>1,6 veces más rica en UVA</strong>.
+        </div>
+
+        <h2>Por qué la curva tiene esa forma</h2>
+        <p>
+          Las dos bandas se debilitan a medida que baja el sol, por dos razones
+          distintas. La primera es puramente geométrica: un haz que incide en el
+          suelo de forma oblicua reparte la misma energía sobre una superficie
+          mayor. Ese efecto es proporcional al coseno del ángulo cenital solar y
+          afecta por igual a todas las longitudes de onda.
+        </p>
+        <p>
+          La segunda razón es la absorción, y esta no trata igual a todas las
+          longitudes de onda. A medida que baja el sol, la luz atraviesa cada vez
+          más atmósfera (aumenta la <strong>masa de aire</strong>), y cada
+          kilómetro extra de recorrido supone más ozono por el camino. El ozono
+          absorbe con fuerza en la UVB y muy débilmente en la UVA. Así que el
+          recorrido más largo castiga mucho más a la banda que quema que a la que
+          envejece.
+        </p>
+        <p>
+          Combinando ambas, la irradiancia en superficie disminuye aproximadamente
+          como una potencia del coseno del ángulo cenital, con un exponente
+          distinto para cada banda. En el modelo de transferencia radiativa de este sitio, la UVA disminuye aproximadamente como <strong>cos(z)<sup>1,2</sup></strong>. La UV eritemática
+          se comporta más bien como <strong>cos(z)<sup>2,2</sup></strong>, porque el
+          término del ozono se suma a la geometría. Esa diferencia de un punto en
+          el exponente lo explica todo.
+        </p>
+
+        <h2>Hora a hora</h2>
+        <p>
+          La tabla siguiente corresponde a un día despejado de pleno verano a
+          40°&nbsp;N: el sur de Europa, el norte del Mediterráneo, Nueva York,
+          Pekín. Los valores son porcentajes del máximo de mediodía de cada banda,
+          así que las columnas se pueden comparar directamente en su forma, no en
+          su magnitud.
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Desde el mediodía solar</th><th>Ángulo cenital del sol</th><th>UVA (% del máximo)</th><th>UV eritemática (% del máximo)</th><th>Enriquecimiento en UVA</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0 h</td><td>17°</td><td>100&nbsp;%</td><td>100&nbsp;%</td><td>1,00×</td></tr>
+            <tr><td>±1 h</td><td>21°</td><td>97&nbsp;%</td><td>95&nbsp;%</td><td>1,03×</td></tr>
+            <tr><td>±2 h</td><td>30°</td><td>88&nbsp;%</td><td>80&nbsp;%</td><td>1,11×</td></tr>
+            <tr><td>±3 h</td><td>41°</td><td>75&nbsp;%</td><td>59&nbsp;%</td><td>1,27×</td></tr>
+            <tr><td>±4 h</td><td>53°</td><td>58&nbsp;%</td><td>37&nbsp;%</td><td>1,58×</td></tr>
+            <tr><td>±5 h</td><td>64°</td><td>39&nbsp;%</td><td>18&nbsp;%</td><td>2,19×</td></tr>
+            <tr><td>±6 h</td><td>75°</td><td>21&nbsp;%</td><td>6&nbsp;%</td><td>3,75×</td></tr>
+            <tr><td>±7 h</td><td>86°</td><td>5&nbsp;%</td><td>0,4&nbsp;%</td><td>13×</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          En términos absolutos, ese máximo de mediodía equivale a un índice UVA de
+          alrededor de <strong>10,5</strong> con cielo despejado al nivel del mar,
+          de lleno en el nivel Muy&nbsp;alto. Tres horas después sigue en torno a
+          <strong>7,8</strong>, en lo más alto del nivel Alto. Incluso a cuatro
+          horas marca alrededor de <strong>6,0</strong>, todavía rozando el nivel
+          Alto, y solo a las cinco horas un cielo despejado de pleno verano baja
+          por fin a <strong>4,1</strong>, es decir, Moderado. Las
+          <a href="uv-index-vs-uva-index.html">descripciones de los niveles</a>
+          explican qué conviene hacer en cada uno de ellos.
+        </p>
+        <div class="callout">
+          <strong>La columna «Enriquecimiento en UVA» es el resultado
+          práctico.</strong> A última hora del día, el ultravioleta que te llega no
+          solo ha disminuido: ha cambiado de composición. Lo que queda es,
+          de forma desproporcionada, la banda que causa el fotoenvejecimiento y la
+          pigmentación, y no la banda que hace que lo notes.
+        </div>
+
+        <h2>Por qué «evita el sol de 10 a 4» es una regla de la UVB</h2>
+        <p>
+          El consejo estándar de no exponerse al sol entre las 10:00 y las 16:00 es
+          un buen mensaje de salud pública y está dirigido directamente a la
+          quemadura solar.<sup class="cite"><a href="#src-1" aria-label="Fuente 1">[1]</a></sup> Mira la columna eritemática: ese intervalo
+          realmente concentra la gran mayoría de la UV que quema, así que como
+          consejo para evitar quemaduras funciona.
+        </p>
+        <p>
+          Como consejo sobre la UVA es mucho más flojo. Piensa en un día de pleno
+          verano en latitudes medias en el que el mediodía solar cae a las 13:00.
+          Las seis horas de 10:00 a 16:00 contienen la mayor parte de la dosis
+          eritemática, pero las horas de 08:00 a 10:00 y de 16:00 a 18:00, que la
+          regla considera libres, están aproximadamente en el 40–75&nbsp;% del
+          máximo de UVA. Una hora al aire libre a las 17:00 no es una hora sin
+          UVA. Es casi una hora de mediodía, pero sin las señales de aviso.
+        </p>
+        <p>
+          El mismo razonamiento vale para la <strong>regla de la sombra</strong>:
+          si tu sombra es más larga que tu altura, en teoría la UV es baja. Eso
+          marca un ángulo cenital de 45°, que según la tabla está a unas tres horas
+          y cuarto del mediodía solar. A partir de ahí, la UV eritemática sí está
+          bajando deprisa. La UVA sigue por encima de la mitad de su máximo.
+        </p>
+
+        <h2>El mediodía solar no es a las 12:00</h2>
+        <p>
+          Todo lo anterior se mide desde el <strong>mediodía solar</strong>: el
+          instante en que el sol cruza tu meridiano local. En el reloj puede quedar
+          bastante lejos de las doce, y se suman tres efectos distintos:
+        </p>
+        <ul>
+          <li>
+            <strong>El horario de verano</strong> retrasa una hora el mediodía
+            solar, hasta alrededor de las 13:00 durante todo el verano. Solo esto
+            hace que el verdadero máximo quede más cerca del comienzo de una pausa
+            para comer típica que de las doce.
+          </li>
+          <li>
+            <strong>Tu longitud dentro de tu huso horario.</strong> Los husos
+            horarios tienen una hora de ancho, pero son políticos. En el borde
+            occidental de un huso, el sol va con retraso. España mantiene la hora
+            de Europa Central pese a estar en la longitud de Greenwich, así que en
+            verano el mediodía solar en Galicia llega después de las 14:30. China
+            usa un único huso horario a lo largo de una longitud equivalente a
+            cinco husos; en Kashgar el mediodía solar está cerca de las 15:00.
+          </li>
+          <li>
+            <strong>La ecuación del tiempo</strong>: la órbita de la Tierra es
+            elíptica y su eje está inclinado, así que el mediodía solar varía hasta
+            unos ±16 minutos a lo largo del año, con independencia de todo lo demás.
+          </li>
+        </ul>
+        <p>
+          La consecuencia práctica: <strong>no des por hecho que el máximo de UV es
+          a las doce.</strong> En la mayor parte de Europa en verano está más cerca
+          de las 13:30, y en partes de España y del oeste de China, bastante más
+          tarde. La calculadora de este sitio parte de tus coordenadas reales y de
+          la posición verdadera del sol, así que el gráfico horario muestra dónde
+          cae realmente el máximo para ti, no dónde lo sugiere el reloj.
+        </p>
+
+        <h2>Qué cambia la forma</h2>
+        <p>
+          La curva limpia de arriba supone un cielo despejado. La realidad la
+          deforma de maneras previsibles:
+        </p>
+        <ul>
+          <li>
+            <strong>La estación la aplana o la afila.</strong> En invierno el sol
+            nunca sube mucho, así que toda la curva queda comprimida y baja, pero
+            con una proporción desmesurada de UVA, porque el sol bajo implica un
+            largo recorrido por el ozono durante todo el día.
+            <a href="does-uva-change-with-the-seasons.html">La UVA según la estación</a>
+            analiza las cifras.
+          </li>
+          <li>
+            <strong>La latitud fija el techo.</strong> Cerca del ecuador, el máximo
+            de mediodía es más alto y la curva más ancha.
+            <a href="uva-by-latitude-and-location.html">La UVA según la latitud</a>
+            tiene la comparación.
+          </li>
+          <li>
+            <strong>Las nubes añaden ruido, no una tendencia.</strong> Un campo de
+            cúmulos pasajeros puede cambiar la lectura en un factor de dos en
+            cuestión de minutos, y las nubes dispersas pueden llevarla
+            momentáneamente <em>por encima</em> de la línea de cielo despejado;
+            consulta <a href="uva-on-cloudy-days.html">la UVA en días nublados</a>.
+          </li>
+          <li>
+            <strong>El relieve la recorta.</strong> En un valle o en una calle de
+            ciudad, el sol desaparece tras un obstáculo mucho antes de lo que
+            indicaría la curva geométrica, aunque la UVA difusa del cielo abierto
+            continúa; por eso la sombra es una medida parcial y no completa.
+          </li>
+          <li>
+            <strong>La mañana y la tarde no son del todo simétricas.</strong> Las
+            nubes convectivas suelen formarse a lo largo del día y la carga de
+            aerosoles a menudo difiere entre la mañana y la tarde, así que el tramo
+            real de la tarde suele quedar un poco por debajo del de la mañana.
+          </li>
+        </ul>
+
+        <h2>Cómo usar esto</h2>
+        <p>
+          Si lo que quieres es evitar quemarte, evitar ciertas horas del día es
+          eficaz: la curva eritemática tiene un pico muy marcado, así que unas
+          pocas horas a la sombra eliminan la mayor parte del riesgo. Si lo que
+          quieres es limitar la UVA (por el fotoenvejecimiento, el melasma, una
+          afección de fotosensibilidad o la exposición de los ojos), el horario es
+          una herramienta mucho más tosca, porque la curva contra la que luchas es
+          ancha. Ahí la respuesta no es organizar el horario, sino las
+          <strong>barreras</strong>: el protector solar, la
+          <a href="does-clothing-block-uva.html">ropa</a> y las
+          <a href="uva-and-your-eyes.html">lentes UV400</a>, que funcionan igual de
+          bien a las 09:00 que a las 13:00.
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>Fuentes</h2>
+          <ol>
+            <li id="src-1"><a href="https://www.who.int/publications/i/item/9241590076" rel="noopener">Global Solar UV Index: A Practical Guide</a>. <em>World Health Organization, WMO, UNEP and ICNIRP</em>, 2002.</li>
+          </ol>
+        </section>
+        <p class="reviewed">Última revisión: 16 de noviembre de 2026. ¿Has visto un error o conoces una fuente mejor? <a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">Cuéntanoslo en GitHub</a>.</p>
+
+        <a class="cta" href="../">Consulta la curva horaria de UVA de hoy para tu ubicación →</a>
+      </article>
+
+      <aside class="related">
+        <h2>Sigue leyendo</h2>
+        <ul>
+          <li><a href="uv-index-vs-uva-index.html">Índice UV frente a índice UVA: qué mide cada uno</a></li>
+          <li><a href="does-uva-change-with-the-seasons.html">Por qué la UVA cambia mucho menos con las estaciones que la UVB</a></li>
+          <li><a href="how-uva-index-is-calculated.html">Cómo se calcula el índice UVA</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          Gratuito y de código abierto. Cálculo no oficial del índice UVA y de la irradiancia UVA. Solo información educativa, no consejo médico. Más información en la página <a href="https://uvaindex.org/es/about.html">Acerca de</a>.
+          · <button type="button" class="link-btn" data-consent-open>Configuración de cookies</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

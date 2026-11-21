@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="$HTML_LANG">
   <head>
     $HEAD
   </head>
@@ -8,9 +8,9 @@
       $BREADCRUMB_NAV
 
       <header>
-        <h1>Browse by topic</h1>
+        <h1>$H1</h1>
         <p class="subtitle">
-          All Knowledge Base topics, from basics to methodology.
+          $SUBTITLE
         </p>
       </header>
 
@@ -21,11 +21,11 @@ $CARDS
       <footer>
         <p class="disclaimer">
           $DISCLAIMER
-          · <button type="button" class="link-btn" data-consent-open>Cookie settings</button>
+          · <button type="button" class="link-btn" data-consent-open>$COOKIE_SETTINGS</button>
         </p>
       </footer>
     </main>
 
-    <script src="../../js/sw-register.js" defer></script>
+    <script src="${ASSET_REL}js/sw-register.js" defer></script>
   </body>
 </html>

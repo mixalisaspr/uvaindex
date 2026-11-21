@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>Les UVA par temps nuageux : ce qui passe et l'effet d'amplification des nuages</title>
+    <meta
+      name="description"
+      content="Les nuages atténuent bien moins les UVA que la lumière du soleil, et des nuages fragmentés peuvent brièvement faire monter les UVA au-dessus du niveau par ciel clair. Transmission selon le type de nuage, comparaison des UVA et des UVB sous les nuages, effet d'amplification des nuages et modélisation dans l'indice UVA."
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/fr/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Indice UVA" />
+    <meta property="og:title" content="Les UVA par temps nuageux : quelle quantité passe vraiment ?" />
+    <meta property="og:description" content="Un ciel couvert réduit bien moins les UVA que la luminosité, et des nuages fragmentés peuvent les faire dépasser le niveau par ciel clair. Les vrais chiffres." />
+    <meta property="og:url" content="https://uvaindex.org/fr/learn/uva-on-cloudy-days.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Les UVA par temps nuageux : quelle quantité passe",
+        "description": "Quelle quantité d'UVA traverse les nuages selon leur type, comparaison des UVA et des UVB sous les nuages, effet d'amplification par les nuages fragmentés qui peut porter les UVA au-dessus des valeurs par ciel clair, et paramétrage des nuages dans l'indice UVA.",
+        "inLanguage": "fr",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-02",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/fr/learn/uva-on-cloudy-days.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Empirical studies of cloud effects on UV radiation: a review",
+            "author": "Calbó J, Pagès D, González J-A",
+            "publisher": "Reviews of Geophysics 43(2):RG2002",
+            "datePublished": "2005",
+            "url": "https://doi.org/10.1029/2004RG000155"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Peut-on subir des dommages dus aux UV par temps nuageux ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. Des nuages fins ou fragmentés laissent généralement passer 80 à 100 % des UVA, et même un ciel très couvert en laisse habituellement passer 20 à 40 %. Comme les nuages suppriment la luminosité visible et la chaleur bien plus efficacement que l'ultraviolet, un jour couvert paraît bien plus sûr qu'il ne l'est : vous perdez les signaux sensoriels tout en gardant la plupart des UVA."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que l'effet d'amplification des nuages ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Lorsque le soleil se trouve dans une trouée entre des cumulus brillants, vous recevez la totalité du rayonnement direct, plus la lumière supplémentaire diffusée par les flancs ensoleillés des nuages environnants. Le total peut dépasser la valeur par ciel clair au même moment, généralement de 5 à 25 %, et parfois davantage pendant de courtes périodes. C'est un effet réel, mesuré à maintes reprises, et il signifie qu'un ciel partiellement nuageux n'est pas automatiquement plus sûr qu'un ciel clair."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Les UVA traversent-ils mieux les nuages que les UVB ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sous des nuages épais, les UVA peuvent passer un peu mieux que les UVB, car les trajets plus longs à l'intérieur du nuage permettent à l'ozone d'absorber davantage d'UVB, mais les mesures varient selon le type de nuage. Les deux traversent les nuages bien mieux que la lumière visible : un ciel couvert apporte donc encore une dose importante d'UVA."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Indice UVA",
+            "item": "https://uvaindex.org/fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Base de connaissances",
+            "item": "https://uvaindex.org/fr/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Les UVA par temps nuageux",
+            "item": "https://uvaindex.org/fr/learn/uva-on-cloudy-days.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="../">Indice UVA</a><span class="sep">›</span><a href="./">Base de connaissances</a><span class="sep">›</span>Les UVA par temps nuageux
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="Langue: Français"><span class="lang-icon" aria-hidden="true">🌐</span> Français</summary>
+          <ul>
+            <li><a href="../../learn/uva-on-cloudy-days.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/uva-on-cloudy-days.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="uva-on-cloudy-days.html" hreflang="fr" lang="fr" aria-current="true">Français</a></li>
+            <li><a href="../../de/learn/uva-on-cloudy-days.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/uva-on-cloudy-days.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/uva-on-cloudy-days.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../zh/learn/uva-on-cloudy-days.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>Les UVA par temps nuageux : quelle quantité passe</h1>
+        <p class="lead">
+          « Le ciel est couvert, je ne risque rien » est l'une des façons les plus
+          sûres de sous-estimer votre exposition à l'ultraviolet, et ce raisonnement
+          échoue <em>tout particulièrement</em> pour les UVA. Les nuages éliminent très
+          bien ce que vous pouvez percevoir, la luminosité et la chaleur, et assez mal
+          l'ultraviolet à grande longueur d'onde, que vous ne percevez pas. Par un jour
+          gris, vous avez perdu les signaux d'alerte tout en conservant une grande partie
+          de la dose.
+        </p>
+
+        <div class="callout">
+          <strong>Les chiffres essentiels :</strong> des nuages fins ou fragmentés
+          laissent généralement passer <strong>80 à 100 %</strong> des UVA. Un ciel
+          entièrement et très couvert en laisse habituellement encore passer
+          <strong>20 à 40 %</strong>. Et sous des cumulus fragmentés, les UVA peuvent
+          brièvement dépasser la valeur par ciel clair.
+        </div>
+
+        <h2>Transmission selon le type de nuage</h2>
+        <p>
+          « Nuageux » recouvre tout, du léger voile d'altitude à la base noire d'un
+          orage, et l'écart entre les deux dépasse un ordre de grandeur. Ce qui compte
+          physiquement n'est pas la part du ciel couverte, mais
+          l'<strong>épaisseur optique</strong> de ce qui la couvre, c'est-à-dire la
+          quantité d'eau liquide présente dans la colonne entre vous et le soleil.
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Ciel</th><th>Nuages</th><th>UVA transmis</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Clair</td><td>—</td><td>100 % (référence)</td></tr>
+            <tr><td>Fin voile d'altitude</td><td>Cirrus, cirrostratus</td><td>~80–95 %</td></tr>
+            <tr><td>Épars / fragmentés, soleil visible</td><td>Cumulus de beau temps</td><td>~90–110 %</td></tr>
+            <tr><td>Fragmentés, soleil masqué</td><td>Cumulus, altocumulus</td><td>~50–80 %</td></tr>
+            <tr><td>Ciel entièrement gris</td><td>Altostratus, stratus</td><td>~30–60 %</td></tr>
+            <tr><td>Couvert épais et sombre</td><td>Nimbostratus, nuages d'orage</td><td>~10–30 %</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          Remarquez la troisième ligne. Sous des nuages épars, avec le soleil dans une
+          trouée, la valeur peut se situer <em>au-dessus</em> de 100 % : c'est l'effet d'amplification,
+          décrit plus bas, et non une coquille.
+        </p>
+
+        <h2>Pourquoi les UV traversent mieux les nuages que la lumière visible</h2>
+        <p>
+          Les nuages atténuent l'ultraviolet (les UVA comme les
+          <a href="uva-vs-uvb.html">UVB</a> responsables des coups de soleil) moins
+          que la lumière visible. Deux mécanismes sont en jeu.<sup class="cite"><a href="#src-1" aria-label="Source 1">[1]</a></sup>
+        </p>
+        <ul>
+          <li>
+            <strong>Les gouttelettes des nuages diffusent plutôt qu'elles n'absorbent.</strong>
+            Les gouttelettes d'eau sont grandes par rapport aux longueurs d'onde UV :
+            elles redirigent donc surtout l'ultraviolet au lieu de le détruire. Un photon
+            qui entre dans un nuage a de bonnes chances d'en ressortir finalement vers le
+            bas, simplement dans une autre direction. C'est pourquoi un ciel couvert est
+            uniformément lumineux plutôt que sombre : l'énergie arrive toujours, elle a
+            simplement perdu sa direction.
+          </li>
+          <li>
+            <strong>Les UV sont déjà en grande partie diffus.</strong> Même par ciel
+            parfaitement clair, une grande part des UV en surface arrive sous forme de
+            lumière diffusée par toute la voûte céleste plutôt que directement du disque
+            solaire : environ un tiers à la moitié des UVA quand le soleil est haut,
+            davantage quand il descend. Les nuages suppriment avant tout le rayonnement
+            direct ; ils retirent donc une proportion plus faible des UV que de la
+            lumière visible, qui provient en majeure partie directement du soleil. Ce
+            même fait explique pourquoi
+            <a href="reflected-uva-snow-sand-water.html">l'ombre protège moins des UVA
+            qu'il n'y paraît</a> : se placer sous un parasol supprime le soleil, pas le ciel.
+          </li>
+        </ul>
+
+        <h2>UVA et UVB sous les nuages</h2>
+        <p>
+          <strong>Sous des nuages épais, les UVA peuvent passer un peu mieux que les
+          UVB</strong>, car les trajets plus longs à l'intérieur du nuage permettent à
+          l'ozone d'absorber davantage d'UVB. Chaque rebond à l'intérieur et sous un
+          nuage allonge le trajet d'un photon, et avec lui la probabilité de rencontrer
+          une molécule d'ozone ; l'ozone absorbe fortement dans les UVB et à peine dans
+          les UVA, si bien que le détour coûte davantage aux UVB.
+        </p>
+        <p>
+          Les mesures varient toutefois selon le type de nuage. La lumière renvoyée
+          vers le haut par un nuage est en partie rediffusée vers le bas par l'air
+          situé au-dessus, et l'air diffuse plus fortement les courtes longueurs d'onde :
+          sous certaines couches nuageuses uniformes, on a donc au contraire mesuré des
+          UVB passant un peu mieux. Dans tous les cas, l'écart entre les deux reste
+          modeste, et les deux traversent bien mieux que la lumière et la chaleur que
+          vous ressentez.
+        </p>
+
+        <h2>L'effet d'amplification des nuages</h2>
+        <p>
+          C'est ce qui surprend : <strong>un ciel partiellement nuageux peut apporter
+          plus d'UVA qu'un ciel clair.</strong>
+        </p>
+        <p>
+          La géométrie est simple. Lorsque le soleil se trouve dans une trouée dégagée
+          entre des cumulus brillants, vous recevez la totalité du rayonnement direct,
+          exactement comme par ciel clair, plus un rayonnement supplémentaire diffusé
+          par les flancs éclatants et ensoleillés des nuages qui entourent la trouée.
+          Rien n'est retiré, quelque chose est ajouté. Les amplifications mesurées se
+          situent couramment entre <strong>5 et 25 %</strong>, avec des pics brefs
+          enregistrés plus haut,<sup class="cite"><a href="#src-1" aria-label="Source 1">[1]</a></sup>
+          en particulier lorsqu'une surface claire comme la neige renvoie aussi de la
+          lumière depuis le sol.
+        </p>
+        <div class="callout">
+          <strong>Pourquoi c'est important pour les comportements :</strong>
+          « partiellement nuageux » sonne comme une raison de se détendre. Physiquement,
+          c'est la condition de ciel la plus susceptible d'apporter des UVA
+          <em>supérieurs</em> à ceux d'un ciel clair, alors que l'ombre intermittente
+          rend la journée plus fraîche et plus agréable, si bien que l'on reste dehors
+          plus longtemps.
+        </div>
+        <p>
+          L'effet est épisodique et de courte durée : il se produit tant que le soleil
+          est dans une trouée, puis laisse place à une véritable atténuation lorsqu'un
+          nuage passe devant. En moyenne sur un après-midi, des nuages fragmentés
+          donnent généralement un résultat un peu inférieur à celui d'un ciel clair.
+          Mais les valeurs instantanées maximales sont réelles, et personne ne s'y
+          attend à la lecture d'une prévision nuageuse.
+        </p>
+
+        <h2>Ce que cela change en pratique</h2>
+        <ul>
+          <li>
+            <strong>Un ciel couvert n'est pas un jour de repos.</strong> Avec 30 à 60 %
+            de transmission, un après-midi dehors sous un ciel gris en plein été peut
+            encore apporter plus d'UVA qu'une journée claire au cœur de l'hiver. Voir
+            <a href="does-uva-change-with-the-seasons.html">pourquoi les UVA varient si
+            peu avec les saisons</a> pour le calcul.
+          </li>
+          <li>
+            <strong>Vous ne recevrez pas l'avertissement habituel.</strong> Les nuages
+            éliminent les UVB plus vite que les UVA : le coup de soleil qui signale
+            normalement une surexposition est donc davantage supprimé que les UVA
+            responsables du photovieillissement et de la pigmentation. Les nuages
+            déplacent l'exposition vers les UVA, de la même façon que le verre et un
+            soleil bas.
+          </li>
+          <li>
+            <strong>Le pourcentage de couverture nuageuse est un mauvais indicateur.</strong>
+            « 90 % de couverture nuageuse » dans une prévision décrit la part du ciel
+            masquée, pas l'épaisseur des nuages qui la masquent. Quatre-vingt-dix pour
+            cent de cirrus fins et quatre-vingt-dix pour cent de nimbostratus diffèrent
+            d'un facteur cinq dans ce qui vous atteint.
+          </li>
+          <li>
+            <strong>Les personnes photosensibles devraient considérer les nuages comme
+            presque sans importance.</strong> Si votre seuil est bas, une journée à 40 %
+            le franchit encore. Le sujet est traité dans
+            <a href="uva-photosensitivity-medications.html">Photosensibilité aux UVA</a>.
+          </li>
+        </ul>
+
+        <h2>Comment l'indice UVA prend en compte les nuages</h2>
+        <p>
+          Les nuages sont la donnée la plus variable de l'<a href="../">indice&nbsp;UVA</a>
+          de ce site, et le modèle les traite de deux façons selon les données
+          disponibles pour votre position.
+        </p>
+        <p>
+          <strong>Méthode privilégiée : déduite des données UV en direct.</strong>
+          Open-Meteo publie à la fois l'indice&nbsp;UV réel et un indice&nbsp;UV par
+          ciel clair pour la même heure. Leur rapport donne une transmission érythémale
+          mesurée des nuages pour le ciel réellement présent au-dessus de vous, bien
+          meilleure que n'importe quel paramétrage d'un pourcentage de couverture. Comme
+          l'écart entre la transmission des UVA et la transmission érythémale est
+          modeste et varie selon le type de nuage (voir plus haut), cette transmission
+          est appliquée telle quelle aux UVA :
+        </p>
+        <div class="callout">
+          <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>γ</sup>, avec γ = 1</strong>
+        </div>
+        <p>
+          Un ciel très couvert qui réduit les UV érythémaux à 30 % laisse environ 30 %
+          des UVA. L'exposant γ est conservé comme coefficient explicite, car c'est la
+          partie du modèle qui mérite le plus d'être vérifiée par des mesures ; le
+          script de validation du projet l'ajuste sur des données UVA indépendantes.
+        </p>
+        <p>
+          <strong>Méthode de secours : paramétrique, à partir de la couverture
+          nuageuse.</strong> Lorsque la paire de valeurs UV en direct n'est pas
+          disponible, le modèle se rabat sur la couverture nuageuse totale signalée :
+        </p>
+        <div class="callout">
+          <strong>facteur nuages = 1 − 0,4 × (couverture ÷ 100)<sup>1,5</sup></strong>
+        </div>
+        <p>
+          La courbe est volontairement douce, car une « couverture de 100 % » signalée
+          décrit la part du ciel couverte, pas l'épaisseur optique : le bon comportement
+          moyen à couverture totale est donc une réduction modérée, à environ
+          <strong>60 %</strong>, et non une extinction. La démonstration complète, avec
+          tous les autres coefficients, figure dans
+          <a href="how-uva-index-is-calculated.html">Comment l'indice UVA est
+          calculé</a>.
+        </p>
+        <p>
+          Une limite à reconnaître honnêtement : <strong>le modèle ne reproduit pas
+          l'amplification par les nuages.</strong> Les deux méthodes ne font
+          qu'atténuer : un facteur supérieur à 1 ne se produit donc jamais. Sous des
+          cumulus fragmentés, avec le soleil dans une trouée, les UVA réels peuvent
+          dépasser ce qu'indique l'indice&nbsp;UVA. Cet effet figure parmi les
+          <a href="how-uva-index-is-calculated.html#omitted">facteurs volontairement
+          laissés de côté</a>, et c'est le seul cas où le chiffre risque davantage de
+          sous-estimer que de surestimer.
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>Sources</h2>
+          <ol>
+            <li id="src-1">Calbó J, Pagès D, González J-A (2005). <a href="https://doi.org/10.1029/2004RG000155" rel="noopener">Empirical studies of cloud effects on UV radiation: a review</a>. <em>Reviews of Geophysics 43(2):RG2002</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">Dernière révision le 16 novembre 2026. Vous avez repéré une erreur ou une meilleure source ? <a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">Dites-le-nous sur GitHub</a>.</p>
+
+        <a class="cta" href="../">Consultez l'indice UVA du jour, nuages compris →</a>
+      </article>
+
+      <aside class="related">
+        <h2>À lire aussi</h2>
+        <ul>
+          <li><a href="what-is-uva-radiation.html">Qu'est-ce que le rayonnement UVA ?</a></li>
+          <li><a href="how-uva-index-is-calculated.html">Comment l'indice UVA est calculé</a></li>
+          <li><a href="does-uva-change-with-the-seasons.html">Pourquoi les UVA varient bien moins que les UVB au fil des saisons</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          Gratuit et open source. Calcul non officiel de l'indice UVA et de l'éclairement UVA. Information éducative uniquement, pas un avis médical. Plus d'informations sur la page <a href="https://uvaindex.org/fr/about.html">À propos</a>.
+          · <button type="button" class="link-btn" data-consent-open>Paramètres des cookies</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

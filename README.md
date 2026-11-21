@@ -107,12 +107,15 @@ js/sw-register.js # registers sw.js; reloads open pages/PWAs onto a new version
 js/widget-config.js # widget options: URL parsing/building + embed snippet, pure
 js/embed.js    # the widget: fetch, model, render; per-browser 1 h cache
 js/widget.js   # the builder on widget.html
+js/i18n.js     # interface text for the scripts in every language, pure
 tests/         # unit tests (node --test, no dependencies)
 learn/         # Knowledge Base: GENERATED educational articles about UVA (see below)
+es/ fr/ de/ it/ ja/ zh/  # the site in other languages (see Languages below)
 content/       # Knowledge Base source content + site config (see below)
 templates/     # HTML/JS templates used to generate learn/, sitemap.xml, sw.js
 scripts/       # build_kb.py (Knowledge Base), build_lut.py (clear-sky table),
-               # validate.mjs (model vs reference data)
+               # validate.mjs (model vs reference data), i18n_check.py
+               # (translations vs their English source)
 favicon.svg    # site icon
 og-image.svg   # source for the social share image
 og-image.png   # 1200x630 Open Graph / Twitter card image (rasterized from the SVG)
@@ -126,7 +129,8 @@ sitemap.xml    # GENERATED sitemap (calculator + knowledge-base pages) for searc
 plain English and supports the calculator's premise. It reuses `styles.css` and
 the root service worker (so the articles also work offline).
 
-`learn/*.html`, `learn/index.html`, `learn/tags/*`, `sitemap.xml`, `sw.js` and
+`learn/*.html`, `learn/index.html`, `learn/tags/*` (and the same under each
+`<lang>/learn/`), `sitemap.xml`, `sw.js` and
 the primary `<nav>` inside `index.html` and `about.html`
 are **generated** by `scripts/build_kb.py` (standard-library Python only, no
 new dependency) from source content in `content/learn/*.html` — one file per
@@ -166,6 +170,50 @@ position, hourly cloud and aerosol data interpolated between hours), giving
 each day's peak, the span when the UVA Index is Moderate (3) or higher, and a
 chart of the selected day. To regenerate `og-image.png`
 after editing the SVG: `npx sharp-cli -i og-image.svg -o og-image.png resize 1200 630`.
+
+## Languages
+
+The site is published in English (at the root), Spanish (`/es/`), French
+(`/fr/`), German (`/de/`), Italian (`/it/`), Japanese (`/ja/`) and Simplified
+Chinese (`/zh/`). Every language folder mirrors the root: the same file names,
+so `/de/learn/uva-vs-uvb.html` is the German `learn/uva-vs-uvb.html`, and the
+pages load the shared `styles.css` and `js/` from one level up.
+
+- **Calculator, About and widget pages** — `<lang>/index.html`, `about.html`
+  and `widget.html` are hand-maintained translations of the root pages.
+  Their nav and their `hreflang` links (between `<!-- hreflang:start -->` and
+  `<!-- hreflang:end -->`) are generated, as for the English pages.
+- **Text written by the scripts** (statuses, the forecast, tables, chart,
+  widget, consent banner) comes from `js/i18n.js`, picked by the page's
+  `<html lang>`; the consent banner keeps its own short table in
+  `js/consent.js`. Numbers and weekdays follow the language's conventions via
+  `Intl`, and place search asks Open-Meteo for names in that language.
+- **Knowledge Base** — a translation of `content/learn/<slug>.html` lives in
+  `content/learn/<lang>/<slug>.html` and holds only the translated wording;
+  dates, tags, ordering and related links come from the English article.
+  `scripts/build_kb.py` generates `<lang>/learn/` from it. Until an article
+  is translated, translated articles link to the English one (marked
+  `hreflang="en"`) and the language menu sends readers to that language's
+  Knowledge Base.
+- **Strings for generated pages** (nav, breadcrumbs, hub, tag pages, dates,
+  footer) and a glossary of fixed terms for translators are in
+  `content/i18n/<lang>.json`; the list of languages is `languages` in
+  `content/site.json`.
+
+Every page carries a language menu, `<link rel="alternate" hreflang>` tags for
+each language it exists in (plus `x-default` → English), and the sitemap lists
+the alternates too. There is no automatic redirect by browser language. The
+embeddable widget takes `?lang=` and the builder on each language's widget
+page sets it, so the widget and its credit line match the host page.
+
+The service worker precaches every language's calculator, About and widget
+pages, but only the English Knowledge Base; translated articles are fetched
+when visited, to keep the install small.
+
+`python3 scripts/i18n_check.py [lang [slug]]` compares translations with their
+English source — same links, citation markers, elements and FAQ count — and
+the build refuses any translation that fails it. See
+[Translating](CONTRIBUTING.md#translating) for the workflow.
 
 ## Embeddable widget
 

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>UVAで日焼けして黒くなる？即時型黒化と「ベースタン」の誤解</title>
+    <meta
+      name="description"
+      content="UVAは、もともとあるメラニンを酸化させることで数分のうちに肌を黒くします。しかしその日焼けには、ほとんど防御効果がありません。3つの異なる日焼け反応、UVAではほとんど赤くならない理由、そしてそれが日焼けマシンやベースタンの考え方にとって何を意味するのかを解説します。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/ja/learn/does-uva-tan-or-burn.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-tan-or-burn.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-tan-or-burn.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-tan-or-burn.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/does-uva-tan-or-burn.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/does-uva-tan-or-burn.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/does-uva-tan-or-burn.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/does-uva-tan-or-burn.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/does-uva-tan-or-burn.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA指数" />
+    <meta property="og:title" content="UVAで肌は黒くなる？ベースタンの誤解を解説" />
+    <meta property="og:description" content="UVAはもともとあるメラニンを酸化させて数分で肌を黒くしますが、その日焼けの価値はおよそSPF 1。「ベースを作る」ことがほとんど何も守らない理由。" />
+    <meta property="og:url" content="https://uvaindex.org/ja/learn/does-uva-tan-or-burn.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "UVAで肌は黒くなる？サンタン、サンバーン、ベースタンの誤解",
+        "description": "紫外線に対する3つの日焼け反応（即時型黒化、持続型黒化、遅延型メラニン生成）、それぞれを引き起こす波長域、日焼けした肌が実際にはどれほどわずかな防御しかもたらさないか、そしてUVAが紫外線スペクトルの大部分を占めるにもかかわらず、ほとんど日焼け（サンバーン）を起こさない理由を解説します。",
+        "inLanguage": "ja",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-29",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/ja/learn/does-uva-tan-or-burn.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Tanning in human skin types II and III offers modest photoprotection against erythema",
+            "author": "Sheehan JM, Potten CS, Young AR",
+            "publisher": "Photochemistry and Photobiology 68(4):588–592",
+            "datePublished": "1998"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "A review of human carcinogens — Part D: radiation",
+            "author": "El Ghissassi F, Baan R, Straif K, et al.",
+            "publisher": "The Lancet Oncology 10(8):751–752",
+            "datePublished": "2009",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/19655431/"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "IARC Monographs Volume 100D: Radiation (solar and ultraviolet radiation; UV-emitting tanning devices)",
+            "publisher": "International Agency for Research on Cancer",
+            "datePublished": "2012",
+            "url": "https://publications.iarc.who.int/Book-And-Report-Series/Iarc-Monographs-On-The-Identification-Of-Carcinogenic-Hazards-To-Humans/Radiation-2012"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Cutaneous melanoma attributable to sunbed use: systematic review and meta-analysis (with the December 2012 correction)",
+            "author": "Boniol M, Autier P, Boyle P, Gandini S",
+            "publisher": "BMJ 345:e4757",
+            "datePublished": "2012",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/22833605/"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Ultraviolet emission spectra of sunbeds",
+            "author": "Gerber B, Mathys P, Moser M, Bressoud D, Braun-Fahrländer C",
+            "publisher": "Photochemistry and Photobiology 76(6):664–668",
+            "datePublished": "2002",
+            "url": "https://doi.org/10.1562/0031-8655(2002)076%3C0664:UESOS%3E2.0.CO;2"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Photoprotection by melanin — a comparison of black and Caucasian skin",
+            "author": "Kaidbey KH, Agin PP, Sayre RM, Kligman AM",
+            "publisher": "Journal of the American Academy of Dermatology 1(3):249–260",
+            "datePublished": "1979",
+            "url": "https://doi.org/10.1016/S0190-9622(79)70018-1"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "UVAで肌は黒くなりますか、それとも赤くなりますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "主に黒くなります。UVAは即時型黒化を引き起こします。もともとあるメラニンが酸化されて再分布し、数分のうちに肌が黒くなる反応です。一方で、自然の日光による日焼け（サンバーン）への寄与は約15〜20%にすぎません。同じ波長あたりで比べると、UVAが紅斑を起こす力はUVBのおよそ1,000分の1です。それでも影響が出るのは、UVAの量がはるかに多いからにすぎません。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "ベースタンは日焼け（サンバーン）を防いでくれますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ほとんど防ぎません。UVAを浴びてできた日焼けの防御効果は、SPFにして約1〜1.5と推定されており、実質的にゼロです。UVBを浴びてできる遅延型の日焼けは、本当に新しいメラニンが作られるもので、SPF 2〜4程度の価値があるかもしれません。その一方で、どちらの日焼けを得るにしても、その曝露に伴うDNA損傷、コラーゲンの分解、免疫の抑制を受け入れることになります。日焼け止めを1回塗る効果のほんの一部のために、全額の代償を払っているのです。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "UVAの日焼けマシンは日光より安全ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "いいえ。国際がん研究機関（IARC）は2009年、紫外線を出す日焼けマシンを、たばこやアスベストと同じグループ1（ヒトに対して発がん性がある）に分類しました。2012年にBMJに掲載されたメタアナリシスでは、日焼けマシンを使ったことがあるとメラノーマ（悪性黒色腫）のリスクがおよそ20%高まり、35歳未満で初めて使った人では約59%高まることがわかりました。"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA指数",
+            "item": "https://uvaindex.org/ja/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "ナレッジベース",
+            "item": "https://uvaindex.org/ja/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UVAで肌は黒くなる？",
+            "item": "https://uvaindex.org/ja/learn/does-uva-tan-or-burn.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <a href="../">UVA指数</a><span class="sep">›</span><a href="./">ナレッジベース</a><span class="sep">›</span>UVAで肌は黒くなる？
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="言語: 日本語"><span class="lang-icon" aria-hidden="true">🌐</span> 日本語</summary>
+          <ul>
+            <li><a href="../../learn/does-uva-tan-or-burn.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/does-uva-tan-or-burn.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/does-uva-tan-or-burn.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/does-uva-tan-or-burn.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/does-uva-tan-or-burn.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="does-uva-tan-or-burn.html" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+            <li><a href="../../zh/learn/does-uva-tan-or-burn.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>UVAで肌は黒くなる？サンタン、サンバーン、ベースタンの誤解</h1>
+        <p class="lead">
+          はい、UVA（紫外線A波）で肌は黒くなります。すばやく、目に見えて。それこそが問題なのです。数分で目に
+          見え、しかも赤くならない反応は、何も有害なことが起きていない証拠のように受け取られます。実際には、
+          目に見える黒化と目に見えないダメージは、同じ曝露から生じる互いに独立した2つの結果であり、前者は
+          後者を知るための目安としてはまったく当てになりません。
+        </p>
+
+        <h2>日焼けには3種類ある</h2>
+        <p>
+          「日焼けして黒くなる」という言葉は、少なくとも3つの異なる生物学的反応を指しています。時間の尺度も、
+          引き起こす波長域も、防御効果もまったく異なります。それらを混同していることが、混乱の大部分の原因です。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>反応</th><th>引き起こすもの</th><th>始まり</th><th>持続時間</th><th>仕組み</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>即時型黒化（IPD）</td><td>UVA、一部の可視光</td><td>数秒〜数分</td><td>数分〜数時間</td><td>もともとあるメラニンの酸化と再分布</td></tr>
+            <tr><td>持続型黒化（PPD）</td><td>UVA</td><td>約2時間</td><td>最大約24時間</td><td>同じメラニンが、より安定して酸化される</td></tr>
+            <tr><td>遅延型黒化（メラニン生成）</td><td>主にUVB</td><td>2〜3日</td><td>数週間〜数か月</td><td>新しいメラニンが合成され、角化細胞に受け渡される</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          実際に皮膚が何かを作り出しているのは3つ目だけです。IPDとPPDは、もともとあった色素に起こる化学反応に
+          すぎません。メラニンが明るい還元型から暗い酸化型に変わり、細胞の中で外側へ移動するのです。何も
+          加わっていないので、あなたと次の光子との間に余分なものは何もありません。
+        </p>
+        <div class="callout">
+          <strong>PPDは実際の測定基準です。</strong>持続型黒化はUVAに特有で再現性があるため、日本の
+          <strong>PA</strong>表示やISO 24442で、日焼け止めのUVA防御効果を評価する指標として使われています。
+          ボトルにPA+++と書かれていれば、その裏にある数値は、まさにこの反応を測って決められたものです。
+          <a href="uva-sunscreen-labels-explained.html">UVA表示の読み解き方</a>で、それぞれの評価の意味を
+          解説しています。
+        </div>
+
+        <h2>日焼けした肌の本当の価値</h2>
+        <p>
+          ベースタンという考え方を崩すのが、この数値です<sup class="cite"><a href="#src-1" aria-label="出典 1">[1]</a></sup>。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>日焼けの原因</th><th>おおよその防御効果</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>UVAによるIPD・PPD</td><td>約SPF 1〜1.5（実質的にゼロ）</td></tr>
+            <tr><td>UVBによる遅延型の日焼け</td><td>約SPF 2〜3</td></tr>
+            <tr><td>SPF30の日焼け止めを1回正しく塗った場合</td><td>SPF 30</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          休暇の前に2週間わざと肌を焼いても、得られるのはどんなに良くても、普通の日焼け止めを1回塗った効果の
+          ほんの一部です。しかもその代償として、2週間分の真皮のコラーゲンの分解、DNAの酸化損傷、局所的な免疫の
+          抑制を払っています。リスクと見返りの取引として、これより悪いものを考えるのは難しいでしょう。
+        </p>
+        <p>
+          さらに悪いことに、遅延型の日焼けがもたらす防御は、角質層の肥厚と<em>表皮</em>の新しいメラニンによる
+          ものです。これはUVB（紫外線B波）に対してはそれなりに防ぎますが、
+          <a href="uva-and-skin-aging.html">深くまで届くUVA</a>に対してはかなり劣ります。日焼けした肌は、
+          それを生み出した波長域を最もよく防ぎ、あなたを老けさせる波長域を最も防がないのです。
+        </p>
+
+        <h2>UVAではほとんど赤くならない理由</h2>
+        <p>
+          日焼け（サンバーン）とは紅斑のことで、紅斑の作用スペクトルは波長によって急激に変わります。UVBの奥深く、
+          300&nbsp;nm付近では、光子は赤みを起こす力がきわめて強いのです。UVAの360&nbsp;nmになると、その力は
+          およそ3桁も下がっています。
+        </p>
+        <p>
+          UVAはその量の多さで、部分的にしか埋め合わせられません。地表ではUVBのおよそ20倍あるので、実際の
+          日焼け（サンバーン）への寄与はゼロではなく、南中時刻（太陽正午）の自然の日光による紅斑線量のおよそ
+          <strong>15〜20%</strong>になります。無視できないほどではありますが、警告のサインになるにはまったく
+          足りません。
+        </p>
+        <div class="callout">
+          <strong>UVAへの対策が不十分になる理由は、まさにここにあります。</strong>日焼け（サンバーン）は、
+          紫外線曝露に対して体が返してくれる唯一の素早いフィードバックで、それはほぼ完全にUVBの信号です。
+          UVBを取り除いてUVAを残す状況、つまり<a href="does-glass-block-uva.html">窓</a>、
+          <a href="uva-on-cloudy-days.html">雲</a>、<a href="does-uva-change-with-the-seasons.html">冬</a>、
+          UVA寄りのランプなどは、曝露を取り除かないまま警報だけを止めてしまうのです。
+        </div>
+        <p>
+          UVAでも、十分な量を浴びれば赤くなることは<em>あります</em>。光線療法や高出力の日焼けマシンは、UVAに
+          よる紅斑が普通に起こる線量に達します。ただ、それにはUVBのおよそ1,000倍の線量が必要なだけです。
+        </p>
+
+        <h2>日焼けマシン</h2>
+        <p>
+          日焼けマシンは、意図的にこの非対称性を利用して作られています。ランプのスペクトルは日光に比べてUVA寄りに
+          ずらされており、赤くなることは比較的少ないまま、強く素早い美容上の黒化を生み出します。商業的に魅力的な
+          組み合わせで、何年もの間「より安全な」日焼けとして宣伝されていました。
+        </p>
+        <p>
+          疫学はその位置づけを支持していません。
+        </p>
+        <ul>
+          <li>
+            2009年、<strong>国際がん研究機関（IARC）</strong>は、紫外線を出す日焼けマシンを
+            <strong>グループ1（ヒトに対して発がん性がある）</strong>に分類し直しました。これは確実性が最も高い
+            区分で、喫煙やアスベストと同じです<sup class="cite"><a href="#src-2" aria-label="出典 2">[2]</a><a href="#src-3" aria-label="出典 3">[3]</a></sup>。
+          </li>
+          <li>
+            <strong>2012年のBMJに掲載されたメタアナリシス</strong>では、日焼けマシンを使ったことがあると
+            メラノーマ（悪性黒色腫）のリスクがおよそ<strong>20%高まる</strong>ことと関連しており、35歳未満で
+            初めて使った人では約<strong>59%</strong>に上がり、量に応じた関係があることを示す証拠も見られました
+            <sup class="cite"><a href="#src-4" aria-label="出典 4">[4]</a></sup>。
+          </li>
+          <li>
+            多くの機器は、熱帯の真昼の日光の数倍のUVA放射照度を出すため、UVAで見れば、短いセッションでも屋外で
+            過ごす長い1日を上回ることがあります<sup class="cite"><a href="#src-5" aria-label="出典 5">[5]</a></sup>。
+          </li>
+        </ul>
+        <p>
+          計算ツールと同じ単位で比べたい場合は、<a href="indoor-uva-nail-lamps-tanning-beds.html">屋内のUVA</a>
+          で、日焼けマシンとネイルランプの出力をW/m²で太陽と並べて紹介しています。
+        </p>
+
+        <h2>生まれつきのメラニンはどうなのか</h2>
+        <p>
+          構成的色素沈着、つまり日光への曝露とは関係なく肌にあるメラニンには、本当に防御効果があり、後から
+          できたどんな日焼けよりもかなり高い効果があります。色素の濃い肌には、UVBに対して一般にSPF 10〜13
+          程度と推定される、生まれつきの防御効果があります<sup class="cite"><a href="#src-6" aria-label="出典 6">[6]</a></sup>。
+        </p>
+        <p>
+          しかし、その防御は部分的で、波長域によって異なります。皮膚がんの発生率は大きく下がりますが、なくなる
+          わけではありません。そして、色の濃い肌に多く見られる、UVAや可視光によって引き起こされる色素の異常に
+          対しては、はるかに効果が低いのです。肝斑や炎症後色素沈着は、フィッツパトリックのスキンタイプが高いほど、
+          むしろ大きな懸念になります。これは<a href="uva-melasma-and-skin-tone.html">UVA、肝斑、肌の色</a>の
+          テーマです。
+        </p>
+
+        <h2>まとめ</h2>
+        <ul>
+          <li><strong>UVAは肌を素早く黒くしますが、ほとんど何も守りません。</strong>もともとあった色素を並べ替えているだけです。</li>
+          <li><strong>ベースタンの価値はSPFにしておよそ1〜4</strong>で、生物学的な代償は全額払っています。</li>
+          <li><strong>赤くならないことは、ダメージを受けていないことと同じではありません。</strong>この2つは異なる波長域によって引き起こされます。</li>
+          <li><strong>日焼けマシンはグループ1の発がん性因子</strong>であり、穏やかに感じられるのは、そのUVA寄りのスペクトルのためです。</li>
+          <li><strong>曝露なしで肌の色だけがほしいなら</strong>、ジヒドロキシアセトン（DHA）を使ったセルフタンニング剤が角質層と反応するもので、紫外線はまったく関係ありません。ただし、意味のある日焼け防止効果もないので、日焼け止めは引き続き必要です。</li>
+        </ul>
+
+        <section class="sources" id="sources">
+          <h2>出典</h2>
+          <ol>
+            <li id="src-1">Sheehan JM, Potten CS, Young AR (1998). Tanning in human skin types II and III offers modest photoprotection against erythema. <em>Photochemistry and Photobiology 68(4):588–592</em>.</li>
+            <li id="src-2">El Ghissassi F, Baan R, Straif K, et al. (2009). <a href="https://pubmed.ncbi.nlm.nih.gov/19655431/" rel="noopener">A review of human carcinogens — Part D: radiation</a>. <em>The Lancet Oncology 10(8):751–752</em>.</li>
+            <li id="src-3"><a href="https://publications.iarc.who.int/Book-And-Report-Series/Iarc-Monographs-On-The-Identification-Of-Carcinogenic-Hazards-To-Humans/Radiation-2012" rel="noopener">IARC Monographs Volume 100D: Radiation (solar and ultraviolet radiation; UV-emitting tanning devices)</a>. <em>International Agency for Research on Cancer</em>, 2012.</li>
+            <li id="src-4">Boniol M, Autier P, Boyle P, Gandini S (2012). <a href="https://pubmed.ncbi.nlm.nih.gov/22833605/" rel="noopener">Cutaneous melanoma attributable to sunbed use: systematic review and meta-analysis (with the December 2012 correction)</a>. <em>BMJ 345:e4757</em>.</li>
+            <li id="src-5">Gerber B, Mathys P, Moser M, Bressoud D, Braun-Fahrländer C (2002). <a href="https://doi.org/10.1562/0031-8655(2002)076%3C0664:UESOS%3E2.0.CO;2" rel="noopener">Ultraviolet emission spectra of sunbeds</a>. <em>Photochemistry and Photobiology 76(6):664–668</em>.</li>
+            <li id="src-6">Kaidbey KH, Agin PP, Sayre RM, Kligman AM (1979). <a href="https://doi.org/10.1016/S0190-9622(79)70018-1" rel="noopener">Photoprotection by melanin — a comparison of black and Caucasian skin</a>. <em>Journal of the American Academy of Dermatology 1(3):249–260</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">最終確認日：2026年11月16日。誤りやより良い出典に気づいたら、<a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">GitHubでお知らせください</a>。</p>
+
+        <a class="cta" href="../">現在地のUVA指数をリアルタイムで確認する →</a>
+      </article>
+
+      <aside class="related">
+        <h2>あわせて読みたい</h2>
+        <ul>
+          <li><a href="indoor-uva-nail-lamps-tanning-beds.html">屋内のUVA：ネイルライト、日焼けマシン、そして照明が実際に出しているもの</a></li>
+          <li><a href="uva-melasma-and-skin-tone.html">UVA、メラニンと色素沈着：肝斑、色素沈着、肌の色</a></li>
+          <li><a href="uva-and-skin-aging.html">UVAと肌の老化：光老化は実際にどう起こるのか</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          無料のオープンソースです。UVA指数とUVA放射照度の非公式な計算です。教育目的の情報であり、医学的助言ではありません。詳しくは<a href="https://uvaindex.org/ja/about.html">このサイトについて</a>をご覧ください。
+          · <button type="button" class="link-btn" data-consent-open>Cookieの設定</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

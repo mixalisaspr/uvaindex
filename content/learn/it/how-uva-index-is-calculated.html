@@ -1,0 +1,404 @@
+<!--meta
+{
+  "slug": "how-uva-index-is-calculated",
+  "translated_from": "2026-11-16",
+  "title": "Come si calcola l'indice UVA — Modello, parametri e limiti",
+  "headline": "Come si calcola l'indice UVA",
+  "description": "Il metodo completo del nostro indice UVA: come si ricava l'irradianza UVA al suolo (315–400 nm, W/m²) da una tabella di trasferimento radiativo e dai dati in tempo reale su nuvole, foschia, pressione e neve, con formule, ipotesi, validazione e i fattori che lasciamo fuori.",
+  "og_title": "Come si calcola l'indice UVA — Modello, parametri e limiti",
+  "og_description": "Il metodo completo del nostro indice UVA: le formule, i dati in tempo reale, i coefficienti e i fattori che lasciamo fuori di proposito.",
+  "jsonld_description": "Il metodo dell'indice UVA: come si ricava l'irradianza UVA al suolo (315–400 nm) da una tabella di trasferimento radiativo e dai dati in tempo reale su nuvole, aerosol, pressione e neve, le formule e le ipotesi adottate, la validazione e i fattori omessi di proposito.",
+  "faq": [
+    {
+      "question": "Come si calcola l'indice UVA?",
+      "answer": "Gli UVA a cielo sereno si leggono in una tabella calcolata con un modello di trasferimento radiativo (DISORT) in base all'angolo del sole, alla foschia (spessore ottico degli aerosol) e alla pressione dell'aria al suolo: circa 64 W/m² con il sole allo zenit, aria pulita e al livello del mare. Questo valore viene poi moltiplicato per i fattori che tengono conto della riflessione dell'ambiente circostante, della distanza Terra–Sole del giorno e della copertura nuvolosa in tempo reale. L'irradianza risultante in W/m² viene divisa per sei per ottenere l'indice da 0 a 11+."
+    },
+    {
+      "question": "Quanto è preciso l'indice UVA?",
+      "answer": "È il risultato di un modello, non una misura, e i suoi errori seguono uno schema prevedibile. Il caso più affidabile è il cielo sereno con il sole ben alto, perché domina la geometria solare e le correzioni sono piccole. Il meno affidabile è il cielo parzialmente nuvoloso, con una sottostima sistematica: il modello considera solo l'attenuazione e non riproduce l'effetto di amplificazione delle nuvole, quando il sole in uno squarcio tra cumuli luminosi supera per breve tempo i valori a cielo sereno. In termini relativi, le letture con il sole vicino all'orizzonte sono le meno affidabili."
+    },
+    {
+      "question": "Perché il modello ignora l'ozono in tempo reale?",
+      "answer": "Perché l'ozono incide pochissimo sugli UVA. L'ozono assorbe molto negli UVB e solo debolmente all'estremità corta della banda UVA, quindi dimezzare la colonna di ozono cambia gli UVA solo di qualche punto percentuale, mentre all'incirca raddoppia gli UV eritemali. La tabella di trasferimento radiativo fissa l'ozono a un valore tipico di 300 unità Dobson; la fonte di dati gratuita fornisce solo l'ozono al suolo in µg/m³, non la colonna totale che servirebbe a un termine del genere, quindi l'ozono al suolo è mostrato solo a titolo informativo."
+    }
+  ],
+  "related_pins": [
+    { "slug": "uv-index-vs-uva-index", "label": "Perché l'indice UV non basta" },
+    "what-is-uva-radiation",
+    "uva-vs-uvb",
+    { "href": "../about.html", "label": "Informazioni sul sito" }
+  ],
+  "cta_text": "Prova il calcolatore dell'indice UVA e guarda il dettaglio del calcolo →",
+  "breadcrumb_label": "Come si calcola l'indice UVA"
+}
+-->
+<h1>Come si calcola l'indice UVA</h1>
+<p class="lead">
+  Questa è la guida tecnica che accompagna il calcolatore. Spiega
+  esattamente come stimiamo l'<strong>irradianza UVA al suolo</strong>
+  (la banda 315–400&nbsp;nm non pesata, in W/m²), come la trasformiamo
+  nell'<strong>indice&nbsp;UVA da 0 a 11+</strong>, tutti i parametri e i
+  coefficienti che usiamo e, cosa altrettanto importante,
+  <a href="#omitted">i fattori che lasciamo fuori di proposito</a>.
+</p>
+
+<div class="callout">
+  <strong>Perché un modello?</strong> Nessuna delle principali API meteo
+  gratuite fornisce gli UVA puri: tutte pubblicano
+  l'<a href="uv-index-vs-uva-index.html">indice&nbsp;UV</a> con ponderazione
+  eritemale, che riflette soprattutto gli UVB. Così, invece di leggere gli
+  UVA da un'API, li <strong>ricaviamo</strong> dalla fisica della posizione
+  del sole e da dati atmosferici in tempo reale che sappiamo influenzare gli UVA.
+</div>
+
+<h2>Il modello in una riga</h2>
+<p>
+  L'irradianza UVA è un valore a cielo sereno ottenuto da un calcolo di
+  trasferimento radiativo, moltiplicato per una breve catena di fattori che
+  descrivono le condizioni del momento:
+</p>
+<div class="callout">
+  <strong>UVA = base × altitudine × aerosol × ambiente circostante × distanza Terra–Sole × nuvole</strong>
+</div>
+<p>
+  Ogni fattore vale <code>1</code> (nessun effetto) quando manca il dato
+  corrispondente, così la stima peggiora gradualmente invece di fallire.
+  Ogni fattore compare anche nella tabella <em>Dettaglio del modello</em>
+  del calcolatore, così qualsiasi lettura si può ricondurre alle sue parti.
+</p>
+
+<h2>Passo 1 — Posizione del sole</h2>
+<p>
+  Il fattore che più di ogni altro determina gli UVA è l'altezza del sole
+  nel cielo. Calcoliamo l'<strong>angolo zenitale solare</strong>
+  <code>θ</code> (0° = sole allo zenit, 90° = sole all'orizzonte)
+  direttamente nel browser a partire da latitudine, longitudine e istante,
+  con l'<strong>algoritmo di posizione solare della NOAA</strong>, la stessa
+  matematica del NOAA Solar Calculator.[[cite:noaa_solcalc]] Lo stesso algoritmo fornisce la
+  <strong>distanza Terra–Sole</strong> usata nel passo&nbsp;5. Quando il sole
+  è sotto l'orizzonte, gli UVA risultano pari a <strong>0</strong>.
+</p>
+
+<h2>Passo 2 — Cielo sereno, da una tabella di trasferimento radiativo</h2>
+<p>
+  Invece di una curva regolata a mano, la parte a cielo sereno del modello
+  deriva da un calcolo fisico eseguito una volta sola, in anticipo. Abbiamo
+  eseguito <strong>DISORT</strong>, il risolutore standard dello scattering
+  multiplo usato nelle scienze dell'atmosfera,[[cite:stamnes1988]] su un'atmosfera modello a strati per ogni
+  combinazione di:
+</p>
+<ul>
+  <li><strong>angolo del sole</strong>, da 0 a 90° a passi di 5°;</li>
+  <li><strong>spessore ottico degli aerosol</strong> (foschia, a 550&nbsp;nm), da 0 a 3;</li>
+  <li><strong>pressione dell'aria al suolo</strong>, 500–1060&nbsp;hPa (dal livello del mare a circa 5500&nbsp;m),</li>
+</ul>
+<p>
+  e abbiamo integrato il risultato su 315–400&nbsp;nm. La pagina interpola
+  quella tabella (circa 1800 numeri, 13&nbsp;KB) per le tue condizioni. La
+  tabella riproduce, a partire dai principi fisici, tutto ciò che le vecchie
+  regole empiriche approssimavano:
+</p>
+<ul>
+  <li>
+    <strong>Il calo con l'angolo del sole</strong>, compresa la grande quota
+    di UVA che arriva come luce diffusa del cielo: per questo gli UVA calano
+    molto più lentamente degli UVB quando il sole si abbassa.
+  </li>
+  <li>
+    <strong>Lo scattering di Rayleigh dell'aria</strong>, scalato in base alla
+    pressione effettiva al suolo: è così che entra in gioco l'altitudine.
+  </li>
+  <li>
+    <strong>La foschia</strong>, con il suo reale scambio tra luce diretta e
+    diffusa: gli aerosol tolgono luce al fascio diretto ma ne diffondono la
+    maggior parte in avanti, quindi buona parte arriva comunque al suolo come
+    luce del cielo.
+  </li>
+  <li>
+    <strong>L'assorbimento dell'ozono</strong> all'estremità corta della banda,
+    con un valore tipico di 300 unità Dobson.
+  </li>
+  <li>
+    <strong>La curvatura dell'atmosfera</strong> con il sole basso (la massa
+    d'aria di Kasten–Young[[cite:kasten1989]]), che un'atmosfera piatta con 1/cos θ sovrastima vicino
+    all'orizzonte.
+  </li>
+</ul>
+<p>L'atmosfera ipotizzata:</p>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Componente</th><th>Ipotesi</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Luce solare sopra l'atmosfera</td><td>Spettro extraterrestre ASTM G173-03[[cite:astm_g173]], 85,5&nbsp;W/m² su 315–400&nbsp;nm</td></tr>
+    <tr><td>Aria (Rayleigh)</td><td>Spessore ottico di Bodhaine et al. (1999)[[cite:bodhaine1999]] × pressione ÷ 1013,25&nbsp;hPa</td></tr>
+    <tr><td>Ozono</td><td>300&nbsp;DU, centrato a 22&nbsp;km</td></tr>
+    <tr><td>Aerosol</td><td>Esponente di Ångström 1,14, albedo di singolo scattering 0,92, asimmetria 0,70, altezza di scala 1,5&nbsp;km</td></tr>
+    <tr><td>Risolutore</td><td>DISORT, 16 flussi, 17 strati, intervalli spettrali di 2,5&nbsp;nm</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  Con il sole allo zenit, aria pulita e al livello del mare la tabella dà
+  <strong>64,5&nbsp;W/m²</strong>; una foschia moderata (AOD&nbsp;0,15) riduce
+  il valore di circa il 5% con il sole alto e del 9–12% con il sole basso.
+  Come verifica, la componente del fascio diretto coincide con il modello
+  indipendente SPECTRL2 del NREL[[cite:bird1986]] entro
+  l'1% a tutti gli angoli solari testati; la stima più semplice della luce
+  diffusa di SPECTRL2 risulta perlopiù più bassa del 4–18%, come ci si aspetta
+  da un modello che non risolve lo scattering multiplo.
+  Il generatore, <code>scripts/build_lut.py</code>, è nel repository e
+  chiunque può rieseguirlo o modificarlo.
+</p>
+
+<h2>Passo 3 — Altitudine (pressione dell'aria)</h2>
+<p>
+  In quota c'è meno aria sopra di te che diffonde gli UVA verso lo spazio.
+  Il modello legge la <strong>pressione al suolo</strong> della previsione
+  (o, in mancanza, quella di un'atmosfera standard per l'altitudine del
+  terreno) e lascia fare il resto alla tabella. In aria pulita l'effetto è di
+  circa <strong>+3% per chilometro</strong>. I valori più alti spesso misurati per gli UVA in montagna, circa il 9% per km in uno studio alpino,[[cite:blumthaler1997]] dipendono soprattutto dal fatto di lasciarsi la foschia alle spalle nelle
+  valli, e il modello ne tiene conto separatamente attraverso i dati sugli
+  aerosol per il tuo punto. <a href="uva-at-altitude.html">Gli UVA in quota</a>
+  analizza i numeri nel dettaglio.
+</p>
+
+<h2>Passo 4 — Ambiente circostante (riflessione del suolo)</h2>
+<p>
+  Un ambiente circostante chiaro riflette gli UVA verso l'alto, e il cielo ne
+  rimanda una parte verso il basso. Per una superficie con albedo UV
+  <code>r</code> la tabella fornisce anche l'<strong>albedo sferica</strong>
+  dell'atmosfera <code>s</code> (circa 0,3 negli UVA), e l'aumento è esatto
+  per una superficie che riflette in modo uniforme:
+</p>
+<div class="callout">
+  <strong>fattore ambiente circostante = 1 ÷ (1 − r × s)</strong>
+</div>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Ambiente circostante</th><th>Albedo UV r</th><th>Fattore</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Erba, terreno o città</td><td>0,03</td><td>×1,01</td></tr>
+    <tr><td>Acqua</td><td>0,07</td><td>×1,02</td></tr>
+    <tr><td>Sabbia / spiaggia</td><td>0,15</td><td>×1,05</td></tr>
+    <tr><td>Terreno innevato</td><td>0,6</td><td>×1,24</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  Ciò che conta è l'<em>ambiente circostante</em>, cioè l'area di qualche
+  chilometro intorno a te, non solo il terreno sotto i piedi, perché la luce
+  riflessa deve tornare giù dal cielo. In modalità <strong>Auto</strong>
+  (quella predefinita) il calcolatore passa alla neve quando la previsione
+  indica almeno 5&nbsp;cm di neve al suolo. La neve fresca e intatta
+  (r&nbsp;≈&nbsp;0,9) arriva a circa ×1,40. Il flusso molto più grande
+  riflesso direttamente <em>verso l'alto</em> colpisce mento, naso e occhi
+  invece di una superficie orizzontale, quindi non fa parte di questo numero;
+  <a href="reflected-uva-snow-sand-water.html">Gli UVA riflessi</a> spiega
+  la differenza.
+</p>
+
+<h2>Passo 5 — Distanza Terra–Sole</h2>
+<p>
+  L'orbita terrestre è leggermente ellittica: la Terra è più vicina al sole
+  all'inizio di gennaio (0,983&nbsp;UA) e più lontana all'inizio di luglio
+  (1,017&nbsp;UA). La luce solare varia con l'inverso del quadrato della distanza:
+</p>
+<div class="callout">
+  <strong>fattore distanza = 1 ÷ r<sub>UA</sub>²</strong>
+</div>
+<p>
+  Si tratta di <strong>+3,4%</strong> a gennaio e <strong>−3,3%</strong> a
+  luglio: è uno dei motivi per cui l'estate dell'emisfero australe è un po'
+  più intensa di quella dell'emisfero boreale alla stessa latitudine.
+</p>
+
+<h2>Passo 6 — Nuvole</h2>
+<p>
+  Le nuvole sono l'influenza più variabile sugli UVA al suolo, quindi il
+  modello usa il miglior dato disponibile per la tua posizione, su due livelli.
+</p>
+<p>
+  <strong>Opzione preferita: dai dati UV in tempo reale.</strong> Open-Meteo
+  pubblica sia l'indice&nbsp;UV effettivo sia un indice&nbsp;UV a cielo
+  sereno per la stessa ora. Il loro rapporto è la trasmissione eritemale delle
+  nuvole per il cielo reale sopra di te, che è meglio di qualsiasi
+  parametrizzazione basata su una percentuale di copertura. La trasmissione
+  degli UVA si ricava da questo rapporto come
+</p>
+<div class="callout">
+  <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>γ</sup>, con γ = 1</strong>
+</div>
+<p>
+  Sotto nuvole spesse gli UVA possono passare un po' meglio dell'indice UV,
+  ponderato sugli UVB, ma le misure variano in base al tipo di nuvola (vedi
+  <a href="uva-on-cloudy-days.html">Gli UVA nei giorni nuvolosi</a>), quindi,
+  finché l'entità dell'effetto non sarà definita, si usa il valore neutro. γ è l'unico coefficiente delle nuvole
+  che la validazione descritta più sotto è pensata per calibrare.
+</p>
+<p>
+  <strong>Ripiego: parametrico, dalla copertura nuvolosa.</strong> Quando la
+  coppia di valori UV in tempo reale non è disponibile (per esempio oltre
+  circa cinque giorni), si ricorre alla percentuale di copertura nuvolosa
+  totale riportata:
+</p>
+<div class="callout">
+  <strong>fattore nuvole = 1 − 0,4 × (copertura ÷ 100)<sup>1,5</sup></strong>
+</div>
+<p>
+  La curva è volutamente morbida, perché una "copertura del 100%" riportata
+  descrive quanta parte del <em>cielo è coperta</em>, non lo spessore ottico:
+  un cielo coperto è molto più spesso uno strato sottile di stratus che la
+  base di un temporale. Con una copertura del 100% resta circa il
+  <strong>60%</strong> degli UVA a cielo sereno. Le nuvole attenuano gli UVA,
+  ma raramente li eliminano.
+</p>
+
+<h2>Dall'irradianza all'indice da 0 a 11+</h2>
+<p>
+  L'irradianza grezza in W/m² è precisa ma poco familiare, quindi la
+  riportiamo su una scala da 0 a 11+ proprio come l'indice&nbsp;UV. La
+  conversione è una sola costante:
+</p>
+<div class="callout">
+  <strong>Indice UVA = irradianza UVA ÷ 6</strong>
+</div>
+<p>
+  Il divisore 6 è scelto in modo che il sole allo zenit a cielo sereno
+  (~64–66&nbsp;W/m²) dia circa <strong>11</strong>, la stessa sensazione di
+  fondo scala di un indice&nbsp;UV tropicale al picco. Poiché l'indice è
+  strettamente proporzionale all'irradianza, i due numeri raccontano la
+  stessa storia, e ogni limite di fascia qui sotto è semplicemente il valore
+  dell'indice moltiplicato per sei. Le fasce riprendono i nomi e i colori
+  familiari dell'indice&nbsp;UV dell'OMS:
+</p>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Indice UVA</th><th>Fascia</th><th>≈ Irradianza</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Sotto 3</td><td>Basso</td><td>Sotto 18 W/m²</td></tr>
+    <tr><td>Da 3 a meno di 6</td><td>Moderato</td><td>Da 18 a meno di 36 W/m²</td></tr>
+    <tr><td>Da 6 a meno di 8</td><td>Alto</td><td>Da 36 a meno di 48 W/m²</td></tr>
+    <tr><td>Da 8 a meno di 11</td><td>Molto alto</td><td>Da 48 a meno di 66 W/m²</td></tr>
+    <tr><td>11 e oltre</td><td>Estremo</td><td>66 W/m² e oltre</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>I dati in ingresso, in sintesi</h2>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Dato</th><th>Fonte</th><th>Usato per</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Latitudine / longitudine</td><td>Geolocalizzazione o ricerca del luogo</td><td>Posizione del sole</td></tr>
+    <tr><td>Angolo zenitale solare, distanza Terra–Sole</td><td>Calcolati (NOAA)</td><td>Tabella a cielo sereno, fattore distanza</td></tr>
+    <tr><td>Pressione al suolo</td><td>Open-Meteo Forecast</td><td>Tabella a cielo sereno (altitudine)</td></tr>
+    <tr><td>Altitudine del terreno</td><td>Open-Meteo Forecast</td><td>Ripiego per la pressione</td></tr>
+    <tr><td>Spessore ottico degli aerosol</td><td>Open-Meteo Air-Quality (CAMS)</td><td>Tabella a cielo sereno (foschia)</td></tr>
+    <tr><td>Indice UV e indice UV a cielo sereno</td><td>Open-Meteo Air-Quality (CAMS)</td><td>Fattore nuvole</td></tr>
+    <tr><td>Copertura nuvolosa</td><td>Open-Meteo Forecast</td><td>Ripiego per le nuvole</td></tr>
+    <tr><td>Spessore della neve</td><td>Open-Meteo Forecast</td><td>Ambiente circostante in modalità Auto</td></tr>
+    <tr><td>Ambiente circostante</td><td>Tu (o Auto)</td><td>Fattore ambiente circostante</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  Lo stesso modello disegna anche la <em>previsione UVA</em>: viene calcolato
+  ogni 15 minuti per oggi e per i quattro giorni successivi (nel fuso orario
+  del luogo), con la posizione del sole calcolata esattamente a ogni passo e
+  i valori orari di nuvole e aerosol interpolati tra un'ora e l'altra. Il
+  picco di ogni giorno e l'intervallo in cui l'indice UVA è Moderato (3) o
+  superiore si ricavano da quella curva. La previsione della qualità dell'aria
+  che fornisce l'indice UV e gli aerosol arriva solo a circa quattro o cinque
+  giorni; oltre, il modello ricorre alla curva della copertura nuvolosa, quindi
+  i giorni più lontani sono meno precisi.
+</p>
+
+<h2 id="omitted">Cosa non prendiamo in considerazione</h2>
+<p>
+  Questa è una <strong>stima pensata per essere chiara e trasparente, non una
+  misura radiometrica calibrata</strong>. Diversi effetti reali sono
+  semplificati o esclusi di proposito: conoscerli ti dice quando fidarti del
+  numero e quando considerarlo un'indicazione approssimativa:
+</p>
+<ul>
+  <li>
+    <strong>Ozono in tempo reale.</strong> La tabella fissa l'ozono della
+    colonna totale a 300&nbsp;DU. Le colonne reali vanno da circa 250 a
+    450&nbsp;DU, il che sposta gli UVA solo di un paio di punti percentuali, e
+    il flusso di dati gratuito riporta l'ozono <em>al suolo</em> (µg/m³)
+    anziché la colonna, quindi è mostrato solo a titolo informativo.
+  </li>
+  <li>
+    <strong>Tipo di aerosol locale.</strong> La tabella ipotizza un tipico
+    aerosol continentale. La polvere desertica (che assorbe di più negli UV e
+    ha uno spettro più piatto) e il fumo degli incendi sono diversi, quindi i
+    giorni con molta polvere o fumo hanno un'incertezza maggiore di quanta ne
+    suggerisca il solo AOD.
+  </li>
+  <li>
+    <strong>Tipo e struttura delle nuvole.</strong> L'effetto delle nuvole
+    deriva dall'indice UV di un modello di previsione a bassa risoluzione
+    (~40&nbsp;km). La stratificazione delle nuvole e gli effetti "di bordo"
+    delle nuvole sparse (che possono <em>aumentare</em> per breve tempo gli UVA
+    oltre il valore a cielo sereno) non sono modellati.
+  </li>
+  <li>
+    <strong>Geometria locale e ombra.</strong> Edifici, alberi, rilievi,
+    inclinazione e orientamento delle superfici e la postura del corpo
+    cambiano tutti l'esposizione reale e non sono considerati.
+  </li>
+  <li>
+    <strong>Vetro e ambienti chiusi.</strong> La stima vale per chi si trova
+    all'aperto, senza riparo. Gli UVA attraversano il vetro delle finestre
+    mentre gli UVB in gran parte no, quindi l'esposizione al chiuso o in auto è
+    diversa e non è modellata.
+  </li>
+  <li>
+    <strong>Altri assorbitori minori</strong> (NO₂, SO₂) e la dipendenza
+    dell'albedo del suolo dalla lunghezza d'onda non sono inclusi.
+  </li>
+</ul>
+
+<h2 id="validation">Come viene verificato il modello</h2>
+<p>
+  Il repository include uno script di validazione,
+  <code>scripts/validate.mjs</code>, che ripropone i dati archiviati di date
+  passate attraverso lo stesso codice usato dal calcolatore e confronta il
+  risultato ora per ora con dati UVA indipendenti: il servizio POWER della
+  NASA (UVA ricavati da satellite con gli strumenti CERES, disponibili in tutto
+  il mondo) oppure un file di misure al suolo di un radiometro UVA. Riporta la
+  distorsione sistematica e l'errore per angolo solare e per nuvolosità,
+  verifica da sola la tabella a cielo sereno e stima l'esponente delle nuvole
+  γ e una fonte alternativa per le nuvole.
+  I risultati di questo confronto saranno pubblicati qui; fino ad allora,
+  considera il termine delle nuvole la parte meno certa del modello.
+</p>
+
+<div class="callout">
+  <strong>Pensato per essere ricalibrato.</strong> I pochi coefficienti
+  regolabili rimasti si trovano in un unico blocco <code>MODEL</code>, e la
+  tabella a cielo sereno si può rigenerare con ipotesi diverse senza toccare
+  il resto dell'app. Il codice sorgente completo è su
+  <a href="https://github.com/mixalisaspr/uvaindex">GitHub</a>.
+</div>
+
+<h2>Quindi, quanto è preciso?</h2>
+<p>
+  Consideralo una guida <strong>relativa</strong> ben fondata: coglie come
+  cambiano gli UVA con l'altezza del sole, la stagione, la latitudine e
+  l'altitudine, le nuvole e la foschia del giorno, e si comporta correttamente
+  agli estremi (il sole sereno di mezzogiorno dà valori alti, la notte dà zero,
+  un cielo molto coperto fa calare nettamente il valore, l'altitudine più
+  elevata dà valori più alti). Il valore <em>assoluto</em> in W/m² è una stima
+  fisicamente ragionevole, non una lettura da strumento di misura. Per sapere
+  perché esiste questa stima, vedi
+  <a href="../about.html">Informazioni sul sito</a>.
+</p>

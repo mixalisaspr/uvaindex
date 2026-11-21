@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>Wann ist UVA am höchsten? Der UVA-Tagesverlauf, Stunde für Stunde</title>
+    <meta
+      name="description"
+      content="UVA erreicht sein Maximum am wahren Sonnenmittag — doch seine Kurve ist viel flacher als die des UV-Index, sodass Vormittage und späte Nachmittage anteilig deutlich mehr UVA bringen. Werte Stunde für Stunde, warum die Schattenregel versagt und warum der Sonnenmittag selten um 12:00 Uhr liegt."
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/de/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA-Index" />
+    <meta property="og:title" content="Wann ist UVA am höchsten?" />
+    <meta property="og:description" content="Der Tagesverlauf von UVA ist viel flacher als der des UV-Index. Vier Stunden vor oder nach dem Sonnenmittag sind 63 % der sonnenbrandauslösenden UV-Strahlung weg, aber nur 42 % der UVA-Strahlung." />
+    <meta property="og:url" content="https://uvaindex.org/de/learn/what-time-is-uva-highest.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Wann ist UVA am höchsten? Der Tagesverlauf",
+        "description": "Wie sich die UVA-Strahlung am Boden im Laufe des Tages ändert: der Abfall mit cos(Zenitwinkel), ein Stunde-für-Stunde-Vergleich mit erythemgewichteter UV-Strahlung, warum die 10-bis-16-Uhr-Regel und die Schattenregel UVB-Regeln sind und wie du den wahren Sonnenmittag findest.",
+        "inLanguage": "de",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-29",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/de/learn/what-time-is-uva-highest.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Global Solar UV Index: A Practical Guide",
+            "publisher": "World Health Organization, WMO, UNEP and ICNIRP",
+            "datePublished": "2002",
+            "url": "https://www.who.int/publications/i/item/9241590076"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Zu welcher Tageszeit ist UVA am höchsten?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "UVA erreicht sein Maximum am wahren Sonnenmittag — dem Moment, in dem die Sonne am höchsten steht, was selten um 12:00 Uhr nach der Uhr ist. Was UVA auszeichnet, ist, wie langsam es zu beiden Seiten abfällt: Vier Stunden vor oder nach dem Sonnenmittag liegt es noch bei etwa 58 % seines Höchstwerts, während die erythemgewichtete UV-Strahlung auf etwa 37 % gefallen ist."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Ist UV morgens hoch?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Was Sonnenbrand angeht, nicht sehr — die erythemgewichtete UV-Strahlung liegt drei Stunden vor dem Sonnenmittag bei etwa 59 % des Höchstwerts. Was UVA angeht, deutlich mehr: zum selben Zeitpunkt bei etwa 75 % des Höchstwerts. Die Sonne am Morgen und am späten Nachmittag ist überproportional reich an UVA, weil der lange Weg durch die Atmosphäre UVB weit wirksamer entfernt als UVA."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Funktioniert die Schattenregel für UVA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nur grob. Die Regel — ist dein Schatten kürzer, als du groß bist, ist die UV-Strahlung stark — markiert einen Sonnenzenitwinkel von 45°, der im Hochsommer in mittleren Breiten etwa dreieinviertel Stunden vor und nach dem Sonnenmittag erreicht wird. Außerhalb dieses Zeitfensters ist die erythemgewichtete UV-Strahlung tatsächlich stark gesunken, UVA liegt aber noch bei über der Hälfte seines Höchstwerts — ein „sicherer“ Schatten bedeutet also keine niedrige UVA-Dosis."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA-Index",
+            "item": "https://uvaindex.org/de/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Wissensdatenbank",
+            "item": "https://uvaindex.org/de/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Wann ist UVA am höchsten?",
+            "item": "https://uvaindex.org/de/learn/what-time-is-uva-highest.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="Brotkrumennavigation">
+          <a href="../">UVA-Index</a><span class="sep">›</span><a href="./">Wissensdatenbank</a><span class="sep">›</span>Wann ist UVA am höchsten?
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="Sprache: Deutsch"><span class="lang-icon" aria-hidden="true">🌐</span> Deutsch</summary>
+          <ul>
+            <li><a href="../../learn/what-time-is-uva-highest.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/what-time-is-uva-highest.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/what-time-is-uva-highest.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="what-time-is-uva-highest.html" hreflang="de" lang="de" aria-current="true">Deutsch</a></li>
+            <li><a href="../../it/learn/what-time-is-uva-highest.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/what-time-is-uva-highest.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../zh/learn/what-time-is-uva-highest.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>Wann ist UVA am höchsten? Der Tagesverlauf</h1>
+        <p class="lead">
+          UVA erreicht sein Maximum am wahren Sonnenmittag, aus demselben Grund wie
+          alles andere am Himmel: Dann steht die Sonne am höchsten, und ihr Licht
+          nimmt den kürzesten Weg durch die Atmosphäre. Interessant ist aber nicht
+          der Höchstwert, sondern die <em>Form</em> — der Tagesverlauf von UVA ist
+          deutlich flacher als der des UV-Index, und das heißt: Jeder vertraute
+          Ratschlag zum richtigen Zeitpunkt, den du je gehört hast, ist auf das
+          falsche Wellenlängenband ausgerichtet.
+        </p>
+
+        <div class="callout">
+          <strong>Das Wichtigste vorweg:</strong> Vier Stunden vor oder nach dem
+          Sonnenmittag ist die erythemgewichtete UV-Strahlung auf etwa
+          <strong>37 %</strong> ihres Höchstwerts gefallen — UVA liegt dagegen noch
+          bei <strong>58 %</strong>. Im Vergleich zum Mittag ist das Sonnenlicht am
+          späten Nachmittag etwa <strong>1,6-mal reicher an UVA</strong>.
+        </div>
+
+        <h2>Warum die Kurve so aussieht, wie sie aussieht</h2>
+        <p>
+          Beide Bänder werden schwächer, wenn die Sonne sinkt, und zwar aus zwei
+          verschiedenen Gründen. Der erste ist rein geometrisch: Ein Strahl, der
+          schräg auf den Boden trifft, verteilt dieselbe Energie auf eine größere
+          Fläche. Dieser Effekt ist proportional zum Kosinus des Sonnenzenitwinkels
+          und betrifft alle Wellenlängen gleich.
+        </p>
+        <p>
+          Der zweite Grund ist die Absorption, und sie behandelt die Wellenlängen
+          nicht gleich. Wenn die Sonne sinkt, legt das Sonnenlicht einen immer
+          längeren Weg durch die Atmosphäre zurück — die <strong>Luftmasse</strong>
+          steigt —, und jeder zusätzliche Kilometer bedeutet mehr Ozon im Weg. Ozon
+          absorbiert stark im UVB-Bereich und nur sehr schwach im UVA-Bereich. Der
+          länger werdende Weg bestraft also das sonnenbrandauslösende Band viel
+          stärker als das hautalternde.
+        </p>
+        <p>
+          Beides zusammen führt dazu, dass die Bestrahlungsstärke am Boden etwa mit
+          einer Potenz des Kosinus des Zenitwinkels abnimmt, mit einem eigenen
+          Exponenten für jedes Band. Im Strahlungstransportmodell dieser Seite fällt UVA etwa mit <strong>cos(z)<sup>1,2</sup></strong> ab. Die erythemgewichtete UV-Strahlung
+          verhält sich eher wie <strong>cos(z)<sup>2,2</sup></strong>, weil sich
+          der Ozonterm mit der Geometrie verstärkt. Dieser Unterschied von einem
+          Exponenten ist schon die ganze Geschichte.
+        </p>
+
+        <h2>Stunde für Stunde</h2>
+        <p>
+          Die Tabelle unten zeigt einen wolkenlosen Hochsommertag bei 40°&nbsp;N —
+          Südeuropa, das nördliche Mittelmeer, New York, Peking. Die Werte sind
+          Prozentsätze des jeweils eigenen Mittagsmaximums jedes Bandes, die Spalten
+          lassen sich also direkt in ihrer Form vergleichen, nicht in ihrer Größe.
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Abstand zum Sonnenmittag</th><th>Zenitwinkel der Sonne</th><th>UVA (% des Höchstwerts)</th><th>Erythemgewichtete UV-Strahlung (% des Höchstwerts)</th><th>UVA-Anreicherung</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0 h</td><td>17°</td><td>100 %</td><td>100 %</td><td>1,00×</td></tr>
+            <tr><td>±1 h</td><td>21°</td><td>97 %</td><td>95 %</td><td>1,03×</td></tr>
+            <tr><td>±2 h</td><td>30°</td><td>88 %</td><td>80 %</td><td>1,11×</td></tr>
+            <tr><td>±3 h</td><td>41°</td><td>75 %</td><td>59 %</td><td>1,27×</td></tr>
+            <tr><td>±4 h</td><td>53°</td><td>58 %</td><td>37 %</td><td>1,58×</td></tr>
+            <tr><td>±5 h</td><td>64°</td><td>39 %</td><td>18 %</td><td>2,19×</td></tr>
+            <tr><td>±6 h</td><td>75°</td><td>21 %</td><td>6 %</td><td>3,75×</td></tr>
+            <tr><td>±7 h</td><td>86°</td><td>5 %</td><td>0,4 %</td><td>13×</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          In absoluten Zahlen entspricht dieses Mittagsmaximum einem UVA-Index von
+          etwa <strong>10,5</strong> bei klarem Himmel auf Meereshöhe — klar in der
+          Stufe „Sehr&nbsp;hoch“. Drei Stunden später liegt er immer noch bei etwa
+          <strong>7,8</strong> — am oberen Ende der Stufe „Hoch“. Selbst vier
+          Stunden danach zeigt er etwa <strong>6,0</strong> und kratzt noch an
+          „Hoch“, und erst nach fünf Stunden fällt er bei klarem Hochsommerhimmel
+          endlich auf <strong>4,1</strong>, also „Mäßig“. Die
+          <a href="uv-index-vs-uva-index.html">Beschreibungen der Stufen</a>
+          erklären, was bei jeder dieser Stufen zu tun sinnvoll ist.
+        </p>
+        <div class="callout">
+          <strong>Die Spalte „UVA-Anreicherung“ ist das praktische Ergebnis.</strong>
+          Spät am Tag ist die UV-Strahlung, die dich erreicht, nicht nur schwächer
+          geworden — sie hat ihre Zusammensetzung verändert. Was übrig bleibt, ist
+          überproportional das Band, das Lichtalterung und Pigmentstörungen
+          verursacht, und überproportional nicht das Band, das du bemerkst.
+        </div>
+
+        <h2>Warum „Meide 10 bis 16 Uhr“ eine UVB-Regel ist</h2>
+        <p>
+          Der Standardratschlag, zwischen 10:00 und 16:00 Uhr aus der Sonne zu
+          bleiben, ist eine vernünftige Gesundheitsbotschaft und zielt eindeutig
+          auf Sonnenbrand.<sup class="cite"><a href="#src-1" aria-label="Quelle 1">[1]</a></sup> Sieh dir die Spalte zur
+          erythemgewichteten Strahlung an: Das Zeitfenster erfasst tatsächlich den
+          allergrößten Teil der sonnenbrandauslösenden UV-Strahlung, als Ratschlag
+          gegen Sonnenbrand funktioniert es also.
+        </p>
+        <p>
+          Als UVA-Ratschlag ist es viel schwächer. Nimm einen Hochsommertag in
+          mittleren Breiten, an dem der Sonnenmittag um 13:00 Uhr liegt. Die sechs
+          Stunden von 10:00 bis 16:00 Uhr enthalten den Großteil der
+          erythemgewichteten Dosis — doch in den Stunden von 08:00 bis 10:00 Uhr
+          und von 16:00 bis 18:00 Uhr, die die Regel als unbedenklich behandelt,
+          liegt UVA bei etwa 40–75 % des Höchstwerts. Eine Stunde draußen um
+          17:00 Uhr ist keine UVA-freie Stunde. Sie entspricht dem Großteil einer
+          Mittagsstunde, nur ohne die Warnsignale.
+        </p>
+        <p>
+          Dieselbe Überlegung gilt für die <strong>Schattenregel</strong> — ist dein
+          Schatten länger, als du groß bist, soll die UV-Strahlung niedrig sein.
+          Das markiert einen Zenitwinkel von 45°, den die Tabelle bei etwa
+          dreieinviertel Stunden vom Sonnenmittag ansetzt. Danach fällt die
+          erythemgewichtete UV-Strahlung tatsächlich schnell ab. UVA liegt noch
+          über der Hälfte seines Höchstwerts.
+        </p>
+
+        <h2>Der Sonnenmittag ist nicht um 12:00 Uhr</h2>
+        <p>
+          Alles oben wird vom <strong>wahren Sonnenmittag</strong> aus gemessen —
+          dem Moment, in dem die Sonne deinen lokalen Meridian überquert. Auf der
+          Uhr kann das weit von 12 Uhr entfernt sein, und drei verschiedene Effekte
+          addieren sich:
+        </p>
+        <ul>
+          <li>
+            <strong>Die Sommerzeit</strong> verschiebt den Sonnenmittag um eine
+            Stunde nach hinten, den ganzen Sommer über auf etwa 13:00 Uhr. Allein
+            deshalb liegt das wahre Maximum näher am Beginn einer typischen
+            Mittagspause als an 12 Uhr.
+          </li>
+          <li>
+            <strong>Deine Lage innerhalb deiner Zeitzone.</strong> Zeitzonen sind
+            eine Stunde breit, aber politisch festgelegt. Am Westrand einer Zone
+            geht die Sonne „nach“. Spanien nutzt die Mitteleuropäische Zeit, obwohl
+            es auf dem Längengrad von Greenwich liegt, daher kommt der Sonnenmittag
+            in Galicien im Sommer erst nach 14:30 Uhr. China nutzt eine einzige
+            Zeitzone über die Längengrade von fünf Zonen hinweg; in Kaschgar liegt
+            der Sonnenmittag nahe 15:00 Uhr.
+          </li>
+          <li>
+            <strong>Die Zeitgleichung</strong> — die Erdbahn ist elliptisch und die
+            Erdachse geneigt, daher verschiebt sich der Sonnenmittag im Laufe des
+            Jahres um bis zu etwa ±16 Minuten, ganz unabhängig von allem anderen.
+          </li>
+        </ul>
+        <p>
+          Die praktische Folge: <strong>Geh nicht davon aus, dass das UV-Maximum um
+          12 Uhr liegt.</strong> In den meisten Teilen Europas liegt es im Sommer
+          eher bei 13:30 Uhr, in Teilen Spaniens und Westchinas noch deutlich
+          später. Der Rechner auf dieser Seite arbeitet mit deinen tatsächlichen
+          Koordinaten und dem wahren Sonnenstand, daher zeigt das Stundendiagramm,
+          wo das Maximum für dich wirklich liegt, und nicht, wo die Uhr es
+          vermuten lässt.
+        </p>
+
+        <h2>Was die Form verändert</h2>
+        <p>
+          Die saubere Kurve oben setzt einen klaren Himmel voraus. Die Wirklichkeit
+          verzerrt sie auf vorhersehbare Weise:
+        </p>
+        <ul>
+          <li>
+            <strong>Die Jahreszeit macht sie flacher oder steiler.</strong> Im
+            Winter steht die Sonne nie hoch, also ist die ganze Kurve gestaucht und
+            niedrig — aber überproportional UVA-lastig, weil tiefe Sonne den ganzen
+            Tag über einen langen Weg durchs Ozon bedeutet.
+            <a href="does-uva-change-with-the-seasons.html">UVA im Jahresverlauf</a>
+            geht die Zahlen durch.
+          </li>
+          <li>
+            <strong>Die geografische Breite legt die Obergrenze fest.</strong> Näher
+            am Äquator ist das Mittagsmaximum höher und die Kurve breiter.
+            <a href="uva-by-latitude-and-location.html">UVA nach Breitengrad</a>
+            enthält den Vergleich.
+          </li>
+          <li>
+            <strong>Wolken erzeugen Rauschen, keinen Trend.</strong> Ein
+            durchziehendes Feld von Haufenwolken kann den Messwert innerhalb von
+            Minuten um den Faktor zwei verändern, und aufgelockerte Bewölkung kann
+            ihn kurzzeitig sogar <em>über</em> die Kurve für klaren Himmel treiben —
+            siehe <a href="uva-on-cloudy-days.html">UVA an bewölkten Tagen</a>.
+          </li>
+          <li>
+            <strong>Das Gelände schneidet sie ab.</strong> In einem Tal oder einer
+            Straßenschlucht verschwindet die Sonne hinter einem Hindernis, lange
+            bevor es die geometrische Kurve vorsieht — diffuses UVA vom offenen
+            Himmel kommt aber weiterhin an, weshalb Schatten nur ein Teilschutz und
+            kein vollständiger ist.
+          </li>
+          <li>
+            <strong>Vormittag und Nachmittag sind nicht ganz symmetrisch.</strong>
+            Quellwolken bauen sich typischerweise im Laufe des Tages auf, und die
+            Aerosolbelastung unterscheidet sich oft zwischen Vormittag und
+            Nachmittag, sodass der tatsächliche Nachmittagsast meist etwas unter dem
+            Vormittagsast liegt.
+          </li>
+        </ul>
+
+        <h2>Was du damit anfangen kannst</h2>
+        <p>
+          Wenn du Sonnenbrand vermeiden willst, ist das Meiden bestimmter
+          Tageszeiten effizient: Die Kurve der erythemgewichteten Strahlung hat
+          eine scharfe Spitze, also nehmen ein paar Stunden im Schatten den
+          Großteil des Risikos weg. Wenn du UVA begrenzen willst — wegen
+          Lichtalterung, Melasma, einer Lichtempfindlichkeit oder der Belastung
+          deiner Augen —, ist der Zeitpunkt ein viel stumpferes Werkzeug, denn die
+          Kurve, gegen die du ankämpfst, ist breit. Dann liegt die Antwort nicht in
+          der Zeitplanung, sondern in <strong>Barrieren</strong>: Sonnencreme,
+          <a href="does-clothing-block-uva.html">Kleidung</a> und
+          <a href="uva-and-your-eyes.html">UV400-Gläser</a>, die um 09:00 Uhr
+          genauso gut wirken wie um 13:00 Uhr.
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>Quellen</h2>
+          <ol>
+            <li id="src-1"><a href="https://www.who.int/publications/i/item/9241590076" rel="noopener">Global Solar UV Index: A Practical Guide</a>. <em>World Health Organization, WMO, UNEP and ICNIRP</em>, 2002.</li>
+          </ol>
+        </section>
+        <p class="reviewed">Zuletzt geprüft am 16. November 2026. Einen Fehler oder eine bessere Quelle gefunden? <a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">Sag es uns auf GitHub</a>.</p>
+
+        <a class="cta" href="../">Sieh dir den heutigen stündlichen UVA-Verlauf für deinen Standort an →</a>
+      </article>
+
+      <aside class="related">
+        <h2>Weiterlesen</h2>
+        <ul>
+          <li><a href="uv-index-vs-uva-index.html">UV-Index vs. UVA-Index: Was beide messen</a></li>
+          <li><a href="does-uva-change-with-the-seasons.html">Warum sich UVA mit den Jahreszeiten viel weniger ändert als UVB</a></li>
+          <li><a href="how-uva-index-is-calculated.html">Wie der UVA-Index berechnet wird</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          Kostenlos und Open Source. Inoffizielle Berechnung des UVA-Index und der UVA-Bestrahlungsstärke. Nur zu Informationszwecken, keine medizinische Beratung. Mehr dazu auf der Seite <a href="https://uvaindex.org/de/about.html">Über uns</a>.
+          · <button type="button" class="link-btn" data-consent-open>Cookie-Einstellungen</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

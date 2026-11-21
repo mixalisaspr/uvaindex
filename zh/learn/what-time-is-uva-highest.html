@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>UVA 一天中什么时候最强？逐小时看 UVA 日变化曲线</title>
+    <meta
+      name="description"
+      content="UVA 在太阳正午达到峰值——但它的曲线比紫外线指数的平缓得多，所以上午和傍晚的 UVA 占比要高得多。本文给出逐小时的数据，说明影子法则为什么失灵，以及为什么太阳正午很少恰好是 12:00。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/zh/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA 指数" />
+    <meta property="og:title" content="UVA 一天中什么时候最强？" />
+    <meta property="og:description" content="UVA 的日变化曲线比 UV 指数平缓得多。在距太阳正午四小时时，引起晒伤的紫外线已减少 63%，而 UVA 只减少了 42%。" />
+    <meta property="og:url" content="https://uvaindex.org/zh/learn/what-time-is-uva-highest.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "UVA 一天中什么时候最强？看日变化曲线",
+        "description": "地面 UVA 在一天中如何变化：随 cos(天顶角) 的衰减，与红斑紫外线的逐小时比较，为什么“上午 10 点到下午 4 点”法则和影子法则都是针对 UVB 的，以及如何找到真正的太阳正午。",
+        "inLanguage": "zh-Hans",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-29",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/zh/learn/what-time-is-uva-highest.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Global Solar UV Index: A Practical Guide",
+            "publisher": "World Health Organization, WMO, UNEP and ICNIRP",
+            "datePublished": "2002",
+            "url": "https://www.who.int/publications/i/item/9241590076"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "一天中什么时候 UVA 最强？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "UVA 在太阳正午达到峰值——即太阳最高的时刻，而这个时刻很少恰好是钟表上的 12:00。UVA 的特别之处在于它在峰值两侧下降得很慢：在距太阳正午四小时时，它仍有峰值的约 58%，而红斑紫外线已降到约 37%。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "上午的紫外线强吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "就晒伤而言，不算太强——太阳正午前三小时的红斑紫外线约为峰值的 59%。就 UVA 而言，则要强得多：同一时刻约为峰值的 75%。上午和傍晚的阳光中 UVA 的比例格外高，因为漫长的大气路径对 UVB 的去除要比对 UVA 有效得多。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "影子法则对 UVA 管用吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "只是大致管用。这条法则——如果你的影子比你的身高短，紫外线就很强——对应的是 45° 的太阳天顶角，在中纬度地区的盛夏，大约相当于太阳正午前后各三小时一刻钟。在这个时间段之外，红斑紫外线确实已大幅下降，但 UVA 仍保持在峰值的一半以上，所以一个“安全”的影子并不意味着 UVA 剂量很低。"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA 指数",
+            "item": "https://uvaindex.org/zh/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "知识库",
+            "item": "https://uvaindex.org/zh/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UVA 什么时候最强？",
+            "item": "https://uvaindex.org/zh/learn/what-time-is-uva-highest.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="面包屑导航">
+          <a href="../">UVA 指数</a><span class="sep">›</span><a href="./">知识库</a><span class="sep">›</span>UVA 什么时候最强？
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="语言: 简体中文"><span class="lang-icon" aria-hidden="true">🌐</span> 简体中文</summary>
+          <ul>
+            <li><a href="../../learn/what-time-is-uva-highest.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/what-time-is-uva-highest.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/what-time-is-uva-highest.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/what-time-is-uva-highest.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/what-time-is-uva-highest.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/what-time-is-uva-highest.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="what-time-is-uva-highest.html" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>UVA 一天中什么时候最强？看日变化曲线</h1>
+        <p class="lead">
+          UVA（长波紫外线）在太阳正午达到峰值，原因与天空中的其他一切相同：此时太阳最高，阳光穿过大气层的路径最短。
+          有意思的不是峰值，而是曲线的<em>形状</em>——UVA 的日变化曲线明显比紫外线指数（UV&nbsp;指数）的平缓，
+          这意味着你所熟知的每一条关于时间的建议，针对的都是另一个波段。
+        </p>
+
+        <div class="callout">
+          <strong>要点：</strong>在太阳正午前后各四小时，红斑紫外线已降到峰值的约 <strong>37%</strong>——
+          但 UVA 仍有 <strong>58%</strong>。与正午相比，傍晚阳光中的 UVA 含量相对高出约 <strong>1.6 倍</strong>。
+        </div>
+
+        <h2>曲线为什么是这个形状</h2>
+        <p>
+          随着太阳下落，两个波段都会减弱，原因有两个。第一个纯粹是几何原因：以倾斜角度照到地面的光束，会把同样的能量分散到更大的面积上。
+          这种效应与太阳天顶角的余弦成正比，对所有波长一视同仁。
+        </p>
+        <p>
+          第二个原因是吸收，它对各个波长并不一视同仁。随着太阳下落，阳光穿过的大气越来越多——<strong>大气质量</strong>增大——
+          路径每多一千米，挡在中间的臭氧就更多。臭氧对 UVB（中波紫外线）吸收很强，对 UVA 的吸收则非常弱。
+          因此，路径变长对引起晒伤的波段的削弱，要远大于对引起老化的波段。
+        </p>
+        <p>
+          综合两者，地面辐照度大致按天顶角余弦的某个幂次下降，而各波段的指数不同。在本站的辐射传输模型中，
+          UVA 大致按 <strong>cos(z)<sup>1.2</sup></strong> 衰减。红斑紫外线则更接近 <strong>cos(z)<sup>2.2</sup></strong>，
+          因为臭氧项与几何项叠加在了一起。这一个指数的差别就是全部原因所在。
+        </p>
+
+        <h2>逐小时数据</h2>
+        <p>
+          下表对应的是北纬 40° 的一个晴朗盛夏日——南欧、地中海北部、纽约、北京。数值是各波段相对于自身正午峰值的百分比，
+          因此各列可以直接比较曲线形状，而不是绝对大小。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>距太阳正午</th><th>太阳天顶角</th><th>UVA（占峰值 %）</th><th>红斑紫外线（占峰值 %）</th><th>UVA 富集倍数</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0 h</td><td>17°</td><td>100%</td><td>100%</td><td>1.00×</td></tr>
+            <tr><td>±1 h</td><td>21°</td><td>97%</td><td>95%</td><td>1.03×</td></tr>
+            <tr><td>±2 h</td><td>30°</td><td>88%</td><td>80%</td><td>1.11×</td></tr>
+            <tr><td>±3 h</td><td>41°</td><td>75%</td><td>59%</td><td>1.27×</td></tr>
+            <tr><td>±4 h</td><td>53°</td><td>58%</td><td>37%</td><td>1.58×</td></tr>
+            <tr><td>±5 h</td><td>64°</td><td>39%</td><td>18%</td><td>2.19×</td></tr>
+            <tr><td>±6 h</td><td>75°</td><td>21%</td><td>6%</td><td>3.75×</td></tr>
+            <tr><td>±7 h</td><td>86°</td><td>5%</td><td>0.4%</td><td>13×</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          按绝对值计，在海平面晴空条件下，这个正午峰值相当于约 <strong>10.5</strong> 的 UVA 指数——稳稳处于“很高”档。
+          三小时后，它仍有约 <strong>7.8</strong>——处于“高”档的上端。即使在四小时后，读数也有约 <strong>6.0</strong>，
+          仍勉强处于“高”档；直到五小时后，晴朗的盛夏天空才终于降到 <strong>4.1</strong>，即“中等”档。
+          <a href="uv-index-vs-uva-index.html">各档说明</a>详细介绍了每个级别值得采取哪些措施。
+        </p>
+        <div class="callout">
+          <strong>“UVA 富集倍数”这一列就是实际结论。</strong>到了一天的晚些时候，照到你身上的紫外线不仅减少了——
+          它的组成也变了。剩下的部分格外多的是引起光老化和色素沉着的波段，格外少的是让你察觉到的那个波段。
+        </div>
+
+        <h2>为什么“避开上午 10 点到下午 4 点”是一条 UVB 法则</h2>
+        <p>
+          避免在 10:00 到 16:00 之间晒太阳的标准建议，是合理的公共卫生宣传，而它针对的正是晒伤。<sup class="cite"><a href="#src-1" aria-label="来源 1">[1]</a></sup>
+          看一下红斑紫外线那一列：这个时间段确实涵盖了绝大部分引起晒伤的紫外线，所以作为防晒伤建议，它是有效的。
+        </p>
+        <p>
+          作为 UVA 建议，它就弱得多了。以中纬度地区一个太阳正午在 13:00 的盛夏日为例。从 10:00 到 16:00 的六个小时包含了大部分红斑剂量——
+          但被这条法则视为“安全”的 08:00 到 10:00 以及 16:00 到 18:00，UVA 仍在峰值的约 40–75% 运行。
+          17:00 在户外待一小时并不是没有 UVA 的一小时。它相当于大半个正午时段，只是去掉了警示信号。
+        </p>
+        <p>
+          同样的道理也适用于<strong>影子法则</strong>——如果你的影子比你的身高长，紫外线据说就很低。这对应的是 45° 的天顶角，
+          按上表大约是距太阳正午三小时一刻钟。超出这个时间，红斑紫外线确实在快速下降。而 UVA 仍在峰值的一半以上。
+        </p>
+
+        <h2>太阳正午不是 12:00</h2>
+        <p>
+          以上所有数据都是从<strong>太阳正午</strong>算起的——即太阳经过你所在地子午线的那一刻。在钟表上，它可能离正午 12 点相当远，
+          而且有三种不同的效应叠加在一起：
+        </p>
+        <ul>
+          <li>
+            <strong>夏令时</strong>把太阳正午推迟一小时，整个夏季都在 13:00 左右。仅这一点就意味着真正的峰值更接近通常午休开始的时间，而不是正午 12 点。
+          </li>
+          <li>
+            <strong>你在所在时区中的经度位置。</strong>时区宽一小时，但划分是出于政治考虑。在时区的西部边缘，太阳会“迟到”。
+            西班牙虽然位于格林尼治的经度上，却使用中欧时间，所以加利西亚夏季的太阳正午要到 14:30 以后。
+            中国在横跨五个时区宽度的经度范围内只用一个时区；在喀什，太阳正午接近 15:00。
+          </li>
+          <li>
+            <strong>时差（均时差）</strong>——地球轨道是椭圆形的，自转轴又是倾斜的，所以无论其他因素如何，太阳正午在一年中都会前后漂移最多约 ±16 分钟。
+          </li>
+        </ul>
+        <p>
+          实际结论是：<strong>不要以为紫外线峰值就在中午 12 点。</strong>在欧洲大部分地区，夏季的峰值更接近 13:30，
+          在西班牙部分地区和中国西部则还要晚得多。本站的计算器根据你的实际坐标和真实的太阳位置进行计算，
+          所以逐小时图表显示的是峰值对你而言真正出现的时间，而不是钟表所暗示的时间。
+        </p>
+
+        <h2>哪些因素会改变曲线形状</h2>
+        <p>
+          上面那条干净的曲线假设的是晴空。现实会以可预见的方式扭曲它：
+        </p>
+        <ul>
+          <li>
+            <strong>季节会使它变平或变陡。</strong>冬季太阳始终升不高，所以整条曲线被压扁、压低——但其中 UVA 的比例格外高，
+            因为太阳低意味着全天的臭氧路径都很长。<a href="does-uva-change-with-the-seasons.html">季节性 UVA</a>
+            一文详细计算了这些数据。
+          </li>
+          <li>
+            <strong>纬度决定上限。</strong>越靠近赤道，正午峰值越高，曲线也越宽。
+            <a href="uva-by-latitude-and-location.html">不同纬度的 UVA</a>一文给出了比较。
+          </li>
+          <li>
+            <strong>云带来的是波动，而不是趋势。</strong>一片飘过的积云可能在几分钟内让读数变化一倍，而碎云可能短暂地把读数推到晴空曲线<em>之上</em>——
+            参见<a href="uva-on-cloudy-days.html">阴天的 UVA</a>。
+          </li>
+          <li>
+            <strong>地形会把它截断。</strong>在山谷或城市街道中，太阳会在几何曲线所示的时间之前很久就消失在遮挡物后面——
+            不过来自开阔天空的漫射 UVA 仍在继续，这就是为什么阴凉处只能提供部分防护，而不是完全防护。
+          </li>
+          <li>
+            <strong>上午和下午并不完全对称。</strong>对流云通常在一天中逐渐增多，气溶胶负荷在上午和下午之间也常有差异，
+            所以实际的下午段曲线通常比上午段略低一些。
+          </li>
+        </ul>
+
+        <h2>如何运用这些知识</h2>
+        <p>
+          如果你想避免晒伤，按时间段回避是高效的：红斑曲线峰形尖锐，所以在阴凉处待几个小时就能消除大部分风险。
+          如果你想限制 UVA——为了预防光老化、黄褐斑、光敏性疾病或保护眼睛——安排时间就是一种粗糙得多的手段，
+          因为你要对付的曲线很宽。这时的答案不是安排时间，而是<strong>屏障</strong>：防晒霜、
+          <a href="does-clothing-block-uva.html">衣服</a>和 <a href="uva-and-your-eyes.html">UV400 镜片</a>，
+          它们在 09:00 和 13:00 同样有效。
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>参考来源</h2>
+          <ol>
+            <li id="src-1"><a href="https://www.who.int/publications/i/item/9241590076" rel="noopener">Global Solar UV Index: A Practical Guide</a>. <em>World Health Organization, WMO, UNEP and ICNIRP</em>, 2002.</li>
+          </ol>
+        </section>
+        <p class="reviewed">最后审核：2026年11月16日。发现错误或有更好的来源？<a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">请在 GitHub 上告诉我们</a>。</p>
+
+        <a class="cta" href="../">查看你所在位置今天的逐小时 UVA 曲线 →</a>
+      </article>
+
+      <aside class="related">
+        <h2>继续阅读</h2>
+        <ul>
+          <li><a href="uv-index-vs-uva-index.html">紫外线指数与 UVA 指数：两者各自衡量什么</a></li>
+          <li><a href="does-uva-change-with-the-seasons.html">为什么 UVA 随季节的变化远小于 UVB</a></li>
+          <li><a href="how-uva-index-is-calculated.html">UVA 指数是如何计算的</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          免费且开源。非官方的 UVA 指数与 UVA 辐照度计算。仅供科普参考，不构成医疗建议。更多信息请见<a href="https://uvaindex.org/zh/about.html">关于</a>页面。
+          · <button type="button" class="link-btn" data-consent-open>Cookie 设置</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

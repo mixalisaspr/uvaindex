@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>UVA指数の計算方法 — モデル・パラメータ・限界</title>
+    <meta
+      name="description"
+      content="UVA指数の計算方法をすべて公開します。地表のUVA放射照度（315–400 nm、W/m²）を放射伝達ルックアップテーブルとリアルタイムの雲・かすみ・気圧・積雪データから求める方法、正確な計算式と前提条件、検証方法、そして考慮していない要因を解説します。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/ja/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/how-uva-index-is-calculated.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA指数" />
+    <meta property="og:title" content="UVA指数の計算方法 — モデル・パラメータ・限界" />
+    <meta property="og:description" content="UVA指数の計算方法をすべて公開。計算式、リアルタイムの入力データ、係数、そして意図的に除外している要因を解説します。" />
+    <meta property="og:url" content="https://uvaindex.org/ja/learn/how-uva-index-is-calculated.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "UVA指数はどのように計算されるのか",
+        "description": "UVA指数の計算方法：放射伝達ルックアップテーブルとリアルタイムの雲・エアロゾル・気圧・積雪データから地表のUVA放射照度（315–400 nm）を求める方法、使用する計算式と前提条件、検証、そして意図的に除外している要因。",
+        "inLanguage": "ja",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-06-27",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/ja/learn/how-uva-index-is-calculated.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "NOAA Solar Calculator and solar position calculation details",
+            "publisher": "NOAA Global Monitoring Laboratory",
+            "url": "https://gml.noaa.gov/grad/solcalc/"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Numerically stable algorithm for discrete-ordinate-method radiative transfer in multiple scattering and emitting layered media",
+            "author": "Stamnes K, Tsay S-C, Wiscombe W, Jayaweera K",
+            "publisher": "Applied Optics 27(12):2502–2509",
+            "datePublished": "1988",
+            "url": "https://doi.org/10.1364/AO.27.002502"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Revised optical air mass tables and approximation formula",
+            "author": "Kasten F, Young AT",
+            "publisher": "Applied Optics 28(22):4735–4738",
+            "datePublished": "1989",
+            "url": "https://doi.org/10.1364/AO.28.004735"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Reference Air Mass 1.5 Spectra (ASTM G173-03)",
+            "publisher": "National Renewable Energy Laboratory",
+            "url": "https://www.nrel.gov/grid/solar-resource/spectra-am1.5.html"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "On Rayleigh optical depth calculations",
+            "author": "Bodhaine BA, Wood NB, Dutton EG, Slusser JR",
+            "publisher": "Journal of Atmospheric and Oceanic Technology 16(11):1854–1861",
+            "datePublished": "1999",
+            "url": "https://doi.org/10.1175/1520-0426(1999)016%3C1854:ORODC%3E2.0.CO;2"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Simple solar spectral model for direct and diffuse irradiance on horizontal and tilted planes at the Earth's surface for cloudless atmospheres",
+            "author": "Bird RE, Riordan C",
+            "publisher": "Journal of Climate and Applied Meteorology 25(1):87–97",
+            "datePublished": "1986",
+            "url": "https://doi.org/10.1175/1520-0450(1986)025%3C0087:SSSMFD%3E2.0.CO;2"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Increase in solar UV radiation with altitude",
+            "author": "Blumthaler M, Ambach W, Ellinger R",
+            "publisher": "Journal of Photochemistry and Photobiology B: Biology 39(2):130–134",
+            "datePublished": "1997",
+            "url": "https://doi.org/10.1016/S1011-1344(96)00018-8"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "UVA指数はどのように計算されますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "晴天時のUVAは、放射伝達モデル（DISORT）で計算したテーブルから、太陽の角度、かすみ（エアロゾル光学的厚さ）、地表の気圧に応じて読み取ります。海抜0 mの清浄な大気で太陽が真上にあるときは約64 W/m²です。この値に、周囲の環境からの反射、その日の地球と太陽の距離、リアルタイムの雲による係数を掛け合わせます。得られた放射照度（W/m²）を6で割ると、0〜11+の指数になります。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "UVA指数はどのくらい正確ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "UVA指数は測定値ではなくモデルによる出力ですが、誤差の傾向は予測できます。最も信頼性が高いのは、太陽が十分に高い晴天時です。太陽の幾何学的な位置が支配的で、補正が小さいためです。最も信頼性が低いのは雲が切れ切れに浮かんでいるときで、値は低めに出ます。このモデルは減衰のみを扱うため、明るい積雲の切れ間から太陽が差し込み、一時的に晴天時の値を上回る「雲による増強効果」を再現できないからです。太陽が地平線近くにあるときの値は、相対的に見て最も信頼性が低くなります。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "なぜモデルはリアルタイムのオゾンを考慮しないのですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "オゾンはUVAにほとんど影響しないからです。オゾンはUVBを強く吸収しますが、UVA帯域の短波長側ではわずかしか吸収しません。そのため、オゾン全量が半分になっても、紅斑紫外線がおよそ2倍になるのに対し、UVAは数パーセントしか変化しません。放射伝達テーブルではオゾンを標準的な300ドブソン単位に固定しています。無料のデータソースが提供しているのは地表オゾン（µg/m³）だけで、このような補正項に必要なオゾン全量ではないため、地表オゾンは参考情報として表示するにとどめています。"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA指数",
+            "item": "https://uvaindex.org/ja/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "ナレッジベース",
+            "item": "https://uvaindex.org/ja/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UVA指数の計算方法",
+            "item": "https://uvaindex.org/ja/learn/how-uva-index-is-calculated.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <a href="../">UVA指数</a><span class="sep">›</span><a href="./">ナレッジベース</a><span class="sep">›</span>UVA指数の計算方法
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="言語: 日本語"><span class="lang-icon" aria-hidden="true">🌐</span> 日本語</summary>
+          <ul>
+            <li><a href="../../learn/how-uva-index-is-calculated.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/how-uva-index-is-calculated.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/how-uva-index-is-calculated.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/how-uva-index-is-calculated.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/how-uva-index-is-calculated.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="how-uva-index-is-calculated.html" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+            <li><a href="../../zh/learn/how-uva-index-is-calculated.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>UVA指数はどのように計算されるのか</h1>
+        <p class="lead">
+          この記事は計算ツールの技術解説です。<strong>地表のUVA放射照度</strong>
+          （重み付けなしの315–400&nbsp;nm帯域、単位はW/m²）をどのように推定し、
+          それをどのように<strong>0〜11+のUVA指数</strong>に変換しているのか、
+          使用しているすべてのパラメータと係数、そして同じくらい重要な
+          <a href="#omitted">意図的に除外している要因</a>を詳しく説明します。
+        </p>
+
+        <div class="callout">
+          <strong>そもそもなぜモデルを使うのか？</strong>主要な無料気象APIで、
+          純粋なUVA（紫外線A波）を提供しているものはありません。どれも紅斑作用で重み付けした
+          <a href="uv-index-vs-uva-index.html">UVインデックス</a>を公開しており、その大部分はUVB（紫外線B波）によるものです。
+          そこで、APIからUVAを読み取るのではなく、太陽の位置に関する物理と、
+          UVAに影響することがわかっているリアルタイムの大気データから、
+          UVAを<strong>導き出して</strong>います。
+        </div>
+
+        <h2>モデルを一行で表すと</h2>
+        <p>
+          UVA放射照度は、放射伝達計算による晴天時の値に、
+          その時点の条件に応じたいくつかの係数を順に掛け合わせたものです。
+        </p>
+        <div class="callout">
+          <strong>UVA = 基準値 × 標高 × エアロゾル × 周囲の環境 × 地球と太陽の距離 × 雲</strong>
+        </div>
+        <p>
+          入力データがない場合、各係数は<code>1</code>（影響なし）になるため、
+          推定が失敗することはなく、精度が段階的に下がるだけです。また、
+          各係数は計算ツールの<em>モデルの内訳</em>表にも表示されるので、
+          どの値もその構成要素までたどることができます。
+        </p>
+
+        <h2>ステップ1 — 太陽の位置</h2>
+        <p>
+          UVAを左右する最大の要因は、太陽が空のどのくらい高い位置にあるかです。
+          <strong>太陽天頂角</strong><code>θ</code>（0°＝真上、90°＝地平線上）は、
+          緯度・経度と時刻から、<strong>NOAA太陽位置アルゴリズム</strong>を使って
+          ブラウザ上で計算します。これはNOAA Solar Calculatorと同じ計算方法です。<sup class="cite"><a href="#src-1" aria-label="出典 1">[1]</a></sup>同じアルゴリズムから、
+          ステップ5で使う<strong>地球と太陽の距離</strong>も求めます。
+          太陽が地平線より下にあるとき、UVAは<strong>0</strong>と表示されます。
+        </p>
+
+        <h2>ステップ2 — 晴天時の値を放射伝達テーブルから求める</h2>
+        <p>
+          モデルの晴天時の部分は、手作業で調整した曲線ではなく、
+          あらかじめ一度だけ行った物理計算に基づいています。大気科学で標準的に使われる多重散乱ソルバー
+          <strong>DISORT</strong><sup class="cite"><a href="#src-2" aria-label="出典 2">[2]</a></sup>を、層状のモデル大気に対して、次のすべての
+          組み合わせについて実行しました。
+        </p>
+        <ul>
+          <li><strong>太陽の角度</strong>：0–90°、5°刻み</li>
+          <li><strong>エアロゾル光学的厚さ</strong>（かすみ、550&nbsp;nmにおける値）：0–3</li>
+          <li><strong>地表の気圧</strong>：500–1060&nbsp;hPa（海抜0 mから約5,500&nbsp;mまで）</li>
+        </ul>
+        <p>
+          そして、その結果を315–400&nbsp;nmにわたって積分しました。ページでは、
+          このテーブル（約1,800個の数値、13&nbsp;KB）を現在の条件に合わせて補間します。
+          このテーブルは、従来の経験則が近似していた次のすべての要素を、
+          第一原理から取り込んでいます。
+        </p>
+        <ul>
+          <li>
+            <strong>太陽の角度に伴う減少</strong>。UVAの大きな割合が散乱光（天空光）として
+            届くことも含みます。太陽が低くなるにつれてUVAがUVBよりはるかに
+            ゆっくりと減るのはこのためです。
+          </li>
+          <li>
+            <strong>空気によるレイリー散乱</strong>。実際の地表気圧に応じて調整しており、
+            これによって標高が反映されます。
+          </li>
+          <li>
+            <strong>かすみ</strong>。直達光と散乱光の実際のトレードオフを含みます。エアロゾルは
+            直達光から光を取り除きますが、その大部分を前方に散乱させるため、
+            多くは天空光として地上に届きます。
+          </li>
+          <li>
+            <strong>オゾン</strong>による帯域の短波長側での吸収。標準的な300ドブソン単位を
+            想定しています。
+          </li>
+          <li>
+            <strong>大気の曲率</strong>。太陽が低いときに考慮します（Kasten–Youngのエアマス<sup class="cite"><a href="#src-3" aria-label="出典 3">[3]</a></sup>）。平面大気を仮定した1/cos θでは、地平線近くで
+            過大評価になります。
+          </li>
+        </ul>
+        <p>想定している大気：</p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>要素</th><th>前提条件</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>大気圏外の太陽光</td><td>ASTM G173-03大気圏外スペクトル<sup class="cite"><a href="#src-4" aria-label="出典 4">[4]</a></sup>、315–400&nbsp;nmで85.5&nbsp;W/m²</td></tr>
+            <tr><td>空気（レイリー散乱）</td><td>Bodhaineら（1999年）<sup class="cite"><a href="#src-5" aria-label="出典 5">[5]</a></sup>の光学的厚さ × 気圧 ÷ 1013.25&nbsp;hPa</td></tr>
+            <tr><td>オゾン</td><td>300&nbsp;DU、高度22&nbsp;kmを中心に分布</td></tr>
+            <tr><td>エアロゾル</td><td>オングストローム指数1.14、一次散乱アルベド0.92、非対称因子0.70、スケールハイト1.5&nbsp;km</td></tr>
+            <tr><td>ソルバー</td><td>DISORT、16ストリーム、17層、2.5&nbsp;nmのスペクトル区間</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          海抜0 mの清浄な大気で太陽が真上にある場合、テーブルの値は
+          <strong>64.5&nbsp;W/m²</strong>です。中程度のかすみ（AOD&nbsp;0.15）があると、
+          太陽が高いときで約5%、低いときで9–12%この値が下がります。検証として、
+          直達光の成分は、NRELの独立したSPECTRL2モデル<sup class="cite"><a href="#src-6" aria-label="出典 6">[6]</a></sup>と、
+          テストしたすべての太陽角度で1%以内で一致しています。SPECTRL2による
+          より単純な天空散乱光の推定値は、おおむね4–18%低くなりますが、
+          これは多重散乱を解かないモデルとして予想どおりの結果です。
+          生成スクリプト<code>scripts/build_lut.py</code>はリポジトリで公開しており、
+          誰でも再実行や変更ができます。
+        </p>
+
+        <h2>ステップ3 — 標高（気圧）</h2>
+        <p>
+          標高が高い場所では、UVAを宇宙へ散乱して返す空気が上空に少なくなります。
+          モデルは予報の<strong>地表気圧</strong>を読み取り（ない場合は地形の標高に対する
+          標準大気の値を使います）、あとはテーブルが処理します。清浄な大気では、
+          これは<strong>1キロメートルあたり約+3%</strong>に相当します。山岳地帯でUVAについて
+          よく測定されるより大きな値（あるアルプスの研究では1 kmあたり約9%<sup class="cite"><a href="#src-7" aria-label="出典 7">[7]</a></sup>）は、主に谷間のかすみを抜け出すことによるもので、
+          モデルはその効果を、地点ごとのエアロゾルデータを通じて別途取り込んでいます。
+          具体的な数値は<a href="uva-at-altitude.html">標高とUVA</a>で
+          詳しく解説しています。
+        </p>
+
+        <h2>ステップ4 — 周囲の環境（地表面の反射）</h2>
+        <p>
+          明るい周囲の環境はUVAを上向きに反射し、空がその一部を再び下へ散乱させます。
+          UVアルベドが<code>r</code>の地表面について、テーブルは大気の
+          <strong>球面アルベド</strong><code>s</code>（UVAでは約0.3）も提供しており、
+          一様に反射する地表面であれば、増加分は厳密に次のように求められます。
+        </p>
+        <div class="callout">
+          <strong>周囲の環境の係数 = 1 ÷ (1 − r × s)</strong>
+        </div>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>周囲の環境</th><th>UVアルベド r</th><th>係数</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>草地、土、市街地</td><td>0.03</td><td>×1.01</td></tr>
+            <tr><td>水面</td><td>0.07</td><td>×1.02</td></tr>
+            <tr><td>砂地／砂浜</td><td>0.15</td><td>×1.05</td></tr>
+            <tr><td>雪に覆われた地形</td><td>0.6</td><td>×1.24</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          重要なのは足元の地面だけではなく、キロメートル規模で広がる
+          <em>周囲の環境</em>です。反射した光は空から再び降りてくる必要があるためです。
+          <strong>自動</strong>（初期設定）では、予報で地面に5&nbsp;cm以上の積雪がある場合に、
+          計算ツールが雪に切り替えます。踏み荒らされていない新雪（r&nbsp;≈&nbsp;0.9）では
+          約×1.40に達します。真上に向かって<em>直接</em>反射される、はるかに大きな光は、
+          水平な面ではなく、あごや鼻、目に当たるため、この数値には含まれません。
+          その違いについては<a href="reflected-uva-snow-sand-water.html">反射するUVA</a>で
+          説明しています。
+        </p>
+
+        <h2>ステップ5 — 地球と太陽の距離</h2>
+        <p>
+          地球の軌道はわずかに楕円形で、太陽に最も近づくのは1月上旬（0.983&nbsp;AU）、
+          最も遠ざかるのは7月上旬（1.017&nbsp;AU）です。
+          太陽光の強さは距離の2乗に反比例します。
+        </p>
+        <div class="callout">
+          <strong>距離の係数 = 1 ÷ r<sub>AU</sub>²</strong>
+        </div>
+        <p>
+          これは1月に<strong>+3.4%</strong>、7月に<strong>−3.3%</strong>となります。
+          同じ緯度でも、南半球の夏が北半球の夏よりわずかに強い理由の一つです。
+        </p>
+
+        <h2>ステップ6 — 雲</h2>
+        <p>
+          雲は地上のUVAに対して最も変動の大きい要因です。そのためモデルは、
+          地点ごとに利用できる最良の入力データを、2段階で使い分けます。
+        </p>
+        <p>
+          <strong>優先 — リアルタイムのUVデータから求める。</strong>Open-Meteoは、
+          同じ時刻について実際のUVインデックスと晴天時のUVインデックスの両方を
+          公開しています。その比は、実際の上空の空に対する紅斑紫外線の雲透過率であり、
+          雲量のパーセンテージをどのようにパラメータ化するよりも優れています。
+          UVAの透過率は、これから次のように求めます。
+        </p>
+        <div class="callout">
+          <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>γ</sup>、ただし γ = 1</strong>
+        </div>
+        <p>
+          厚い雲の下では、UVAはUVBで重み付けされたUVインデックスよりもわずかに
+          透過しやすいことがありますが、測定結果は雲の種類によって異なります
+          （<a href="uva-on-cloudy-days.html">曇りの日のUVA</a>を参照）。そのため、
+          効果の大きさが確定するまでは中立的な値を使っています。γは、後述の検証で
+          較正することを想定している唯一の雲の係数です。
+        </p>
+        <p>
+          <strong>代替 — 雲量からパラメータで求める。</strong>リアルタイムのUVデータの組が
+          得られない場合（たとえば約5日以上先の予報）は、
+          報告されている全雲量のパーセンテージを使います。
+        </p>
+        <div class="callout">
+          <strong>雲の係数 = 1 − 0.4 × (雲量 ÷ 100)<sup>1.5</sup></strong>
+        </div>
+        <p>
+          この曲線は意図的に緩やかにしてあります。「雲量100%」という報告は
+          光学的厚さではなく<em>空を覆う範囲</em>についての情報であり、
+          曇り空は嵐の雲底よりも薄い層雲であることがはるかに多いからです。
+          雲量100%のとき、晴天時のUVAの約<strong>60%</strong>が残ります。
+          雲はUVAを弱めますが、完全になくすことはめったにありません。
+        </p>
+
+        <h2>放射照度から0〜11+の指数へ</h2>
+        <p>
+          W/m²で表した放射照度そのものは正確ですが、なじみのない数値です。そこで、
+          UVインデックスと同じように0〜11+のスケールに置き換えています。
+          変換に使うのは一つの定数だけです。
+        </p>
+        <div class="callout">
+          <strong>UVA指数 = UVA放射照度 ÷ 6</strong>
+        </div>
+        <p>
+          除数の6は、晴天で太陽が真上にあるとき（約64–66&nbsp;W/m²）に
+          約<strong>11</strong>となるように選んでいます。これは、熱帯のUVインデックスの
+          ピーク時と同じく、スケールの上限という感覚に合わせたものです。指数は放射照度に
+          厳密に比例するため、どちらの数値も同じことを示しており、下表の各区分の境界は
+          指数の値を6倍したものにすぎません。区分には、おなじみのWHOのUVインデックスの
+          名称と色をそのまま使っています。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>UVA指数</th><th>区分</th><th>放射照度（目安）</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>3未満</td><td>弱い</td><td>18 W/m²未満</td></tr>
+            <tr><td>3以上6未満</td><td>中程度</td><td>18以上36 W/m²未満</td></tr>
+            <tr><td>6以上8未満</td><td>強い</td><td>36以上48 W/m²未満</td></tr>
+            <tr><td>8以上11未満</td><td>非常に強い</td><td>48以上66 W/m²未満</td></tr>
+            <tr><td>11以上</td><td>極端に強い</td><td>66 W/m²以上</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <h2>入力データの一覧</h2>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>入力</th><th>データ元</th><th>用途</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>緯度／経度</td><td>位置情報または地名検索</td><td>太陽の位置</td></tr>
+            <tr><td>太陽天頂角、地球と太陽の距離</td><td>計算（NOAA）</td><td>晴天時テーブル、距離の係数</td></tr>
+            <tr><td>地表気圧</td><td>Open-Meteo Forecast</td><td>晴天時テーブル（標高）</td></tr>
+            <tr><td>地形の標高</td><td>Open-Meteo Forecast</td><td>気圧の代替</td></tr>
+            <tr><td>エアロゾル光学的厚さ</td><td>Open-Meteo Air-Quality（CAMS）</td><td>晴天時テーブル（かすみ）</td></tr>
+            <tr><td>UVインデックスと晴天時UVインデックス</td><td>Open-Meteo Air-Quality（CAMS）</td><td>雲の係数</td></tr>
+            <tr><td>雲量</td><td>Open-Meteo Forecast</td><td>雲の代替</td></tr>
+            <tr><td>積雪深</td><td>Open-Meteo Forecast</td><td>周囲の環境（自動）</td></tr>
+            <tr><td>周囲の環境</td><td>ユーザー（または自動）</td><td>周囲の環境の係数</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          <em>UVA予報</em>も同じモデルで描いています。今日と今後4日間にわたって
+          （その地点の時間帯で）15分ごとに計算し、各時点で太陽の位置を正確に求め、
+          1時間ごとの雲とエアロゾルの値は時間の間で補間します。各日のピークと、
+          UVA指数が中程度（3）以上になる時間帯は、この曲線から求めています。
+          UVインデックスとエアロゾルを提供する大気質予報は約4〜5日先までしかないため、
+          それ以降はモデルが雲量の曲線に切り替わり、後の日ほど精度が粗くなります。
+        </p>
+
+        <h2 id="omitted">考慮していない要因</h2>
+        <p>
+          これは<strong>わかりやすさと透明性を重視した推定値であり、較正された
+          放射測定値ではありません</strong>。実際に存在するいくつかの効果は、意図的に
+          簡略化または除外しています。それを知っておけば、数値をどこまで信頼してよいか、
+          どのような場合に大まかな目安として扱うべきかがわかります。
+        </p>
+        <ul>
+          <li>
+            <strong>リアルタイムのオゾン。</strong>テーブルではオゾン全量を
+            300&nbsp;DUに固定しています。実際のオゾン全量は約250〜450&nbsp;DUの範囲ですが、
+            これによるUVAの変化は数パーセントにすぎません。また、無料のデータが報告するのは
+            オゾン全量ではなく<em>地表</em>オゾン（µg/m³）なので、参考情報として表示するにとどめています。
+          </li>
+          <li>
+            <strong>地域ごとのエアロゾルの種類。</strong>テーブルは標準的な大陸性エアロゾルを
+            想定しています。砂漠の砂塵（紫外線をより多く吸収し、スペクトルがより平坦）や
+            山火事の煙は性質が異なるため、砂塵や煙が多い日は、AODだけから想像されるよりも
+            不確かさが大きくなります。
+          </li>
+          <li>
+            <strong>雲の種類と構造。</strong>雲の効果は、解像度の粗い（約40&nbsp;km）
+            予報モデルのUVインデックスから求めています。雲の層構造や、切れ切れの雲の
+            「縁」の効果（一時的にUVAを晴天時より<em>高く</em>することがあります）は
+            モデル化していません。
+          </li>
+          <li>
+            <strong>周辺の地形や日陰。</strong>建物、樹木、地形、地表面の傾きや向き、
+            体の姿勢はいずれも実際の曝露量を変えますが、考慮していません。
+          </li>
+          <li>
+            <strong>ガラスと屋内環境。</strong>この推定値は屋外の開けた場所にいる場合のものです。
+            UVAは窓ガラスを透過しますが、UVBはほとんど透過しないため、屋内や車内での
+            曝露量は異なり、モデル化していません。
+          </li>
+          <li>
+            <strong>その他の微量な吸収物質</strong>（NO₂、SO₂）や、地表面アルベドの
+            波長依存性は含めていません。
+          </li>
+        </ul>
+
+        <h2 id="validation">モデルの検証方法</h2>
+        <p>
+          リポジトリには検証スクリプト<code>scripts/validate.mjs</code>が含まれています。
+          これは、過去の日付の保存済み入力データを、計算ツールが実行するのとまったく同じ
+          コードで再計算し、その結果を独立したUVAデータと1時間ごとに比較するものです。
+          比較対象は、NASAのPOWERサービス（CERES観測装置による衛星由来のUVAで、
+          全世界で利用可能）か、UVA放射計による地上測定値のファイルです。
+          太陽の角度別・雲の量別にバイアスと誤差を報告し、晴天時テーブル単独での確認を行い、
+          雲の指数γと別の雲データソースを当てはめます。この比較の結果はここで公開する予定です。
+          それまでは、雲の項がモデルの中で最も不確かな部分だと考えてください。
+        </p>
+
+        <div class="callout">
+          <strong>再較正できるように設計されています。</strong>残っている数少ない調整可能な
+          係数は一つの<code>MODEL</code>ブロックにまとめてあり、晴天時テーブルは
+          アプリの他の部分に手を加えることなく、別の前提条件で再生成できます。ソースコードは
+          すべて<a href="https://github.com/mixalisaspr/uvaindex">GitHub</a>で公開しています。
+        </div>
+
+        <h2>結局、どのくらい正確なのか</h2>
+        <p>
+          しっかりとした根拠のある<strong>相対的な</strong>目安として扱ってください。
+          太陽の高さ、季節、緯度と標高、その日の雲やかすみによってUVAがどう変わるかを
+          とらえており、極端な条件でも正しく振る舞います（晴れた正午の太陽では高く、
+          夜はゼロ、厚い曇りでは大きく下がり、標高が高いほど高くなります）。
+          W/m²で表した<em>絶対的な</em>数値は、物理的に妥当な推定値であり、
+          計測機器レベルの測定値ではありません。そもそもなぜこの推定値を提供しているのかについては、
+          <a href="../about.html">このサイトについて</a>をご覧ください。
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>出典</h2>
+          <ol>
+            <li id="src-1"><a href="https://gml.noaa.gov/grad/solcalc/" rel="noopener">NOAA Solar Calculator and solar position calculation details</a>. <em>NOAA Global Monitoring Laboratory</em>.</li>
+            <li id="src-2">Stamnes K, Tsay S-C, Wiscombe W, Jayaweera K (1988). <a href="https://doi.org/10.1364/AO.27.002502" rel="noopener">Numerically stable algorithm for discrete-ordinate-method radiative transfer in multiple scattering and emitting layered media</a>. <em>Applied Optics 27(12):2502–2509</em>.</li>
+            <li id="src-3">Kasten F, Young AT (1989). <a href="https://doi.org/10.1364/AO.28.004735" rel="noopener">Revised optical air mass tables and approximation formula</a>. <em>Applied Optics 28(22):4735–4738</em>.</li>
+            <li id="src-4"><a href="https://www.nrel.gov/grid/solar-resource/spectra-am1.5.html" rel="noopener">Reference Air Mass 1.5 Spectra (ASTM G173-03)</a>. <em>National Renewable Energy Laboratory</em>.</li>
+            <li id="src-5">Bodhaine BA, Wood NB, Dutton EG, Slusser JR (1999). <a href="https://doi.org/10.1175/1520-0426(1999)016%3C1854:ORODC%3E2.0.CO;2" rel="noopener">On Rayleigh optical depth calculations</a>. <em>Journal of Atmospheric and Oceanic Technology 16(11):1854–1861</em>.</li>
+            <li id="src-6">Bird RE, Riordan C (1986). <a href="https://doi.org/10.1175/1520-0450(1986)025%3C0087:SSSMFD%3E2.0.CO;2" rel="noopener">Simple solar spectral model for direct and diffuse irradiance on horizontal and tilted planes at the Earth's surface for cloudless atmospheres</a>. <em>Journal of Climate and Applied Meteorology 25(1):87–97</em>.</li>
+            <li id="src-7">Blumthaler M, Ambach W, Ellinger R (1997). <a href="https://doi.org/10.1016/S1011-1344(96)00018-8" rel="noopener">Increase in solar UV radiation with altitude</a>. <em>Journal of Photochemistry and Photobiology B: Biology 39(2):130–134</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">最終確認日：2026年11月16日。誤りやより良い出典に気づいたら、<a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">GitHubでお知らせください</a>。</p>
+
+        <a class="cta" href="../">UVA指数計算ツールで内訳を確認する →</a>
+      </article>
+
+      <aside class="related">
+        <h2>あわせて読みたい</h2>
+        <ul>
+          <li><a href="uv-index-vs-uva-index.html">UVインデックスだけでは不十分な理由</a></li>
+          <li><a href="what-is-uva-radiation.html">UVA（紫外線A波）とは何か</a></li>
+          <li><a href="uva-vs-uvb.html">UVAとUVBの違いとは？</a></li>
+          <li><a href="../about.html">このサイトについて</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          無料のオープンソースです。UVA指数とUVA放射照度の非公式な計算です。教育目的の情報であり、医学的助言ではありません。詳しくは<a href="https://uvaindex.org/ja/about.html">このサイトについて</a>をご覧ください。
+          · <button type="button" class="link-btn" data-consent-open>Cookieの設定</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

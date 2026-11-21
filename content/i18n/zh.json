@@ -1,0 +1,91 @@
+{
+  "code": "zh",
+  "path": "zh/",
+  "html_lang": "zh-Hans",
+  "hreflang": "zh-Hans",
+  "native_name": "简体中文",
+  "intl_locale": "zh-CN",
+  "glossary": {
+    "_note": "Simplified Chinese. Fixed terms every Chinese page must use. Brand 'uvaindex.org' and the abbreviations UVA, UVB, UVC, UV, SPF, PA, nm, W/m² stay in Latin script.",
+    "UVA Index": "UVA 指数",
+    "UV Index": "紫外线指数（UV 指数）— write '紫外线指数（UV 指数）' on first mention in an article, then 'UV 指数'",
+    "UVA Index Calculator": "UVA 指数计算器",
+    "Knowledge Base": "UVA 知识库 (nav: 知识库)",
+    "Free widget": "免费小组件",
+    "band names (Low, Moderate, High, Very High, Extreme)": "低, 中等, 高, 很高, 极高",
+    "UVA radiation": "UVA（长波紫外线）— write 'UVA（长波紫外线）' on first mention in an article, then 'UVA'",
+    "UVB": "UVB（中波紫外线）on first mention, then 'UVB'",
+    "irradiance": "辐照度",
+    "sunscreen": "防晒霜",
+    "broad-spectrum": "广谱",
+    "photoaging": "光老化",
+    "aerosol optical depth": "气溶胶光学厚度",
+    "surroundings (ground cover setting)": "周围环境",
+    "solar zenith angle": "太阳天顶角",
+    "cloud cover": "云量",
+    "sunburn / erythema": "晒伤 / 红斑",
+    "tone": "Clear, natural Simplified Chinese for a general audience. Full-width Chinese punctuation (，。：；（）“”) in prose; keep numbers, units and Latin abbreviations half-width, with a space between Chinese characters and Latin words/numbers (e.g. 'UVA 指数', '约 95%')."
+  },
+  "nav": {
+    "aria": "主导航",
+    "calc": "UVA 指数计算器",
+    "learn": "知识库",
+    "widget": "免费小组件",
+    "about": "关于",
+    "language": "语言"
+  },
+  "crumbs": {
+    "aria": "面包屑导航",
+    "home": "UVA 指数",
+    "kb": "知识库",
+    "topics": "主题"
+  },
+  "hub": {
+    "title": "UVA 知识库 — 了解 UVA 辐射与紫外线指数",
+    "description": "通俗易懂的 UVA 辐射指南：UVA 是什么、与 UVB 有何不同、对健康有哪些危害，以及为什么标准紫外线指数还不够——为什么需要专门的 UVA 指数。",
+    "og_title": "UVA 知识库 — 了解 UVA 辐射与紫外线指数",
+    "og_description": "通俗易懂的 UVA 辐射指南：与 UVB 的区别、健康风险，以及为什么我们需要专门的 UVA 指数。",
+    "collection_name": "UVA 知识库",
+    "collection_description": "通俗易懂的 UVA 辐射指南：与 UVB 的区别、健康风险，以及为什么在标准紫外线指数之外还需要专门的 UVA 指数。",
+    "h1": "UVA 知识库",
+    "subtitle_html": "关于长波紫外线（UVA）的简明指南——它是什么、与 UVB 有何不同、\n          为什么对你的皮肤很重要，以及为什么人们熟悉的<strong>紫外线指数</strong>\n          并不能说明全部情况。",
+    "cta": "查看你所在位置的实时 UVA 指数 →",
+    "open_source_html": "免费且<strong>开源</strong>——代码和模型以\n          <a href=\"https://github.com/mixalisaspr/uvaindex/blob/main/LICENSE\">MIT 许可证</a>\n          发布在 <a href=\"https://github.com/mixalisaspr/uvaindex\">GitHub</a> 上。"
+  },
+  "tag_page": {
+    "title": "{label} — UVA 知识库",
+    "description": "知识库中关于“{label}”的文章。",
+    "subtitle_html": "知识库中标记为<strong>{label}</strong>的文章。",
+    "cta": "查看你所在位置的实时 UVA 指数 →"
+  },
+  "tags_index": {
+    "title": "按主题浏览 — UVA 知识库",
+    "description": "按主题浏览 UVA 知识库文章。",
+    "h1": "按主题浏览",
+    "subtitle": "知识库的全部主题，从基础知识到计算方法。",
+    "count_one": "{n} 篇文章",
+    "count_other": "{n} 篇文章"
+  },
+  "card_more": "阅读 →",
+  "related_heading": "继续阅读",
+  "sources_heading": "参考来源",
+  "source_aria": "来源 {n}",
+  "reviewed_html": "最后审核：{date}。发现错误或有更好的来源？<a href=\"{issues}\" rel=\"noopener\">请在 GitHub 上告诉我们</a>。",
+  "months": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+  "date_format": "{y}年{month}月{d}日",
+  "disclaimer_html": "免费且开源。非官方的 UVA 指数与 UVA 辐照度计算。仅供科普参考，不构成医疗建议。更多信息请见<a href=\"https://uvaindex.org/zh/about.html\">关于</a>页面。",
+  "cookie_settings": "Cookie 设置",
+  "default_cta_text": "查看你所在位置的实时 UVA 指数 →",
+  "tags": {
+    "basics": "基础知识",
+    "comparison": "对比",
+    "environment": "条件与环境",
+    "health": "健康影响",
+    "uv-index": "紫外线指数",
+    "methodology": "计算方法",
+    "protection": "防护",
+    "spectrum": "紫外线光谱",
+    "risks": "风险",
+    "technical": "技术"
+  }
+}

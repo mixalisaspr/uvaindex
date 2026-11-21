@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>UVA 指数是怎么计算的 — 模型、参数与局限</title>
+    <meta
+      name="description"
+      content="UVA 指数背后的完整方法：如何根据辐射传输查找表以及实时云量、霾、气压和积雪数据推算地表 UVA 辐照度（315–400 nm，W/m²），具体公式与假设、如何验证，以及我们没有考虑哪些因素。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/zh/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/how-uva-index-is-calculated.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/how-uva-index-is-calculated.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA 指数" />
+    <meta property="og:title" content="UVA 指数是怎么计算的 — 模型、参数与局限" />
+    <meta property="og:description" content="UVA 指数背后的完整方法：公式、实时输入数据、系数，以及我们有意不纳入的因素。" />
+    <meta property="og:url" content="https://uvaindex.org/zh/learn/how-uva-index-is-calculated.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "UVA 指数是如何计算的",
+        "description": "UVA 指数的计算方法：根据辐射传输查找表以及实时云量、气溶胶、气压和积雪数据推算地表 UVA 辐照度（315–400 nm），所用公式与假设、验证方式，以及有意省略的因素。",
+        "inLanguage": "zh-Hans",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-06-27",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/zh/learn/how-uva-index-is-calculated.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "NOAA Solar Calculator and solar position calculation details",
+            "publisher": "NOAA Global Monitoring Laboratory",
+            "url": "https://gml.noaa.gov/grad/solcalc/"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Numerically stable algorithm for discrete-ordinate-method radiative transfer in multiple scattering and emitting layered media",
+            "author": "Stamnes K, Tsay S-C, Wiscombe W, Jayaweera K",
+            "publisher": "Applied Optics 27(12):2502–2509",
+            "datePublished": "1988",
+            "url": "https://doi.org/10.1364/AO.27.002502"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Revised optical air mass tables and approximation formula",
+            "author": "Kasten F, Young AT",
+            "publisher": "Applied Optics 28(22):4735–4738",
+            "datePublished": "1989",
+            "url": "https://doi.org/10.1364/AO.28.004735"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Reference Air Mass 1.5 Spectra (ASTM G173-03)",
+            "publisher": "National Renewable Energy Laboratory",
+            "url": "https://www.nrel.gov/grid/solar-resource/spectra-am1.5.html"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "On Rayleigh optical depth calculations",
+            "author": "Bodhaine BA, Wood NB, Dutton EG, Slusser JR",
+            "publisher": "Journal of Atmospheric and Oceanic Technology 16(11):1854–1861",
+            "datePublished": "1999",
+            "url": "https://doi.org/10.1175/1520-0426(1999)016%3C1854:ORODC%3E2.0.CO;2"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Simple solar spectral model for direct and diffuse irradiance on horizontal and tilted planes at the Earth's surface for cloudless atmospheres",
+            "author": "Bird RE, Riordan C",
+            "publisher": "Journal of Climate and Applied Meteorology 25(1):87–97",
+            "datePublished": "1986",
+            "url": "https://doi.org/10.1175/1520-0450(1986)025%3C0087:SSSMFD%3E2.0.CO;2"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Increase in solar UV radiation with altitude",
+            "author": "Blumthaler M, Ambach W, Ellinger R",
+            "publisher": "Journal of Photochemistry and Photobiology B: Biology 39(2):130–134",
+            "datePublished": "1997",
+            "url": "https://doi.org/10.1016/S1011-1344(96)00018-8"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "UVA 指数是如何计算的？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "晴空 UVA 从一张用辐射传输模型（DISORT）预先计算好的表中查得，依据是太阳角度、霾（气溶胶光学厚度）和地表气压——在海平面、空气洁净、太阳位于正上方时约为 64 W/m²。然后将这个值乘以几个系数：周围环境的反射、当天的日地距离以及实时云量。得到的辐照度（W/m²）除以 6，就是 0–11+ 的指数。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "UVA 指数有多准确？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "它是模型输出而不是测量值，其误差规律是可以预见的。晴空且太阳较高时最可靠，因为此时太阳几何位置起主导作用，各项修正都很小。碎云天气最不可靠，而且结果偏低：模型只考虑衰减，无法再现云增强效应——即太阳从明亮积云的缝隙中照射时，短时间内会超过晴空值。太阳接近地平线时的读数，按相对误差来说最不可靠。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "为什么模型不使用实时臭氧数据？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "因为臭氧对 UVA 几乎没有影响。臭氧强烈吸收 UVB，在 UVA 波段的短波端只有微弱吸收，所以臭氧总量减半时，UVA 只变化几个百分点，而红斑紫外线大约会翻倍。辐射传输表把臭氧固定在典型的 300 多布森单位；免费数据源只提供以 µg/m³ 计的地表臭氧，而不是这样一项修正所需的臭氧柱总量，因此地表臭氧仅作参考显示。"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA 指数",
+            "item": "https://uvaindex.org/zh/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "知识库",
+            "item": "https://uvaindex.org/zh/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UVA 指数是如何计算的",
+            "item": "https://uvaindex.org/zh/learn/how-uva-index-is-calculated.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="面包屑导航">
+          <a href="../">UVA 指数</a><span class="sep">›</span><a href="./">知识库</a><span class="sep">›</span>UVA 指数是如何计算的
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="语言: 简体中文"><span class="lang-icon" aria-hidden="true">🌐</span> 简体中文</summary>
+          <ul>
+            <li><a href="../../learn/how-uva-index-is-calculated.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/how-uva-index-is-calculated.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/how-uva-index-is-calculated.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/how-uva-index-is-calculated.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/how-uva-index-is-calculated.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/how-uva-index-is-calculated.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="how-uva-index-is-calculated.html" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>UVA 指数是如何计算的</h1>
+        <p class="lead">
+          本文是计算器的技术说明。它将逐步介绍我们究竟如何估算
+          <strong>地表 UVA（长波紫外线）辐照度</strong>
+          （未加权的 315–400&nbsp;nm 波段，单位 W/m²），如何把它换算成
+          <strong>0–11+ 的 UVA&nbsp;指数</strong>，我们使用的每一个参数和
+          系数——同样重要的是，还有
+          <a href="#omitted">我们有意不纳入的因素</a>。
+        </p>
+
+        <div class="callout">
+          <strong>为什么要用模型？</strong>主流的免费天气 API
+          都不提供纯 UVA 数据——它们发布的都是按红斑效应加权的
+          <a href="uv-index-vs-uva-index.html">紫外线指数（UV&nbsp;指数）</a>，而它主要反映的是
+          UVB（中波紫外线）。因此，我们不是从 API 读取 UVA，而是根据太阳所在位置的物理规律，
+          再加上已知会影响 UVA 的实时大气数据，把它<strong>推算</strong>出来。
+        </div>
+
+        <h2>一句话概括模型</h2>
+        <p>
+          UVA 辐照度等于辐射传输计算得到的晴空值，
+          再乘以一小串反映当下条件的系数：
+        </p>
+        <div class="callout">
+          <strong>UVA = 基准值 × 海拔 × 气溶胶 × 周围环境 × 日地距离 × 云量</strong>
+        </div>
+        <p>
+          当某个输入缺失时，对应系数默认取 <code>1</code>（即不产生影响），
+          因此估算结果会平稳降级而不会直接失败。每个系数也都显示在计算器的
+          <em>模型分解</em>表中，任何读数都可以追溯到各个组成部分。
+        </p>
+
+        <h2>第 1 步——太阳位置</h2>
+        <p>
+          影响 UVA 的最大单一因素是太阳在天空中的高度。我们在浏览器中根据你的
+          纬度、经度和当前时刻，计算<strong>太阳天顶角</strong> <code>θ</code>（0° =
+          正上方，90° = 位于地平线），使用的是
+          <strong>NOAA 太阳位置算法</strong>——也就是 NOAA Solar Calculator
+          背后的同一套数学方法。<sup class="cite"><a href="#src-1" aria-label="来源 1">[1]</a></sup>同一算法还给出第&nbsp;5 步所用的
+          <strong>日地距离</strong>。当太阳位于地平线以下时，UVA 记为 <strong>0</strong>。
+        </p>
+
+        <h2>第 2 步——晴空值，来自辐射传输表</h2>
+        <p>
+          模型的晴空部分并非手工调校的曲线，而是来自一次预先完成的物理计算。我们使用
+          <strong>DISORT</strong>——大气科学中常用的标准多次散射求解器<sup class="cite"><a href="#src-2" aria-label="来源 2">[2]</a></sup>——在分层的模型大气上，针对以下各项的每一种
+          组合进行了计算：
+        </p>
+        <ul>
+          <li><strong>太阳角度</strong>，0–90°，步长 5°；</li>
+          <li><strong>气溶胶光学厚度</strong>（霾，550&nbsp;nm 处），0–3；</li>
+          <li><strong>地表气压</strong>，500–1060&nbsp;hPa（从海平面到约 5,500&nbsp;m），</li>
+        </ul>
+        <p>
+          并在 315–400&nbsp;nm 范围内对结果积分。网页会针对你所在的条件对这张表
+          （约 1,800 个数值，13&nbsp;KB）进行插值。这张表从基本原理出发，
+          涵盖了以往经验公式所近似处理的所有内容：
+        </p>
+        <ul>
+          <li>
+            <strong>随太阳角度的衰减</strong>，包括以漫射天空光形式到达的
+            大部分 UVA——这正是太阳西沉时 UVA 下降速度远比 UVB 慢的原因。
+          </li>
+          <li>
+            <strong>空气的瑞利散射</strong>，按实际地表气压缩放，
+            海拔的影响就是通过这一项体现的。
+          </li>
+          <li>
+            <strong>霾</strong>，以及它在直射与漫射之间的真实权衡：气溶胶
+            会从直射光束中移除光线，但会把其中大部分向前散射，
+            所以很多光仍然以天空光的形式到达地面。
+          </li>
+          <li>
+            <strong>臭氧</strong>在波段短波端的吸收，取典型值
+            300 多布森单位。
+          </li>
+          <li>
+            太阳较低时<strong>大气的曲率</strong>（Kasten–Young 大气质量<sup class="cite"><a href="#src-3" aria-label="来源 3">[3]</a></sup>）；平面大气假设下的 1/cos θ 在地平线附近
+            会高估这一效应。
+          </li>
+        </ul>
+        <p>所假设的大气：</p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>组成</th><th>假设</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>大气层外的太阳光</td><td>ASTM G173-03 地外光谱<sup class="cite"><a href="#src-4" aria-label="来源 4">[4]</a></sup>，315–400&nbsp;nm 范围内为 85.5&nbsp;W/m²</td></tr>
+            <tr><td>空气（瑞利散射）</td><td>Bodhaine 等（1999）<sup class="cite"><a href="#src-5" aria-label="来源 5">[5]</a></sup>的光学厚度 × 气压 ÷ 1013.25&nbsp;hPa</td></tr>
+            <tr><td>臭氧</td><td>300&nbsp;DU，中心高度 22&nbsp;km</td></tr>
+            <tr><td>气溶胶</td><td>Ångström 指数 1.14，单次散射反照率 0.92，不对称因子 0.70，标高 1.5&nbsp;km</td></tr>
+            <tr><td>求解器</td><td>DISORT，16 流，17 层，光谱间隔 2.5&nbsp;nm</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          在海平面、空气洁净、太阳位于正上方时，这张表给出
+          <strong>64.5&nbsp;W/m²</strong>；中等程度的霾（AOD&nbsp;0.15）会使其
+          在太阳较高时降低约 5%，在太阳较低时降低 9–12%。作为核对，
+          在测试的每个太阳角度下，直射光部分与 NREL 独立的 SPECTRL2 模型<sup class="cite"><a href="#src-6" aria-label="来源 6">[6]</a></sup>相差都在
+          1% 以内；SPECTRL2 较简单的漫射天空估算大多低 4–18%，
+          这对于一个不求解多次散射的模型来说在意料之中。
+          生成脚本 <code>scripts/build_lut.py</code> 就在代码仓库中，
+          任何人都可以重新运行或修改。
+        </p>
+
+        <h2>第 3 步——海拔（气压）</h2>
+        <p>
+          在高海拔处，你上方能把 UVA 散射回太空的空气更少。
+          模型读取预报中的<strong>地表气压</strong>（缺失时则按地形海拔
+          采用标准大气），其余交给查找表处理。在洁净空气中，这大约相当于
+          <strong>每千米 +3%</strong>。山区 UVA 实测中常见的更大数值——一项阿尔卑斯山研究中约为每千米 9%<sup class="cite"><a href="#src-7" aria-label="来源 7">[7]</a></sup>——主要来自把谷地中的霾甩在了身后，
+          而模型会通过你所在位置的气溶胶数据单独体现这一点。
+          <a href="uva-at-altitude.html">高海拔的 UVA</a> 一文详细演算了这些数字。
+        </p>
+
+        <h2>第 4 步——周围环境（地表反射）</h2>
+        <p>
+          明亮的周围环境会把 UVA 向上反射，天空又会把其中一部分散射
+          回来。对于紫外反照率为 <code>r</code> 的地表，查找表还提供了
+          大气的<strong>球面反照率</strong>
+          <code>s</code>（UVA 波段约为 0.3），对于均匀反射的地表，
+          增强效应可以精确表示为：
+        </p>
+        <div class="callout">
+          <strong>周围环境系数 = 1 ÷ (1 − r × s)</strong>
+        </div>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>周围环境</th><th>紫外反照率 r</th><th>系数</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>草地、土壤或城镇</td><td>0.03</td><td>×1.01</td></tr>
+            <tr><td>水面</td><td>0.07</td><td>×1.02</td></tr>
+            <tr><td>沙地 / 海滩</td><td>0.15</td><td>×1.05</td></tr>
+            <tr><td>积雪覆盖的地形</td><td>0.6</td><td>×1.24</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          起作用的是<em>周围环境</em>——你周围千米尺度的区域——
+          而不只是脚下的地面，因为反射光必须经由天空再散射下来。
+          在<strong>自动</strong>模式（默认）下，当预报显示地面积雪达到 5&nbsp;cm
+          或以上时，计算器会切换为雪地。新鲜、完整的积雪（r&nbsp;≈&nbsp;0.9）可达约
+          ×1.40。直接<em>向上</em>反射的大得多的通量照射的是你的下巴、
+          鼻子和眼睛，而不是水平面，因此不计入这个数值；
+          <a href="reflected-uva-snow-sand-water.html">反射 UVA</a> 一文解释了
+          两者的区别。
+        </p>
+
+        <h2>第 5 步——日地距离</h2>
+        <p>
+          地球轨道略呈椭圆形：1 月初离太阳最近
+          （0.983&nbsp;AU），7 月初最远（1.017&nbsp;AU）。
+          阳光强度与距离的平方成反比：
+        </p>
+        <div class="callout">
+          <strong>距离系数 = 1 ÷ r<sub>AU</sub>²</strong>
+        </div>
+        <p>
+          也就是 1 月 <strong>+3.4%</strong>，7 月 <strong>−3.3%</strong>——
+          这也是在相同纬度下，南半球的夏季比北半球的夏季略强一些的原因之一。
+        </p>
+
+        <h2>第 6 步——云</h2>
+        <p>
+          云是地面 UVA 中变化最大的影响因素，因此模型会为你的位置
+          采用可获得的最佳输入，分为两级。
+        </p>
+        <p>
+          <strong>首选——由实时紫外线数据推算。</strong>Open-Meteo
+          会同时发布同一小时的实际 UV&nbsp;指数和晴空 UV&nbsp;指数。
+          两者之比就是头顶真实天空的红斑云透过率，
+          这比任何基于云量百分比的参数化方法都更好。UVA 的透过率由此取为
+        </p>
+        <div class="callout">
+          <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>γ</sup>，其中 γ = 1</strong>
+        </div>
+        <p>
+          在厚云下，UVA 的透过率可能略高于以 UVB 加权的 UV 指数，
+          但测量结果因云的类型而异（参见
+          <a href="uva-on-cloudy-days.html">阴天的 UVA</a>），因此在这一效应的
+          大小确定之前，采用中性值。γ 是下文的验证所要校准的
+          唯一云量系数。
+        </p>
+        <p>
+          <strong>备选——基于云量的参数化公式。</strong>当实时
+          紫外线数据对不可用时（例如超过约五天之后的预报），
+          我们改用报告的总云量百分比：
+        </p>
+        <div class="callout">
+          <strong>云量系数 = 1 − 0.4 × (云量 ÷ 100)<sup>1.5</sup></strong>
+        </div>
+        <p>
+          这条曲线有意设计得较为平缓，因为报告的“100% 云量”描述的是
+          <em>天空被覆盖的比例</em>，而不是光学厚度——阴天的天空
+          更多时候是薄层层云，而不是风暴云底。在 100% 云量时，
+          仍会保留约 <strong>60%</strong> 的晴空 UVA。云会减弱 UVA，
+          但很少能完全阻挡它。
+        </p>
+
+        <h2>从辐照度到 0–11+ 指数</h2>
+        <p>
+          以 W/m² 表示的原始辐照度很精确，但不够直观，所以我们像
+          UV&nbsp;指数一样，把它放到 0–11+ 的刻度上。换算只需一个
+          常数：
+        </p>
+        <div class="callout">
+          <strong>UVA 指数 = UVA 辐照度 ÷ 6</strong>
+        </div>
+        <p>
+          选择除数 6，是为了让晴空下太阳位于正上方时
+          （约 64–66&nbsp;W/m²）的读数约为 <strong>11</strong>——与热带地区
+          UV&nbsp;指数峰值那种“顶格”的感觉相同。由于指数与辐照度
+          严格成正比，两个数字反映的是同一件事，下表中的每个等级界限
+          都只是指数值乘以 6。等级沿用了大家熟悉的世界卫生组织（WHO）UV&nbsp;指数名称和
+          颜色：
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>UVA 指数</th><th>等级</th><th>≈ 辐照度</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>低于 3</td><td>低</td><td>低于 18 W/m²</td></tr>
+            <tr><td>3 至低于 6</td><td>中等</td><td>18 至低于 36 W/m²</td></tr>
+            <tr><td>6 至低于 8</td><td>高</td><td>36 至低于 48 W/m²</td></tr>
+            <tr><td>8 至低于 11</td><td>很高</td><td>48 至低于 66 W/m²</td></tr>
+            <tr><td>11 及以上</td><td>极高</td><td>66 W/m² 及以上</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <h2>输入数据一览</h2>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>输入</th><th>来源</th><th>用途</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>纬度 / 经度</td><td>地理定位或地点搜索</td><td>太阳位置</td></tr>
+            <tr><td>太阳天顶角、日地距离</td><td>计算得出（NOAA）</td><td>晴空表、距离系数</td></tr>
+            <tr><td>地表气压</td><td>Open-Meteo 天气预报</td><td>晴空表（海拔）</td></tr>
+            <tr><td>地形海拔</td><td>Open-Meteo 天气预报</td><td>气压备选</td></tr>
+            <tr><td>气溶胶光学厚度</td><td>Open-Meteo 空气质量（CAMS）</td><td>晴空表（霾）</td></tr>
+            <tr><td>UV 指数与晴空 UV 指数</td><td>Open-Meteo 空气质量（CAMS）</td><td>云量系数</td></tr>
+            <tr><td>云量</td><td>Open-Meteo 天气预报</td><td>云量备选</td></tr>
+            <tr><td>积雪深度</td><td>Open-Meteo 天气预报</td><td>自动周围环境</td></tr>
+            <tr><td>周围环境</td><td>你（或自动）</td><td>周围环境系数</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          同一模型也用来绘制 <em>UVA 预报</em>：在今天和接下来四天内
+          （按该地点所在时区）每 15 分钟计算一次，每一步都精确计算太阳位置，
+          每小时的云量和气溶胶数值则在小时之间插值。每天的峰值，以及
+          UVA 指数达到中等（3）或以上的时段，都来自这条曲线。提供 UV 指数和
+          气溶胶数据的空气质量预报只能覆盖约四到五天；更远的日期，模型
+          会改用云量曲线，因此后几天的结果较为粗略。
+        </p>
+
+        <h2 id="omitted">我们没有考虑的因素</h2>
+        <p>
+          这是<strong>为清晰和透明而构建的估算，而不是经过校准的
+          辐射测量</strong>。有几项真实存在的效应被有意简化或省略了——
+          了解它们，你就知道什么时候可以信任这个数字，什么时候只应把它当作粗略参考：
+        </p>
+        <ul>
+          <li>
+            <strong>实时臭氧。</strong>查找表把臭氧柱总量固定为
+            300&nbsp;DU。实际臭氧柱总量约在 250 到 450&nbsp;DU 之间，
+            对 UVA 的影响只有一两个百分点，而且免费数据源报告的是
+            <em>地表</em>臭氧（µg/m³），而不是臭氧柱总量，因此它仅作参考显示。
+          </li>
+          <li>
+            <strong>当地气溶胶类型。</strong>查找表假设的是典型的
+            大陆型气溶胶。沙漠尘埃（在紫外波段吸收更强，光谱也更平坦）
+            和野火烟雾有所不同，因此在沙尘或烟雾严重的日子，
+            不确定性比单看 AOD 所显示的更大。
+          </li>
+          <li>
+            <strong>云的类型与结构。</strong>云的影响来自一个
+            分辨率较粗（约 40&nbsp;km）的预报模型给出的 UV 指数。云的分层和
+            碎云的“边缘”效应（可能在短时间内使 UVA <em>高于</em>
+            晴空值）都没有纳入模型。
+          </li>
+          <li>
+            <strong>局部几何与遮荫。</strong>建筑物、树木、地形、
+            地表的倾斜与朝向，以及你身体的姿势，都会改变实际
+            暴露量，这些都未考虑。
+          </li>
+          <li>
+            <strong>玻璃与室内环境。</strong>估算针对的是身处
+            户外空旷处的情况。UVA 能穿过窗玻璃，而 UVB 大多
+            不能，因此室内或车内的暴露情况有所不同，未纳入模型。
+          </li>
+          <li>
+            <strong>其他次要吸收物质</strong>（NO₂、SO₂）以及
+            地表反照率随波长的变化，均未包括在内。
+          </li>
+        </ul>
+
+        <h2 id="validation">模型如何验证</h2>
+        <p>
+          代码仓库中包含一个验证脚本
+          <code>scripts/validate.mjs</code>，它把过去日期的存档输入数据
+          送入计算器实际运行的同一套代码，再将结果逐小时与独立的 UVA 数据
+          进行比较：NASA 的 POWER 服务
+          （由 CERES 仪器卫星数据推算的 UVA，覆盖全球），
+          或 UVA 辐射计的地面测量数据文件。它按太阳角度和云况报告
+          偏差与误差，单独检验晴空表，并拟合云量指数 γ 以及另一种云数据来源。
+          这项比较的结果将在此发布；在此之前，请把云量项视为
+          模型中最不确定的部分。
+        </p>
+
+        <div class="callout">
+          <strong>为重新校准而设计。</strong>剩下的少数几个可调
+          系数都集中在一个 <code>MODEL</code> 代码块中，晴空
+          表也可以用不同的假设重新生成，而无需改动应用的
+          其他部分。完整源代码发布在
+          <a href="https://github.com/mixalisaspr/uvaindex">GitHub</a> 上。
+        </div>
+
+        <h2>那么它到底有多准确？</h2>
+        <p>
+          请把它当作一个有充分依据的<strong>相对</strong>参考：它能反映
+          UVA 如何随太阳高度、季节、你所在的纬度和海拔，以及当天的云和霾
+          而变化——并且在极端情况下表现正确（晴朗正午读数高，夜间为零，
+          浓厚阴天时急剧下降，海拔越高读数越高）。以 W/m² 表示的<em>绝对</em>
+          数值是物理上合理的估算，而不是仪器级别的读数。至于为什么要做这个估算，
+          请参阅<a href="../about.html">关于本站</a>。
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>参考来源</h2>
+          <ol>
+            <li id="src-1"><a href="https://gml.noaa.gov/grad/solcalc/" rel="noopener">NOAA Solar Calculator and solar position calculation details</a>. <em>NOAA Global Monitoring Laboratory</em>.</li>
+            <li id="src-2">Stamnes K, Tsay S-C, Wiscombe W, Jayaweera K (1988). <a href="https://doi.org/10.1364/AO.27.002502" rel="noopener">Numerically stable algorithm for discrete-ordinate-method radiative transfer in multiple scattering and emitting layered media</a>. <em>Applied Optics 27(12):2502–2509</em>.</li>
+            <li id="src-3">Kasten F, Young AT (1989). <a href="https://doi.org/10.1364/AO.28.004735" rel="noopener">Revised optical air mass tables and approximation formula</a>. <em>Applied Optics 28(22):4735–4738</em>.</li>
+            <li id="src-4"><a href="https://www.nrel.gov/grid/solar-resource/spectra-am1.5.html" rel="noopener">Reference Air Mass 1.5 Spectra (ASTM G173-03)</a>. <em>National Renewable Energy Laboratory</em>.</li>
+            <li id="src-5">Bodhaine BA, Wood NB, Dutton EG, Slusser JR (1999). <a href="https://doi.org/10.1175/1520-0426(1999)016%3C1854:ORODC%3E2.0.CO;2" rel="noopener">On Rayleigh optical depth calculations</a>. <em>Journal of Atmospheric and Oceanic Technology 16(11):1854–1861</em>.</li>
+            <li id="src-6">Bird RE, Riordan C (1986). <a href="https://doi.org/10.1175/1520-0450(1986)025%3C0087:SSSMFD%3E2.0.CO;2" rel="noopener">Simple solar spectral model for direct and diffuse irradiance on horizontal and tilted planes at the Earth's surface for cloudless atmospheres</a>. <em>Journal of Climate and Applied Meteorology 25(1):87–97</em>.</li>
+            <li id="src-7">Blumthaler M, Ambach W, Ellinger R (1997). <a href="https://doi.org/10.1016/S1011-1344(96)00018-8" rel="noopener">Increase in solar UV radiation with altitude</a>. <em>Journal of Photochemistry and Photobiology B: Biology 39(2):130–134</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">最后审核：2026年11月16日。发现错误或有更好的来源？<a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">请在 GitHub 上告诉我们</a>。</p>
+
+        <a class="cta" href="../">试试 UVA 指数计算器，查看各项分解 →</a>
+      </article>
+
+      <aside class="related">
+        <h2>继续阅读</h2>
+        <ul>
+          <li><a href="uv-index-vs-uva-index.html">为什么只看紫外线指数还不够</a></li>
+          <li><a href="what-is-uva-radiation.html">什么是 UVA 辐射？</a></li>
+          <li><a href="uva-vs-uvb.html">UVA 和 UVB 有什么区别？</a></li>
+          <li><a href="../about.html">关于本站</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          免费且开源。非官方的 UVA 指数与 UVA 辐照度计算。仅供科普参考，不构成医疗建议。更多信息请见<a href="https://uvaindex.org/zh/about.html">关于</a>页面。
+          · <button type="button" class="link-btn" data-consent-open>Cookie 设置</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

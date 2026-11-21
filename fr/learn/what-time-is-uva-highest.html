@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>À quelle heure les UVA sont-ils les plus forts ? La courbe journalière, heure par heure</title>
+    <meta
+      name="description"
+      content="Les UVA culminent au midi solaire — mais leur courbe est bien plus plate que celle de l'indice UV : le matin et la fin d'après-midi apportent donc proportionnellement beaucoup plus d'UVA. Les chiffres heure par heure, pourquoi la règle de l'ombre ne suffit pas et pourquoi le midi solaire tombe rarement à 12 h."
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/fr/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Indice UVA" />
+    <meta property="og:title" content="À quelle heure les UVA sont-ils les plus forts ?" />
+    <meta property="og:description" content="La courbe journalière des UVA est bien plus plate que celle de l'indice UV. À quatre heures du midi solaire, vous avez perdu 63 % des UV qui brûlent, mais seulement 42 % des UVA." />
+    <meta property="og:url" content="https://uvaindex.org/fr/learn/what-time-is-uva-highest.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "À quelle heure les UVA sont-ils les plus forts ? La courbe journalière",
+        "description": "Comment les UVA au sol varient au cours de la journée : la décroissance en cos(zénith), une comparaison heure par heure avec les UV érythémaux, pourquoi la règle « 10 h–16 h » et la règle de l'ombre sont des règles UVB, et comment trouver le véritable midi solaire.",
+        "inLanguage": "fr",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-29",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/fr/learn/what-time-is-uva-highest.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Global Solar UV Index: A Practical Guide",
+            "publisher": "World Health Organization, WMO, UNEP and ICNIRP",
+            "datePublished": "2002",
+            "url": "https://www.who.int/publications/i/item/9241590076"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "À quelle heure de la journée les UVA sont-ils les plus forts ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les UVA culminent au midi solaire — le moment où le soleil est au plus haut, qui tombe rarement à 12 h à l'horloge. Ce qui distingue les UVA, c'est la lenteur avec laquelle ils diminuent de part et d'autre : à quatre heures du midi solaire, ils sont encore à environ 58 % de leur pic, alors que les UV érythémaux sont tombés à environ 37 %."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Les UV sont-ils forts le matin ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Du point de vue des coups de soleil, pas tellement — trois heures avant le midi solaire, les UV érythémaux sont à environ 59 % de leur pic. Du point de vue des UVA, nettement plus : environ 75 % du pic au même moment. Le soleil du matin et de la fin d'après-midi est particulièrement riche en UVA, car le long trajet dans l'atmosphère élimine les UVB bien plus efficacement que les UVA."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "La règle de l'ombre fonctionne-t-elle pour les UVA ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Seulement grossièrement. Cette règle — si votre ombre est plus courte que votre taille, les UV sont forts — correspond à un angle zénithal solaire de 45°, soit, en plein été aux latitudes moyennes, environ trois heures et quart de part et d'autre du midi solaire. En dehors de cette plage, les UV érythémaux ont vraiment fortement baissé, mais les UVA sont encore à plus de la moitié de leur pic : une ombre « sans danger » ne signifie donc pas une faible dose d'UVA."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Indice UVA",
+            "item": "https://uvaindex.org/fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Base de connaissances",
+            "item": "https://uvaindex.org/fr/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "À quelle heure les UVA sont-ils les plus forts ?",
+            "item": "https://uvaindex.org/fr/learn/what-time-is-uva-highest.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="../">Indice UVA</a><span class="sep">›</span><a href="./">Base de connaissances</a><span class="sep">›</span>À quelle heure les UVA sont-ils les plus forts ?
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="Langue: Français"><span class="lang-icon" aria-hidden="true">🌐</span> Français</summary>
+          <ul>
+            <li><a href="../../learn/what-time-is-uva-highest.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/what-time-is-uva-highest.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="what-time-is-uva-highest.html" hreflang="fr" lang="fr" aria-current="true">Français</a></li>
+            <li><a href="../../de/learn/what-time-is-uva-highest.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/what-time-is-uva-highest.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/what-time-is-uva-highest.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../zh/learn/what-time-is-uva-highest.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>À quelle heure les UVA sont-ils les plus forts ? La courbe journalière</h1>
+        <p class="lead">
+          Les UVA culminent au midi solaire, pour la même raison que tout le reste
+          dans le ciel : c'est le moment où le soleil est au plus haut et où sa
+          lumière emprunte le trajet le plus court à travers l'atmosphère. Le plus
+          intéressant n'est pas le pic. C'est la <em>forme</em> — la courbe
+          journalière des UVA est nettement plus plate que celle de
+          l'indice&nbsp;UV, ce qui signifie que tous les conseils d'horaires
+          familiers que vous avez retenus sont calibrés pour la mauvaise bande.
+        </p>
+
+        <div class="callout">
+          <strong>L'essentiel :</strong> à quatre heures de part et d'autre du
+          midi solaire, les UV érythémaux sont tombés à environ
+          <strong>37 %</strong> de leur pic — mais les UVA sont encore à
+          <strong>58 %</strong>. Par rapport à midi, la lumière de fin
+          d'après-midi est environ <strong>1,6 fois plus riche en UVA</strong>.
+        </div>
+
+        <h2>Pourquoi la courbe a cette forme</h2>
+        <p>
+          Les deux bandes faiblissent quand le soleil descend, pour deux raisons
+          distinctes. La première est purement géométrique : un faisceau qui
+          frappe le sol en oblique répartit la même énergie sur une surface plus
+          grande. Cet effet est proportionnel au cosinus de l'angle zénithal
+          solaire et traite toutes les longueurs d'onde de la même façon.
+        </p>
+        <p>
+          La seconde raison est l'absorption, et elle ne traite pas toutes les
+          longueurs d'onde de la même façon. Quand le soleil descend, la lumière
+          traverse une épaisseur d'atmosphère de plus en plus grande — la
+          <strong>masse d'air</strong> augmente — et chaque kilomètre de trajet
+          supplémentaire met davantage d'ozone sur son chemin. L'ozone absorbe
+          fortement dans les UVB et très faiblement dans les UVA. L'allongement du
+          trajet pénalise donc bien plus la bande qui brûle que celle qui fait
+          vieillir.
+        </p>
+        <p>
+          En combinant les deux, l'éclairement énergétique au sol diminue à peu
+          près comme une puissance du cosinus de l'angle zénithal, avec un exposant
+          différent pour chaque bande. Dans le modèle de transfert radiatif de ce site, les UVA décroissent à peu près en <strong>cos(z)<sup>1,2</sup></strong>. Les UV érythémaux
+          se comportent plutôt en <strong>cos(z)<sup>2,2</sup></strong>, car le
+          terme lié à l'ozone s'ajoute à la géométrie. Cette différence d'un point
+          d'exposant résume toute l'histoire.
+        </p>
+
+        <h2>Heure par heure</h2>
+        <p>
+          Le tableau ci-dessous correspond à une journée d'été par ciel clair à
+          40°&nbsp;N — sud de l'Europe, nord de la Méditerranée, New York, Pékin.
+          Les valeurs sont des pourcentages du pic de midi de chaque bande : les
+          colonnes sont donc directement comparables par leur forme plutôt que par
+          leur intensité.
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Écart au midi solaire</th><th>Angle zénithal du soleil</th><th>UVA (% du pic)</th><th>UV érythémaux (% du pic)</th><th>Enrichissement en UVA</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0 h</td><td>17°</td><td>100 %</td><td>100 %</td><td>1,00×</td></tr>
+            <tr><td>±1 h</td><td>21°</td><td>97 %</td><td>95 %</td><td>1,03×</td></tr>
+            <tr><td>±2 h</td><td>30°</td><td>88 %</td><td>80 %</td><td>1,11×</td></tr>
+            <tr><td>±3 h</td><td>41°</td><td>75 %</td><td>59 %</td><td>1,27×</td></tr>
+            <tr><td>±4 h</td><td>53°</td><td>58 %</td><td>37 %</td><td>1,58×</td></tr>
+            <tr><td>±5 h</td><td>64°</td><td>39 %</td><td>18 %</td><td>2,19×</td></tr>
+            <tr><td>±6 h</td><td>75°</td><td>21 %</td><td>6 %</td><td>3,75×</td></tr>
+            <tr><td>±7 h</td><td>86°</td><td>5 %</td><td>0,4 %</td><td>13×</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          En valeur absolue, ce pic de midi correspond à un indice UVA d'environ
+          <strong>10,5</strong> par ciel clair au niveau de la mer — nettement dans
+          la catégorie Très&nbsp;élevé. Trois heures plus tard, il est encore
+          d'environ <strong>7,8</strong> — le haut de la catégorie Élevé. Même à
+          quatre heures de distance, il affiche environ <strong>6,0</strong>, tout
+          juste encore Élevé, et ce n'est qu'à cinq heures qu'un ciel d'été dégagé
+          descend enfin à <strong>4,1</strong>, soit Modéré. Les
+          <a href="uv-index-vs-uva-index.html">descriptions des catégories</a>
+          détaillent ce qu'il convient de faire à chacun de ces niveaux.
+        </p>
+        <div class="callout">
+          <strong>La colonne « Enrichissement en UVA » est le résultat
+          pratique.</strong> En fin de journée, l'ultraviolet qui vous atteint n'a
+          pas seulement diminué — sa composition a changé. Ce qui reste, c'est
+          surtout la bande qui provoque le photovieillissement et la
+          pigmentation, et beaucoup moins celle qui se fait remarquer.
+        </div>
+
+        <h2>Pourquoi « évitez 10 h–16 h » est une règle UVB</h2>
+        <p>
+          Le conseil classique d'éviter le soleil entre 10 h et 16 h est un bon message de santé publique, et il vise directement le coup de soleil.<sup class="cite"><a href="#src-1" aria-label="Source 1">[1]</a></sup> Regardez
+          la colonne érythémale : cette plage horaire capte vraiment la grande
+          majorité des UV qui brûlent ; comme conseil pour éviter les coups de
+          soleil, il fonctionne.
+        </p>
+        <p>
+          Comme conseil sur les UVA, il est bien plus faible. Prenez une journée
+          d'été aux latitudes moyennes où le midi solaire tombe à 13 h. Les six
+          heures de 10 h à 16 h concentrent l'essentiel de la dose érythémale —
+          mais les heures de 8 h à 10 h et de 16 h à 18 h, que la règle considère
+          comme libres, sont à environ 40–75 % du pic d'UVA. Une heure dehors à
+          17 h n'est pas une heure sans UVA. C'est l'essentiel d'une heure de midi,
+          sans les signaux d'alerte.
+        </p>
+        <p>
+          Le même raisonnement s'applique à la <strong>règle de l'ombre</strong> —
+          si votre ombre est plus longue que votre taille, les UV seraient faibles.
+          Cela correspond à un angle zénithal de 45°, que le tableau situe à
+          environ trois heures et quart du midi solaire. Au-delà, les UV
+          érythémaux diminuent effectivement vite. Les UVA, eux, restent au-dessus
+          de la moitié de leur pic.
+        </p>
+
+        <h2>Le midi solaire n'est pas à 12 h</h2>
+        <p>
+          Tout ce qui précède se mesure à partir du <strong>midi solaire</strong>
+          — l'instant où le soleil franchit votre méridien local. À l'horloge, il
+          peut se situer loin de midi, et trois effets distincts s'additionnent :
+        </p>
+        <ul>
+          <li>
+            <strong>L'heure d'été</strong> décale le midi solaire d'une heure, vers
+            13 h, pendant tout l'été. Cela suffit à placer le véritable pic plus
+            près du début d'une pause déjeuner habituelle que de midi.
+          </li>
+          <li>
+            <strong>Votre longitude au sein de votre fuseau horaire.</strong> Les
+            fuseaux horaires font une heure de large, mais ils sont politiques. À
+            l'extrémité ouest d'un fuseau, le soleil est en retard. L'Espagne
+            applique l'heure d'Europe centrale alors qu'elle se trouve sur la
+            longitude de Greenwich : en été, le midi solaire arrive en Galice après
+            14 h 30. La Chine applique un seul fuseau horaire sur une étendue de
+            longitude équivalant à cinq fuseaux ; à Kachgar, le midi solaire est
+            proche de 15 h.
+          </li>
+          <li>
+            <strong>L'équation du temps</strong> — l'orbite de la Terre est
+            elliptique et son axe incliné : le midi solaire dérive donc jusqu'à
+            environ ±16 minutes au cours de l'année, indépendamment de tout le
+            reste.
+          </li>
+        </ul>
+        <p>
+          La conséquence pratique : <strong>ne supposez pas que le pic d'UV a lieu
+          à midi.</strong> Dans la plus grande partie de l'Europe en été, il est
+          plutôt vers 13 h 30, et dans certaines régions d'Espagne et de l'ouest de
+          la Chine, nettement plus tard encore. Le calculateur de ce site part de
+          vos coordonnées réelles et de la position réelle du soleil : le
+          graphique horaire montre donc où le pic tombe vraiment pour vous, et non
+          là où l'horloge le suggère.
+        </p>
+
+        <h2>Ce qui modifie la forme</h2>
+        <p>
+          La courbe nette ci-dessus suppose un ciel clair. La réalité la déforme de
+          façon prévisible :
+        </p>
+        <ul>
+          <li>
+            <strong>La saison l'aplatit ou l'accentue.</strong> En hiver, le soleil
+            ne monte jamais haut : toute la courbe est comprimée et basse — mais
+            proportionnellement plus riche en UVA, car un soleil bas implique un
+            long trajet dans l'ozone toute la journée.
+            <a href="does-uva-change-with-the-seasons.html">Les UVA au fil des
+            saisons</a> détaille les chiffres.
+          </li>
+          <li>
+            <strong>La latitude fixe le plafond.</strong> Plus on est près de
+            l'équateur, plus le pic de midi est haut et la courbe large.
+            <a href="uva-by-latitude-and-location.html">Les UVA selon la
+            latitude</a> présente la comparaison.
+          </li>
+          <li>
+            <strong>Les nuages ajoutent du bruit, pas une tendance.</strong> Un
+            champ de cumulus de passage peut faire varier la mesure d'un facteur
+            deux en quelques minutes, et des nuages fragmentés peuvent brièvement la
+            pousser <em>au-dessus</em> de la courbe par ciel clair — voir
+            <a href="uva-on-cloudy-days.html">les UVA par temps nuageux</a>.
+          </li>
+          <li>
+            <strong>Le relief la tronque.</strong> Dans une vallée ou une rue de
+            ville, le soleil disparaît derrière un obstacle bien avant ce que
+            prévoit la courbe géométrique — même si les UVA diffus du ciel dégagé
+            continuent d'arriver, ce qui explique que l'ombre soit une mesure
+            partielle plutôt que complète.
+          </li>
+          <li>
+            <strong>Le matin et l'après-midi ne sont pas tout à fait
+            symétriques.</strong> Les nuages convectifs se développent généralement
+            au fil de la journée et la charge en aérosols diffère souvent entre le
+            matin et l'après-midi : la branche réelle de l'après-midi se situe donc
+            en général un peu en dessous de celle du matin.
+          </li>
+        </ul>
+
+        <h2>En pratique</h2>
+        <p>
+          Si vous cherchez à éviter les coups de soleil, éviter certaines heures
+          est efficace : la courbe érythémale présente un pic marqué, et quelques
+          heures à l'ombre suppriment l'essentiel du risque. Si vous cherchez à
+          limiter les UVA — pour le photovieillissement, le mélasma, une
+          photosensibilité ou l'exposition des yeux —, le choix de l'horaire est un
+          outil bien plus grossier, car la courbe à laquelle vous faites face est
+          large. La réponse n'est alors pas l'emploi du temps mais les
+          <strong>barrières</strong> : crème solaire,
+          <a href="does-clothing-block-uva.html">vêtements</a> et
+          <a href="uva-and-your-eyes.html">verres UV400</a>, qui fonctionnent aussi
+          bien à 9 h qu'à 13 h.
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>Sources</h2>
+          <ol>
+            <li id="src-1"><a href="https://www.who.int/publications/i/item/9241590076" rel="noopener">Global Solar UV Index: A Practical Guide</a>. <em>World Health Organization, WMO, UNEP and ICNIRP</em>, 2002.</li>
+          </ol>
+        </section>
+        <p class="reviewed">Dernière révision le 16 novembre 2026. Vous avez repéré une erreur ou une meilleure source ? <a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">Dites-le-nous sur GitHub</a>.</p>
+
+        <a class="cta" href="../">Découvrez la courbe horaire des UVA aujourd'hui chez vous →</a>
+      </article>
+
+      <aside class="related">
+        <h2>À lire aussi</h2>
+        <ul>
+          <li><a href="uv-index-vs-uva-index.html">Indice UV ou indice UVA : ce que mesure chacun</a></li>
+          <li><a href="does-uva-change-with-the-seasons.html">Pourquoi les UVA varient bien moins que les UVB au fil des saisons</a></li>
+          <li><a href="how-uva-index-is-calculated.html">Comment l'indice UVA est calculé</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          Gratuit et open source. Calcul non officiel de l'indice UVA et de l'éclairement UVA. Information éducative uniquement, pas un avis médical. Plus d'informations sur la page <a href="https://uvaindex.org/fr/about.html">À propos</a>.
+          · <button type="button" class="link-btn" data-consent-open>Paramètres des cookies</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

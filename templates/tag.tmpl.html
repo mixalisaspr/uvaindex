@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="$HTML_LANG">
   <head>
     $HEAD
   </head>
@@ -10,7 +10,7 @@
       <header>
         <h1>$TAG_LABEL</h1>
         <p class="subtitle">
-          Knowledge Base articles tagged <strong>$TAG_LABEL</strong>.
+          $SUBTITLE
         </p>
       </header>
 
@@ -18,16 +18,16 @@
 $CARDS
       </ul>
 
-      <a class="cta" href="../../">Check the live UVA Index for your location →</a>
+      <a class="cta" href="../../">$CTA</a>
 
       <footer>
         <p class="disclaimer">
           $DISCLAIMER
-          · <button type="button" class="link-btn" data-consent-open>Cookie settings</button>
+          · <button type="button" class="link-btn" data-consent-open>$COOKIE_SETTINGS</button>
         </p>
       </footer>
     </main>
 
-    <script src="../../js/sw-register.js" defer></script>
+    <script src="${ASSET_REL}js/sw-register.js" defer></script>
   </body>
 </html>
