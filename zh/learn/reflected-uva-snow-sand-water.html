@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>反射的 UVA：雪地、沙滩、水面和混凝土的反照率详解</title>
+    <meta
+      name="description"
+      content="地面反射会增加你受到的 UVA——而紫外线反照率并不等于可见光反照率。各类地表的反射率数值，为什么滑雪者和划船者下巴底下会晒伤，为什么在海滩上遮阴不够用，以及 UVA 指数如何模拟地表反照率。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/zh/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/reflected-uva-snow-sand-water.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA 指数" />
+    <meta property="og:title" content="反射的 UVA：雪地、沙滩、水面和混凝土" />
+    <meta property="og:description" content="雪地能反射高达 90% 的 UVA，沙滩约 20%，草地几乎为零。这为什么会改变损伤落在哪里——以及为什么只靠遮阴并不够。" />
+    <meta property="og:url" content="https://uvaindex.org/zh/learn/reflected-uva-snow-sand-water.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "反射的 UVA：雪地、沙滩、水面和混凝土",
+        "description": "雪地、沙滩、水面、混凝土和草地的紫外线反照率数值，为什么紫外线反照率不同于可见光反照率，为什么反射的 UVA 能照到直射阳光照不到的皮肤，以及 UVA 指数如何应用地表反照率系数。",
+        "inLanguage": "zh-Hans",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-02",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/zh/learn/reflected-uva-snow-sand-water.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Global Solar UV Index: A Practical Guide",
+            "publisher": "World Health Organization, WMO, UNEP and ICNIRP",
+            "datePublished": "2002",
+            "url": "https://www.who.int/publications/i/item/9241590076"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Sun protection by beach umbrella vs sunscreen with a high sun protection factor: a randomized clinical trial",
+            "author": "Ou-Yang H, Jiang LI, Meyer K, Wang SQ, Farberg AS, Rigel DS",
+            "publisher": "JAMA Dermatology 153(3):304–308",
+            "datePublished": "2017",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/28114650/"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "雪地会反射多少紫外线？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "新鲜的干雪会反射约 80%–90% 的入射紫外线，远高于其他任何常见的自然地表。较旧、潮湿或脏污的雪会降到约 50%–60%。这就是为什么雪盲和意外晒伤在山区远比在海滩常见，尽管山上的阳光感觉更弱。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "在海滩上遮阴能防住 UVA 吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "只能防住一部分。遮阳伞能挡住太阳的直射光，但很大一部分 UVA 是以散射天空光的形式从整个天穹而来，而沙子还会从下方再反射 15%–25%。对海滩遮阳伞下的测量通常发现，它们只能把紫外线减少约一半到四分之三，因此遮阴应被视为防晒霜和衣物的补充，而不是替代。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "为什么滑雪者和划船者会在下巴和鼻子底下晒伤？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "因为紫外线是从下方来的。直射阳光永远照不到下巴底面、鼻孔、耳朵内侧或帽檐遮住的皮肤——但从雪地或水面反射的紫外线可以，而且恰好照在人们最常漏涂防晒霜、又以为受到保护的部位。"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA 指数",
+            "item": "https://uvaindex.org/zh/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "知识库",
+            "item": "https://uvaindex.org/zh/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "反射的 UVA",
+            "item": "https://uvaindex.org/zh/learn/reflected-uva-snow-sand-water.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="面包屑导航">
+          <a href="../">UVA 指数</a><span class="sep">›</span><a href="./">知识库</a><span class="sep">›</span>反射的 UVA
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="语言: 简体中文"><span class="lang-icon" aria-hidden="true">🌐</span> 简体中文</summary>
+          <ul>
+            <li><a href="../../learn/reflected-uva-snow-sand-water.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/reflected-uva-snow-sand-water.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/reflected-uva-snow-sand-water.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/reflected-uva-snow-sand-water.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/reflected-uva-snow-sand-water.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/reflected-uva-snow-sand-water.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="reflected-uva-snow-sand-water.html" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>反射的 UVA：雪地、沙滩、水面和混凝土</h1>
+        <p class="lead">
+          几乎每个人都以为紫外线是从上方照下来的。但其中相当大的一部分
+          来自<strong>下方</strong>——从你脚下的地面
+          反射上来。正是因为有这部分反射成分，
+          <a href="../">UVA&nbsp;指数计算器</a>才会请你选择地面
+          类型；也正因为如此，它能照到直射阳光在物理上无法照到的皮肤：
+          下巴底面、鼻孔，以及帽檐下的眼睛。
+        </p>
+
+        <div class="callout">
+          <strong>关键数字：</strong>新雪会反射照到它上面的紫外线的
+          <strong>80%–90%</strong>。干燥的沙子反射约
+          <strong>15%–25%</strong>。草地约为 <strong>2%</strong>。
+          即使站在同样的阳光下，你受到的总剂量也可能相差很大。
+        </div>
+
+        <h2>各类地表的紫外线反照率</h2>
+        <p>
+          <strong>反照率</strong>是指地表反射的入射辐射所占的比例。
+          需要理解的关键一点是：
+          <strong>紫外线反照率并不等于可见光反照率</strong>——一个地表在
+          你眼中的样子，很难说明它会如何对待
+          紫外线<sup class="cite"><a href="#src-1" aria-label="来源 1">[1]</a></sup>。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>地表</th><th>紫外线反照率</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>新鲜的干雪</td><td>0.80–0.90</td><td>最突出的例外；几乎是全反射体</td></tr>
+            <tr><td>旧雪、湿雪或脏雪</td><td>0.50–0.60</td><td>随着雪变旧、灰尘累积而迅速下降</td></tr>
+            <tr><td>干沙</td><td>0.15–0.25</td><td>浅色干燥的石英砂处于该范围上端</td></tr>
+            <tr><td>湿沙</td><td>0.07–0.10</td><td>水膜会让它明显变暗</td></tr>
+            <tr><td>海面泡沫 / 白浪</td><td>0.25–0.30</td><td>远高于周围的水面</td></tr>
+            <tr><td>混凝土、铺装路面</td><td>0.08–0.15</td><td>随使用年限而变化；新混凝土最高</td></tr>
+            <tr><td>开阔水面（漫反射）</td><td>0.03–0.08</td><td>太阳高时较低；太阳降低时急剧上升</td></tr>
+            <tr><td>沥青</td><td>0.04–0.09</td><td>虽然很热，反照率却很低</td></tr>
+            <tr><td>土壤、岩石</td><td>0.04–0.10</td><td>浅色石灰岩处于较高一端</td></tr>
+            <tr><td>草地、植被</td><td>0.01–0.04</td><td>实际上是紫外线的“吸收池”</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <h2>可见光亮度会在哪些地方误导你</h2>
+        <ul>
+          <li>
+            <strong>草地看起来是鲜亮的绿色，却几乎不反射紫外线。</strong>
+            叶绿素和叶片组织会强烈吸收紫外线。草坪是
+            紫外线反照率最低的地表之一。
+          </li>
+          <li>
+            <strong>白色油漆往往是很差的紫外线反射体。</strong>大多数白色
+            油漆的白色来自二氧化钛——而它是一种强效的
+            <em>紫外线吸收剂</em>，正因如此才被用作物理防晒剂。
+            一面刷白的墙在可见光下可能耀眼夺目，
+            在紫外波段却平平无奇。
+          </li>
+          <li>
+            <strong>水面是最复杂的情况。</strong>俯视平静的
+            海面时，紫外线的漫反射率确实很低——只有百分之几。但
+            水面的反射主要是<em>镜面反射</em>，而镜面
+            反射率会随着太阳接近地平线而急剧上升：在接近
+            掠射角时，平滑的水面会反射很大一部分。再加上
+            波浪起伏、浪面和白浪，你会同时从许多角度看到明亮的反光。
+            当然，划船者和游泳者身上也是<em>湿的</em>，
+            这丝毫不会抵消紫外线，却会让皮肤感觉凉爽、让阳光显得温和。
+          </li>
+        </ul>
+
+        <h2>为什么 80% 的反照率并不意味着暴露量增加 80%</h2>
+        <p>
+          这是大多数解释都会跳过的一点，而正是这一点
+          让那些惊人的反照率数字与模型中所用的温和系数
+          统一起来。<strong>反射率和剂量增强是两个不同的
+          量。</strong>反射的 UVA 有两条截然不同的途径到达你身上，
+          而它们的表现大不相同。
+        </p>
+        <ol>
+          <li>
+            <strong>向下辐射的增强（幅度不大）。</strong>从雪地反射的
+            紫外线向上传播，其中一部分被大气散射回地面，
+            叠加到来自上方的辐射中。这种多次散射的循环
+            确实存在，但损耗很大：在晴空下的水平面上，即使是
+            新雪，通常也只会让向下的紫外线增加约 <strong>10%–20%</strong>，
+            而不是 80%。这就是平板传感器——以及本站的模型——
+            所测量的。
+          </li>
+          <li>
+            <strong>向上辐射通量（很大，且与身体形状有关）。</strong>其余
+            约 80% 会直接向上反射，从下方照到你身上。它从不会出现在
+            向下辐射的测量中，却会直接落在你的
+            下巴、鼻子、眼睑、耳朵和下颌底面上。对于站立的
+            人来说，在新雪上，这可能让全身总暴露量大致<em>翻倍</em>。
+          </li>
+        </ol>
+        <div class="callout">
+          <strong>实际后果是：</strong>高反照率的主要作用并不是
+          让阳光变强——而是改变<strong>紫外线
+          落在哪里</strong>。它把一大股辐射通量重新导向那些
+          习惯上不加防护的部位，因为没有人会在涂防晒霜时
+          考虑到从下往上照的光。
+        </div>
+
+        <h2>雪地，以及为什么冬季山区是最极端的情况</h2>
+        <p>
+          新雪是一个真正的例外——在日常生活中，没有任何其他东西
+          能像它那样反射紫外线。再加上与雪相伴的其他因素，
+          你就会遇到热带正午之外风险最高的 UVA 环境：
+        </p>
+        <ul>
+          <li>积雪覆盖地面，把 80%–90% 的紫外线反射回上方。</li>
+          <li><a href="uva-at-altitude.html">海拔</a>：稀薄洁净的空气每升高一公里就会增加百分之几。</li>
+          <li>寒冷、干燥、气溶胶少的山区空气，衰减作用比海平面的雾霾空气小。</li>
+          <li>积雪覆盖的山坡不仅在你脚下，还<em>正对着</em>你，因此反射面占据的视野比平地大得多。</li>
+          <li>低温让你失去了所有正在受到辐射的感官提示。</li>
+        </ul>
+        <p>
+          这就是为什么<strong>光性角膜炎</strong>——雪盲，实际上就是
+          角膜晒伤——是山区而非海滩的病症，
+          也是为什么<a href="uva-and-your-eyes.html">包裹式护目镜</a>
+          在雪地上比在任何其他地方都更重要：光线是从普通太阳镜
+          镜框的下方射来的。
+        </p>
+
+        <h2>海滩、遮阴与遮阳伞的问题</h2>
+        <p>
+          沙子 15%–25% 的反照率远低于雪地，但海滩上的暴露有其独特的
+          几何特点。沙子反射的紫外线会照到遮阳伞的
+          底面，再散射到伞下的人身上，而且
+          <a href="uva-on-cloudy-days.html">很大一部分 UVA 是散射的
+          天空光</a>，遮阳伞根本挡不住。对
+          海滩遮阳伞的测量通常发现，它们只能把紫外线减少约
+          <strong>一半到四分之三</strong>——有用，但远不及
+          人们走进阴凉处时以为自己得到的近乎完全的防护。在一项于海滩进行的随机试验中，只靠遮阳伞的一组人共记录到 142 处晒伤部位，而使用 SPF&nbsp;100 防晒霜的一组为 17 处——而且两种方法都没能完全防止晒伤<sup class="cite"><a href="#src-2" aria-label="来源 2">[2]</a></sup>。
+        </p>
+        <p>
+          同样的道理也适用于一棵树、一把阳伞或
+          一把庭院遮阳伞下的阴凉。遮阴挡住的是直射光，对天空光
+          作用相对有限，对地面反射则毫无作用。
+        </p>
+
+        <h2>UVA 指数如何模拟反照率</h2>
+        <p>
+          <a href="../">计算器</a>中的<em>周围环境</em>选项用于设置
+          你周围区域的紫外线反照率 <code>r</code>，模型会加上
+          地面反射、再被天空散射回地面的那部分光，对均匀反射的地表而言
+          这一计算是精确的：系数 = 1&nbsp;÷&nbsp;(1&nbsp;−&nbsp;r&nbsp;×&nbsp;s)，
+          其中 <code>s</code>&nbsp;≈&nbsp;0.3 是大气在 UVA 波段的球面反照率。
+          选择<strong>自动</strong>时，如果预报显示地面有积雪，它就会切换为雪地。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>选项</th><th>反照率 r</th><th>系数</th><th>依据</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>草地、土壤或城镇</td><td>0.03</td><td>×1.01</td><td>反射率低；作为基准</td></tr>
+            <tr><td>水面</td><td>0.07</td><td>×1.02</td><td>太阳较高时，从上方看紫外线漫反射率低</td></tr>
+            <tr><td>沙地 / 海滩</td><td>0.15</td><td>×1.05</td><td>干沙反射约 15%–25%</td></tr>
+            <tr><td>雪地</td><td>0.6</td><td>×1.24</td><td>有一些树木和建筑的积雪地形；连片的新雪（0.9）可达 ×1.40</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          与上面的反照率表相比，这些倍数看起来很小，现在你
+          知道原因了：模型给出的是<strong>开阔水平面上
+          向下的 UVA</strong>，因此它涵盖了途径&nbsp;1，而不包括途径&nbsp;2。
+          真正导致下巴和眼睛灼伤的大量向上辐射通量，
+          取决于你身体的几何形状，而不是天空，因此
+          <a href="how-uva-index-is-calculated.html#omitted">明确不在
+          模型范围之内</a>。
+        </p>
+        <p>
+          关于使用这个选项，有两点实用提示。<strong>混凝土和铺装路面
+          不在选项中</strong>——它们的反照率为 0.08–0.15，介于草地和沙地之间，
+          对于城市街道，草地是更接近的近似。另外，
+          <strong>系数为 ×1.02 的“水面”描述的是太阳相当高时
+          站在水边或水面上方的情况</strong>；太阳较低时，或在明亮而波浪起伏的海面上，
+          实际的反射成分要高于模型的平面处理所显示的值。
+        </p>
+
+        <h2>要点总结</h2>
+        <ul>
+          <li><strong>如实设置地面类型</strong>，再查看你的 UVA&nbsp;指数——雪地可不是可以忽略的舍入误差。</li>
+          <li><strong>涂防晒霜时要考虑朝下的部位。</strong>下巴和鼻子底下、下颌底面、耳朵、眼睑。在雪地和水面上，这些才是暴露的部位，而不是被遮挡的部位。</li>
+          <li><strong>在雪地和水面上戴包裹式眼镜</strong>，而不只是深色镜片。</li>
+          <li><strong>在明亮的地面上，不要把遮阴当作防护。</strong>在沙滩上，遮阴大约只能起到一半的作用，而不是全部。</li>
+          <li><strong>记住这个感官陷阱：</strong>冷空气和凉水带走了通常会提醒你去找阴凉的热感，而你脚下的地面却正在让你的剂量翻倍。</li>
+        </ul>
+
+        <section class="sources" id="sources">
+          <h2>参考来源</h2>
+          <ol>
+            <li id="src-1"><a href="https://www.who.int/publications/i/item/9241590076" rel="noopener">Global Solar UV Index: A Practical Guide</a>. <em>World Health Organization, WMO, UNEP and ICNIRP</em>, 2002.</li>
+            <li id="src-2">Ou-Yang H, Jiang LI, Meyer K, Wang SQ, Farberg AS, Rigel DS (2017). <a href="https://pubmed.ncbi.nlm.nih.gov/28114650/" rel="noopener">Sun protection by beach umbrella vs sunscreen with a high sun protection factor: a randomized clinical trial</a>. <em>JAMA Dermatology 153(3):304–308</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">最后审核：2026年11月16日。发现错误或有更好的来源？<a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">请在 GitHub 上告诉我们</a>。</p>
+
+        <a class="cta" href="../">在 UVA 指数计算器中设置你的地面类型 →</a>
+      </article>
+
+      <aside class="related">
+        <h2>继续阅读</h2>
+        <ul>
+          <li><a href="uva-at-altitude.html">高海拔的 UVA：登山、徒步与乘飞机</a></li>
+          <li><a href="how-uva-index-is-calculated.html">UVA 指数是如何计算的</a></li>
+          <li><a href="uva-by-latitude-and-location.html">世界各地的 UVA：为什么纬度的影响比你想象的小</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          免费且开源。非官方的 UVA 指数与 UVA 辐照度计算。仅供科普参考，不构成医疗建议。更多信息请见<a href="https://uvaindex.org/zh/about.html">关于</a>页面。
+          · <button type="button" class="link-btn" data-consent-open>Cookie 设置</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>UVインデックスとUVA指数の違い：それぞれが測っているもの</title>
+    <meta
+      name="description"
+      content="UVインデックスは紅斑で重み付けされているため、UVBが大部分を占め、UVAはほとんど反映されません。それぞれの指数が測っているもの、UVインデックスが低くてもUVAが高い状況、そして0〜11+のUVA指数の読み方を解説します。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/ja/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/uv-index-vs-uva-index.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA指数" />
+    <meta property="og:title" content="UVインデックスとUVA指数の違い：それぞれが測っているもの" />
+    <meta property="og:description" content="UVインデックスは日焼けで重み付けされているため、ほとんどUVBの数値です。それぞれの指数が測っているもの、両者がずれるとき、そしてUVA指数の読み方。" />
+    <meta property="og:url" content="https://uvaindex.org/ja/learn/uv-index-vs-uva-index.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "UVインデックスとUVA指数：それぞれが測っているもの",
+        "description": "紅斑で重み付けされたUVインデックスと、重み付けなしのUVAの指標の違い。それぞれがとらえているもの、UVインデックスが低いのにUVAが高くなる条件、そしてレベルの境界を含む0〜11+のUVA指数を解説します。",
+        "inLanguage": "ja",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-06-20",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/ja/learn/uv-index-vs-uva-index.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Global Solar UV Index: A Practical Guide",
+            "publisher": "World Health Organization, WMO, UNEP and ICNIRP",
+            "datePublished": "2002",
+            "url": "https://www.who.int/publications/i/item/9241590076"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "UVインデックスはUVAを測っていますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ほとんど測っていません。UVインデックスは、地表の紫外線スペクトルをCIEの紅斑作用スペクトル（各波長がどれだけ効果的に肌を赤くするかを表す曲線）で重み付けし、それに40を掛けたものです。この曲線は長い波長に向かって急激に下がります。肌は、一部のUVAの波長に対してはUVBの1,000分の1程度の感受性しかありません。そのため、エネルギーで見ればUVAが地表の紫外線の大部分を占めているにもかかわらず、重み付けによってUVAはほとんど消されてしまうのです。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "UVインデックスが低くてもUVAが高いことはありますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "あります。しかも、それは人々が安全だと受け取る状況で起こります。夕方、曇り空の下、冬、窓辺に座っているとき、日焼けを起こすUVBは弱まっているか、ろ過されて取り除かれています。一方でUVAは、1日を通じてより安定しており、窓ガラスを通り抜け、肌で感じる光よりも雲で弱められにくいため、届き続けます。UVインデックスは安心させる数値を示しますが、その間もUVAの曝露は静かに続いているのです。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "UVA指数の尺度はどうなっていますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "およそ315〜400 nmにわたる重み付けなしのUVA放射照度（W/m²）を6で割ったものです。この割る数は、約64〜66 W/m²となる快晴時の真上の太陽が11になるように選ばれており、熱帯でのUVインデックスのピークと同じ、尺度の上限の感覚が得られます。レベルはWHOの表現を使っており、3未満が「弱い」、3以上が「中程度」、6以上が「強い」、8以上が「非常に強い」、11以上が「極端に強い」です。放射照度で言えば、18、36、48、66 W/m²にあたります。"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA指数",
+            "item": "https://uvaindex.org/ja/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "ナレッジベース",
+            "item": "https://uvaindex.org/ja/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UVインデックスとUVA指数",
+            "item": "https://uvaindex.org/ja/learn/uv-index-vs-uva-index.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <a href="../">UVA指数</a><span class="sep">›</span><a href="./">ナレッジベース</a><span class="sep">›</span>UVインデックスとUVA指数
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="言語: 日本語"><span class="lang-icon" aria-hidden="true">🌐</span> 日本語</summary>
+          <ul>
+            <li><a href="../../learn/uv-index-vs-uva-index.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/uv-index-vs-uva-index.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/uv-index-vs-uva-index.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/uv-index-vs-uva-index.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/uv-index-vs-uva-index.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="uv-index-vs-uva-index.html" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+            <li><a href="../../zh/learn/uv-index-vs-uva-index.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>UVインデックスとUVA指数：それぞれが測っているもの</h1>
+        <p class="lead">
+          UVインデックスは本当に役に立つ数値ですが、答えているのは1つの特定の問い、つまり
+          <em>この日光は、何も対策していない肌をどれだけ速く日焼け（サンバーン）させるか</em>です。日焼けで
+          重み付けされているため、UVB（紫外線B波）が大部分を占め、UVA（紫外線A波）を系統的に軽く扱っています。
+          UVAこそが、あなたに届く紫外線の<a href="../../learn/what-is-uva-radiation.html" hreflang="en">大部分</a>を占めているにも
+          かかわらずです。
+        </p>
+
+        <h2>UVインデックスとは実際には何か</h2>
+        <p>
+          UVインデックス（UVI）は、紫外線のエネルギーをそのまま測った値ではありません。地表の紫外線スペクトルを
+          <strong>紅斑作用スペクトルで重み付けした</strong>ものです。これはCIEが定めた曲線で、各波長が人の肌を
+          赤くするのにどれだけ効果的かを表しています。重み付けしたスペクトルを積分し、スケーリング（40&nbsp;W/m⁻²を
+          掛ける）して、おなじみの0〜11+の尺度にしています<sup class="cite"><a href="#src-1" aria-label="出典 1">[1]</a></sup>。
+        </p>
+        <p>
+          この紅斑の曲線の重要な特徴は、長い波長に向かって急激に下がることです。日焼け（サンバーン）に関して言えば、
+          肌はUVAよりUVBに対して<strong>はるかに</strong>敏感です。一部の波長では、1,000倍程度も敏感です。
+        </p>
+
+        <div class="callout">
+          <strong>その結果：</strong>地表でのエネルギーそのもので見ればUVAはUVBよりはるかに多いのに、紅斑の
+          重み付けによってUVAはほとんど消されてしまいます。UVインデックスは事実上<strong>ほとんどUVBの数値</strong>
+          なのです。南中時刻（太陽正午）のUVIはUVBが大部分を占め、UVAの寄与はわずかな部分にすぎません。
+        </div>
+
+        <h2>UVインデックスが得意なこと</h2>
+        <ul>
+          <li><strong>日焼け（サンバーン）のリスク</strong>と、どれだけ速く赤くなるかを知るための優れた目安です。</li>
+          <li>日焼けを起こすUVBが最も強い<strong>真昼と夏のピーク</strong>をとらえます。</li>
+          <li>標準化されており、国際的に認められ、どこでも手に入ります。</li>
+        </ul>
+        <p>「日焼けしないように、今すぐ日焼け止めを塗るべきか？」という問いには、UVIが適した道具です。</p>
+
+        <h2>十分に表せていないもの</h2>
+        <p>UVインデックスはUVAの線量の代わりとしてはあまり当てにならず、したがってUVAが引き起こす害の目安としても当てになりません。</p>
+        <ul>
+          <li><strong>光老化</strong>：コラーゲンの分解、しわ、色素沈着は主にUVAによる影響で、UVIにはほとんど反映されません。</li>
+          <li><strong>真皮深部へのダメージと間接的なDNA損傷</strong>、そしてメラノーマへのUVAの寄与。</li>
+          <li><strong>ガラス越しの曝露</strong>：車の中や窓辺では、UVBはほとんど受けません（そのため「実質的な」UVIは低くなります）が、UVAはたっぷり受けます。</li>
+          <li><strong>曇りの日やピーク以外の時間帯</strong>：UVAは太陽の角度や雲による変化がはるかに小さいため、UVIが下がっても比較的高いままです。</li>
+          <li><strong>光線過敏反応</strong>：その多くはUVAによって引き起こされます。</li>
+        </ul>
+
+        <h2>UVインデックスが低くてもUVAが高いことがある理由</h2>
+        <p>
+          夕方や、かすんだ日・曇りの日、あるいは日の当たる窓辺に座っているところを思い浮かべてください。日焼けを
+          起こすUVBが弱まっているため、UVインデックスは「弱い」から「中程度」を示すかもしれません。しかしUVAは、
+          1日を通じてより安定しており、窓ガラスを通り抜け、肌で感じる光よりも雲で弱められにくいため、肌の深い層に
+          まだかなりの線量を届けていることがあります。UVIは安心させる数値を示しますが、その間もUVAの曝露は静かに
+          続いているのです。
+        </p>
+
+        <h2>UVA専用の指数が必要な理由</h2>
+        <p>
+          UVAに特化した指標が、このすき間を埋めます。紅斑による重み付けの代わりに、
+          <strong>重み付けなしのUVAの波長域（約315–400&nbsp;nm）</strong>、つまり地表に届く長波長の実際の
+          放射照度をW/m²で見るのです。これによって、老化や、深部の長期的なダメージの原因となる曝露がわかります。
+          UVインデックスはそれを伝えるようには作られていません。
+        </p>
+
+        <div class="callout">
+          <strong>このサイトがある理由：</strong>一般的な無料の気象APIで、純粋なUVAを提供しているものはありません。
+          どれも紅斑で重み付けされたUVインデックスを公開しています。そこでこのサイトでは、太陽の幾何学的な位置と
+          リアルタイムの大気データ（雲、エアロゾル、標高、地表の反射率）からUVAを<strong>導き出し</strong>、
+          UVインデックスでは得られないUVA専用の値を示しています。推定値がどのように作られているかは、
+          <a href="how-uva-index-is-calculated.html">UVA指数の計算方法</a>で詳しく説明しています。
+        </div>
+
+        <h2>UVA指数の尺度</h2>
+        <p>
+          UVA放射照度そのもの（W/m²）は正確ですがなじみがないため、UVインデックスと同じように0〜11+の尺度に
+          置き換えています。換算に使うのは1つの定数だけです。<strong>UVA指数 = UVA放射照度 ÷ 6</strong>。この
+          割る数は、快晴時の真上の太陽（このモデルでは約64–66&nbsp;W/m²）がおよそ<strong>11</strong>になるように
+          選ばれており、熱帯でのUVインデックスのピークと同じ、尺度の上限の感覚が得られます。レベルの区分には
+          WHOのUVインデックスの色と表現をそのまま使っているので、すでに理解している数値の感覚がそのまま通用します。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>UVA指数</th><th>レベル</th><th>放射照度（目安）</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>3未満</td><td>弱い</td><td>18 W/m²未満</td></tr>
+            <tr><td>3以上6未満</td><td>中程度</td><td>18以上36 W/m²未満</td></tr>
+            <tr><td>6以上8未満</td><td>強い</td><td>36以上48 W/m²未満</td></tr>
+            <tr><td>8以上11未満</td><td>非常に強い</td><td>48以上66 W/m²未満</td></tr>
+            <tr><td>11以上</td><td>極端に強い</td><td>66 W/m²以上</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          指数は放射照度に厳密に比例しているので、どちらの数値も同じことを伝えています。指数のほうが、
+          ひと目で読み取りやすいというだけです。
+        </p>
+
+        <h2>両方を合わせて使う</h2>
+        <p>
+          これは「UVインデックスは悪く、UVA指数は良い」という話ではありません。両者は異なる問いに答えており、
+          互いを補い合っています。
+        </p>
+        <ul>
+          <li><strong>UVインデックス</strong> → 短期的な日焼け（サンバーン）のリスク（主にUVB）。</li>
+          <li><strong>UVA指数</strong> → 老化や深部の累積的なダメージを引き起こす長波長のUVAの線量。</li>
+        </ul>
+        <p>両方を確認すれば、どちらか一方の数値だけよりも、太陽があなたの肌に何をしているのかをより完全に把握できます。</p>
+
+        <section class="sources" id="sources">
+          <h2>出典</h2>
+          <ol>
+            <li id="src-1"><a href="https://www.who.int/publications/i/item/9241590076" rel="noopener">Global Solar UV Index: A Practical Guide</a>. <em>World Health Organization, WMO, UNEP and ICNIRP</em>, 2002.</li>
+          </ol>
+        </section>
+        <p class="reviewed">最終確認日：2026年11月16日。誤りやより良い出典に気づいたら、<a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">GitHubでお知らせください</a>。</p>
+
+        <a class="cta" href="../">UVインデックスと並べてUVA指数を見る →</a>
+      </article>
+
+      <aside class="related">
+        <h2>あわせて読みたい</h2>
+        <ul>
+          <li><a href="how-uva-index-is-calculated.html">UVA指数はどのように計算されるのか</a></li>
+          <li><a href="uva-vs-uvb.html">UVAとUVBの違いとは？</a></li>
+          <li><a href="dangers-of-uva.html">UVA（紫外線A波）の危険性</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          無料のオープンソースです。UVA指数とUVA放射照度の非公式な計算です。教育目的の情報であり、医学的助言ではありません。詳しくは<a href="https://uvaindex.org/ja/about.html">このサイトについて</a>をご覧ください。
+          · <button type="button" class="link-btn" data-consent-open>Cookieの設定</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

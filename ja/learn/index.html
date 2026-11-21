@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>UVAナレッジベース — UVAとUVインデックスを理解する</title>
+    <meta
+      name="description"
+      content="UVA（紫外線A波）をわかりやすく解説するガイド集。UVAとは何か、UVBとの違い、健康へのリスク、そして一般的なUVインデックスだけでは不十分な理由と、UVA専用の指数が必要なわけを説明します。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/ja/learn/" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="UVA指数" />
+    <meta property="og:title" content="UVAナレッジベース — UVAとUVインデックスを理解する" />
+    <meta property="og:description" content="UVAとは何か、UVBとの違い、健康へのリスク、そしてUVA専用の指数が必要な理由をわかりやすく解説します。" />
+    <meta property="og:url" content="https://uvaindex.org/ja/learn/" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "UVAナレッジベース",
+        "url": "https://uvaindex.org/ja/learn/",
+        "inLanguage": "ja",
+        "description": "UVAとは何か、UVBとの違い、健康へのリスク、そして一般的なUVインデックスと併せてUVA専用の指数が役立つ理由をわかりやすく解説するガイド集。",
+        "hasPart": [
+          {
+            "@type": "Article",
+            "name": "UVAとUVBの違いとは？",
+            "url": "https://uvaindex.org/ja/learn/uva-vs-uvb.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVインデックスとUVA指数：それぞれが測っているもの",
+            "url": "https://uvaindex.org/ja/learn/uv-index-vs-uva-index.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVインデックスのスケールを解説 — そしてそこに含まれていないもの",
+            "url": "https://uvaindex.org/ja/learn/uv-index-scale-explained.html"
+          },
+          {
+            "@type": "TechArticle",
+            "name": "UVA指数はどのように計算されるのか",
+            "url": "https://uvaindex.org/ja/learn/how-uva-index-is-calculated.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA（紫外線A波）の危険性",
+            "url": "https://uvaindex.org/ja/learn/dangers-of-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVAが最も強いのは何時？1日の変化のカーブ",
+            "url": "https://uvaindex.org/ja/learn/what-time-is-uva-highest.html"
+          },
+          {
+            "@type": "Article",
+            "name": "曇りの日のUVA：どれだけ届くのか",
+            "url": "https://uvaindex.org/ja/learn/uva-on-cloudy-days.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVAがUVBほど季節によって変わらない理由",
+            "url": "https://uvaindex.org/ja/learn/does-uva-change-with-the-seasons.html"
+          },
+          {
+            "@type": "Article",
+            "name": "世界のUVA：緯度の影響は思っているほど大きくない理由",
+            "url": "https://uvaindex.org/ja/learn/uva-by-latitude-and-location.html"
+          },
+          {
+            "@type": "Article",
+            "name": "標高とUVA：山、登山、そして飛行機",
+            "url": "https://uvaindex.org/ja/learn/uva-at-altitude.html"
+          },
+          {
+            "@type": "Article",
+            "name": "照り返しのUVA：雪、砂、水面、コンクリート",
+            "url": "https://uvaindex.org/ja/learn/reflected-uva-snow-sand-water.html"
+          },
+          {
+            "@type": "Article",
+            "name": "ガラスはUVAを防ぐのか：窓、車、UVカットフィルム",
+            "url": "https://uvaindex.org/ja/learn/does-glass-block-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "服はUVAを防ぐのか：UPF表示と本当に効果のある対策",
+            "url": "https://uvaindex.org/ja/learn/does-clothing-block-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "日焼け止めのUVA表示を読み解く：PA+++、丸囲みのUVAマーク、星の数、臨界波長",
+            "url": "https://uvaindex.org/ja/learn/uva-sunscreen-labels-explained.html"
+          },
+          {
+            "@type": "Article",
+            "name": "日焼け止めは本当はどれだけ必要か：そしてなぜUVAが最も損をするのか",
+            "url": "https://uvaindex.org/ja/learn/sunscreen-application-uva-protection.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVAと目：サングラス、UV400、白内障、翼状片",
+            "url": "https://uvaindex.org/ja/learn/uva-and-your-eyes.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVAと肌の老化：光老化は実際にどう起こるのか",
+            "url": "https://uvaindex.org/ja/learn/uva-and-skin-aging.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVAで肌は黒くなる？サンタン、サンバーン、ベースタンの誤解",
+            "url": "https://uvaindex.org/ja/learn/does-uva-tan-or-burn.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVAとビタミンD：代償だけで、恩恵はゼロ",
+            "url": "https://uvaindex.org/ja/learn/uva-and-vitamin-d.html"
+          },
+          {
+            "@type": "Article",
+            "name": "UVA、メラニンと色素沈着：肝斑、色素沈着、肌の色",
+            "url": "https://uvaindex.org/ja/learn/uva-melasma-and-skin-tone.html"
+          },
+          {
+            "@type": "Article",
+            "name": "光線過敏症：UVAを危険にする薬と病気",
+            "url": "https://uvaindex.org/ja/learn/uva-photosensitivity-medications.html"
+          },
+          {
+            "@type": "Article",
+            "name": "屋内のUVA：ネイルライト、日焼けマシン、そして照明が実際に出しているもの",
+            "url": "https://uvaindex.org/ja/learn/indoor-uva-nail-lamps-tanning-beds.html"
+          },
+          {
+            "@type": "TechArticle",
+            "name": "UVAを自分で測るには：測定器、カード、スマホにまつわる誤解",
+            "url": "https://uvaindex.org/ja/learn/how-to-measure-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "ミネラルとケミカルの日焼け止め：UVA対策に優れているのはどちら？",
+            "url": "https://uvaindex.org/ja/learn/mineral-vs-chemical-sunscreen-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "水はUVAを防ぐのか：水泳、シュノーケリング、日焼け止め",
+            "url": "https://uvaindex.org/ja/learn/does-water-block-uva.html"
+          },
+          {
+            "@type": "Article",
+            "name": "赤ちゃんと子どもの紫外線対策",
+            "url": "https://uvaindex.org/ja/learn/sun-protection-for-children-and-babies.html"
+          },
+          {
+            "@type": "Article",
+            "name": "日焼け止めは毎日必要なのか",
+            "url": "https://uvaindex.org/ja/learn/do-you-need-sunscreen-every-day.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--hub">
+      <nav class="site-nav" aria-label="メインメニュー">
+        <a href="../">UVA指数計算ツール</a>
+        <a href="../learn/" class="active">ナレッジベース</a>
+        <a href="../widget.html">無料ウィジェット</a>
+        <a href="../about.html">このサイトについて</a>
+        <span class="spacer"></span>
+        <details class="lang-switch">
+          <summary aria-label="言語: 日本語"><span class="lang-icon" aria-hidden="true">🌐</span> 日本語</summary>
+          <ul>
+            <li><a href="../../learn/" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="./" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+            <li><a href="../../zh/learn/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </nav>
+
+      <header>
+        <h1>UVAナレッジベース</h1>
+        <p class="subtitle">
+          紫外線A波（UVA）についての短くわかりやすいガイド集です。UVAとは何か、UVBとどう違うのか、
+          肌にとってなぜ重要なのか、そしておなじみの<strong>UVインデックス</strong>だけでは
+          なぜ全体像がわからないのかを解説します。
+        </p>
+      </header>
+
+      <ul class="kb-list">
+        <li>
+          <a class="kb-card" href="uva-vs-uvb.html">
+            <h2>UVAとUVBの違いとは？</h2>
+            <p>
+              UVAとUVBを比較します。波長、肌のどこまで届くか、日焼け（サンバーン）と光老化、ビタミンD、皮膚がんでの役割、そして雲・ガラス・時間帯・季節がそれぞれにどう影響するかを解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uv-index-vs-uva-index.html">
+            <h2>UVインデックスとUVA指数：それぞれが測っているもの</h2>
+            <p>
+              UVインデックスは紅斑で重み付けされているため、UVBが大部分を占め、UVAはほとんど反映されません。それぞれの指数が測っているもの、UVインデックスが低くてもUVAが高い状況、そして0〜11+のUVA指数の読み方を解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uv-index-scale-explained.html">
+            <h2>UVインデックスのスケールを解説 — そしてそこに含まれていないもの</h2>
+            <p>
+              UVインデックスの数値の意味、0〜11+のスケールの由来、WHOの区分の色と推奨される対策、実際にどこまで高くなるのか、そしてUVAを過小に示す原因となっている紅斑作用の重み付けを解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="how-uva-index-is-calculated.html">
+            <h2>UVA指数はどのように計算されるのか</h2>
+            <p>
+              UVA指数の計算方法をすべて公開します。地表のUVA放射照度（315–400 nm、W/m²）を放射伝達ルックアップテーブルとリアルタイムの雲・かすみ・気圧・積雪データから求める方法、正確な計算式と前提条件、検証方法、そして考慮していない要因を解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="dangers-of-uva.html">
+            <h2>UVA（紫外線A波）の危険性</h2>
+            <p>
+              UVAが健康に与える影響：光老化としわ、活性酸素種を介した間接的なDNA損傷、皮膚がんとメラノーマのリスク、目の損傷、免疫抑制、光線過敏症。さらに、曝露を減らすための実践的な方法も紹介します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="what-time-is-uva-highest.html">
+            <h2>UVAが最も強いのは何時？1日の変化のカーブ</h2>
+            <p>
+              UVAのピークは南中時刻（太陽正午）ですが、そのカーブはUVインデックスよりずっとなだらかなため、朝や夕方には相対的にずっと多くのUVAが含まれます。1時間ごとの数値、影のルールが通用しない理由、そして南中時刻がめったに12:00にならない理由を解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-on-cloudy-days.html">
+            <h2>曇りの日のUVA：どれだけ届くのか</h2>
+            <p>
+              雲は日差しの明るさほどにはUVAを弱めません。そして切れ切れの雲は、一時的にUVAを快晴時以上に押し上げることもあります。雲の種類ごとの透過率、雲の下でのUVAとUVBの比較、雲による増強効果、そしてUVA指数での扱い方を解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-uva-change-with-the-seasons.html">
+            <h2>UVAがUVBほど季節によって変わらない理由</h2>
+            <p>
+              オゾンはUVBを強く吸収しますが、UVAはほとんど吸収しません。そのため、冬の低い太陽ではUVBが激減する一方、UVAはわずかしか減りません。冬や早朝の紫外線でUVAの割合が不釣り合いに高い理由を数値とともに解説し、UVインデックスが低くてもUVAが低いとは限らない理由を説明します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-by-latitude-and-location.html">
+            <h2>世界のUVA：緯度の影響は思っているほど大きくない理由</h2>
+            <p>
+              オゾンはUVAをほとんど吸収しないため、赤道から極に向かうUVAの減り方はUVインデックスよりずっと緩やかです。世界の都市の快晴時のピークUVA指数、南半球のほうが紫外線が強い理由、そして地域差を実際に生んでいる要因を解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-at-altitude.html">
+            <h2>標高とUVA：山、登山、そして飛行機</h2>
+            <p>
+              紫外線は標高とともに強くなりますが、UVAの増え方は、よく引用される「1000 mごとに10%」よりも緩やかです。この数値は紅斑紫外線のものだからです。標高による増加率が波長によって異なる理由、雪と澄んだ空気がそれをさらに強める仕組み、そして操縦室のUVAとパイロットのメラノーマに関する研究が示すことを解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="reflected-uva-snow-sand-water.html">
+            <h2>照り返しのUVA：雪、砂、水面、コンクリート</h2>
+            <p>
+              地面からの照り返しは、浴びるUVAをさらに増やします。そして紫外線の反射率は、目に見える明るさとは別物です。地表ごとの反射率、スキーヤーやボートに乗る人があごの下を日焼けする理由、砂浜で日陰が役に立たない理由、UVA指数が地表の反射率をどうモデル化しているかを解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-glass-block-uva.html">
+            <h2>ガラスはUVAを防ぐのか：窓、車、UVカットフィルム</h2>
+            <p>
+              普通の窓ガラスはUVBをほぼすべて遮りますが、UVAはかなりの割合を通します。住宅・オフィス・車のガラスをどれだけ通るのか、フロントガラスとサイドガラスの違い、運転者の皮膚がん研究が示すこと、UVカットフィルムの選び方を解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-clothing-block-uva.html">
+            <h2>服はUVAを防ぐのか：UPF表示と本当に効果のある対策</h2>
+            <p>
+              UPFは紅斑で重み付けされているため、SPFと同じく実質的にはUVBの指標です。だからこそ欧州の規格には別途UVAの上限が設けられています。素材・色・織り方による生地の透過率、濡れたり伸びたりしたときの変化、そして帽子や日陰の実際の効果を解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-sunscreen-labels-explained.html">
+            <h2>日焼け止めのUVA表示を読み解く：PA+++、丸囲みのUVAマーク、星の数、臨界波長</h2>
+            <p>
+              SPFはほぼUVBだけを測る指標です。EUの丸囲みUVAマーク、日本のPA表示、Bootsの星評価、米国のブロードスペクトル試験、アボベンゾンの光安定性、そして地域ごとに使えるUVAフィルターから、本当のUVA防御力を読み取る方法を解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="sunscreen-application-uva-protection.html">
+            <h2>日焼け止めは本当はどれだけ必要か：そしてなぜUVAが最も損をするのか</h2>
+            <p>
+              日焼け止めは2 mg/cm²で試験されますが、実際にはその4分の1しか塗られておらず、防御力は塗る厚さに対して指数関数的に低下します。塗る量の不足と光分解がUVA防御力に最も大きく響く理由と、小さじルール・2本指ルールを解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-and-your-eyes.html">
+            <h2>UVAと目：サングラス、UV400、白内障、翼状片</h2>
+            <p>
+              UVAがどのように目に届き、目を傷つけるのか。UV400、EN ISO 12312-1、ANSI Z80.3が実際に何を保証しているのか、紫外線カットのない濃い色のレンズがかけないより悪いかもしれない理由、そしてレンズの濃さよりフレームの形が重要な理由を解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-and-skin-aging.html">
+            <h2>UVAと肌の老化：光老化は実際にどう起こるのか</h2>
+            <p>
+              UVAは真皮まで届き、コラーゲンを分解する酵素を働かせます。光子からしわができるまでの仕組み、毎日の日焼け止めで測定可能な老化が止まることを示した試験、トラック運転手や双子から得られた証拠、そして本当にダメージを修復できる方法を解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-uva-tan-or-burn.html">
+            <h2>UVAで肌は黒くなる？サンタン、サンバーン、ベースタンの誤解</h2>
+            <p>
+              UVAは、もともとあるメラニンを酸化させることで数分のうちに肌を黒くします。しかしその日焼けには、ほとんど防御効果がありません。3つの異なる日焼け反応、UVAではほとんど赤くならない理由、そしてそれが日焼けマシンやベースタンの考え方にとって何を意味するのかを解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-and-vitamin-d.html">
+            <h2>UVAとビタミンD：代償だけで、恩恵はゼロ</h2>
+            <p>
+              ビタミンDの合成を引き起こすのは295–300 nm付近のごく狭いUVBで、315 nm未満で完全に止まります。UVAはビタミンDをまったくつくりません。そのため、冬の日差し、窓越しの光、日焼けマシンは、見返りのない曝露にすぎません。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-melasma-and-skin-tone.html">
+            <h2>UVA、メラニンと色素沈着：肝斑、色素沈着、肌の色</h2>
+            <p>
+              肝斑や炎症後色素沈着を引き起こすのは、UVBよりもはるかにUVAと可視光です。だからこそ、酸化鉄を含む色付きの日焼け止めが透明なものより効果的なのです。メラニンが何を防ぎ、何を防がないのかを、フィッツパトリックのスキンタイプ別に解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="uva-photosensitivity-medications.html">
+            <h2>光線過敏症：UVAを危険にする薬と病気</h2>
+            <p>
+              薬による光線過敏症のほとんどはUVAが原因で、だから車やオフィスの窓越しでも、曇りの日でも起こります。光毒性反応と光アレルギー性反応の違い、主な薬の種類、多形日光疹・ループス・ポルフィリン症、そして本当に効果のある対策を解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="indoor-uva-nail-lamps-tanning-beds.html">
+            <h2>屋内のUVA：ネイルライト、日焼けマシン、そして照明が実際に出しているもの</h2>
+            <p>
+              ジェルネイル用ライトはほぼ純粋なUVA、日焼けマシンはUVAに大きく偏ったスペクトルを出し、画面は紫外線をまったく出しません。屋内の各光源が実際に何を出しているのか、正午の太陽とW/m²で比べるとどうか、本当のリスクはどこにあるのかを解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="how-to-measure-uva.html">
+            <h2>UVAを自分で測るには：測定器、カード、スマホにまつわる誤解</h2>
+            <p>
+              UVAを実際に測定するには何が必要なのか。分光放射計、広帯域放射計、安価な一般向け測定器、フォトクロミックカードのそれぞれの弱点と、スマートフォンではまず紫外線を測れない理由、そして測定値が妥当かどうかを確かめる方法を解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="mineral-vs-chemical-sunscreen-uva.html">
+            <h2>ミネラルとケミカルの日焼け止め：UVA対策に優れているのはどちら？</h2>
+            <p>
+              酸化亜鉛、酸化チタン、有機系紫外線フィルターを、UVAのカバー範囲、光安定性、白浮き、敏感肌、サンゴ礁保護の規制、体内への吸収の観点で比較。「ミネラルは反射し、ケミカルは吸収する」という説がほぼ誤りである理由と、選び方を解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="does-water-block-uva.html">
+            <h2>水はUVAを防ぐのか：水泳、シュノーケリング、日焼け止め</h2>
+            <p>
+              水は紫外線をあまり防ぎません。澄んだ水ではUVAはUVBよりはるかに深くまで届き、水深50センチでもかなりの紫外線を浴び、濡れた肌からは日焼け止めがすぐに落ちてしまいます。プール、海、湖で何が起きているのか、そして「耐水性」が本当に意味することを解説します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="sun-protection-for-children-and-babies.html">
+            <h2>赤ちゃんと子どもの紫外線対策</h2>
+            <p>
+              子どもの肌と目が紫外線に弱い理由、赤ちゃんはいつから日焼け止めを使えるのか、子ども用の日焼け止めの選び方、そしてより重要な日陰・衣服・帽子・サングラスの習慣を解説します。「生涯の紫外線の80%は18歳までに浴びる」という俗説についても。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+        <li>
+          <a class="kb-card" href="do-you-need-sunscreen-every-day.html">
+            <h2>日焼け止めは毎日必要なのか</h2>
+            <p>
+              毎日日焼け止めを塗る価値があるかどうかは、天気やUVインデックスだけでなく、実際にどれだけのUVAを浴びるかで決まります。曇りの日、冬、窓際での仕事、運転、画面、肌の色の濃い人など、状況別のガイドと、毎日の日焼け止めに関する臨床試験の証拠を紹介します。
+            </p>
+            <span class="kb-more">読む →</span>
+          </a>
+        </li>
+
+      </ul>
+
+      <a class="cta" href="../">現在地のUVA指数をリアルタイムで確認する →</a>
+
+      <footer>
+        <p class="disclaimer">
+          無料のオープンソースです。UVA指数とUVA放射照度の非公式な計算です。教育目的の情報であり、医学的助言ではありません。詳しくは<a href="https://uvaindex.org/ja/about.html">このサイトについて</a>をご覧ください。
+          · <button type="button" class="link-btn" data-consent-open>Cookieの設定</button>
+        </p>
+        <p class="disclaimer">
+          無料の<strong>オープンソース</strong>です。コードとモデルは
+          <a href="https://github.com/mixalisaspr/uvaindex">GitHub</a>で
+          <a href="https://github.com/mixalisaspr/uvaindex/blob/main/LICENSE">MITライセンス</a>のもと公開しています。
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

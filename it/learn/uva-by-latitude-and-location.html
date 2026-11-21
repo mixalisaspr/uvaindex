@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>UVA e latitudine: perché la posizione conta meno per gli UVA che per gli UVB</title>
+    <meta
+      name="description"
+      content="L'ozono assorbe pochissimo gli UVA, quindi il gradiente dall'equatore ai poli è molto meno marcato per gli UVA che per l'indice UV. L'indice UVA massimo a cielo sereno nelle città del mondo, perché l'emisfero australe è più esposto e che cosa determina davvero le differenze locali."
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/it/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/uva-by-latitude-and-location.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Indice UVA" />
+    <meta property="og:title" content="Gli UVA nel mondo: la latitudine conta meno di quanto pensi" />
+    <meta property="og:description" content="Dall'equatore all'Islanda l'indice UV massimo cala di circa il 60%. Gli UVA massimi calano di meno del 30%. Ecco perché." />
+    <meta property="og:url" content="https://uvaindex.org/it/learn/uva-by-latitude-and-location.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Gli UVA nel mondo: perché la latitudine conta meno di quanto pensi",
+        "description": "Come variano gli UVA in superficie con la latitudine e la posizione: l'indice UVA massimo a cielo sereno nelle città del mondo calcolato con il modello di questo sito, perché la colonna di ozono appiattisce il gradiente degli UVA rispetto all'indice UV eritemale, e gli effetti del perielio e dell'ozono che rendono più alti gli UV nell'emisfero australe.",
+        "inLanguage": "it",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-29",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/it/learn/uva-by-latitude-and-location.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Increased ultraviolet radiation in New Zealand (45° S) relative to Germany (48° N)",
+            "author": "Seckmeyer G, McKenzie RL",
+            "publisher": "Nature 359:135–137",
+            "datePublished": "1992",
+            "url": "https://doi.org/10.1038/359135a0"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Dove sono più alti gli UVA nel mondo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dove un sole allo zenit si combina con l'alta quota e l'aria rarefatta: in cima alla lista ci sono le Ande tropicali e l'altopiano andino, seguiti dall'altopiano del Tibet, dagli altopiani dell'Africa orientale tropicale e dalle isole tropicali ad alta quota. A livello del mare il massimo dipende solo dal sole allo zenit, quindi in qualunque punto dei tropici si raggiunge all'incirca lo stesso picco."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Gli UVA cambiano molto con la latitudine?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Meno dell'indice UV. Tra l'equatore e Londra l'indice UV massimo a cielo sereno cala di circa il 40%, mentre l'indice UVA massimo cala solo del 14% circa. Il motivo è l'ozono: la colonna atmosferica assorbe fortemente gli UVB e quasi per niente gli UVA, quindi il percorso più lungo alle latitudini elevate penalizza la banda che scotta molto più di quella che fa invecchiare."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Perché gli UV sono più alti in Australia e Nuova Zelanda?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Si sommano tre effetti. La Terra è più vicina al Sole all'inizio di gennaio, durante l'estate australe, il che dà circa il 7% di irradianza solare in più rispetto a quella che riceve l'estate boreale. Le medie latitudini australi hanno una colonna di ozono più sottile di quelle boreali corrispondenti. E sopra gli oceani australi ci sono molti meno aerosol industriali. Nel complesso, questi fattori portano gli UVA dell'emisfero australe alcuni punti percentuali sopra i valori boreali a parità di latitudine, e gli UV che causano scottature molto di più."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Indice UVA",
+            "item": "https://uvaindex.org/it/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Guide UVA",
+            "item": "https://uvaindex.org/it/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UVA per latitudine e posizione",
+            "item": "https://uvaindex.org/it/learn/uva-by-latitude-and-location.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="Percorso di navigazione">
+          <a href="../">Indice UVA</a><span class="sep">›</span><a href="./">Guide UVA</a><span class="sep">›</span>UVA per latitudine e posizione
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="Lingua: Italiano"><span class="lang-icon" aria-hidden="true">🌐</span> Italiano</summary>
+          <ul>
+            <li><a href="../../learn/uva-by-latitude-and-location.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/uva-by-latitude-and-location.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/uva-by-latitude-and-location.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/uva-by-latitude-and-location.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="uva-by-latitude-and-location.html" hreflang="it" lang="it" aria-current="true">Italiano</a></li>
+            <li><a href="../../ja/learn/uva-by-latitude-and-location.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../zh/learn/uva-by-latitude-and-location.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>Gli UVA nel mondo: perché la latitudine conta meno di quanto pensi</h1>
+        <p class="lead">
+          Tutti sanno che ai tropici il sole è implacabile e nel Nord Europa no. Per le
+          scottature questa intuizione è corretta. Per gli UVA lo è molto meno: il
+          gradiente dall'equatore ai poli che fa crollare l'indice&nbsp;UV man mano che
+          ci si sposta verso nord è in gran parte un effetto dell'ozono, e l'ozono è
+          quasi trasparente agli UVA. Il risultato è un mondo in cui i picchi di UVA
+          sono molto più uniformi dei picchi del rischio di scottatura.
+        </p>
+
+        <h2>Perché i due gradienti sono diversi</h2>
+        <p>
+          Allontanandosi dall'equatore cambiano due cose. L'altezza massima del sole
+          diminuisce, e il percorso nell'atmosfera in quel momento si allunga. Entrambe
+          riducono l'ultravioletto al suolo, ma con meccanismi diversi e conseguenze
+          spettrali diverse.
+        </p>
+        <ul>
+          <li>
+            <strong>La geometria non distingue i colori.</strong> Un sole più basso
+            distribuisce la stessa energia su una superficie più ampia, e questa
+            diluizione vale in modo identico per ogni lunghezza d'onda. È il termine
+            cos(zenit), e colpisce UVA e UVB allo stesso modo.
+          </li>
+          <li>
+            <strong>L'assorbimento sì.</strong> Un percorso più lungo significa più
+            molecole di ozono lungo la strada. Le bande di assorbimento di Hartley e di
+            Huggins dell'ozono sono potenti negli UVB e si attenuano bruscamente negli
+            UVA. Quindi il percorso più lungo costa molto agli UVB e quasi nulla agli
+            UVA.
+          </li>
+        </ul>
+        <p>
+          In più, la colonna di ozono stessa varia con la latitudine: è più sottile ai
+          tropici, in genere intorno a 250–280 unità Dobson, e più spessa alle medie e
+          alte latitudini, spesso 300–400 DU con un picco in primavera. Questa
+          variazione aggiunge una seconda penalizzazione specifica per gli UVB a quella
+          del percorso più lungo, e anche in questo caso lascia gli UVA quasi intatti.
+        </p>
+        <div class="callout">
+          Ecco perché il modello di questo sito mantiene l'ozono a un valore tipico di
+          300&nbsp;unità Dobson invece di seguirlo in tempo reale. Dimezzare la colonna
+          di ozono cambierebbe gli UVA solo di pochi punti percentuali, mentre
+          all'incirca raddoppierebbe gli UV eritemali. Per gli UVA è un errore di
+          arrotondamento; per l'<a href="uv-index-scale-explained.html">indice
+          UV</a> è un termine di primo piano.
+        </div>
+
+        <h2>L'indice UVA massimo, città per città</h2>
+        <p>
+          La tabella qui sotto riporta l'indice UVA <strong>nel caso migliore</strong>
+          per ogni località: cielo sereno, livello del mare salvo diversa indicazione,
+          nessun aerosol, a mezzogiorno solare nel giorno dell'anno in cui il sole sale
+          più in alto, includendo la distanza Terra–Sole di quel giorno. Per le località
+          tropicali è il giorno in cui il sole passa esattamente allo zenit; altrove è il
+          solstizio d'estate. I valori sono calcolati con il
+          <a href="how-uva-index-is-calculated.html">modello</a> di questo sito. La
+          colonna dell'indice&nbsp;UV è un valore approssimativo dei massimi estivi
+          tipici osservati a cielo sereno, inserito per mostrare l'andamento più che per
+          precisione.
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Località</th><th>Latitudine</th><th>Altitudine</th><th>Angolo zenitale solare minimo</th><th>Indice UVA massimo</th><th>≈ Indice UV massimo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Quito, Ecuador</td><td>0,2° S</td><td>2850 m</td><td>0°</td><td>11,7</td><td>~14–16</td></tr>
+            <tr><td>Città del Messico, Messico</td><td>19,4° N</td><td>2240 m</td><td>0°</td><td>11,2</td><td>~13–15</td></tr>
+            <tr><td>Nairobi, Kenya</td><td>1,3° S</td><td>1795 m</td><td>0°</td><td>11,5</td><td>~13–15</td></tr>
+            <tr><td>Singapore</td><td>1,4° N</td><td>Livello del mare</td><td>0°</td><td>10,9</td><td>~12–13</td></tr>
+            <tr><td>Miami, USA</td><td>25,8° N</td><td>Livello del mare</td><td>2°</td><td>10,5</td><td>~11</td></tr>
+            <tr><td>Il Cairo, Egitto</td><td>30,0° N</td><td>Livello del mare</td><td>7°</td><td>10,4</td><td>~11</td></tr>
+            <tr><td>Sydney, Australia</td><td>33,9° S</td><td>Livello del mare</td><td>10°</td><td>11,0</td><td>~11–12</td></tr>
+            <tr><td>Los Angeles, USA</td><td>34,1° N</td><td>Livello del mare</td><td>11°</td><td>10,3</td><td>~10</td></tr>
+            <tr><td>Atene, Grecia</td><td>38,0° N</td><td>Livello del mare</td><td>15°</td><td>10,1</td><td>~9–10</td></tr>
+            <tr><td>New York, USA</td><td>40,7° N</td><td>Livello del mare</td><td>17°</td><td>9,9</td><td>~9</td></tr>
+            <tr><td>Roma, Italia</td><td>41,9° N</td><td>Livello del mare</td><td>18°</td><td>9,9</td><td>~9</td></tr>
+            <tr><td>Toronto, Canada</td><td>43,7° N</td><td>Livello del mare</td><td>20°</td><td>9,7</td><td>~8–9</td></tr>
+            <tr><td>Parigi, Francia</td><td>48,9° N</td><td>Livello del mare</td><td>25°</td><td>9,3</td><td>~8</td></tr>
+            <tr><td>Londra, Regno Unito</td><td>51,5° N</td><td>Livello del mare</td><td>28°</td><td>9,0</td><td>~7</td></tr>
+            <tr><td>Berlino, Germania</td><td>52,5° N</td><td>Livello del mare</td><td>29°</td><td>8,9</td><td>~7</td></tr>
+            <tr><td>Stoccolma, Svezia</td><td>59,3° N</td><td>Livello del mare</td><td>36°</td><td>8,0</td><td>~6</td></tr>
+            <tr><td>Reykjavík, Islanda</td><td>64,2° N</td><td>Livello del mare</td><td>41°</td><td>7,3</td><td>~4–5</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="callout">
+          <strong>Confronta tra loro le due colonne di destra.</strong> Da Singapore a
+          Reykjavík l'indice&nbsp;UV massimo cala di qualcosa come il 60%. L'indice UVA
+          massimo cala di <strong>un terzo</strong>. Da Singapore a Londra
+          l'indice&nbsp;UV si dimezza all'incirca, mentre gli UVA scendono solo del
+          <strong>17%</strong>: in termini di UVA, la migliore giornata estiva di Londra
+          è entro un quinto di una giornata tropicale.
+        </div>
+        <p>
+          La tabella mostra anche altre due cose. <strong>L'altitudine batte la
+          latitudine.</strong> Quito, Città del Messico e Nairobi sono in cima alla
+          lista non per la loro posizione tra nord e sud, ma per la loro quota: l'aria
+          più rarefatta aggiunge circa il 3% per chilometro, ancor prima di lasciarsi
+          alle spalle la foschia di pianura, e tutte e tre superano il limite teorico
+          superiore della scala. Anche Sydney supera di poco Los Angeles a una
+          latitudine quasi uguale: la sua estate cade a gennaio, quando la Terra è più
+          vicina al sole. <a href="uva-at-altitude.html">Gli UVA in quota</a> spiega
+          perché. E <strong>ai tropici si raggiunge la saturazione.</strong> Una volta
+          che il sole può passare allo zenit, essere più vicini all'equatore non
+          aggiunge nulla: Singapore e Miami raggiungono lo stesso picco, in giorni
+          diversi.
+        </p>
+
+        <h2>L'emisfero australe è più esposto</h2>
+        <p>
+          A parità di latitudine, l'ultravioletto dell'emisfero australe supera quello
+          dell'emisfero boreale: di alcuni punti percentuali per gli UVA e di molto di
+          più per gli UV che causano scottature. Si sommano tre effetti indipendenti:
+        </p>
+        <ul>
+          <li>
+            <strong>Il perielio.</strong> L'orbita terrestre è ellittica, e la Terra è
+            più vicina al Sole all'inizio di gennaio, nel pieno dell'estate australe.
+            Questo porta all'estate australe circa il <strong>7% in più</strong> di
+            irradianza solare rispetto a quella che riceve l'estate boreale all'afelio,
+            a luglio. A differenza di quasi tutto il resto di questa pagina, l'effetto
+            vale in egual misura per ogni lunghezza d'onda, quindi aumenta gli UVA
+            quanto gli UVB.
+          </li>
+          <li>
+            <strong>Ozono più sottile.</strong> Le medie latitudini australi hanno una
+            colonna di ozono più bassa delle corrispondenti latitudini boreali, in parte
+            per motivi di circolazione atmosferica e in parte come effetto residuo del
+            buco dell'ozono antartico. Questo effetto riguarda solo gli UVB, e può essere notevole: un confronto ormai classico ha rilevato che in estate gli UV che causano scottature in Nuova Zelanda erano circa il doppio di quelli in Germania a una latitudine simile.<sup class="cite"><a href="#src-1" aria-label="Fonte 1">[1]</a></sup>
+          </li>
+          <li>
+            <strong>Aria più pulita.</strong> Sopra gli oceani australi ci sono molti
+            meno aerosol industriali e continentali, quindi lungo la discesa ne viene
+            diffusa e assorbita una quota minore.
+          </li>
+        </ul>
+        <p>
+          È in buona parte per questo che Australia e Nuova Zelanda hanno i tassi di
+          melanoma più alti del mondo, e che le loro campagne di protezione solare sono
+          le più evolute in assoluto.
+        </p>
+
+        <h2>Che cosa varia davvero a livello locale</h2>
+        <p>
+          La latitudine fissa il tetto massimo. Giorno per giorno, a far cambiare la tua
+          lettura è tutto il resto, e per lo più non le cose che ci si aspetta:
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Fattore</th><th>Effetto sugli UVA</th><th>Effetto sull'indice UV</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Ora del giorno</td><td>Grande</td><td>Maggiore</td></tr>
+            <tr><td>Stagione</td><td>Moderato</td><td>Grande</td></tr>
+            <tr><td>Nuvole</td><td>Grande, variabile</td><td>Maggiore</td></tr>
+            <tr><td>Altitudine</td><td>~6% per km</td><td>~8–10% per km</td></tr>
+            <tr><td>Colonna di ozono</td><td>Trascurabile</td><td>Grande</td></tr>
+            <tr><td>Aerosol, foschia, polvere</td><td>Moderato</td><td>Moderato</td></tr>
+            <tr><td>Neve o sabbia sotto i piedi</td><td>Aumento moderato</td><td>Aumento moderato</td></tr>
+            <tr><td>Latitudine</td><td>Contenuto</td><td>Grande</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          Le ultime due righe sono il senso di questa pagina. Se vuoi conoscere il tuo
+          rischio di scottatura, il punto del pianeta in cui ti trovi è tra le prime cose
+          da chiedersi. Se vuoi conoscere la tua dose di UVA, è una delle ultime:
+          <a href="what-time-is-uva-highest.html">che ore sono</a> e
+          <a href="uva-on-cloudy-days.html">com'è il cielo</a> contano molto di più.
+        </p>
+
+        <h2>Un'avvertenza su questi numeri</h2>
+        <p>
+          Ogni valore nella tabella delle città è un limite superiore: un cielo
+          perfettamente sereno e privo di aerosol nel giorno migliore dell'anno. Le
+          letture reali sono più basse, spesso molto più basse, e la differenza è
+          maggiore nei climi umidi, velati o nuvolosi che in quelli secchi e limpidi. Il
+          picco giornaliero reale di Singapore è spesso ben al di sotto di 11 a causa
+          delle nubi convettive, mentre quello del Cairo si avvicina regolarmente al suo
+          massimo teorico.
+        </p>
+        <p>
+          Per avere un numero reale nel posto in cui ti trovi davvero, il
+          <a href="../">calcolatore</a> recupera i dati in tempo reale su nuvole,
+          aerosol e altitudine per le tue coordinate, invece di presupporre il caso
+          migliore.
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>Fonti</h2>
+          <ol>
+            <li id="src-1">Seckmeyer G, McKenzie RL (1992). <a href="https://doi.org/10.1038/359135a0" rel="noopener">Increased ultraviolet radiation in New Zealand (45° S) relative to Germany (48° N)</a>. <em>Nature 359:135–137</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">Ultima revisione: 16 novembre 2026. Hai notato un errore o conosci una fonte migliore? <a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">Segnalacelo su GitHub</a>.</p>
+
+        <a class="cta" href="../">Ottieni l'indice UVA per qualsiasi luogo della Terra →</a>
+      </article>
+
+      <aside class="related">
+        <h2>Continua a leggere</h2>
+        <ul>
+          <li><a href="uva-at-altitude.html">UVA in quota: montagna, escursionismo e voli in aereo</a></li>
+          <li><a href="does-uva-change-with-the-seasons.html">Perché gli UVA cambiano molto meno degli UVB con le stagioni</a></li>
+          <li><a href="what-time-is-uva-highest.html">A che ora gli UVA sono più alti? La curva giornaliera</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          Gratuito e open source. Calcolo non ufficiale dell'indice UVA e dell'irradianza UVA. Solo informazioni educative, non un parere medico. Maggiori dettagli nella pagina <a href="https://uvaindex.org/it/about.html">Chi siamo</a>.
+          · <button type="button" class="link-btn" data-consent-open>Impostazioni cookie</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

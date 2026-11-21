@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>緯度とUVA：場所による差がUVBほど大きくない理由</title>
+    <meta
+      name="description"
+      content="オゾンはUVAをほとんど吸収しないため、赤道から極に向かうUVAの減り方はUVインデックスよりずっと緩やかです。世界の都市の快晴時のピークUVA指数、南半球のほうが紫外線が強い理由、そして地域差を実際に生んでいる要因を解説します。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/ja/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/uva-by-latitude-and-location.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/uva-by-latitude-and-location.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA指数" />
+    <meta property="og:title" content="世界のUVA：緯度の影響は思っているほど大きくない" />
+    <meta property="og:description" content="赤道からアイスランドまでで、ピークのUVインデックスは約60%下がりますが、ピークのUVAの減少は30%未満です。その理由を解説します。" />
+    <meta property="og:url" content="https://uvaindex.org/ja/learn/uva-by-latitude-and-location.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "世界のUVA：緯度の影響は思っているほど大きくない理由",
+        "description": "地表のUVAが緯度や場所によってどう変わるか：このサイトのモデルで計算した世界の都市の快晴時ピークUVA指数、オゾン全量によってUVAの緯度差が紅斑紫外線のUVインデックスよりも小さくなる理由、そして南半球の紫外線を強くする近日点とオゾンの効果を解説します。",
+        "inLanguage": "ja",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-29",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/ja/learn/uva-by-latitude-and-location.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Increased ultraviolet radiation in New Zealand (45° S) relative to Germany (48° N)",
+            "author": "Seckmeyer G, McKenzie RL",
+            "publisher": "Nature 359:135–137",
+            "datePublished": "1992",
+            "url": "https://doi.org/10.1038/359135a0"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "世界でUVAが最も強いのはどこですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "太陽が真上に来ることと、標高が高く空気が薄いことが重なる場所です。熱帯のアンデス山脈とアンデスのアルティプラノ（高原）が筆頭で、チベット高原、熱帯東アフリカの高地、標高の高い熱帯の島々がそれに続きます。海抜0メートル付近では、最大値は太陽が真上に来るかどうかだけで決まるため、熱帯のどこでもほぼ同じピークに達します。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "UVAは緯度によって大きく変わりますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "UVインデックスほどは変わりません。赤道からロンドンまでで、快晴時のピークUVインデックスはおよそ40%下がりますが、ピークUVA指数の低下は約14%にすぎません。理由はオゾンです。大気中のオゾンはUVBを強く吸収し、UVAはほとんど吸収しないため、高緯度で光の通り道が長くなる影響は、肌を老化させる波長帯よりも日焼けを起こす波長帯にはるかに大きく効くのです。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "オーストラリアやニュージーランドで紫外線が強いのはなぜですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "3つの効果が重なっているからです。地球が太陽に最も近づくのは南半球の夏にあたる1月初めで、北半球の夏よりも約7%多くの太陽放射照度が得られます。南半球の中緯度は、北半球の同じ緯度よりもオゾン全量が少なくなっています。そして南の海の上空には、工業由来のエアロゾルがはるかに少ないのです。これらが合わさって、同程度の緯度で比べると南半球のUVAは北半球より数%高く、日焼けを起こす紫外線はそれよりかなり高くなります。"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA指数",
+            "item": "https://uvaindex.org/ja/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "ナレッジベース",
+            "item": "https://uvaindex.org/ja/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "緯度・場所とUVA",
+            "item": "https://uvaindex.org/ja/learn/uva-by-latitude-and-location.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <a href="../">UVA指数</a><span class="sep">›</span><a href="./">ナレッジベース</a><span class="sep">›</span>緯度・場所とUVA
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="言語: 日本語"><span class="lang-icon" aria-hidden="true">🌐</span> 日本語</summary>
+          <ul>
+            <li><a href="../../learn/uva-by-latitude-and-location.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/uva-by-latitude-and-location.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/uva-by-latitude-and-location.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/uva-by-latitude-and-location.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/uva-by-latitude-and-location.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="uva-by-latitude-and-location.html" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+            <li><a href="../../zh/learn/uva-by-latitude-and-location.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>世界のUVA：緯度の影響は思っているほど大きくない理由</h1>
+        <p class="lead">
+          熱帯の日差しは過酷で、北ヨーロッパはそうではないことは誰もが知っています。日焼け（サンバーン）に
+          ついては、その直感は正しいのです。しかしUVA（紫外線A波）については、それほど当てはまりません。
+          北へ行くほどUVインデックスが大きく下がる赤道から極への勾配は、主にオゾンの効果であり、オゾンは
+          UVAをほとんど通すからです。その結果、世界中でピークのUVAは、ピークの日焼けリスクよりもはるかに
+          均一になっています。
+        </p>
+
+        <h2>2つの勾配が異なる理由</h2>
+        <p>
+          赤道から離れるにつれて、2つのことが変わります。太陽の最大高度が下がり、その最大高度のときの大気中の
+          光の通り道が長くなります。どちらも地上の紫外線を減らしますが、仕組みが異なり、波長ごとの影響も
+          異なります。
+        </p>
+        <ul>
+          <li>
+            <strong>幾何学的な効果は波長を区別しません。</strong>太陽が低いと、同じエネルギーがより広い地面に
+            広がり、その薄まり方はすべての波長で同じです。これがcos(天頂角)の項で、UVAにもUVB（紫外線B波）にも
+            等しく効きます。
+          </li>
+          <li>
+            <strong>吸収は区別します。</strong>通り道が長いほど、途中にあるオゾン分子が多くなります。オゾンの
+            ハートレー帯とハギンス帯の吸収はUVBで強く、UVAにかけて急激に弱まります。そのため、通り道が長くなる
+            ことはUVBには大きな損失になりますが、UVAにはほとんど影響しません。
+          </li>
+        </ul>
+        <p>
+          さらに、オゾン全量そのものも緯度によって変わります。熱帯の上空では薄く、一般に250–280ドブソン
+          単位程度で、中・高緯度では厚く、300–400 DUになることも多く、春に最大になります。この変化は、
+          通り道の長さによる損失に加えて、UVBだけに効く2つ目のペナルティとなり、ここでもUVAはほとんど
+          影響を受けません。
+        </p>
+        <div class="callout">
+          このサイトのモデルが、オゾンをリアルタイムで追跡するのではなく、典型的な300&nbsp;ドブソン単位に
+          固定しているのはこのためです。オゾン全量が半分になってもUVAは数%しか変わりませんが、紅斑紫外線は
+          およそ2倍になります。UVAにとっては誤差の範囲ですが、
+          <a href="uv-index-scale-explained.html">UVインデックス</a>にとっては最も重要な項の1つです。
+        </div>
+
+        <h2>都市別のピークUVA指数</h2>
+        <p>
+          下の表は、それぞれの場所の<strong>最良条件での</strong>UVA指数です。快晴、特に記載がなければ
+          海抜0メートル、エアロゾルなし、1年のうち太陽が最も高く昇る日の南中時で、その日の地球と太陽の距離も
+          考慮しています。熱帯の場所では太陽が真上を通る日、それ以外では夏至の日です。値はこのサイトの
+          <a href="how-uva-index-is-calculated.html">モデル</a>で計算しています。UVインデックスの列は、
+          典型的な観測値による快晴時の夏の最大値の大まかな数字で、精度ではなく傾向を見るために載せています。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>場所</th><th>緯度</th><th>標高</th><th>最小の太陽天頂角</th><th>ピークUVA指数</th><th>ピークUVインデックス（概算）</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>キト（エクアドル）</td><td>南緯0.2°</td><td>2,850 m</td><td>0°</td><td>11.7</td><td>約14–16</td></tr>
+            <tr><td>メキシコシティ（メキシコ）</td><td>北緯19.4°</td><td>2,240 m</td><td>0°</td><td>11.2</td><td>約13–15</td></tr>
+            <tr><td>ナイロビ（ケニア）</td><td>南緯1.3°</td><td>1,795 m</td><td>0°</td><td>11.5</td><td>約13–15</td></tr>
+            <tr><td>シンガポール</td><td>北緯1.4°</td><td>海抜0 m</td><td>0°</td><td>10.9</td><td>約12–13</td></tr>
+            <tr><td>マイアミ（米国）</td><td>北緯25.8°</td><td>海抜0 m</td><td>2°</td><td>10.5</td><td>約11</td></tr>
+            <tr><td>カイロ（エジプト）</td><td>北緯30.0°</td><td>海抜0 m</td><td>7°</td><td>10.4</td><td>約11</td></tr>
+            <tr><td>シドニー（オーストラリア）</td><td>南緯33.9°</td><td>海抜0 m</td><td>10°</td><td>11.0</td><td>約11–12</td></tr>
+            <tr><td>ロサンゼルス（米国）</td><td>北緯34.1°</td><td>海抜0 m</td><td>11°</td><td>10.3</td><td>約10</td></tr>
+            <tr><td>アテネ（ギリシャ）</td><td>北緯38.0°</td><td>海抜0 m</td><td>15°</td><td>10.1</td><td>約9–10</td></tr>
+            <tr><td>ニューヨーク（米国）</td><td>北緯40.7°</td><td>海抜0 m</td><td>17°</td><td>9.9</td><td>約9</td></tr>
+            <tr><td>ローマ（イタリア）</td><td>北緯41.9°</td><td>海抜0 m</td><td>18°</td><td>9.9</td><td>約9</td></tr>
+            <tr><td>トロント（カナダ）</td><td>北緯43.7°</td><td>海抜0 m</td><td>20°</td><td>9.7</td><td>約8–9</td></tr>
+            <tr><td>パリ（フランス）</td><td>北緯48.9°</td><td>海抜0 m</td><td>25°</td><td>9.3</td><td>約8</td></tr>
+            <tr><td>ロンドン（英国）</td><td>北緯51.5°</td><td>海抜0 m</td><td>28°</td><td>9.0</td><td>約7</td></tr>
+            <tr><td>ベルリン（ドイツ）</td><td>北緯52.5°</td><td>海抜0 m</td><td>29°</td><td>8.9</td><td>約7</td></tr>
+            <tr><td>ストックホルム（スウェーデン）</td><td>北緯59.3°</td><td>海抜0 m</td><td>36°</td><td>8.0</td><td>約6</td></tr>
+            <tr><td>レイキャビク（アイスランド）</td><td>北緯64.2°</td><td>海抜0 m</td><td>41°</td><td>7.3</td><td>約4–5</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <div class="callout">
+          <strong>右側の2列を見比べてください。</strong>シンガポールからレイキャビクまでで、ピークの
+          UVインデックスはおよそ60%下がります。ピークUVA指数の低下は<strong>3分の1</strong>です。
+          シンガポールからロンドンまででは、UVインデックスはほぼ半分になりますが、UVAはわずか
+          <strong>17%</strong>しか下がりません。UVAで見れば、ロンドンの夏の最良の日は、熱帯の日と
+          5分の1以内の差しかないのです。
+        </div>
+        <p>
+          この表からは、さらに2つのことがわかります。<strong>緯度より標高が勝ります。</strong>キト、
+          メキシコシティ、ナイロビが上位にあるのは、南北の位置ではなく標高の高さによるものです。低地の
+          かすみを抜ける前から、薄い空気が1キロメートルあたり約3%を上乗せします。そして、どの都市も
+          スケールの名目上の上限を超えています。シドニーも、ほぼ同じ緯度のロサンゼルスをわずかに上回って
+          います。シドニーの夏は、地球が太陽に最も近づく1月にあたるからです。その理由は
+          <a href="uva-at-altitude.html">高地のUVA</a>で解説しています。そして<strong>熱帯では頭打ちに
+          なります。</strong>太陽が真上を通れるようになると、それ以上赤道に近づいても何も増えません。
+          シンガポールとマイアミは、日付こそ違いますが同じピークに達します。
+        </p>
+
+        <h2>南半球のほうが紫外線が強い</h2>
+        <p>
+          同じ緯度で比べると、南半球の紫外線は北半球を上回ります。UVAでは数%、日焼けを起こす紫外線では
+          それよりかなり大きな差です。3つの独立した効果が積み重なっています。
+        </p>
+        <ul>
+          <li>
+            <strong>近日点。</strong>地球の軌道は楕円形で、太陽に最も近づくのは1月初め、つまり南半球の
+            真夏です。そのため南半球の夏には、7月の遠日点にあたる北半球の夏よりも約<strong>7%多い</strong>
+            太陽放射照度が届きます。ここで挙げる他のほとんどの要因と違い、これはすべての波長に等しく効くので、
+            UVBと同じだけUVAも押し上げます。
+          </li>
+          <li>
+            <strong>薄いオゾン層。</strong>南半球の中緯度は、北半球の対応する緯度よりもオゾン全量が少なく
+            なっています。大気の循環によるものもあれば、南極のオゾンホールの名残の影響によるものもあります。
+            これはUVBだけに効く要因ですが、その差は大きくなることがあります。よく知られた比較研究では、
+            ニュージーランドの夏の日焼けを起こす紫外線は、同程度の緯度のドイツのおよそ2倍でした。<sup class="cite"><a href="#src-1" aria-label="出典 1">[1]</a></sup>
+          </li>
+          <li>
+            <strong>きれいな空気。</strong>南の海の上空には、工業由来や大陸由来のエアロゾルがはるかに少なく、
+            地上に届くまでに散乱・吸収される量が少なくなります。
+          </li>
+        </ul>
+        <p>
+          オーストラリアとニュージーランドの悪性黒色腫（メラノーマ）の発生率が世界で最も高く、両国の紫外線
+          対策キャンペーンが世界で最も充実している大きな理由はここにあります。
+        </p>
+
+        <h2>地域ごとに実際に変わるもの</h2>
+        <p>
+          緯度は上限を決めます。日々の数値を動かしているのは、それ以外のすべての要因であり、その多くは
+          人々が予想するものではありません。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>要因</th><th>UVAへの影響</th><th>UVインデックスへの影響</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>時刻</td><td>大きい</td><td>さらに大きい</td></tr>
+            <tr><td>季節</td><td>中程度</td><td>大きい</td></tr>
+            <tr><td>雲</td><td>大きく、変動しやすい</td><td>さらに大きい</td></tr>
+            <tr><td>標高</td><td>1 kmあたり約6%</td><td>1 kmあたり約8–10%</td></tr>
+            <tr><td>オゾン全量</td><td>無視できる</td><td>大きい</td></tr>
+            <tr><td>エアロゾル、かすみ、砂塵</td><td>中程度</td><td>中程度</td></tr>
+            <tr><td>足元の雪や砂</td><td>中程度の上乗せ</td><td>中程度の上乗せ</td></tr>
+            <tr><td>緯度</td><td>控えめ</td><td>大きい</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          このページの要点は、下の2行にあります。日焼けのリスクを知りたいなら、地球上のどこにいるかは
+          最初に確認すべきことの1つです。UVAの量を知りたいなら、それは最後のほうに確認することの1つです。
+          <a href="what-time-is-uva-highest.html">今が何時か</a>、そして
+          <a href="uva-on-cloudy-days.html">空がどんな状態か</a>のほうが、はるかに重要です。
+        </p>
+
+        <h2>これらの数値についての注意</h2>
+        <p>
+          都市の表の値はすべて上限です。1年で最も条件のよい1日の、完全に晴れてエアロゾルのない空を想定して
+          います。実際の値はそれより低く、かなり低いことも多く、その差は乾燥した晴天の気候よりも、湿度が高く
+          かすみや雲の多い気候で大きくなります。シンガポールの実際の1日のピークは、対流性の雲のために11を
+          大きく下回ることがよくありますが、カイロではいつも上限近くまで達します。
+        </p>
+        <p>
+          あなたが実際にいる場所の実際の数値を知りたいなら、<a href="../">計算ツール</a>が最良の条件を仮定する
+          のではなく、あなたの座標のリアルタイムの雲、エアロゾル、標高のデータを取得して計算します。
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>出典</h2>
+          <ol>
+            <li id="src-1">Seckmeyer G, McKenzie RL (1992). <a href="https://doi.org/10.1038/359135a0" rel="noopener">Increased ultraviolet radiation in New Zealand (45° S) relative to Germany (48° N)</a>. <em>Nature 359:135–137</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">最終確認日：2026年11月16日。誤りやより良い出典に気づいたら、<a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">GitHubでお知らせください</a>。</p>
+
+        <a class="cta" href="../">地球上のどこでもUVA指数を調べる →</a>
+      </article>
+
+      <aside class="related">
+        <h2>あわせて読みたい</h2>
+        <ul>
+          <li><a href="uva-at-altitude.html">標高とUVA：山、登山、そして飛行機</a></li>
+          <li><a href="does-uva-change-with-the-seasons.html">UVAがUVBほど季節によって変わらない理由</a></li>
+          <li><a href="what-time-is-uva-highest.html">UVAが最も強いのは何時？1日の変化のカーブ</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          無料のオープンソースです。UVA指数とUVA放射照度の非公式な計算です。教育目的の情報であり、医学的助言ではありません。詳しくは<a href="https://uvaindex.org/ja/about.html">このサイトについて</a>をご覧ください。
+          · <button type="button" class="link-btn" data-consent-open>Cookieの設定</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

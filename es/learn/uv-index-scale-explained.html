@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>La escala del índice UV de 0 a 11+ explicada, y lo que oculta</title>
+    <meta
+      name="description"
+      content="Qué significan las cifras del índice UV, de dónde sale la escala de 0 a 11+, los colores y consejos de cada categoría de la OMS, hasta dónde puede llegar en realidad y la ponderación eritemática que hace que infravalore la UVA."
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/es/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/uv-index-scale-explained.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Índice UVA" />
+    <meta property="og:title" content="La escala del índice UV de 0 a 11+ explicada" />
+    <meta property="og:description" content="De dónde salen las cifras del índice UV, qué significa cada categoría, hasta dónde llega de verdad y lo único que la escala está diseñada para no mostrarte." />
+    <meta property="og:url" content="https://uvaindex.org/es/learn/uv-index-scale-explained.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "La escala del índice UV explicada, y lo que deja fuera",
+        "description": "Una explicación completa de la escala del índice UV: el espectro de acción eritemática y la multiplicación por 40 que hay detrás de las cifras, las categorías y colores de la OMS, los valores récord en el mundo y la razón estructural por la que el índice infrarrepresenta la UVA.",
+        "inLanguage": "es",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-29",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/es/learn/uv-index-scale-explained.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Global Solar UV Index: A Practical Guide",
+            "publisher": "World Health Organization, WMO, UNEP and ICNIRP",
+            "datePublished": "2002",
+            "url": "https://www.who.int/publications/i/item/9241590076"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Record solar UV irradiance in the tropical Andes",
+            "author": "Cabrol NA, Feister U, Häder D-P, et al.",
+            "publisher": "Frontiers in Environmental Science 2:19",
+            "datePublished": "2014",
+            "url": "https://doi.org/10.3389/fenvs.2014.00019"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Comment on \"Record solar UV irradiance in the tropical Andes\"",
+            "author": "McKenzie RL, Bernhard G, Madronich S, Zaratti F",
+            "publisher": "Frontiers in Environmental Science 3:26",
+            "datePublished": "2015",
+            "url": "https://doi.org/10.3389/fenvs.2015.00026"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es un índice UV alto?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Las categorías de la OMS son Bajo (0–2), Moderado (3–5), Alto (6–7), Muy alto (8–10) y Extremo (11+). Se recomienda protegerse a partir de 3. Un valor de 8 o más significa que la piel clara sin protección puede empezar a quemarse en unos 15–25 minutos en torno al mediodía solar."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo se calcula el índice UV?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La irradiancia espectral solar en el suelo se multiplica, longitud de onda a longitud de onda, por el espectro de acción eritemática de la CIE (una curva que describe con qué eficacia enrojece la piel humana cada longitud de onda); después se integra en toda la banda UV y se multiplica por 40. Así, un índice UV de 1 corresponde a 0,025 W/m² de irradiancia con ponderación eritemática."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Puede el índice UV superar 11?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. La escala no tiene límite superior; 11 es simplemente donde empieza la categoría más alta. Los valores de 14–16 son habituales en los Andes tropicales, y en diciembre de 2003 se comunicó un valor de 43,3 en el Licancabur, en Bolivia, el más alto jamás publicado, aunque otros investigadores lo han cuestionado por considerarlo probablemente un artefacto del instrumento. La gran altitud, la escasez de ozono, el sol en el cénit y el reflejo de la nieve se suman."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Índice UVA",
+            "item": "https://uvaindex.org/es/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Base de conocimientos",
+            "item": "https://uvaindex.org/es/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "La escala del índice UV explicada",
+            "item": "https://uvaindex.org/es/learn/uv-index-scale-explained.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+          <a href="../">Índice UVA</a><span class="sep">›</span><a href="./">Base de conocimientos</a><span class="sep">›</span>La escala del índice UV explicada
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="Idioma: Español"><span class="lang-icon" aria-hidden="true">🌐</span> Español</summary>
+          <ul>
+            <li><a href="../../learn/uv-index-scale-explained.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="uv-index-scale-explained.html" hreflang="es" lang="es" aria-current="true">Español</a></li>
+            <li><a href="../../fr/learn/uv-index-scale-explained.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/uv-index-scale-explained.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/uv-index-scale-explained.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/uv-index-scale-explained.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../zh/learn/uv-index-scale-explained.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>La escala del índice UV explicada, y lo que deja fuera</h1>
+        <p class="lead">
+          El índice&nbsp;UV es el único dato sobre radiación ultravioleta que casi
+          todo el mundo ha visto: una cifra en una aplicación del tiempo, con un código de colores, en algún punto
+          entre 0 y 11. Es un ejemplo realmente bueno de divulgación científica.
+          Y también es, por diseño, una medida de <em>una sola</em> cosa; esta página trata
+          de las dos mitades de esa frase.
+        </p>
+
+        <h2>De dónde sale la cifra</h2>
+        <p>
+          El índice&nbsp;UV no es una medida de la luz ultravioleta. Es una
+          medida de la capacidad de la luz ultravioleta para <strong>enrojecer la piel
+          humana</strong>, que es una magnitud distinta.
+        </p>
+        <p>
+          La luz solar llega al suelo como un espectro, es decir, una distribución de energía
+          entre longitudes de onda. Para obtener el índice, ese espectro se multiplica,
+          longitud de onda a longitud de onda, por el <strong>espectro de acción eritemática
+          de la CIE</strong>: una curva normalizada que describe con qué eficacia cada
+          longitud de onda causa quemaduras solares. El resultado ponderado se integra
+          en toda la banda ultravioleta y se escala con una constante.<sup class="cite"><a href="#src-1" aria-label="Fuente 1">[1]</a></sup>
+        </p>
+        <div class="callout">
+          <strong>Índice UV = irradiancia con ponderación eritemática (W/m²) × 40</strong><br />
+          Así, un índice&nbsp;UV de 1 = 0,025&nbsp;W/m²; un índice&nbsp;UV de 10 = 0,25&nbsp;W/m².
+        </div>
+        <p>
+          El factor 40 existe solo para que el resultado caiga en un rango fácil de recordar,
+          de 0 a aproximadamente 11, en las condiciones de la Tierra. No tiene ningún significado
+          físico propio, exactamente igual que el divisor seis que sitúa el
+          <a href="how-uva-index-is-calculated.html">índice UVA</a> de este sitio en una
+          escala comparable.
+        </p>
+
+        <h2>Las categorías y lo que aconseja la OMS</h2>
+        <p>
+          Las categorías de abajo son el estándar de la OMS, la OMM y la ICNIRP, que se usa prácticamente
+          en todo el mundo. Los colores forman parte del estándar; no son decoración.<sup class="cite"><a href="#src-1" aria-label="Fuente 1">[1]</a></sup>
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Índice UV</th><th>Categoría</th><th>Color</th><th>Recomendación de la OMS</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0–2</td><td>Bajo</td><td>Verde</td><td>La mayoría de las personas no necesitan protección</td></tr>
+            <tr><td>3–5</td><td>Moderado</td><td>Amarillo</td><td>Busca la sombra cerca del mediodía; camiseta, protector solar, sombrero</td></tr>
+            <tr><td>6–7</td><td>Alto</td><td>Naranja</td><td>Protección necesaria; reduce la exposición al mediodía</td></tr>
+            <tr><td>8–10</td><td>Muy alto</td><td>Rojo</td><td>Protección extra; evita estar al aire libre cerca del mediodía</td></tr>
+            <tr><td>11+</td><td>Extremo</td><td>Violeta</td><td>Toma todas las precauciones; la piel sin protección puede quemarse en minutos</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          <strong>El umbral que importa es el 3.</strong> Es el valor a partir del
+          cual la OMS empieza a recomendar protección, y es la cifra en torno a la que se
+          construyen la mayoría de las campañas nacionales. Por debajo de 3, el eritema es poco probable para
+          la mayoría de los tipos de piel con tiempos de exposición normales.
+        </p>
+
+        <h2>¿Hasta dónde llega en realidad?</h2>
+        <p>
+          La escala no tiene límite superior. El 11 es donde <em>empieza</em> la categoría más alta,
+          no donde termina la escala: un error de lectura frecuente, alentado por la forma en que
+          las aplicaciones muestran «11+».
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Lugar</th><th>Máximo típico en verano con cielo despejado</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Norte del Reino Unido, Escandinavia</td><td>5–7</td></tr>
+            <tr><td>Centro y norte de Europa</td><td>6–8</td></tr>
+            <tr><td>Mediterráneo, sur de Estados Unidos</td><td>9–11</td></tr>
+            <tr><td>Tierras bajas tropicales</td><td>11–14</td></tr>
+            <tr><td>Gran altitud tropical (Andes, Himalaya)</td><td>14–20+</td></tr>
+            <tr><td>Valor más alto publicado, cuestionado (Licancabur, Bolivia, dic. 2003)</td><td>43,3</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          La cifra del Licancabur procede de mediciones con dosímetros en un alto volcán andino<sup class="cite"><a href="#src-2" aria-label="Fuente 2">[2]</a></sup> y otros investigadores de la radiación UV la han puesto en duda como probable artefacto del instrumento,<sup class="cite"><a href="#src-3" aria-label="Fuente 3">[3]</a></sup> así que tómala como el límite superior de lo que se ha afirmado y no como un récord establecido. Los extremos se deben a que se acumulan todos los amplificadores a la vez: el sol en el cénit,
+          una columna de ozono escasa, muy poca atmósfera por encima, aire limpio y seco y
+          nieve que refleja desde abajo. <a href="uva-at-altitude.html">La UVA en
+          altitud</a> explica por qué el gradiente con la altitud varía según la longitud de onda, y
+          <a href="reflected-uva-snow-sand-water.html">UVA reflejada</a> explica la
+          contribución del albedo.
+        </p>
+
+        <h2>Lo que hace la ponderación, y lo que oculta</h2>
+        <p>
+          Esta es la consecuencia estructural de la ponderación eritemática. El espectro
+          de acción cae de forma extraordinariamente brusca con la longitud de onda: en comparación con
+          su máximo en la UVB, su eficacia a 340&nbsp;nm es del orden de
+          mil veces menor. Así que el índice es, en la práctica, un instrumento de UVB.
+        </p>
+        <div class="callout">
+          Al mediodía solar, aproximadamente el <strong>95&nbsp;% de los fotones ultravioleta</strong>
+          que llegan al suelo son UVA, pero tras la ponderación eritemática la UVA
+          solo aporta alrededor del <strong>17&nbsp;%</strong> del índice&nbsp;UV, y la
+          UVB aporta el ~83&nbsp;% restante. El índice está dominado por la pequeña
+          minoría del espectro que resulta que quema.
+        </div>
+        <p>
+          Para su función prevista (decirte si estás a punto de quemarte),
+          eso es exactamente lo correcto, y no hay nada que criticar. El problema es que
+          luego la cifra se usa como indicador general de «cuánta radiación ultravioleta
+          hay hoy», que no lo es. Como la UVB y la UVA responden de forma muy
+          distinta al ángulo del sol, el ozono, las nubes y el vidrio, ambas se separan
+          justo cuando la gente deja de prestar atención:
+        </p>
+        <ul>
+          <li>
+            <strong>En invierno.</strong> Un largo recorrido oblicuo a través de la atmósfera significa
+            mucho más ozono por medio, que elimina la UVB y deja la UVA en gran parte
+            intacta. El índice&nbsp;UV se desploma; la UVA baja moderadamente. Consulta
+            <a href="does-uva-change-with-the-seasons.html">la UVA según la estación</a>.
+          </li>
+          <li>
+            <strong>Detrás de un vidrio.</strong> El vidrio común de las ventanas elimina casi toda la
+            UVB, así que el índice&nbsp;UV efectivo en interiores es prácticamente cero, mientras que una
+            gran parte de la UVA sigue pasando. Consulta
+            <a href="does-glass-block-uva.html">¿bloquea el vidrio la UVA?</a>.
+          </li>
+          <li>
+            <strong>Bajo las nubes.</strong> Las nubes atenúan la banda eritemática, dominada por la UVB,
+            más de lo que atenúan la UVA, así que la proporción vuelve a cambiar.
+            Consulta <a href="uva-on-cloudy-days.html">La UVA en días nublados</a>.
+          </li>
+          <li>
+            <strong>A primera y última hora del día.</strong> El mismo argumento de la masa de aire
+            que en invierno, comprimido en unas pocas horas. Consulta
+            <a href="what-time-is-uva-highest.html">a qué hora es máxima la UVA</a>.
+          </li>
+        </ul>
+        <p>
+          En todos esos casos, un índice&nbsp;UV bajo dice la verdad
+          sobre el riesgo de quemadura y da una impresión engañosa sobre la exposición
+          ultravioleta en general, que es precisamente la razón por la que este sitio calcula un
+          <a href="uv-index-vs-uva-index.html">índice UVA aparte</a>.
+        </p>
+
+        <h2>Leer los dos juntos</h2>
+        <p>
+          El hábito más útil es entender que responden a dos preguntas
+          distintas, en lugar de competir por la misma.
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Pregunta</th><th>Cifra que hay que mirar</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>¿Me quemaré hoy?</td><td>Índice UV</td></tr>
+            <tr><td>¿Necesito protección ahora mismo, por las quemaduras?</td><td>Índice UV ≥ 3</td></tr>
+            <tr><td>¿Estoy acumulando dosis que causa fotoenvejecimiento y pigmentación?</td><td>Índice UVA</td></tr>
+            <tr><td>¿Importan mi trayecto diario o mi escritorio junto a la ventana?</td><td>Índice UVA</td></tr>
+            <tr><td>¿Produciré vitamina D?</td><td>Índice UV (es el indicador de la UVB)</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          Merece la pena detenerse en esa última fila, porque es la ilustración más clara
+          de la diferencia: la síntesis de vitamina D depende de la UVB y, por
+          tanto, sigue de cerca al índice&nbsp;UV, mientras que la UVA no aporta
+          nada, una idea que se desarrolla en
+          <a href="uva-and-vitamin-d.html">UVA y vitamina D</a>. La calculadora
+          de este sitio muestra el índice&nbsp;UV en directo junto al índice UVA
+          precisamente por eso: verlos juntos hace evidente la divergencia.
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>Fuentes</h2>
+          <ol>
+            <li id="src-1"><a href="https://www.who.int/publications/i/item/9241590076" rel="noopener">Global Solar UV Index: A Practical Guide</a>. <em>World Health Organization, WMO, UNEP and ICNIRP</em>, 2002.</li>
+            <li id="src-2">Cabrol NA, Feister U, Häder D-P, et al. (2014). <a href="https://doi.org/10.3389/fenvs.2014.00019" rel="noopener">Record solar UV irradiance in the tropical Andes</a>. <em>Frontiers in Environmental Science 2:19</em>.</li>
+            <li id="src-3">McKenzie RL, Bernhard G, Madronich S, Zaratti F (2015). <a href="https://doi.org/10.3389/fenvs.2015.00026" rel="noopener">Comment on &quot;Record solar UV irradiance in the tropical Andes&quot;</a>. <em>Frontiers in Environmental Science 3:26</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">Última revisión: 16 de noviembre de 2026. ¿Has visto un error o conoces una fuente mejor? <a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">Cuéntanoslo en GitHub</a>.</p>
+
+        <a class="cta" href="../">Compáralo con el índice UVA en tu ubicación →</a>
+      </article>
+
+      <aside class="related">
+        <h2>Sigue leyendo</h2>
+        <ul>
+          <li><a href="uv-index-vs-uva-index.html">Índice UV frente a índice UVA: qué mide cada uno</a></li>
+          <li><a href="how-uva-index-is-calculated.html">Cómo se calcula el índice UVA</a></li>
+          <li><a href="uva-vs-uvb.html">UVA y UVB: ¿en qué se diferencian?</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          Gratuito y de código abierto. Cálculo no oficial del índice UVA y de la irradiancia UVA. Solo información educativa, no consejo médico. Más información en la página <a href="https://uvaindex.org/es/about.html">Acerca de</a>.
+          · <button type="button" class="link-btn" data-consent-open>Configuración de cookies</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

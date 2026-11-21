@@ -12,6 +12,8 @@
 //    straight away, and js/sw-register.js reloads open pages onto it.
 //  • Open-Meteo and other third-party requests are never touched — UVA needs
 //    fresh weather data.
+//  • Translated Knowledge Base articles are not precached (it would multiply
+//    the install size); they come from the network when visited.
 //
 // GENERATED FILE — do not edit by hand. Run `python3 scripts/build_kb.py`.
 // SHELL is derived from content/site.json and content/learn/*.html; CACHE is
@@ -20,6 +22,10 @@
 const CACHE = '$CACHE';
 
 const SHELL = $SHELL_JSON;
+
+// Language folders (/es/, /de/...): offline, a page in one of them falls back
+// to that language's calculator.
+const LANG_DIRS = $LANG_DIRS;
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -59,7 +65,10 @@ self.addEventListener('fetch', (event) => {
       } catch (err) {
         // Offline and not precached: a page falls back to the calculator.
         if (req.mode === 'navigate') {
-          const shell = await cache.match('./index.html');
+          const scope = new URL(self.registration.scope).pathname;
+          const dir = url.pathname.slice(scope.length).split('/')[0];
+          const home = LANG_DIRS.includes(dir) ? `./$${dir}/index.html` : './index.html';
+          const shell = (await cache.match(home)) || (await cache.match('./index.html'));
           if (shell) return shell;
         }
         throw err;

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>阴天的 UVA：能透过多少，以及云增强效应</title>
+    <meta
+      name="description"
+      content="云层对 UVA 的削弱远小于对阳光亮度的削弱——而且碎云还可能让 UVA 短暂超过晴空水平。不同云型的透射率，云下 UVA 与 UVB 的比较，云增强效应，以及 UVA 指数如何模拟云的影响。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/zh/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA 指数" />
+    <meta property="og:title" content="阴天的 UVA：实际能透过多少？" />
+    <meta property="og:description" content="阴天对 UVA 的削弱远小于对亮度的削弱——而碎云还可能让 UVA 超过晴空水平。真实的数字是多少。" />
+    <meta property="og:url" content="https://uvaindex.org/zh/learn/uva-on-cloudy-days.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "阴天的 UVA：能透过多少",
+        "description": "不同云型下有多少 UVA 能透过云层，云下 UVA 与 UVB 的比较，可能让 UVA 超过晴空值的碎云增强效应，以及 UVA 指数如何对云进行参数化。",
+        "inLanguage": "zh-Hans",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-02",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/zh/learn/uva-on-cloudy-days.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Empirical studies of cloud effects on UV radiation: a review",
+            "author": "Calbó J, Pagès D, González J-A",
+            "publisher": "Reviews of Geophysics 43(2):RG2002",
+            "datePublished": "2005",
+            "url": "https://doi.org/10.1029/2004RG000155"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "阴天也会受到紫外线损伤吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "会。薄云或碎云通常能让 80%–100% 的 UVA 透过，即使是厚厚的阴云，通常也能透过 20%–40%。由于云层去除可见光亮度和热感的效果远好于去除紫外线，阴天感觉起来比实际安全得多——你失去了感官上的提示，却仍受到大部分 UVA 的照射。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "什么是云增强效应？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "当太阳位于明亮积云之间的空隙中时，你会受到完整的直射光，外加从周围云层受光一侧散射过来的额外光线。总量可能超过同一时刻的晴空值，通常高出 5%–25%，偶尔在短时间内更高。这是一种真实存在、经过反复测量的效应，它意味着局部多云的天空并不一定比晴空更安全。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "UVA 穿透云层的能力比 UVB 强吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "在厚云下，UVA 的透过率可能略高于 UVB，因为光在云内的路径更长，臭氧会吸收更多 UVB，不过测量结果因云型而异。两者穿透云层的能力都远强于可见光，所以阴天的天空仍会带来相当可观的 UVA 剂量。"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA 指数",
+            "item": "https://uvaindex.org/zh/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "知识库",
+            "item": "https://uvaindex.org/zh/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "阴天的 UVA",
+            "item": "https://uvaindex.org/zh/learn/uva-on-cloudy-days.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="面包屑导航">
+          <a href="../">UVA 指数</a><span class="sep">›</span><a href="./">知识库</a><span class="sep">›</span>阴天的 UVA
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="语言: 简体中文"><span class="lang-icon" aria-hidden="true">🌐</span> 简体中文</summary>
+          <ul>
+            <li><a href="../../learn/uva-on-cloudy-days.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/uva-on-cloudy-days.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/uva-on-cloudy-days.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/uva-on-cloudy-days.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/uva-on-cloudy-days.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/uva-on-cloudy-days.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="uva-on-cloudy-days.html" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>阴天的 UVA：能透过多少</h1>
+        <p class="lead">
+          “今天阴天，没事”是低估自己紫外线暴露最常见的
+          想法之一——而这种想法恰恰在 UVA（长波紫外线）上
+          <em>格外</em>站不住脚。云层非常善于去除你能
+          感觉到的东西——亮度和热感，却相对不善于去除
+          你感觉不到的长波紫外线。在灰蒙蒙的日子里，你失去了
+          警示信号，却仍然受到相当大的剂量。
+        </p>
+
+        <div class="callout">
+          <strong>核心数字：</strong>薄云或碎云通常能让
+          <strong>80%–100%</strong> 的 UVA 透过。即使是满天的厚阴云，通常
+          仍有 <strong>20%–40%</strong> 透过。而在破碎的积云下，UVA 甚至可能
+          短暂地完全超过晴空值。
+        </div>
+
+        <h2>不同云型的透射率</h2>
+        <p>
+          “多云”涵盖了从高空一层淡淡的薄纱到漆黑的
+          风暴云底的一切，两者之间的差距超过一个数量级。
+          在物理上，重要的不是天空被遮住了多少，而是遮挡物的
+          <strong>光学厚度</strong>——也就是你和太阳之间的气柱中
+          含有多少液态水。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>天空</th><th>云</th><th>UVA 透射率</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>晴朗</td><td>—</td><td>100%（基准）</td></tr>
+            <tr><td>高空薄云幕</td><td>卷云、卷层云</td><td>~80–95%</td></tr>
+            <tr><td>疏云 / 碎云，可见太阳</td><td>晴天积云</td><td>~90–110%</td></tr>
+            <tr><td>碎云，太阳被遮挡</td><td>积云、高积云</td><td>~50–80%</td></tr>
+            <tr><td>满天灰色阴云</td><td>高层云、层云</td><td>~30–60%</td></tr>
+            <tr><td>浓厚的黑色阴云</td><td>雨层云、风暴云</td><td>~10–30%</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          请注意第三行。在疏云下、太阳位于云隙中时，
+          数值可能<em>超过</em> 100%——这就是下文将介绍的增强效应，
+          并不是笔误。
+        </p>
+
+        <h2>为什么紫外线比可见光更容易透过云层</h2>
+        <p>
+          云层对紫外线——无论是 UVA 还是致晒伤的
+          <a href="uva-vs-uvb.html">UVB（中波紫外线）</a>——的削弱，都小于对
+          可见光的削弱。这背后有两种机制<sup class="cite"><a href="#src-1" aria-label="来源 1">[1]</a></sup>。
+        </p>
+        <ul>
+          <li>
+            <strong>云滴主要是散射而不是吸收。</strong>与紫外线的波长相比，
+            水滴很大，所以它们大多只是
+            改变紫外线的方向，而不是消灭它。一个进入
+            云层的光子很有可能最终向下射出——只是换了一个
+            方向。这就是为什么阴天的天空是均匀明亮的，
+            而不是黑暗的：能量仍在到达，只是失去了
+            方向。
+          </li>
+          <li>
+            <strong>紫外线本来就大多是散射光。</strong>即使在完全
+            晴朗的天空下，到达地面的紫外线也有很大一部分是来自整个天穹的
+            散射天空光，而不是直接来自太阳圆盘——太阳较高时，
+            约三分之一到一半的 UVA 是散射光，太阳越低比例越高。云层
+            主要去除的是直射光，因此它去除的紫外线比例
+            小于可见光，而可见光大部分确实是
+            直接来自太阳。同样的事实也解释了为什么
+            <a href="reflected-uva-snow-sand-water.html">遮阴对 UVA 的防护
+            比看上去要少</a>：站在伞下挡住的是
+            太阳，而不是天空。
+          </li>
+        </ul>
+
+        <h2>云下的 UVA 与 UVB</h2>
+        <p>
+          <strong>在厚云下，UVA 的透过率可能略高于
+          UVB</strong>，因为光在云内的路径更长，臭氧会吸收
+          更多 UVB。在云内和云下的每一次反弹都会延长光子的
+          路径，也就增加了它遇到臭氧分子的机会；臭氧对 UVB 的吸收
+          很强，对 UVA 则几乎不吸收，所以这段绕行让 UVB 损失更多。
+        </p>
+        <p>
+          不过，测量结果因云型而异。被云层向上反射的光，
+          有一部分会被其上方的空气散射回地面，而空气
+          对较短波长的散射更强，所以在某些均匀的云层下，
+          测得的反而是 UVB 透过得稍多一些。
+          无论如何，两者之间的差别都不大——而且两者的透过率
+          都远高于你能感觉到的光和热。
+        </p>
+
+        <h2>云增强效应</h2>
+        <p>
+          这一点常常令人惊讶：<strong>局部多云的天空可能
+          带来比晴空更多的 UVA。</strong>
+        </p>
+        <p>
+          其中的几何原理很简单。当太阳位于明亮积云之间的
+          晴空空隙中时，你会受到完整的直射光，就和在
+          晴空下完全一样——此外还有从云隙周围云层那明亮的受光侧面
+          散射过来的额外辐射。什么都没有减少，还多了一些。
+          测得的增强幅度通常在
+          <strong>5%–25%</strong> 之间，也记录到过更高的短时峰值<sup class="cite"><a href="#src-1" aria-label="来源 1">[1]</a></sup>，
+          尤其是当地面上还有雪等明亮地表从下方
+          反射光线时。
+        </p>
+        <div class="callout">
+          <strong>为什么这对行为很重要：</strong>“局部多云”听起来像是
+          可以放松的理由。但从物理上看，这正是最有可能带来
+          <em>超过</em>晴空水平 UVA 的天空状况——而时有时无的阴凉让
+          人感觉更凉爽、更舒适，于是人们会在户外待得更久。
+        </div>
+        <p>
+          这种效应是间歇性的，持续时间很短：只在太阳位于
+          云隙中时出现，当云从太阳前方经过时，就会变为真正的衰减。
+          在整个下午平均下来，碎云下的总量通常略低于
+          晴空。但瞬时峰值是真实存在的，而且这并不是
+          任何人从多云的天气预报中会预料到的。
+        </p>
+
+        <h2>这在实际中意味着什么</h2>
+        <ul>
+          <li>
+            <strong>阴天不等于休息日。</strong>在 30%–60% 的透射率下，
+            盛夏时在灰蒙蒙的天空下待一个下午，仍可能比
+            隆冬的晴天受到更多的 UVA。具体的计算请参见
+            <a href="does-uva-change-with-the-seasons.html">为什么 UVA 随季节的变化
+            如此之小</a>。
+          </li>
+          <li>
+            <strong>你不会收到通常的警告。</strong>云层削弱 UVB
+            比削弱 UVA 更快，所以通常提示过度暴露的晒伤
+            被抑制得更多，而导致光老化和色素沉着的 UVA 则不然。
+            云层会像玻璃和低太阳角度一样，把暴露的构成
+            向 UVA 倾斜。
+          </li>
+          <li>
+            <strong>云量百分比的预测能力很弱。</strong>天气预报中的“90%
+            云量”描述的是有多少天空被遮挡，而不是遮挡的云有多
+            厚。百分之九十的薄卷云与百分之九十的
+            雨层云，到达你身上的辐射相差五倍。
+          </li>
+          <li>
+            <strong>对光敏感的人应当把云层视为几乎
+            无关紧要。</strong>如果你的阈值很低，透射率 40% 的日子仍会超过
+            它。详见
+            <a href="uva-photosensitivity-medications.html">UVA 光敏感</a>。
+          </li>
+        </ul>
+
+        <h2>UVA 指数如何处理云</h2>
+        <p>
+          云是本站
+          <a href="../">UVA&nbsp;指数</a>中变化最大的单一输入，模型会根据
+          你所在位置可用的数据，用两种方式来处理它。
+        </p>
+        <p>
+          <strong>首选：根据实时紫外线数据推算。</strong>Open-Meteo
+          会同时发布同一小时的实际紫外线指数（UV&nbsp;指数）和晴空 UV&nbsp;指数。
+          两者之比就是头顶真实天空的红斑加权云透射率实测值——
+          远优于任何基于云量百分比的参数化方法。由于 UVA 与红斑
+          透射率之间的差异不大，且因云型而异（见上文），
+          这一透射率被原样应用于 UVA：
+        </p>
+        <div class="callout">
+          <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>γ</sup>，其中 γ = 1</strong>
+        </div>
+        <p>
+          一场把红斑紫外线削减到 30% 的浓厚阴云，会留下约 30% 的
+          UVA。指数 γ 被保留为一个明确的系数，因为它是
+          模型中最值得用测量数据检验的部分；本
+          项目的验证脚本会用独立的 UVA 数据对它进行拟合。
+        </p>
+        <p>
+          <strong>备用：根据云量进行参数化计算。</strong>当无法获得实时的紫外线
+          数据对时，模型会退而使用报告的总
+          云量：
+        </p>
+        <div class="callout">
+          <strong>云系数 = 1 − 0.4 × (云量 ÷ 100)<sup>1.5</sup></strong>
+        </div>
+        <p>
+          这条曲线有意设计得较为平缓，因为报告的“100% 云量”是
+          关于天空覆盖范围的描述，而不是光学厚度——所以在满云量时，
+          合理的平均表现是适度减少到约
+          <strong>60%</strong>，而不是完全遮蔽。完整的推导以及
+          所有其他系数，请参见
+          <a href="how-uva-index-is-calculated.html">UVA 指数是如何
+          计算的</a>。
+        </p>
+        <p>
+          坦白说，有一个局限：<strong>模型无法再现云
+          增强效应。</strong>两种方法都只考虑衰减，所以系数永远不会
+          大于 1。在破碎的积云下、太阳位于云隙中时，真实的 UVA
+          可能超过 UVA&nbsp;指数给出的数值。它被列在
+          <a href="how-uva-index-is-calculated.html#omitted">有意
+          省略的因素</a>之中，也是唯一一种数值更可能
+          偏低而非偏高的情况。
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>参考来源</h2>
+          <ol>
+            <li id="src-1">Calbó J, Pagès D, González J-A (2005). <a href="https://doi.org/10.1029/2004RG000155" rel="noopener">Empirical studies of cloud effects on UV radiation: a review</a>. <em>Reviews of Geophysics 43(2):RG2002</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">最后审核：2026年11月16日。发现错误或有更好的来源？<a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">请在 GitHub 上告诉我们</a>。</p>
+
+        <a class="cta" href="../">查看今天的 UVA 指数（已计入云量）→</a>
+      </article>
+
+      <aside class="related">
+        <h2>继续阅读</h2>
+        <ul>
+          <li><a href="how-uva-index-is-calculated.html">UVA 指数是如何计算的</a></li>
+          <li><a href="does-uva-change-with-the-seasons.html">为什么 UVA 随季节的变化远小于 UVB</a></li>
+          <li><a href="what-time-is-uva-highest.html">UVA 一天中什么时候最强？看日变化曲线</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          免费且开源。非官方的 UVA 指数与 UVA 辐照度计算。仅供科普参考，不构成医疗建议。更多信息请见<a href="https://uvaindex.org/zh/about.html">关于</a>页面。
+          · <button type="button" class="link-btn" data-consent-open>Cookie 设置</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

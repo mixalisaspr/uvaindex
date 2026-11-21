@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>紫外线指数 0 到 11+ 等级详解——以及它没告诉你的</title>
+    <meta
+      name="description"
+      content="紫外线指数的数字是什么意思、0–11+ 的刻度从何而来、世界卫生组织的等级颜色和建议、它实际能有多高——以及导致它低估 UVA 的红斑加权。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/zh/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/uv-index-scale-explained.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA 指数" />
+    <meta property="og:title" content="紫外线指数 0 到 11+ 等级详解" />
+    <meta property="og:description" content="紫外线指数的数字从何而来、每个等级代表什么、它实际能有多高——以及这个刻度在设计上就不会告诉你的一件事。" />
+    <meta property="og:url" content="https://uvaindex.org/zh/learn/uv-index-scale-explained.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "紫外线指数等级详解——以及它遗漏了什么",
+        "description": "全面解释紫外线指数刻度：数字背后的红斑作用光谱和乘以 40 的换算、世界卫生组织的等级和颜色、世界各地的纪录值，以及该指数在结构上低估 UVA 的原因。",
+        "inLanguage": "zh-Hans",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-29",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/zh/learn/uv-index-scale-explained.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Global Solar UV Index: A Practical Guide",
+            "publisher": "World Health Organization, WMO, UNEP and ICNIRP",
+            "datePublished": "2002",
+            "url": "https://www.who.int/publications/i/item/9241590076"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Record solar UV irradiance in the tropical Andes",
+            "author": "Cabrol NA, Feister U, Häder D-P, et al.",
+            "publisher": "Frontiers in Environmental Science 2:19",
+            "datePublished": "2014",
+            "url": "https://doi.org/10.3389/fenvs.2014.00019"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Comment on \"Record solar UV irradiance in the tropical Andes\"",
+            "author": "McKenzie RL, Bernhard G, Madronich S, Zaratti F",
+            "publisher": "Frontiers in Environmental Science 3:26",
+            "datePublished": "2015",
+            "url": "https://doi.org/10.3389/fenvs.2015.00026"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "紫外线指数多少算高？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "世界卫生组织（WHO）的等级为：低（0–2）、中等（3–5）、高（6–7）、很高（8–10）和极高（11+）。从 3 开始建议采取防护。读数达到 8 或以上，意味着在正午前后，未加防护的白皙皮肤大约 15–25 分钟内就可能开始晒伤。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "紫外线指数是如何计算的？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "把地面的太阳光谱辐照度逐个波长乘以 CIE 红斑作用光谱——一条描述各波长使人体皮肤发红的效力的曲线——然后在整个紫外波段积分，再乘以 40。因此，UV 指数为 1 相当于 0.025 W/m² 的红斑加权辐照度。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "紫外线指数会超过 11 吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "会。这个刻度没有上限；11 只是最高等级的起点。在热带安第斯山区，14–16 的数值很常见，2003 年 12 月玻利维亚的利坎卡武尔火山曾报告过 43.3 的读数——这是已发表的最高值，不过其他研究人员认为这很可能是仪器误差，并提出了质疑。高海拔、稀薄的臭氧、头顶直射的太阳和积雪反射会叠加放大。"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA 指数",
+            "item": "https://uvaindex.org/zh/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "知识库",
+            "item": "https://uvaindex.org/zh/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "紫外线指数等级详解",
+            "item": "https://uvaindex.org/zh/learn/uv-index-scale-explained.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="面包屑导航">
+          <a href="../">UVA 指数</a><span class="sep">›</span><a href="./">知识库</a><span class="sep">›</span>紫外线指数等级详解
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="语言: 简体中文"><span class="lang-icon" aria-hidden="true">🌐</span> 简体中文</summary>
+          <ul>
+            <li><a href="../../learn/uv-index-scale-explained.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/uv-index-scale-explained.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/uv-index-scale-explained.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/uv-index-scale-explained.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/uv-index-scale-explained.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/uv-index-scale-explained.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="uv-index-scale-explained.html" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>紫外线指数等级详解——以及它遗漏了什么</h1>
+        <p class="lead">
+          紫外线指数（UV&nbsp;指数）几乎是每个人都见过的那一条紫外线信息：
+          天气应用里一个按颜色区分、介于 0 到 11 之间的数字。它确实是
+          科学传播的一个优秀范例。但从设计上说，它也只衡量<em>一件</em>事——
+          本文讨论的正是这句话的两个方面。
+        </p>
+
+        <h2>这个数字从何而来</h2>
+        <p>
+          UV&nbsp;指数并不是对紫外线的测量。它衡量的是
+          紫外线<strong>使人体皮肤发红</strong>的能力，
+          这是另一种物理量。
+        </p>
+        <p>
+          阳光以光谱的形式到达地面——也就是能量在各个波长上的
+          分布。为了得出这个指数，要把这一光谱逐个波长乘以
+          <strong>CIE 红斑作用光谱</strong>：这是一条标准化曲线，
+          描述每个波长引起晒伤的效力。加权后的结果在整个
+          紫外波段积分，再乘以一个常数。<sup class="cite"><a href="#src-1" aria-label="来源 1">[1]</a></sup>
+        </p>
+        <div class="callout">
+          <strong>UV 指数 = 红斑加权辐照度（W/m²）× 40</strong><br />
+          因此 UV&nbsp;指数 1 = 0.025&nbsp;W/m²；UV&nbsp;指数 10 = 0.25&nbsp;W/m²。
+        </div>
+        <p>
+          乘以 40 这个系数，纯粹是为了让地球上各种条件下的结果落在
+          一个好记的 0 到约 11 的范围内。它本身没有任何物理
+          意义——就像本站用除数 6 把
+          <a href="how-uva-index-is-calculated.html">UVA 指数</a>放到
+          可比的刻度上一样。
+        </p>
+
+        <h2>各个等级，以及世界卫生组织的建议</h2>
+        <p>
+          下列等级是世界卫生组织（WHO）、世界气象组织（WMO）和国际非电离辐射防护委员会（ICNIRP）的标准，基本上通行于
+          全世界。颜色也是标准的一部分，并非装饰。<sup class="cite"><a href="#src-1" aria-label="来源 1">[1]</a></sup>
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>UV 指数</th><th>等级</th><th>颜色</th><th>WHO 建议</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0–2</td><td>低</td><td>绿色</td><td>大多数人无需防护</td></tr>
+            <tr><td>3–5</td><td>中等</td><td>黄色</td><td>正午前后寻找阴凉处；穿衬衫、涂防晒霜、戴帽子</td></tr>
+            <tr><td>6–7</td><td>高</td><td>橙色</td><td>需要防护；减少正午时段的暴露</td></tr>
+            <tr><td>8–10</td><td>很高</td><td>红色</td><td>加强防护；正午前后避免待在户外</td></tr>
+            <tr><td>11+</td><td>极高</td><td>紫色</td><td>采取一切防护措施；未防护的皮肤几分钟内就可能晒伤</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          <strong>3 是关键的阈值。</strong>世界卫生组织从这个数值
+          开始建议采取防护，大多数国家的宣传活动也是围绕这个数字
+          开展的。低于 3 时，在正常的暴露时长下，大多数皮肤类型
+          不太可能出现红斑。
+        </p>
+
+        <h2>它实际能有多高？</h2>
+        <p>
+          这个刻度没有上限。11 是最高等级的<em>起点</em>，
+          而不是刻度的终点——应用以“11+”显示的方式
+          助长了这一常见误解。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>地区</th><th>典型的夏季晴空峰值</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>英国北部、斯堪的纳维亚</td><td>5–7</td></tr>
+            <tr><td>中欧和北欧</td><td>6–8</td></tr>
+            <tr><td>地中海地区、美国南部</td><td>9–11</td></tr>
+            <tr><td>热带低地</td><td>11–14</td></tr>
+            <tr><td>热带高海拔地区（安第斯山脉、喜马拉雅山脉）</td><td>14–20+</td></tr>
+            <tr><td>已发表的最高读数——有争议（玻利维亚利坎卡武尔火山，2003 年 12 月）</td><td>43.3</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          利坎卡武尔的数值来自安第斯山一座高海拔火山上的剂量计测量，<sup class="cite"><a href="#src-2" aria-label="来源 2">[2]</a></sup>其他紫外线研究人员认为这很可能是仪器误差，并提出了质疑，<sup class="cite"><a href="#src-3" aria-label="来源 3">[3]</a></sup>因此应把它视为已有说法的上限，而不是公认的纪录。极端数值来自所有放大因素同时叠加：头顶直射的太阳、
+          稀薄的臭氧柱、上方很少的大气、洁净干燥的空气，以及
+          来自下方的积雪反射。<a href="uva-at-altitude.html">高海拔的
+          UVA</a> 一文介绍了海拔梯度为什么因波长而异，
+          <a href="reflected-uva-snow-sand-water.html">反射 UVA</a> 一文则介绍了
+          反照率的贡献。
+        </p>
+
+        <h2>加权的作用——以及它隐藏了什么</h2>
+        <p>
+          下面是红斑加权在结构上带来的后果。这一作用
+          光谱随波长增加而下降得极其陡峭：与它在 UVB（中波紫外线）中的
+          峰值相比，它在 340&nbsp;nm 处的效力要小约
+          一千倍。所以这个指数实际上是一台 UVB 测量仪。
+        </p>
+        <div class="callout">
+          在太阳正午时，到达地面的<strong>紫外线光子中约有 95%</strong>
+          是 UVA（长波紫外线）——但经过红斑加权后，UVA 只
+          贡献了 UV&nbsp;指数的约 <strong>17%</strong>，其余约 83%
+          来自 UVB。这个指数由光谱中恰好会导致晒伤的那一小部分所主导。
+        </div>
+        <p>
+          对于它的本职工作——告诉你是否快要晒伤——
+          这完全正确，无可指摘。问题在于，
+          这个数字随后被当成了通用的“今天紫外线有多少”的
+          信号，而它并不是。由于 UVB 和 UVA 对太阳角度、
+          臭氧、云和玻璃的反应截然不同，两者恰恰会在人们
+          不再留意的时候出现分歧：
+        </p>
+        <ul>
+          <li>
+            <strong>冬季。</strong>穿过大气的倾斜路径变长，意味着
+            挡在中间的臭氧多得多，这会剥离 UVB，而 UVA 大部分
+            保持不变。UV&nbsp;指数大幅下降；UVA 只是小幅下降。参见
+            <a href="does-uva-change-with-the-seasons.html">UVA 的季节变化</a>。
+          </li>
+          <li>
+            <strong>隔着玻璃。</strong>普通窗玻璃几乎会去除全部
+            UVB，所以室内的有效 UV&nbsp;指数约为零——而
+            很大一部分 UVA 仍会透过。参见
+            <a href="does-glass-block-uva.html">玻璃能阻挡 UVA 吗</a>。
+          </li>
+          <li>
+            <strong>云层下。</strong>云对以 UVB 为主的
+            红斑波段的衰减大于对 UVA 的衰减，因此比例会再次改变。
+            参见<a href="uva-on-cloudy-days.html">阴天的 UVA</a>。
+          </li>
+          <li>
+            <strong>清晨和傍晚。</strong>与冬季同样的大气质量原理，
+            只是压缩到了几个小时内。参见
+            <a href="what-time-is-uva-highest.html">UVA 在什么时候最强</a>。
+          </li>
+        </ul>
+        <p>
+          在上述每一种情况下，较低的 UV&nbsp;指数对晒伤风险的判断
+          都是真实的，却会让人对总体紫外线暴露产生误解——
+          这正是本站要计算
+          <a href="uv-index-vs-uva-index.html">单独的 UVA 指数</a>的全部原因。
+        </p>
+
+        <h2>把两个指数结合起来看</h2>
+        <p>
+          最有用的习惯是把它们看作在回答两个不同的
+          问题，而不是在争夺同一个问题的答案。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>问题</th><th>要看的数字</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>我今天会晒伤吗？</td><td>UV 指数</td></tr>
+            <tr><td>为了防晒伤，我现在需要防护吗？</td><td>UV 指数 ≥ 3</td></tr>
+            <tr><td>我是否在累积导致光老化和色素沉着的剂量？</td><td>UVA 指数</td></tr>
+            <tr><td>我的通勤或窗边的办公桌有影响吗？</td><td>UVA 指数</td></tr>
+            <tr><td>我会合成维生素 D 吗？</td><td>UV 指数（它反映 UVB 的多少）</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          最后一行值得多说几句，因为它最清楚地
+          说明了两者的分工：维生素 D 的合成由 UVB 驱动，
+          因此与 UV&nbsp;指数密切相关，而 UVA 对此
+          毫无贡献——这一点在
+          <a href="uva-and-vitamin-d.html">UVA 与维生素 D</a> 一文中有详细阐述。本站的计算器
+          之所以把实时 UV&nbsp;指数与 UVA 指数并排显示，正是出于
+          这个原因：把它们放在一起看，差异就一目了然。
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>参考来源</h2>
+          <ol>
+            <li id="src-1"><a href="https://www.who.int/publications/i/item/9241590076" rel="noopener">Global Solar UV Index: A Practical Guide</a>. <em>World Health Organization, WMO, UNEP and ICNIRP</em>, 2002.</li>
+            <li id="src-2">Cabrol NA, Feister U, Häder D-P, et al. (2014). <a href="https://doi.org/10.3389/fenvs.2014.00019" rel="noopener">Record solar UV irradiance in the tropical Andes</a>. <em>Frontiers in Environmental Science 2:19</em>.</li>
+            <li id="src-3">McKenzie RL, Bernhard G, Madronich S, Zaratti F (2015). <a href="https://doi.org/10.3389/fenvs.2015.00026" rel="noopener">Comment on &quot;Record solar UV irradiance in the tropical Andes&quot;</a>. <em>Frontiers in Environmental Science 3:26</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">最后审核：2026年11月16日。发现错误或有更好的来源？<a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">请在 GitHub 上告诉我们</a>。</p>
+
+        <a class="cta" href="../">与你所在位置的 UVA 指数进行比较 →</a>
+      </article>
+
+      <aside class="related">
+        <h2>继续阅读</h2>
+        <ul>
+          <li><a href="uv-index-vs-uva-index.html">紫外线指数与 UVA 指数：两者各自衡量什么</a></li>
+          <li><a href="how-uva-index-is-calculated.html">UVA 指数是如何计算的</a></li>
+          <li><a href="uva-vs-uvb.html">UVA 和 UVB 有什么区别？</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          免费且开源。非官方的 UVA 指数与 UVA 辐照度计算。仅供科普参考，不构成医疗建议。更多信息请见<a href="https://uvaindex.org/zh/about.html">关于</a>页面。
+          · <button type="button" class="link-btn" data-consent-open>Cookie 设置</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

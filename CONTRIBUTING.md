@@ -75,6 +75,43 @@ The script validates as it goes (duplicate slugs, broken internal links,
 missing required fields, bad dates, unknown or unused sources) and fails loudly with a full error list
 rather than generating broken output.
 
+## Translating
+
+The site is published in seven languages (see
+[Languages](README.md#languages) in the README). Translations are welcome
+both for missing articles and as corrections to existing ones.
+
+- **An article:** copy `content/learn/<slug>.html` to
+  `content/learn/<lang>/<slug>.html` and translate it. Keep only the
+  translatable metadata — `title`, `headline`, `description`, `og_title` (if
+  the English has one), `og_description`, `jsonld_description`, `faq`,
+  `cta_text`, `breadcrumb_label`, and `related_pins` only when the English
+  pins carry labels — plus `"slug"` and `"translated_from"` (the English
+  `date_modified` you translated). Everything else is taken from the English
+  article.
+- **A page:** `<lang>/index.html`, `about.html` and `widget.html` mirror the
+  root pages; asset paths gain `../`, canonical and `og:url` gain `/<lang>/`.
+- **Interface text:** `js/i18n.js` (scripts) and `content/i18n/<lang>.json`
+  (generated pages). The `glossary` in `content/i18n/<lang>.json` fixes the
+  terms every page in that language uses: the name of the index, the band
+  names, the section names and the tone.
+
+Rules for every translation: change only the words. Keep each tag,
+attribute, link and `[[cite:...]]` marker as in the English, in the same
+order, and keep every fact, number and caveat. Use the language's own number
+style in prose (decimal comma in es/fr/de/it).
+
+Check with `python3 scripts/i18n_check.py <lang>` (or `<lang> <slug>`), then
+run `python3 scripts/build_kb.py`. When an English article changes, its
+translations' `translated_from` no longer matches it: the build keeps
+publishing them with a warning while their links and markup still match the
+English, and shows the English article in their place once they don't, so an
+English edit never breaks the build. Update the wording and `translated_from`
+together. A translation that fails the check against the English version it
+names is a build error. (`--partial` turns those errors into warnings while
+a translation is being written.) `npm test` also checks that every language in
+`js/i18n.js` defines every string with the same placeholders.
+
 ## Pull request guidelines
 
 1. Fork the repo and create a topic branch off `main`.

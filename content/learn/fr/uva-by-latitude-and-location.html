@@ -1,0 +1,216 @@
+<!--meta
+{
+  "slug": "uva-by-latitude-and-location",
+  "translated_from": "2026-11-16",
+  "title": "UVA et latitude : pourquoi le lieu compte moins pour les UVA que pour les UVB",
+  "headline": "Les UVA dans le monde : pourquoi la latitude compte moins qu'on ne le pense",
+  "description": "L'ozone n'absorbe presque pas les UVA : le gradient entre l'équateur et les pôles est donc bien plus faible pour les UVA que pour l'indice UV. Indice UVA maximal par ciel clair dans des villes du monde entier, pourquoi l'hémisphère Sud est plus exposé et ce qui explique réellement les différences locales.",
+  "og_title": "Les UVA dans le monde : la latitude compte moins qu'on ne le pense",
+  "og_description": "De l'équateur à l'Islande, l'indice UV maximal baisse d'environ 60 %. Les UVA maximaux baissent de moins de 30 %. Voici pourquoi.",
+  "jsonld_description": "Comment les UVA en surface varient selon la latitude et le lieu : indice UVA maximal par ciel clair dans des villes du monde entier, calculé avec le modèle de ce site, pourquoi la colonne d'ozone aplanit le gradient des UVA par rapport à l'indice UV érythémal, et les effets du périhélie et de l'ozone qui rendent les UV plus élevés dans l'hémisphère Sud.",
+  "faq": [
+    {
+      "question": "Où les UVA sont-ils les plus élevés au monde ?",
+      "answer": "Là où un soleil au zénith se combine à une haute altitude et à un air raréfié : les Andes tropicales et l'Altiplano andin arrivent en tête, suivis du plateau tibétain, des hauts plateaux d'Afrique de l'Est tropicale et des îles tropicales de haute altitude. Au niveau de la mer, le maximum est fixé par le seul soleil au zénith : partout sous les tropiques, on atteint donc à peu près le même pic."
+    },
+    {
+      "question": "Les UVA varient-ils beaucoup avec la latitude ?",
+      "answer": "Moins que l'indice UV. Entre l'équateur et Londres, l'indice UV maximal par ciel clair baisse d'environ 40 %, mais l'indice UVA maximal ne baisse que d'environ 14 %. La raison est l'ozone : la colonne atmosphérique absorbe fortement les UVB et presque pas les UVA, si bien que l'allongement du trajet aux latitudes plus élevées pénalise bien davantage la bande qui brûle que celle qui fait vieillir."
+    },
+    {
+      "question": "Pourquoi les UV sont-ils plus élevés en Australie et en Nouvelle-Zélande ?",
+      "answer": "Trois effets s'additionnent. La Terre est au plus près du Soleil début janvier, pendant l'été austral, ce qui apporte environ 7 % d'éclairement solaire de plus que pendant l'été boréal. Les latitudes moyennes de l'hémisphère Sud ont une colonne d'ozone plus mince que leurs équivalentes du Nord. Et il y a beaucoup moins d'aérosols industriels au-dessus des océans austraux. Ensemble, ces effets placent les UVA de l'hémisphère Sud quelques pour cent au-dessus des valeurs de l'hémisphère Nord à latitude comparable, et les UV responsables des coups de soleil nettement plus haut."
+    }
+  ],
+  "cta_text": "Obtenez l'indice UVA de n'importe quel lieu sur Terre →",
+  "breadcrumb_label": "UVA selon la latitude et le lieu"
+}
+-->
+<h1>Les UVA dans le monde : pourquoi la latitude compte moins qu'on ne le pense</h1>
+<p class="lead">
+  Tout le monde sait que le soleil est impitoyable sous les tropiques et qu'il
+  ne l'est pas en Europe du Nord. Pour le coup de soleil, cette intuition est
+  juste. Pour les UVA, elle l'est beaucoup moins : le gradient entre l'équateur
+  et les pôles, qui fait s'effondrer l'indice&nbsp;UV à mesure que l'on monte
+  vers le nord, est en grande partie un effet de l'ozone, et l'ozone est presque
+  transparent aux UVA. Résultat : à l'échelle du globe, le maximum d'UVA est
+  bien plus uniforme que le risque maximal de coup de soleil.
+</p>
+
+<h2>Pourquoi les deux gradients diffèrent</h2>
+<p>
+  Deux choses changent à mesure que l'on s'éloigne de l'équateur. La hauteur
+  maximale du soleil diminue, et le trajet dans l'atmosphère à ce maximum
+  s'allonge. Les deux réduisent l'ultraviolet au sol, mais par des mécanismes
+  différents, aux conséquences spectrales différentes.
+</p>
+<ul>
+  <li>
+    <strong>La géométrie ne fait pas de différence entre les couleurs.</strong>
+    Un soleil plus bas répartit la même énergie sur une plus grande surface, et
+    cette dilution s'applique de la même façon à toutes les longueurs d'onde.
+    C'est le terme cos(zénith), qui touche les UVA et les UVB de la même manière.
+  </li>
+  <li>
+    <strong>L'absorption, si.</strong> Un trajet plus long signifie davantage de
+    molécules d'ozone sur le chemin. Les bandes d'absorption de Hartley et de
+    Huggins de l'ozone sont puissantes dans les UVB et s'effacent rapidement dans
+    les UVA. L'allongement du trajet coûte donc cher aux UVB et presque rien aux UVA.
+  </li>
+</ul>
+<p>
+  De plus, la colonne d'ozone elle-même varie avec la latitude : plus mince
+  au-dessus des tropiques, généralement autour de 250 à 280 unités Dobson, et
+  plus épaisse aux latitudes moyennes et élevées, souvent 300 à 400 DU avec un
+  maximum au printemps. Cette variation ajoute une seconde pénalité propre aux
+  UVB à celle de la longueur du trajet, et là encore épargne largement les UVA.
+</p>
+<div class="callout">
+  C'est pourquoi le modèle de ce site fixe l'ozone à une valeur typique de
+  300&nbsp;unités Dobson au lieu de la suivre en temps réel. Diviser la colonne
+  d'ozone par deux ne changerait les UVA que de quelques pour cent, alors que
+  cela doublerait à peu près les UV érythémaux. Pour les UVA, c'est une erreur
+  d'arrondi ; pour l'<a href="uv-index-scale-explained.html">indice
+  UV</a>, c'est un terme de premier ordre.
+</div>
+
+<h2>Indice UVA maximal, ville par ville</h2>
+<p>
+  Le tableau ci-dessous donne l'indice UVA de chaque lieu dans le
+  <strong>meilleur des cas</strong> : ciel clair, niveau de la mer sauf mention
+  contraire, aucun aérosol, au midi solaire du jour de l'année où le soleil
+  monte le plus haut, en tenant compte de la distance Terre–Soleil ce jour-là.
+  Pour les lieux tropicaux, c'est le jour où le soleil passe exactement au
+  zénith ; ailleurs, c'est le solstice d'été. Les valeurs sont calculées avec le
+  <a href="how-uva-index-is-calculated.html">modèle</a> de ce site. La colonne
+  de l'indice&nbsp;UV donne un ordre de grandeur des maxima estivaux typiques
+  observés par ciel clair, pour montrer la tendance plutôt que pour la précision.
+</p>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Lieu</th><th>Latitude</th><th>Altitude</th><th>Angle zénithal solaire minimal</th><th>Indice UVA maximal</th><th>≈ Indice UV maximal</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Quito, Équateur</td><td>0,2° S</td><td>2 850 m</td><td>0°</td><td>11,7</td><td>~14–16</td></tr>
+    <tr><td>Mexico, Mexique</td><td>19,4° N</td><td>2 240 m</td><td>0°</td><td>11,2</td><td>~13–15</td></tr>
+    <tr><td>Nairobi, Kenya</td><td>1,3° S</td><td>1 795 m</td><td>0°</td><td>11,5</td><td>~13–15</td></tr>
+    <tr><td>Singapour</td><td>1,4° N</td><td>Niveau de la mer</td><td>0°</td><td>10,9</td><td>~12–13</td></tr>
+    <tr><td>Miami, États-Unis</td><td>25,8° N</td><td>Niveau de la mer</td><td>2°</td><td>10,5</td><td>~11</td></tr>
+    <tr><td>Le Caire, Égypte</td><td>30,0° N</td><td>Niveau de la mer</td><td>7°</td><td>10,4</td><td>~11</td></tr>
+    <tr><td>Sydney, Australie</td><td>33,9° S</td><td>Niveau de la mer</td><td>10°</td><td>11,0</td><td>~11–12</td></tr>
+    <tr><td>Los Angeles, États-Unis</td><td>34,1° N</td><td>Niveau de la mer</td><td>11°</td><td>10,3</td><td>~10</td></tr>
+    <tr><td>Athènes, Grèce</td><td>38,0° N</td><td>Niveau de la mer</td><td>15°</td><td>10,1</td><td>~9–10</td></tr>
+    <tr><td>New York, États-Unis</td><td>40,7° N</td><td>Niveau de la mer</td><td>17°</td><td>9,9</td><td>~9</td></tr>
+    <tr><td>Rome, Italie</td><td>41,9° N</td><td>Niveau de la mer</td><td>18°</td><td>9,9</td><td>~9</td></tr>
+    <tr><td>Toronto, Canada</td><td>43,7° N</td><td>Niveau de la mer</td><td>20°</td><td>9,7</td><td>~8–9</td></tr>
+    <tr><td>Paris, France</td><td>48,9° N</td><td>Niveau de la mer</td><td>25°</td><td>9,3</td><td>~8</td></tr>
+    <tr><td>Londres, Royaume-Uni</td><td>51,5° N</td><td>Niveau de la mer</td><td>28°</td><td>9,0</td><td>~7</td></tr>
+    <tr><td>Berlin, Allemagne</td><td>52,5° N</td><td>Niveau de la mer</td><td>29°</td><td>8,9</td><td>~7</td></tr>
+    <tr><td>Stockholm, Suède</td><td>59,3° N</td><td>Niveau de la mer</td><td>36°</td><td>8,0</td><td>~6</td></tr>
+    <tr><td>Reykjavik, Islande</td><td>64,2° N</td><td>Niveau de la mer</td><td>41°</td><td>7,3</td><td>~4–5</td></tr>
+  </tbody>
+</table>
+</div>
+<div class="callout">
+  <strong>Comparez les deux colonnes de droite.</strong> De Singapour à
+  Reykjavik, l'indice&nbsp;UV maximal baisse d'environ 60 %. L'indice UVA
+  maximal baisse d'<strong>un tiers</strong>. De Singapour à Londres,
+  l'indice&nbsp;UV est à peu près divisé par deux, alors que les UVA ne
+  baissent que de <strong>17 %</strong> : le meilleur jour d'été à Londres
+  se situe, en termes d'UVA, à moins d'un cinquième d'une journée tropicale.
+</div>
+<p>
+  Le tableau montre encore deux choses. <strong>L'altitude l'emporte sur la
+  latitude.</strong> Quito, Mexico et Nairobi arrivent en tête non pas en raison
+  de leur position nord–sud, mais de leur altitude : l'air plus mince ajoute
+  environ 3 % par kilomètre avant même que l'on ait quitté la brume des basses
+  terres, et toutes dépassent le sommet théorique de l'échelle. Sydney devance
+  aussi de peu Los Angeles, à une latitude presque identique : son été tombe en
+  janvier, quand la Terre est au plus près du soleil. L'article
+  <a href="uva-at-altitude.html">Les UVA en altitude</a> explique pourquoi. Et
+  <strong>les tropiques atteignent un plafond.</strong> Dès que le soleil peut
+  passer au zénith, se rapprocher davantage de l'équateur n'ajoute rien :
+  Singapour et Miami atteignent le même pic, à des dates différentes.
+</p>
+
+<h2>L'hémisphère Sud est plus exposé</h2>
+<p>
+  À latitude égale, l'ultraviolet de l'hémisphère Sud dépasse celui de
+  l'hémisphère Nord, de quelques pour cent pour les UVA et de beaucoup plus pour
+  les UV responsables des coups de soleil. Trois effets indépendants s'additionnent :
+</p>
+<ul>
+  <li>
+    <strong>Le périhélie.</strong> L'orbite de la Terre est elliptique, et la
+    Terre est au plus près du Soleil début janvier, en plein été austral. L'été
+    austral reçoit ainsi environ <strong>7 % d'éclairement solaire de plus</strong>
+    que l'été boréal, à l'aphélie en juillet. Contrairement à presque tout le
+    reste ici, cet effet s'applique également à toutes les longueurs d'onde : il
+    augmente donc les UVA autant que les UVB.
+  </li>
+  <li>
+    <strong>Un ozone plus mince.</strong> Les latitudes moyennes de l'hémisphère
+    Sud ont une colonne d'ozone plus faible que les latitudes correspondantes du
+    Nord, en partie à cause de la circulation atmosphérique et en partie en tant
+    qu'influence résiduelle du trou de la couche d'ozone antarctique. Cet effet est propre aux UVB, et il peut être important : une comparaison classique a montré que les UV estivaux responsables des coups de soleil en Nouvelle-Zélande étaient environ le double de ceux de l'Allemagne à une latitude similaire.[[cite:seckmeyer1992]]
+  </li>
+  <li>
+    <strong>Un air plus pur.</strong> Il y a beaucoup moins d'aérosols
+    industriels et continentaux au-dessus des océans austraux, si bien que le
+    rayonnement est moins diffusé et moins absorbé en descendant.
+  </li>
+</ul>
+<p>
+  C'est l'une des principales raisons pour lesquelles l'Australie et la
+  Nouvelle-Zélande ont les taux de mélanome les plus élevés du monde, et pour
+  lesquelles leurs campagnes de protection solaire sont les plus développées.
+</p>
+
+<h2>Ce qui varie vraiment localement</h2>
+<p>
+  La latitude fixe le plafond. Au quotidien, c'est tout le reste qui fait varier
+  votre mesure, et surtout pas ce à quoi l'on s'attend :
+</p>
+<div class="table-scroll">
+<table class="data-table">
+  <thead>
+    <tr><th>Facteur</th><th>Effet sur les UVA</th><th>Effet sur l'indice UV</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Heure de la journée</td><td>Important</td><td>Plus important</td></tr>
+    <tr><td>Saison</td><td>Modéré</td><td>Important</td></tr>
+    <tr><td>Nuages</td><td>Important, variable</td><td>Plus important</td></tr>
+    <tr><td>Altitude</td><td>~6 % par km</td><td>~8–10 % par km</td></tr>
+    <tr><td>Colonne d'ozone</td><td>Négligeable</td><td>Important</td></tr>
+    <tr><td>Aérosols, brume, poussière</td><td>Modéré</td><td>Modéré</td></tr>
+    <tr><td>Neige ou sable au sol</td><td>Apport modéré</td><td>Apport modéré</td></tr>
+    <tr><td>Latitude</td><td>Limité</td><td>Important</td></tr>
+  </tbody>
+</table>
+</div>
+<p>
+  Les deux dernières lignes résument l'objet de cette page. Si vous voulez
+  connaître votre risque de coup de soleil, l'endroit où vous vous trouvez sur
+  la planète fait partie des premières questions à se poser. Si vous voulez
+  connaître votre dose d'UVA, c'est l'une des dernières :
+  <a href="what-time-is-uva-highest.html">l'heure qu'il est</a> et
+  <a href="uva-on-cloudy-days.html">l'état du ciel</a> comptent bien davantage.
+</p>
+
+<h2>Une réserve sur ces chiffres</h2>
+<p>
+  Chaque valeur du tableau des villes est une limite supérieure : un ciel
+  parfaitement clair et sans aérosols, le meilleur jour de l'année. Les mesures
+  réelles se situent en dessous, souvent bien en dessous, et l'écart est plus
+  grand dans les climats humides, brumeux ou nuageux que dans les climats secs
+  et dégagés. Le pic quotidien réel à Singapour est souvent très inférieur à 11
+  à cause des nuages convectifs, alors que celui du Caire approche régulièrement
+  son plafond.
+</p>
+<p>
+  Pour obtenir un vrai chiffre là où vous êtes vraiment, le
+  <a href="../">calculateur</a> récupère en direct les données de nuages,
+  d'aérosols et d'altitude pour vos coordonnées, au lieu de supposer le
+  meilleur des cas.
+</p>

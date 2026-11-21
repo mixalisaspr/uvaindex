@@ -51,8 +51,9 @@ def languages() -> list[str]:
 
 
 class Skeleton(html.parser.HTMLParser):
-    """Records the structure of a fragment: tags with their class/id, link
-    targets and media sources, in document order."""
+    """Records the structure of a fragment: opening tags with their
+    class/id, closing tags, link targets and media sources, in document
+    order."""
 
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -72,6 +73,9 @@ class Skeleton(html.parser.HTMLParser):
                 self.links.append(f"{tag}[{key}]={a[key]}")
 
     handle_startendtag = handle_starttag
+
+    def handle_endtag(self, tag):
+        self.tags.append("/" + tag)
 
 
 def skeleton(fragment: str) -> Skeleton:
@@ -120,7 +124,11 @@ def parse(path: Path):
     return json.loads(m.group("json")), text[m.end():]
 
 
-def check_article(lang: str, slug: str, problems: list[str]):
+def check_article(lang: str, slug: str, problems: list[str], stale: list[str] | None = None):
+    """Append what is wrong with one translation to `problems`. When `stale`
+    is given, "the English article changed since this was translated" goes
+    there instead, so a caller can tell an outdated translation from a broken
+    one."""
     en_path = LEARN_CONTENT_DIR / f"{slug}.html"
     tr_path = LEARN_CONTENT_DIR / lang / f"{slug}.html"
     where = str(tr_path.relative_to(ROOT))
@@ -137,7 +145,7 @@ def check_article(lang: str, slug: str, problems: list[str]):
     if tr_meta.get("slug") != slug:
         problems.append(f"{where}: slug must be '{slug}'")
     if tr_meta.get("translated_from") != en_meta.get("date_modified"):
-        problems.append(
+        (problems if stale is None else stale).append(
             f"{where}: translated_from is {tr_meta.get('translated_from')!r}, "
             f"English date_modified is {en_meta.get('date_modified')!r} (re-check the translation)"
         )

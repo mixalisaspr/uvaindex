@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>曇りの日のUVA：どれだけ届くのか、雲による増強効果も解説 | UVA指数</title>
+    <meta
+      name="description"
+      content="雲は日差しの明るさほどにはUVAを弱めません。そして切れ切れの雲は、一時的にUVAを快晴時以上に押し上げることもあります。雲の種類ごとの透過率、雲の下でのUVAとUVBの比較、雲による増強効果、そしてUVA指数での扱い方を解説します。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/ja/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA指数" />
+    <meta property="og:title" content="曇りの日のUVA：実際どれだけ届くのか" />
+    <meta property="og:description" content="曇り空は明るさほどにはUVAを減らしません。そして切れ切れの雲は、UVAを快晴時以上に押し上げることもあります。本当の数値を紹介します。" />
+    <meta property="og:url" content="https://uvaindex.org/ja/learn/uva-on-cloudy-days.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "曇りの日のUVA：どれだけ届くのか",
+        "description": "雲の種類ごとにどれだけのUVAが雲を通り抜けるか、雲の下でのUVAとUVBの比較、UVAを快晴時の値以上に高めることがある切れ雲による増強効果、そしてUVA指数が雲をどうパラメータ化しているかを解説します。",
+        "inLanguage": "ja",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-02",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/ja/learn/uva-on-cloudy-days.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Empirical studies of cloud effects on UV radiation: a review",
+            "author": "Calbó J, Pagès D, González J-A",
+            "publisher": "Reviews of Geophysics 43(2):RG2002",
+            "datePublished": "2005",
+            "url": "https://doi.org/10.1029/2004RG000155"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "曇りの日でも紫外線のダメージを受けますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "受けます。薄い雲や切れ切れの雲は、一般にUVAの80–100%を通し、厚い曇り空でもふつうは20–40%を通します。雲は紫外線よりも、目に見える明るさや暖かさをはるかに効果的に取り除くため、曇りの日は実際よりもずっと安全に感じられます。感覚的な手がかりは失われても、UVAの大部分は残っているのです。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "雲による増強効果とは何ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "明るい積雲の切れ間に太陽があるとき、直射光をすべて受けることに加えて、周りの雲の日の当たった側面で散乱された光も余分に受けます。その合計は、同じ時刻の快晴時の値を上回ることがあり、一般に5–25%、短時間ならそれ以上になることもあります。これは繰り返し測定されてきた実際の効果であり、部分的に曇った空が快晴の空より自動的に安全だとは限らないことを意味します。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "UVAはUVBよりも雲を通り抜けやすいですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "厚い雲の下では、雲の中で光の通り道が長くなり、オゾンがより多くのUVBを吸収できるため、UVAのほうがUVBよりわずかに通りやすいことがあります。ただし、測定結果は雲の種類によって異なります。どちらも可視光よりはるかによく雲を通り抜けるため、曇り空でもかなりの量のUVAが届きます。"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA指数",
+            "item": "https://uvaindex.org/ja/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "ナレッジベース",
+            "item": "https://uvaindex.org/ja/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "曇りの日のUVA",
+            "item": "https://uvaindex.org/ja/learn/uva-on-cloudy-days.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <a href="../">UVA指数</a><span class="sep">›</span><a href="./">ナレッジベース</a><span class="sep">›</span>曇りの日のUVA
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="言語: 日本語"><span class="lang-icon" aria-hidden="true">🌐</span> 日本語</summary>
+          <ul>
+            <li><a href="../../learn/uva-on-cloudy-days.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/uva-on-cloudy-days.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/uva-on-cloudy-days.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/uva-on-cloudy-days.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/uva-on-cloudy-days.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="uva-on-cloudy-days.html" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+            <li><a href="../../zh/learn/uva-on-cloudy-days.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>曇りの日のUVA：どれだけ届くのか</h1>
+        <p class="lead">
+          「曇っているから大丈夫」は、紫外線の被ばくを過小評価する最も確実な方法の1つです。そしてそれは
+          <em>とりわけ</em>UVA（紫外線A波）について当てはまりません。雲は、明るさや暖かさといった感じ取れる
+          ものを取り除くのはとても得意ですが、感じ取れない波長の長い紫外線を取り除くのは比較的苦手です。
+          どんよりした日には、警告のサインは失われても、線量の多くは残っているのです。
+        </p>
+
+        <div class="callout">
+          <strong>おもな数値：</strong>薄い雲や切れ切れの雲は、一般にUVAの<strong>80–100%</strong>を通します。
+          空一面の厚い曇り空でも、ふつうは<strong>20–40%</strong>を通します。そして切れ切れの積雲の下では、
+          UVAが一時的に快晴時の値を完全に上回ることもあります。
+        </div>
+
+        <h2>雲の種類ごとの透過率</h2>
+        <p>
+          「曇り」という言葉は、かすかな高い薄雲から真っ黒な嵐の雲底までを含み、その差は10倍以上にもなります。
+          物理的に重要なのは、空がどれだけ覆われているかではなく、覆っているものの<strong>光学的厚さ</strong>、
+          つまりあなたと太陽の間の気柱にどれだけの液体の水があるかです。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>空の状態</th><th>雲</th><th>UVAの透過率</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>快晴</td><td>—</td><td>100%（基準）</td></tr>
+            <tr><td>薄く高いベール状の雲</td><td>巻雲、巻層雲</td><td>約80–95%</td></tr>
+            <tr><td>散在する雲・切れ切れの雲（太陽が見える）</td><td>晴天積雲</td><td>約90–110%</td></tr>
+            <tr><td>切れ切れの雲（太陽が隠れている）</td><td>積雲、高積雲</td><td>約50–80%</td></tr>
+            <tr><td>空一面の灰色の曇り空</td><td>高層雲、層雲</td><td>約30–60%</td></tr>
+            <tr><td>厚く暗い曇り空</td><td>乱層雲、嵐の雲</td><td>約10–30%</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          3行目に注目してください。散在する雲の切れ間に太陽があるとき、この数字は100%を<em>上回る</em>ことが
+          あります。これは後で説明する増強効果であり、誤植ではありません。
+        </p>
+
+        <h2>紫外線が可視光よりも雲を通りやすい理由</h2>
+        <p>
+          雲は紫外線を、UVAも日焼けを起こす<a href="uva-vs-uvb.html">UVB（紫外線B波）</a>も同じように、
+          可視光ほどには弱めません。これには2つの仕組みが働いています。<sup class="cite"><a href="#src-1" aria-label="出典 1">[1]</a></sup>
+        </p>
+        <ul>
+          <li>
+            <strong>雲粒は光を吸収するより散乱させます。</strong>水滴は紫外線の波長に比べて大きいため、
+            紫外線を消し去るのではなく、ほとんどの場合向きを変えるだけです。雲に入った光子は、最終的に
+            下向きに出てくる可能性が十分にあります。ただ、別の方向から出てくるだけです。曇り空が暗くならず
+            一様に明るいのはこのためです。エネルギーは届き続けていて、方向を失っただけなのです。
+          </li>
+          <li>
+            <strong>紫外線はもともと大部分が散乱光です。</strong>完全な快晴の空の下でも、地表の紫外線の
+            かなりの部分は太陽の円盤から直接ではなく、空全体からの散乱光（天空光）として届きます。太陽が
+            高いときでUVAのおよそ3分の1から半分で、太陽が低くなるほど多くなります。雲が主に取り除くのは
+            直射光なので、大部分が太陽から直接届く可視光に比べ、紫外線は取り除かれる割合が小さいのです。
+            同じ事実から、<a href="reflected-uva-snow-sand-water.html">日陰のUVA防御効果が見た目ほど
+            大きくない理由</a>も説明できます。パラソルの下に立てば太陽は遮れますが、空は遮れません。
+          </li>
+        </ul>
+
+        <h2>雲の下でのUVAとUVB</h2>
+        <p>
+          <strong>厚い雲の下では、UVAのほうがUVBよりわずかに通りやすいことがあります。</strong>雲の中で
+          光の通り道が長くなり、オゾンがより多くのUVBを吸収できるからです。雲の中や下で跳ね返るたびに光子の
+          通り道は長くなり、それとともにオゾン分子に出会う確率も高まります。オゾンはUVBを強く吸収し、
+          UVAはほとんど吸収しないため、この回り道はUVBのほうに大きな損失をもたらします。
+        </p>
+        <p>
+          ただし、測定結果は雲の種類によって異なります。雲で上向きに反射された光の一部は、その上の空気によって
+          再び下に散乱されます。空気は短い波長ほど強く散乱させるため、一様な雲の層の下では、逆にUVBのほうが
+          わずかによく通り抜けると測定されたこともあります。いずれにしても両者の差は小さく、どちらも肌で感じる
+          明るさや暖かさよりはるかによく雲を通り抜けます。
+        </p>
+
+        <h2>雲による増強効果</h2>
+        <p>
+          多くの人が驚くのはここです。<strong>部分的に曇った空は、快晴の空よりも多くのUVAをもたらすことが
+          あります。</strong>
+        </p>
+        <p>
+          その仕組みは単純です。明るい積雲の間の晴れた切れ間に太陽があるとき、快晴の空の下とまったく同じように
+          直射光をすべて受けます。それに加えて、切れ間の周りにある雲の、日に照らされた輝く側面で散乱された
+          放射も受けます。何も差し引かれず、何かが加わるのです。測定された増強は一般に<strong>5–25%</strong>の
+          範囲で、短時間ならそれ以上の急上昇も記録されています。<sup class="cite"><a href="#src-1" aria-label="出典 1">[1]</a></sup>特に、雪のような明るい地表が
+          下から光を跳ね返している場合です。
+        </p>
+        <div class="callout">
+          <strong>行動の面でこれが重要な理由：</strong>「ところにより曇り」は、気を緩めてよい理由のように
+          受け取られます。しかし物理的には、快晴時<em>以上の</em>UVAをもたらす可能性が最も高い空の状態です。
+          しかも時おり日陰ができるおかげで、その日は涼しく快適に感じられるため、人々は長く外にいてしまいます。
+        </div>
+        <p>
+          この効果は断続的で長続きしません。太陽が切れ間にある間だけ働き、雲が前を横切ると本当の減衰に
+          変わります。午後全体で平均すると、切れ切れの雲は通常、快晴の空をやや下回る程度に落ち着きます。
+          それでも瞬間的なピーク値は本物であり、曇りの予報から誰もが予想する値ではありません。
+        </p>
+
+        <h2>実際の生活で何が変わるか</h2>
+        <ul>
+          <li>
+            <strong>曇りの日はお休みの日ではありません。</strong>透過率が30–60%なら、真夏にどんよりした空の下で
+            屋外で過ごす午後は、真冬の晴れた日よりも多くのUVAをもたらすことがあります。その計算については
+            <a href="does-uva-change-with-the-seasons.html">UVAが季節によってあまり変わらない理由</a>を
+            ご覧ください。
+          </li>
+          <li>
+            <strong>いつもの警告は来ません。</strong>雲はUVAよりも早くUVBを取り除くため、ふだん浴びすぎを
+            知らせてくれる日焼け（サンバーン）は、光老化や色素沈着を引き起こすUVAよりも強く抑えられます。
+            ガラスや低い太陽の角度と同じように、雲は被ばくの内訳をUVAの側へと偏らせます。
+          </li>
+          <li>
+            <strong>雲量の割合は、あまり当てになる指標ではありません。</strong>予報の「雲量90%」は、空が
+            どれだけ隠れているかを表すもので、隠している雲の厚さを表すものではありません。90%の薄い巻雲と
+            90%の乱層雲では、届く量に5倍もの差があります。
+          </li>
+          <li>
+            <strong>光線過敏のある人は、雲はほとんど関係ないものと考えてください。</strong>反応が起こる
+            しきい値が低ければ、40%の日でもそれを超えてしまいます。これについては
+            <a href="uva-photosensitivity-medications.html">UVAによる光線過敏症</a>で解説しています。
+          </li>
+        </ul>
+
+        <h2>UVA指数での雲の扱い方</h2>
+        <p>
+          雲は、このサイトの<a href="../">UVA指数</a>の入力の中で最も変動の大きい要素であり、モデルは
+          あなたの場所で使えるデータに応じて、2通りの方法で雲を扱います。
+        </p>
+        <p>
+          <strong>優先する方法：リアルタイムの紫外線データから求める。</strong>Open-Meteoは、同じ時間帯に
+          ついて実際のUVインデックスと快晴時のUVインデックスの両方を公開しています。その比は、実際に頭上に
+          ある空についての、紅斑紫外線の雲透過率の測定値であり、雲量の割合をパラメータ化したどんな方法より
+          はるかに優れています。UVAと紅斑紫外線の透過率の差は小さく、雲の種類によっても異なる（上記参照）ため、
+          その透過率をそのままUVAに適用しています。
+        </p>
+        <div class="callout">
+          <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>γ</sup>（γ = 1）</strong>
+        </div>
+        <p>
+          紅斑紫外線を30%まで減らす厚い曇り空では、UVAも約30%残ります。指数γを明示的な係数として残して
+          いるのは、モデルの中で測定値と照らし合わせて確かめる価値が最も高い部分だからです。プロジェクトの
+          検証スクリプトは、独立したUVAデータに対してこの値をフィッティングしています。
+        </p>
+        <p>
+          <strong>代替の方法：雲量からのパラメータ化。</strong>リアルタイムの紫外線データの組が使えないときは、
+          報告された全雲量を使う方法に切り替えます。
+        </p>
+        <div class="callout">
+          <strong>雲の係数 = 1 − 0.4 × (雲量 ÷ 100)<sup>1.5</sup></strong>
+        </div>
+        <p>
+          この曲線は意図的に緩やかにしています。報告される「雲量100%」は空が覆われている範囲についての情報で
+          あって、光学的厚さについての情報ではないからです。そのため、雲量100%のときの平均的な振る舞いとして
+          正しいのは、真っ暗になることではなく、約<strong>60%</strong>までの中程度の減少です。導出の詳細は、
+          他のすべての係数とともに<a href="how-uva-index-is-calculated.html">UVA指数の計算方法</a>に
+          まとめています。
+        </p>
+        <p>
+          正直にお伝えすべき限界が1つあります。<strong>このモデルは雲による増強を再現しません。</strong>
+          どちらの方法も減衰だけを扱うため、係数が1を超えることはありません。切れ切れの積雲の下で太陽が
+          切れ間にあるときは、実際のUVAがUVA指数の示す値を上回ることがあります。これは
+          <a href="how-uva-index-is-calculated.html#omitted">意図的に除外した要因</a>の1つに挙げており、
+          数値が高めに出るよりも低めに出る可能性のほうが高い唯一のケースです。
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>出典</h2>
+          <ol>
+            <li id="src-1">Calbó J, Pagès D, González J-A (2005). <a href="https://doi.org/10.1029/2004RG000155" rel="noopener">Empirical studies of cloud effects on UV radiation: a review</a>. <em>Reviews of Geophysics 43(2):RG2002</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">最終確認日：2026年11月16日。誤りやより良い出典に気づいたら、<a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">GitHubでお知らせください</a>。</p>
+
+        <a class="cta" href="../">雲の影響も含めた今日のUVA指数を確認する →</a>
+      </article>
+
+      <aside class="related">
+        <h2>あわせて読みたい</h2>
+        <ul>
+          <li><a href="how-uva-index-is-calculated.html">UVA指数はどのように計算されるのか</a></li>
+          <li><a href="does-uva-change-with-the-seasons.html">UVAがUVBほど季節によって変わらない理由</a></li>
+          <li><a href="what-time-is-uva-highest.html">UVAが最も強いのは何時？1日の変化のカーブ</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          無料のオープンソースです。UVA指数とUVA放射照度の非公式な計算です。教育目的の情報であり、医学的助言ではありません。詳しくは<a href="https://uvaindex.org/ja/about.html">このサイトについて</a>をご覧ください。
+          · <button type="button" class="link-btn" data-consent-open>Cookieの設定</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>La UVA en días nublados: cuánta atraviesa las nubes y el efecto de realce</title>
+    <meta
+      name="description"
+      content="Las nubes atenúan la UVA mucho menos que la luz del sol, y una nubosidad fragmentada puede elevar brevemente la UVA por encima de los niveles con cielo despejado. Transmisión según el tipo de nube, cómo se comparan la UVA y la UVB bajo las nubes, el efecto de realce por nubes y cómo lo modela el índice UVA."
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/es/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/uva-on-cloudy-days.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Índice UVA" />
+    <meta property="og:title" content="La UVA en días nublados: ¿cuánta llega de verdad?" />
+    <meta property="og:description" content="Un cielo cubierto reduce la UVA mucho menos que la luminosidad, y las nubes fragmentadas pueden elevarla por encima del nivel con cielo despejado. Cuáles son las cifras reales." />
+    <meta property="og:url" content="https://uvaindex.org/es/learn/uva-on-cloudy-days.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "La UVA en días nublados: cuánta llega a atravesar las nubes",
+        "description": "Cuánta UVA atraviesa las nubes según el tipo de nube, cómo se comparan la UVA y la UVB bajo las nubes, el efecto de realce por nubes fragmentadas que puede elevar la UVA por encima de los valores con cielo despejado y cómo parametriza las nubes el índice UVA.",
+        "inLanguage": "es",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-02",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/es/learn/uva-on-cloudy-days.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Empirical studies of cloud effects on UV radiation: a review",
+            "author": "Calbó J, Pagès D, González J-A",
+            "publisher": "Reviews of Geophysics 43(2):RG2002",
+            "datePublished": "2005",
+            "url": "https://doi.org/10.1029/2004RG000155"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Puede la radiación UV dañarte en un día nublado?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. Las nubes finas o fragmentadas suelen dejar pasar el 80-100 % de la UVA, e incluso un cielo cubierto con nubes gruesas suele dejar pasar el 20-40 %. Como las nubes eliminan la luminosidad visible y el calor con mucha más eficacia que la radiación ultravioleta, un día cubierto parece mucho más seguro de lo que es: pierdes las señales sensoriales y conservas la mayor parte de la UVA."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué es el efecto de realce por nubes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cuando el sol está en un hueco entre cúmulos brillantes, recibes todo el haz directo más la luz adicional dispersada por los lados iluminados de las nubes que lo rodean. El total puede superar el valor con cielo despejado en ese mismo momento, normalmente en un 5-25 % y en ocasiones más durante periodos breves. Es un efecto real, medido repetidamente, y significa que un cielo parcialmente nublado no es automáticamente más seguro que uno despejado."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Atraviesa la UVA las nubes mejor que la UVB?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bajo nubes gruesas, la UVA puede pasar algo mejor que la UVB, porque los recorridos más largos dentro de la nube permiten que el ozono absorba más UVB, aunque las mediciones varían según el tipo de nube. Ambas atraviesan las nubes mucho mejor que la luz visible, así que un cielo cubierto sigue aportando una dosis considerable de UVA."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Índice UVA",
+            "item": "https://uvaindex.org/es/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Base de conocimientos",
+            "item": "https://uvaindex.org/es/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "La UVA en días nublados",
+            "item": "https://uvaindex.org/es/learn/uva-on-cloudy-days.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="Ruta de navegación">
+          <a href="../">Índice UVA</a><span class="sep">›</span><a href="./">Base de conocimientos</a><span class="sep">›</span>La UVA en días nublados
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="Idioma: Español"><span class="lang-icon" aria-hidden="true">🌐</span> Español</summary>
+          <ul>
+            <li><a href="../../learn/uva-on-cloudy-days.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="uva-on-cloudy-days.html" hreflang="es" lang="es" aria-current="true">Español</a></li>
+            <li><a href="../../fr/learn/uva-on-cloudy-days.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/uva-on-cloudy-days.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/uva-on-cloudy-days.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/uva-on-cloudy-days.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../zh/learn/uva-on-cloudy-days.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>La UVA en días nublados: cuánta llega a atravesar las nubes</h1>
+        <p class="lead">
+          «Está nublado, no pasa nada» es una de las formas más seguras de
+          subestimar tu exposición a la radiación ultravioleta, y falla
+          <em>precisamente</em> con la UVA. Las nubes son muy eficaces eliminando lo
+          que puedes percibir, la luminosidad y el calor, y comparativamente poco
+          eficaces eliminando la radiación ultravioleta de onda larga, que no
+          percibes. En un día gris has perdido las señales de alarma, pero conservas
+          buena parte de la dosis.
+        </p>
+
+        <div class="callout">
+          <strong>Las cifras clave:</strong> las nubes finas o fragmentadas suelen
+          dejar pasar <strong>el 80–100&nbsp;%</strong> de la UVA. Un cielo
+          completamente cubierto con nubes gruesas suele dejar pasar todavía
+          <strong>el 20–40&nbsp;%</strong>. Y bajo cúmulos fragmentados, la UVA puede
+          superar brevemente el valor con cielo despejado.
+        </div>
+
+        <h2>Transmisión según el tipo de nube</h2>
+        <p>
+          «Nublado» abarca desde un tenue velo alto hasta la base negra de una
+          tormenta, y la diferencia entre ambos es de más de un orden de magnitud.
+          Lo que importa físicamente no es cuánto cielo está cubierto, sino el
+          <strong>espesor óptico</strong> de lo que lo cubre: cuánta agua líquida
+          hay en la columna entre tú y el sol.
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Cielo</th><th>Nubes</th><th>UVA transmitida</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Despejado</td><td>—</td><td>100&nbsp;% (referencia)</td></tr>
+            <tr><td>Velo alto y fino</td><td>Cirros, cirrostratos</td><td>~80–95&nbsp;%</td></tr>
+            <tr><td>Nubes dispersas / fragmentadas, sol visible</td><td>Cúmulos de buen tiempo</td><td>~90–110&nbsp;%</td></tr>
+            <tr><td>Nubes fragmentadas, sol tapado</td><td>Cúmulos, altocúmulos</td><td>~50–80&nbsp;%</td></tr>
+            <tr><td>Cielo gris completamente cubierto</td><td>Altostratos, estratos</td><td>~30–60&nbsp;%</td></tr>
+            <tr><td>Cielo cubierto, oscuro y denso</td><td>Nimbostratos, nubes de tormenta</td><td>~10–30&nbsp;%</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          Fíjate en la tercera fila. Bajo nubes dispersas con el sol en un hueco,
+          la cifra puede estar <em>por encima</em> del 100&nbsp;%: es el efecto de
+          realce, que se explica más abajo, y no una errata.
+        </p>
+
+        <h2>Por qué la UV atraviesa las nubes mejor que la luz visible</h2>
+        <p>
+          Las nubes atenúan la radiación ultravioleta (tanto la UVA como la
+          <a href="uva-vs-uvb.html">UVB</a>, la que quema) menos que la luz
+          visible. Intervienen dos mecanismos.<sup class="cite"><a href="#src-1" aria-label="Fuente 1">[1]</a></sup>
+        </p>
+        <ul>
+          <li>
+            <strong>Las gotas de las nubes dispersan en lugar de absorber.</strong>
+            Las gotas de agua son grandes en comparación con las longitudes de onda
+            UV, así que sobre todo desvían la radiación ultravioleta en lugar de
+            destruirla. Un fotón que entra en una nube tiene muchas probabilidades
+            de acabar saliendo hacia abajo, solo que desde otra dirección. Por eso
+            un cielo cubierto es uniformemente luminoso y no oscuro: la energía
+            sigue llegando, simplemente ha perdido su dirección.
+          </li>
+          <li>
+            <strong>La UV ya es en gran parte difusa.</strong> Incluso con el cielo
+            perfectamente despejado, una gran parte de la UV en superficie llega
+            como luz dispersada desde toda la bóveda celeste y no directamente del
+            disco solar: entre un tercio y la mitad de la UVA con el sol alto, y más
+            a medida que baja. Las nubes eliminan sobre todo el haz directo, así que
+            quitan una proporción menor de UV que de luz visible, que en su mayor
+            parte sí llega directamente del sol. Ese mismo hecho explica por qué
+            <a href="reflected-uva-snow-sand-water.html">la sombra protege de la UVA
+            menos de lo que parece</a>: ponerte bajo una sombrilla te quita el sol,
+            no el cielo.
+          </li>
+        </ul>
+
+        <h2>UVA frente a UVB bajo las nubes</h2>
+        <p>
+          <strong>Bajo nubes gruesas, la UVA puede pasar algo mejor que la
+          UVB</strong>, porque los recorridos más largos dentro de la nube permiten
+          que el ozono absorba más UVB. Cada rebote dentro y debajo de una nube
+          alarga el recorrido de un fotón y, con él, la probabilidad de encontrarse
+          con una molécula de ozono; el ozono absorbe con fuerza en la UVB y apenas
+          en la UVA, así que el rodeo le cuesta más a la UVB.
+        </p>
+        <p>
+          Sin embargo, las mediciones varían según el tipo de nube. La luz que una
+          nube refleja hacia arriba vuelve a dispersarse en parte hacia abajo en el
+          aire que hay encima, y el aire dispersa con más fuerza las longitudes de
+          onda más cortas, así que bajo algunas capas de nubes uniformes se ha
+          medido, al contrario, que la UVB pasa un poco mejor. En cualquier caso,
+          la diferencia entre ambas es modesta, y las dos pasan mucho mejor que la
+          luz y el calor que puedes sentir.
+        </p>
+
+        <h2>El efecto de realce por nubes</h2>
+        <p>
+          Esto es lo que sorprende a la gente: <strong>un cielo parcialmente nublado
+          puede aportar más UVA que uno despejado.</strong>
+        </p>
+        <p>
+          La geometría es sencilla. Cuando el sol está en un hueco despejado entre
+          cúmulos brillantes, recibes todo el haz directo, exactamente igual que con
+          el cielo despejado, más la radiación adicional dispersada por los flancos
+          resplandecientes e iluminados de las nubes que rodean el hueco. No se
+          resta nada y se suma algo. Los realces medidos suelen estar en el
+          intervalo del <strong>5–25&nbsp;%</strong>, y se han registrado picos
+          breves más altos,<sup class="cite"><a href="#src-1" aria-label="Fuente 1">[1]</a></sup> sobre todo cuando una superficie
+          brillante, como la nieve, también devuelve luz hacia arriba desde abajo.
+        </p>
+        <div class="callout">
+          <strong>Por qué esto importa en el comportamiento:</strong> «parcialmente
+          nublado» se interpreta como un motivo para relajarse. Físicamente, es la
+          situación del cielo con más probabilidades de aportar UVA <em>por
+          encima</em> del nivel con cielo despejado, mientras que la sombra
+          intermitente hace que el día parezca más fresco y agradable, así que la
+          gente se queda más tiempo fuera.
+        </div>
+        <p>
+          El efecto es episódico y breve: se produce mientras el sol está en un
+          hueco y da paso a una atenuación real cuando una nube se pone delante. En
+          promedio a lo largo de una tarde, las nubes fragmentadas suelen quedar un
+          poco por debajo del cielo despejado. Pero los valores instantáneos máximos
+          son reales, y no son lo que nadie espera de una previsión de nubes.
+        </p>
+
+        <h2>Qué cambia esto en la práctica</h2>
+        <ul>
+          <li>
+            <strong>Un día cubierto no es un día libre.</strong> Con una transmisión
+            del 30–60&nbsp;%, una tarde al aire libre bajo un cielo gris en pleno
+            verano puede aportar más UVA que un día despejado en pleno invierno.
+            Consulta
+            <a href="does-uva-change-with-the-seasons.html">por qué la UVA cambia
+            tan poco con las estaciones</a> para ver los números.
+          </li>
+          <li>
+            <strong>No tendrás el aviso habitual.</strong> Las nubes eliminan la UVB
+            más deprisa que la UVA, así que la quemadura solar que normalmente
+            indica una sobreexposición se suprime más que la UVA que causa el
+            fotoenvejecimiento y la pigmentación. Las nubes desplazan la mezcla de
+            exposición hacia la UVA, igual que el cristal y los ángulos solares
+            bajos.
+          </li>
+          <li>
+            <strong>El porcentaje de nubosidad es un mal indicador.</strong> Un
+            «90&nbsp;% de nubosidad» en una previsión describe cuánto cielo está
+            tapado, no lo gruesas que son las nubes que lo tapan. Un noventa por
+            ciento de cirros finos y un noventa por ciento de nimbostratos se
+            diferencian en un factor de cinco en lo que te llega.
+          </li>
+          <li>
+            <strong>Las personas fotosensibles deberían considerar las nubes casi
+            irrelevantes.</strong> Si tu umbral es bajo, un día al 40&nbsp;% lo
+            sigue superando. Se trata en
+            <a href="uva-photosensitivity-medications.html">Fotosensibilidad a la UVA</a>.
+          </li>
+        </ul>
+
+        <h2>Cómo trata las nubes el índice UVA</h2>
+        <p>
+          Las nubes son el dato de entrada más variable del
+          <a href="../">índice&nbsp;UVA</a> de este sitio, y el modelo las trata de
+          dos formas según los datos disponibles para tu ubicación.
+        </p>
+        <p>
+          <strong>Método preferido: a partir de datos UV en tiempo real.</strong>
+          Open-Meteo publica tanto el índice&nbsp;UV real como un índice&nbsp;UV con
+          cielo despejado para la misma hora. Su cociente es una transmisión
+          eritemática medida de las nubes para el cielo real que tienes encima,
+          mucho mejor que cualquier parametrización de un porcentaje de nubosidad.
+          Como la diferencia entre la transmisión de la UVA y la eritemática es
+          modesta y varía según el tipo de nube (véase más arriba), esa transmisión
+          se aplica a la UVA tal cual:
+        </p>
+        <div class="callout">
+          <strong>T<sub>UVA</sub> = T<sub>UV</sub><sup>γ</sup>, con γ = 1</strong>
+        </div>
+        <p>
+          Un cielo muy cubierto que reduce la UV eritemática al 30&nbsp;% deja
+          alrededor del 30&nbsp;% de la UVA. El exponente γ se mantiene como un
+          coeficiente explícito porque es la parte del modelo que más vale la pena
+          contrastar con mediciones; el script de validación del proyecto lo ajusta
+          con datos de UVA independientes.
+        </p>
+        <p>
+          <strong>Alternativa: paramétrica, a partir de la nubosidad.</strong>
+          Cuando no se dispone del par de valores UV en tiempo real, el modelo
+          recurre a la nubosidad total indicada:
+        </p>
+        <div class="callout">
+          <strong>factor de nubes = 1 − 0,4 × (nubosidad ÷ 100)<sup>1,5</sup></strong>
+        </div>
+        <p>
+          La curva es deliberadamente suave, porque un «100&nbsp;% de nubosidad»
+          indica cuánto cielo está cubierto, no el espesor óptico; por eso el
+          comportamiento medio adecuado con el cielo totalmente cubierto es una
+          reducción moderada, hasta alrededor del <strong>60&nbsp;%</strong>, y no
+          un apagón. La deducción completa, junto con todos los demás coeficientes,
+          está en
+          <a href="how-uva-index-is-calculated.html">cómo se calcula el índice
+          UVA</a>.
+        </p>
+        <p>
+          Una limitación, con franqueza: <strong>el modelo no reproduce el realce
+          por nubes.</strong> Las dos vías solo atenúan, así que nunca aparece un
+          factor superior a 1. Bajo cúmulos fragmentados con el sol en un hueco, la
+          UVA real puede superar lo que indica el índice&nbsp;UVA. Figura entre los
+          <a href="how-uva-index-is-calculated.html#omitted">factores que se dejan
+          fuera deliberadamente</a>, y es el único caso en el que es más probable
+          que la cifra se quede corta que se pase.
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>Fuentes</h2>
+          <ol>
+            <li id="src-1">Calbó J, Pagès D, González J-A (2005). <a href="https://doi.org/10.1029/2004RG000155" rel="noopener">Empirical studies of cloud effects on UV radiation: a review</a>. <em>Reviews of Geophysics 43(2):RG2002</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">Última revisión: 16 de noviembre de 2026. ¿Has visto un error o conoces una fuente mejor? <a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">Cuéntanoslo en GitHub</a>.</p>
+
+        <a class="cta" href="../">Consulta el índice UVA de hoy, con nubes incluidas →</a>
+      </article>
+
+      <aside class="related">
+        <h2>Sigue leyendo</h2>
+        <ul>
+          <li><a href="what-is-uva-radiation.html">¿Qué es la radiación UVA?</a></li>
+          <li><a href="how-uva-index-is-calculated.html">Cómo se calcula el índice UVA</a></li>
+          <li><a href="does-uva-change-with-the-seasons.html">Por qué la UVA cambia mucho menos con las estaciones que la UVB</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          Gratuito y de código abierto. Cálculo no oficial del índice UVA y de la irradiancia UVA. Solo información educativa, no consejo médico. Más información en la página <a href="https://uvaindex.org/es/about.html">Acerca de</a>.
+          · <button type="button" class="link-btn" data-consent-open>Configuración de cookies</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

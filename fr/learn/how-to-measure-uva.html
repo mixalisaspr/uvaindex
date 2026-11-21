@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>Comment mesurer les UVA : radiomètres, cartes UV et pourquoi un téléphone n'y arrive pas</title>
+    <meta
+      name="description"
+      content="Ce qu'il faut vraiment pour mesurer les UVA — spectroradiomètres, radiomètres à large bande, radiomètres grand public bon marché et cartes photochromiques —, les limites de chacun, pourquoi votre smartphone ne peut presque certainement pas mesurer l'ultraviolet et comment vérifier la vraisemblance d'une mesure."
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/fr/learn/how-to-measure-uva.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-to-measure-uva.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-to-measure-uva.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-to-measure-uva.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/how-to-measure-uva.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/how-to-measure-uva.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/how-to-measure-uva.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/how-to-measure-uva.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/how-to-measure-uva.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Indice UVA" />
+    <meta property="og:title" content="Mesurer soi-même les UVA" />
+    <meta property="og:description" content="Des spectroradiomètres à 50 000 £ aux radiomètres de poche à 15 £ et aux perles qui changent de couleur — ce que chacun vous dit vraiment, et pourquoi votre téléphone ne vous dit rien." />
+    <meta property="og:url" content="https://uvaindex.org/fr/learn/how-to-measure-uva.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Mesurer soi-même les UVA : radiomètres, cartes et idées reçues sur les téléphones",
+        "description": "Un guide technique sur la mesure des ultraviolets A : les classes d'instruments, des spectroradiomètres aux radiomètres grand public à photodiode, les erreurs de réponse spectrale et de réponse en cosinus qui dominent sur les appareils bon marché, pourquoi les smartphones ne peuvent pas capter les UV et comment valider une mesure par rapport aux valeurs modélisées.",
+        "inLanguage": "fr",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-29",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/fr/learn/how-to-measure-uva.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "A review on the ability of smartphones to detect ultraviolet (UV) radiation and their potential to be used in UV research and for public education purposes",
+            "author": "Turner J, Igoe D, Parisi AV, McGonigle AJ, Amar A, Wainwright L",
+            "publisher": "Science of the Total Environment 706:135873",
+            "datePublished": "2020"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Mon téléphone peut-il mesurer les UV ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Presque certainement pas. À de rares exceptions près, comme le Galaxy Note 4 de Samsung sorti en 2014, les smartphones ne contiennent aucun capteur UV. Le capteur de luminosité ambiante réagit à la lumière visible et est filtré contre l'infrarouge ; l'appareil photo est placé derrière un filtre anti-UV/IR, et le verre de l'objectif bloquerait la plupart des UVA même sans ce filtre. Les applications qui affichent un indice UV téléchargent une prévision pour vos coordonnées depuis une API météo — ce qui est utile, mais il s'agit d'une prévision pour votre zone, pas d'une mesure de votre environnement."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Les radiomètres UV bon marché sont-ils précis ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pour des comparaisons relatives, ils suffisent souvent. Pour des valeurs absolues, souvent pas. Les deux erreurs principales sont le décalage spectral — la combinaison détecteur-filtre ne fait qu'approcher la courbe de réponse qu'elle revendique — et une mauvaise réponse en cosinus, qui sous-compte la lumière arrivant en oblique parce que le capteur n'a pas de diffuseur adapté. Ces deux erreurs augmentent justement quand le spectre s'écarte de celui d'un soleil de midi par ciel clair : sous les nuages, quand le soleil est bas, en intérieur et sous des lampes artificielles."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment vérifier qu'une mesure UV est plausible ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Faites quatre tests. La mesure doit être nulle la nuit. Elle doit culminer au midi solaire, et non à midi à l'horloge. Derrière une fenêtre fermée, elle doit chuter fortement si elle est pondérée par l'érythème, et beaucoup moins si elle mesure réellement les UVA. Et sa courbe journalière doit former un arc régulier et large. Un appareil qui échoue à l'un de ces tests ne mesure pas ce qu'il prétend mesurer."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Indice UVA",
+            "item": "https://uvaindex.org/fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Base de connaissances",
+            "item": "https://uvaindex.org/fr/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Mesurer les UVA",
+            "item": "https://uvaindex.org/fr/learn/how-to-measure-uva.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="../">Indice UVA</a><span class="sep">›</span><a href="./">Base de connaissances</a><span class="sep">›</span>Mesurer les UVA
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="Langue: Français"><span class="lang-icon" aria-hidden="true">🌐</span> Français</summary>
+          <ul>
+            <li><a href="../../learn/how-to-measure-uva.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/how-to-measure-uva.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="how-to-measure-uva.html" hreflang="fr" lang="fr" aria-current="true">Français</a></li>
+            <li><a href="../../de/learn/how-to-measure-uva.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/how-to-measure-uva.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/how-to-measure-uva.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="../../zh/learn/how-to-measure-uva.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>Mesurer soi-même les UVA : radiomètres, cartes et idées reçues sur les téléphones</h1>
+        <p class="lead">
+          Ce site <em>modélise</em> les UVA au lieu de les mesurer, et la raison
+          mérite d'être dite d'emblée : mesurer correctement l'ultraviolet est
+          vraiment difficile, et les instruments qui le font bien coûtent plus cher
+          qu'une voiture. Voici un panorama honnête de ce qui existe, de ce que
+          chaque type d'appareil vous apprend réellement, et de la façon de
+          distinguer une vraie mesure d'un chiffre simplement plausible.
+        </p>
+
+        <h2>Les classes d'instruments</h2>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>Instrument</th><th>Ce qu'il fait</th><th>Coût typique</th><th>Utile pour</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Spectroradiomètre à balayage</td><td>Résout l'éclairement énergétique longueur d'onde par longueur d'onde</td><td>30 000–100 000 £ et plus</td><td>Mesure de référence ; toute pondération calculée après coup</td></tr>
+            <tr><td>Radiomètre à large bande</td><td>Filtre et détecteur conçus pour suivre une courbe de réponse cible</td><td>1 500–6 000 £</td><td>Surveillance continue d'une seule bande définie</td></tr>
+            <tr><td>Radiomètre grand public à photodiode</td><td>Photodiode en silicium, SiC ou GaN plus un filtre</td><td>15–300 £</td><td>Comparaisons relatives ; repérer les grosses différences</td></tr>
+            <tr><td>Carte ou perle photochromique</td><td>Un colorant fonce sous l'exposition aux UV</td><td>1–10 £</td><td>Montrer que les UV existent ; enseignement</td></tr>
+            <tr><td>Badge à film de polysulfone</td><td>Le changement d'absorbance intègre la dose cumulée</td><td>Faible, par badge</td><td>Études de dose individuelle sur des heures ou des jours</td></tr>
+            <tr><td>Smartphone</td><td>Presque jamais quoi que ce soit — les capteurs UV sont rarissimes dans les téléphones</td><td>—</td><td>Afficher une prévision, pas une mesure</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <h2>La référence : les spectroradiomètres</h2>
+        <p>
+          Un spectroradiomètre à double monochromateur disperse la lumière
+          incidente et mesure séparément chaque étroite tranche de longueurs
+          d'onde, généralement d'environ 290&nbsp;nm à 400&nbsp;nm ou au-delà.
+          Comme il fournit le spectre entier, n'importe quelle pondération peut
+          être appliquée ensuite par logiciel : érythémale pour un
+          <a href="uv-index-scale-explained.html">indice&nbsp;UV</a>,
+          vitamine&nbsp;D pour un taux de synthèse, ou aucune pondération pour
+          l'intégrale non pondérée sur 315–400&nbsp;nm que ce site appelle UVA.
+        </p>
+        <p>
+          C'est précisément cette souplesse qui en fait la référence. Tous les
+          autres appareils intègrent une seule pondération dans leur matériel et
+          ne peuvent pas être réaffectés. Les inconvénients sont le coût,
+          l'encombrement, la nécessité d'un étalonnage régulier avec des lampes
+          étalons traçables, la stabilisation en température, et des durées de
+          balayage assez longues pour qu'un nuage de passage puisse fausser une
+          mesure.
+        </p>
+
+        <h2>Les radiomètres à large bande</h2>
+        <p>
+          Ils utilisent un empilement de filtres optiques et un détecteur conçus
+          pour que leur réponse combinée approche une courbe cible. Deux types
+          nous intéressent ici :
+        </p>
+        <ul>
+          <li>
+            <strong>Les biomètres érythémaux</strong> approchent le spectre
+            d'action du coup de soleil de la CIE. Ce sont eux que déploient la
+            plupart des réseaux nationaux de surveillance des UV, et c'est d'eux
+            que proviennent la plupart des observations d'« indice UV » publiées.
+          </li>
+          <li>
+            <strong>Les radiomètres UVA</strong> visent une réponse plate sur
+            environ 315–400&nbsp;nm. Ils mesurent la grandeur que ce site modélise,
+            et ce sont les seuls instruments abordables à le faire.
+          </li>
+        </ul>
+        <p>
+          Ils sont robustes, résistants aux intempéries et enregistrent en continu.
+          Leur faiblesse : leur courbe de réponse n'est jamais qu'une
+          approximation, et elle dérive à mesure que les filtres vieillissent —
+          c'est pourquoi les installations sérieuses les réétalonnent chaque année
+          par rapport à un spectroradiomètre.
+        </p>
+
+        <h2>Les radiomètres grand public : ce que vous achetez vraiment</h2>
+        <p>
+          Un radiomètre UV de poche, c'est une photodiode, un filtre et un
+          microcontrôleur qui applique un facteur de conversion. Que le chiffre
+          affiché ait un sens ou non dépend de trois éléments que les fiches
+          techniques mentionnent rarement.
+        </p>
+        <ul>
+          <li>
+            <strong>La nature du détecteur.</strong> Les photodiodes en silicium
+            ordinaire réagissent fortement dans le visible et le proche infrarouge ;
+            elles dépendent donc entièrement du filtrage pour rejeter peut-être
+            99,9 % de la lumière qui les atteint réellement — une exigence
+            sévère, inégalement satisfaite à bas prix. Les détecteurs en carbure de
+            silicium et en nitrure de gallium sont intrinsèquement
+            <em>aveugles au visible</em> : leur bande interdite fait qu'ils ne
+            réagissent pratiquement pas au-delà de l'ultraviolet. Un radiomètre qui
+            précise SiC ou GaN est un instrument nettement meilleur qu'un autre qui
+            ne précise rien.
+          </li>
+          <li>
+            <strong>La réponse en cosinus.</strong> Un capteur plat doit compter la
+            lumière arrivant à 60° de la verticale avec la moitié du poids de la
+            lumière arrivant à la verticale, car c'est ainsi que fonctionne
+            l'éclairement énergétique sur une surface horizontale. Cela exige un
+            diffuseur de forme adaptée. Les radiomètres bon marché à simple fenêtre
+            sous-estiment fortement la lumière rasante — précisément la lumière
+            diffuse du ciel, qui transporte une grande part des UVA.
+          </li>
+          <li>
+            <strong>L'hypothèse spectrale.</strong> La plupart des radiomètres grand
+            public affichent un « indice UV » déduit d'une seule mesure à large
+            bande en supposant un spectre solaire standard par ciel clair. Si le
+            spectre change, l'hypothèse ne tient plus. Sous les nuages, quand le
+            soleil est bas, derrière une vitre, ou sous une lampe à ongles ou une
+            cabine de bronzage, la forme spectrale réelle ne ressemble en rien à
+            celle supposée, et l'indice affiché peut être très loin du compte —
+            dans un sens comme dans l'autre.
+          </li>
+        </ul>
+        <div class="callout">
+          <strong>La règle pratique :</strong> considérez un radiomètre grand
+          public comme un comparateur, pas comme un instrument étalonné.
+          « Est-ce plus intense ici que là ? », « le film a-t-il servi à quelque
+          chose ? », « combien cet auvent arrête-t-il ? » sont des questions
+          auxquelles il répond bien. « Quel est l'éclairement énergétique UVA
+          absolu en W/m² ? » n'en fait pas partie.
+        </div>
+
+        <h2>Cartes, perles et badges</h2>
+        <p>
+          Les cartes UV photochromiques et les perles vendues pour les
+          démonstrations en classe contiennent des colorants de type spiropyrane
+          ou spirooxazine qui changent de couleur sous l'ultraviolet. Elles sont
+          excellentes pour rendre visible l'invisible — placez une perle derrière
+          une fenêtre et derrière de la crème solaire, et la différence est
+          immédiate et convaincante.
+        </p>
+        <p>
+          Ce qu'elles ne peuvent pas faire, c'est quantifier. Leur réponse est non
+          linéaire, sature vite, se réinitialise avec le temps, dérive avec la
+          température, et leur sensibilité spectrale dépend du colorant plutôt que
+          d'une norme quelconque. Deux cartes de fabricants différents ne seront
+          pas d'accord, et aucune n'est pondérée selon une courbe reconnue.
+        </p>
+        <p>
+          <strong>La dosimétrie par film de polysulfone</strong> est la version
+          sérieuse de la même idée. Un film mince porté comme un badge change
+          d'absorbance optique proportionnellement à la dose UV cumulée, lue
+          ensuite au spectrophotomètre. Sa réponse est une approximation grossière
+          de la courbe érythémale, ce qui en fait l'outil classique des études de
+          dose individuelle de coups de soleil — et, pour la même raison, un
+          mauvais instrument pour les UVA en particulier.
+        </p>
+
+        <h2>Pourquoi votre téléphone n'y arrive pas</h2>
+        <p>
+          Il faut le dire clairement, car les magasins d'applications suggèrent le contraire.
+          <strong>Presque aucun smartphone ne contient de capteur UV.</strong> Le Galaxy Note&nbsp;4 de Samsung, sorti en 2014, a été une exception éphémère, et des chercheurs ont réussi à extraire des signaux UV de caméras de téléphone dans des conditions contrôlées,<sup class="cite"><a href="#src-1" aria-label="Source 1">[1]</a></sup> mais ni l'un ni l'autre ne constitue une mesure étalonnée sur un téléphone ordinaire. Trois obstacles indépendants s'y opposent :
+        </p>
+        <ul>
+          <li>
+            <strong>Le capteur de luminosité ambiante</strong> est conçu pour
+            suivre la luminosité perçue afin de régler l'écran. Il est filtré pour
+            approcher la réponse photopique humaine et rejeter l'infrarouge. Il n'a
+            aucun canal ultraviolet.
+          </li>
+          <li>
+            <strong>Le capteur de l'appareil photo</strong> est placé derrière un
+            filtre anti-UV/IR, installé précisément pour empêcher la lumière non
+            visible de dégrader la fidélité des couleurs.
+          </li>
+          <li>
+            <strong>L'objectif</strong> est en verre ou en plastique optique, qui
+            absorbe fortement dans toute la gamme des UVA à lui seul — la même
+            physique que celle décrite dans
+            <a href="does-glass-block-uva.html">le verre bloque-t-il les UVA</a>.
+          </li>
+        </ul>
+        <p>
+          Toute application qui affiche un chiffre UV fait donc ce que fait le
+          calculateur de ce site : elle prend vos coordonnées et récupère ou
+          calcule une valeur. C'est légitime et utile — simplement, ce n'est pas
+          une mesure, et une application qui laisse entendre le contraire en vous
+          demandant de pointer votre téléphone vers le ciel se présente sous un
+          faux jour. Les accessoires UV à clipser ou Bluetooth sont une autre
+          affaire : ils contiennent de vraies photodiodes et sont soumis aux mêmes
+          réserves que n'importe quel autre radiomètre grand public.
+        </p>
+
+        <h2>Vérifier la vraisemblance d'une mesure</h2>
+        <p>
+          Quel que soit votre appareil, ces cinq vérifications révèlent la plupart
+          des problèmes sans aucun équipement de référence :
+        </p>
+        <ol>
+          <li><strong>La nuit, la mesure est nulle.</strong> Une mesure non nulle la nuit signale de la lumière parasite, une erreur de décalage ou une fuite infrarouge.</li>
+          <li><strong>Le pic tombe au midi solaire</strong>, qui est souvent décalé d'une heure ou plus par rapport à midi à l'horloge — voir <a href="what-time-is-uva-highest.html">à quelle heure les UVA sont les plus forts</a>. Un pic à 12 h 00 pile pendant l'heure d'été indique que l'appareil affiche une valeur modélisée au lieu de la capter.</li>
+          <li><strong>La courbe journalière forme un arc régulier et large</strong>, pas un plateau ni des paliers. Des paliers suggèrent une quantification interne grossière.</li>
+          <li><strong>Derrière une fenêtre fermée, la mesure est révélatrice.</strong> Un appareil pondéré par l'érythème devrait s'effondrer vers zéro, car le verre élimine presque tous les UVB. Un véritable appareil UVA devrait en conserver une grande partie. Si votre « radiomètre UVA » affiche presque zéro à l'intérieur près d'une fenêtre ensoleillée, il ne mesure pas les UVA.</li>
+          <li><strong>L'ombre fait baisser la mesure, mais pas jusqu'à zéro.</strong> Placez-vous à l'ombre complète sous un ciel dégagé : un instrument correct affiche encore une valeur substantielle — c'est la lumière diffuse du ciel. Un appareil qui affiche presque zéro à l'ombre en plein air a une réponse en cosinus défaillante.</li>
+        </ol>
+
+        <h2>Comparer un radiomètre avec ce site</h2>
+        <p>
+          Si vous voulez confronter un radiomètre UVA à la
+          <a href="how-uva-index-is-calculated.html">valeur modélisée</a> ici, trois
+          conditions doivent d'abord être réunies :
+        </p>
+        <ul>
+          <li>
+            <strong>La même grandeur.</strong> Le modèle fournit un éclairement
+            énergétique non pondéré sur environ 315–400&nbsp;nm, en W/m², et
+            l'<a href="uv-index-vs-uva-index.html">indice UVA</a> correspond à ce
+            chiffre divisé par six. Un radiomètre qui affiche un « indice UV »
+            érythémal mesure une autre grandeur physique, et il ne faut s'attendre
+            à aucune concordance.
+          </li>
+          <li>
+            <strong>La même géométrie.</strong> Le modèle suppose l'éclairement sur
+            une surface horizontale. Tenez le capteur à plat, orienté droit vers le
+            haut, loin des murs et des sols réfléchissants.
+          </li>
+          <li>
+            <strong>Les bonnes conditions.</strong> Comparez par ciel clair, avec le
+            soleil bien haut. Par ciel partiellement nuageux, le modèle ne gère que
+            l'atténuation et ne peut pas reproduire
+            l'<a href="uva-on-cloudy-days.html">amplification par les nuages</a> ;
+            les mesures réelles peuvent donc légitimement le dépasser.
+          </li>
+        </ul>
+        <p>
+          Dans ces conditions, une concordance à environ 20 % près serait un
+          bon résultat pour une valeur modélisée face à un instrument grand public
+          — et si vous constatez un écart systématique avec un appareil
+          correctement étalonné, c'est une information réellement utile. Le script
+          de validation du projet, <code>scripts/validate.mjs</code>, prend un
+          fichier CSV de mesures horodatées et indique le biais du modèle par
+          rapport à elles selon la hauteur du soleil et la nébulosité — les
+          coefficients restants sont regroupés dans un seul bloc de
+          <code>js/uva.js</code> précisément pour pouvoir être réétalonnés sur des
+          mesures réelles, et le projet accueille volontiers ce type de
+          contribution.
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>Sources</h2>
+          <ol>
+            <li id="src-1">Turner J, Igoe D, Parisi AV, McGonigle AJ, Amar A, Wainwright L (2020). A review on the ability of smartphones to detect ultraviolet (UV) radiation and their potential to be used in UV research and for public education purposes. <em>Science of the Total Environment 706:135873</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">Dernière révision le 16 novembre 2026. Vous avez repéré une erreur ou une meilleure source ? <a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">Dites-le-nous sur GitHub</a>.</p>
+
+        <a class="cta" href="../">Comparez votre radiomètre à l'indice UVA modélisé →</a>
+      </article>
+
+      <aside class="related">
+        <h2>À lire aussi</h2>
+        <ul>
+          <li><a href="how-uva-index-is-calculated.html">Comment l'indice UVA est calculé</a></li>
+          <li><a href="uv-index-vs-uva-index.html">Indice UV ou indice UVA : ce que mesure chacun</a></li>
+          <li><a href="uv-index-scale-explained.html">L'échelle de l'indice UV expliquée — et ce qu'elle laisse de côté</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          Gratuit et open source. Calcul non officiel de l'indice UVA et de l'éclairement UVA. Information éducative uniquement, pas un avis médical. Plus d'informations sur la page <a href="https://uvaindex.org/fr/about.html">À propos</a>.
+          · <button type="button" class="link-btn" data-consent-open>Paramètres des cookies</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

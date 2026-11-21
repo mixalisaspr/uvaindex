@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>UVインデックス0〜11+の見方 — そして見えていないもの</title>
+    <meta
+      name="description"
+      content="UVインデックスの数値の意味、0〜11+のスケールの由来、WHOの区分の色と推奨される対策、実際にどこまで高くなるのか、そしてUVAを過小に示す原因となっている紅斑作用の重み付けを解説します。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/ja/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/uv-index-scale-explained.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/uv-index-scale-explained.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA指数" />
+    <meta property="og:title" content="UVインデックス0〜11+の見方" />
+    <meta property="og:description" content="UVインデックスの数値はどこから来るのか、各区分は何を意味するのか、実際にどこまで高くなるのか、そしてこのスケールがあえて示さないようにつくられているものを解説します。" />
+    <meta property="og:url" content="https://uvaindex.org/ja/learn/uv-index-scale-explained.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "UVインデックスのスケールを解説 — そしてそこに含まれていないもの",
+        "description": "UVインデックスのスケールを詳しく解説：数値の背後にある紅斑作用スペクトルと40倍の換算、WHOの区分と色、世界の記録的な値、そしてこの指数がUVAを過小に表す構造的な理由。",
+        "inLanguage": "ja",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-29",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/ja/learn/uv-index-scale-explained.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Global Solar UV Index: A Practical Guide",
+            "publisher": "World Health Organization, WMO, UNEP and ICNIRP",
+            "datePublished": "2002",
+            "url": "https://www.who.int/publications/i/item/9241590076"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Record solar UV irradiance in the tropical Andes",
+            "author": "Cabrol NA, Feister U, Häder D-P, et al.",
+            "publisher": "Frontiers in Environmental Science 2:19",
+            "datePublished": "2014",
+            "url": "https://doi.org/10.3389/fenvs.2014.00019"
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Comment on \"Record solar UV irradiance in the tropical Andes\"",
+            "author": "McKenzie RL, Bernhard G, Madronich S, Zaratti F",
+            "publisher": "Frontiers in Environmental Science 3:26",
+            "datePublished": "2015",
+            "url": "https://doi.org/10.3389/fenvs.2015.00026"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "UVインデックスがどのくらいだと高いのですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "WHOの区分は、弱い（0〜2）、中程度（3〜5）、強い（6〜7）、非常に強い（8〜10）、極端に強い（11+）です。3以上で対策が推奨されます。8以上の場合、色白の肌が無防備な状態だと、南中時刻の前後ではおよそ15〜25分以内に日焼け（サンバーン）が始まることがあります。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "UVインデックスはどのように計算されますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "地上での太陽の分光放射照度に、波長ごとにCIEの紅斑作用スペクトル（各波長がどれだけ効果的に人の肌を赤くするかを表す曲線）を掛け、紫外線の帯域にわたって積分し、40を掛けます。つまり、UVインデックス1は、紅斑作用で重み付けした放射照度0.025 W/m²に相当します。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "UVインデックスは11を超えることがありますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "はい。スケールに上限はなく、11は最も高い区分が始まる値にすぎません。熱帯のアンデス山脈では14〜16の値はごく普通で、2003年12月にはボリビアのリカンカブール山で43.3という値が報告されました。これは公表された中で最も高い値ですが、ほかの研究者からは測定器による誤差の可能性が高いとして異論が出ています。高い標高、薄いオゾン層、真上からの太陽、雪の反射が重なっています。"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA指数",
+            "item": "https://uvaindex.org/ja/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "ナレッジベース",
+            "item": "https://uvaindex.org/ja/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UVインデックスのスケールを解説",
+            "item": "https://uvaindex.org/ja/learn/uv-index-scale-explained.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <a href="../">UVA指数</a><span class="sep">›</span><a href="./">ナレッジベース</a><span class="sep">›</span>UVインデックスのスケールを解説
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="言語: 日本語"><span class="lang-icon" aria-hidden="true">🌐</span> 日本語</summary>
+          <ul>
+            <li><a href="../../learn/uv-index-scale-explained.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/uv-index-scale-explained.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/uv-index-scale-explained.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/uv-index-scale-explained.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/uv-index-scale-explained.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="uv-index-scale-explained.html" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+            <li><a href="../../zh/learn/uv-index-scale-explained.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>UVインデックスのスケールを解説 — そしてそこに含まれていないもの</h1>
+        <p class="lead">
+          UVインデックスは、紫外線に関する情報の中で、ほとんどの人が目にしたことのある
+          唯一のものです。天気アプリに表示される、色分けされた0から11くらいまでの数値です。
+          これは科学コミュニケーションとして本当によくできています。同時に、設計上、
+          <em>一つの</em>ものを測る指標でもあります。このページでは、その両面について解説します。
+        </p>
+
+        <h2>数値の由来</h2>
+        <p>
+          UVインデックスは、紫外線そのものの測定値ではありません。紫外線が
+          <strong>人の肌を赤くする</strong>力を測ったもので、これは別の量です。
+        </p>
+        <p>
+          日光は、波長ごとのエネルギー分布であるスペクトルとして地上に届きます。指数を求めるには、
+          このスペクトルに、波長ごとに<strong>CIEの紅斑作用スペクトル</strong>を掛けます。これは、
+          各波長が日焼け（サンバーン）を起こす効果の大きさを表す標準化された曲線です。重み付けした結果を
+          紫外線の帯域にわたって積分し、定数を掛けて調整します。<sup class="cite"><a href="#src-1" aria-label="出典 1">[1]</a></sup>
+        </p>
+        <div class="callout">
+          <strong>UVインデックス = 紅斑作用で重み付けした放射照度（W/m²）× 40</strong><br />
+          つまり、UVインデックス1 = 0.025&nbsp;W/m²、UVインデックス10 = 0.25&nbsp;W/m²です。
+        </div>
+        <p>
+          40倍という係数は、地球上の条件で、結果が覚えやすい0から約11の範囲に収まるように
+          するためだけのものです。それ自体に物理的な意味はありません。このサイトの
+          <a href="how-uva-index-is-calculated.html">UVA指数</a>を比較できるスケールにしている
+          除数の6とまったく同じです。
+        </p>
+
+        <h2>区分とWHOが推奨する対策</h2>
+        <p>
+          以下の区分はWHO・WMO・ICNIRPの標準で、実質的に世界中で使われています。
+          色も標準の一部であり、飾りではありません。<sup class="cite"><a href="#src-1" aria-label="出典 1">[1]</a></sup>
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>UVインデックス</th><th>区分</th><th>色</th><th>WHOのガイダンス</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0–2</td><td>弱い</td><td>緑</td><td>ほとんどの人は対策不要</td></tr>
+            <tr><td>3–5</td><td>中程度</td><td>黄</td><td>日中は日陰を利用。シャツ、日焼け止め、帽子</td></tr>
+            <tr><td>6–7</td><td>強い</td><td>オレンジ</td><td>対策が必要。日中の外出を控える</td></tr>
+            <tr><td>8–10</td><td>非常に強い</td><td>赤</td><td>念入りな対策を。日中の外出は避ける</td></tr>
+            <tr><td>11+</td><td>極端に強い</td><td>紫</td><td>あらゆる対策を。無防備な肌は数分で日焼けすることがある</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          <strong>重要なのは3という基準です。</strong>WHOが対策を勧め始める値であり、
+          多くの国の啓発キャンペーンもこの数値を軸にしています。3未満では、通常の曝露時間であれば、
+          ほとんどのスキンタイプで紅斑が起こる可能性は低くなります。
+        </p>
+
+        <h2>実際にどこまで高くなるのか</h2>
+        <p>
+          スケールに上限はありません。11は最も高い区分が<em>始まる</em>値であって、
+          スケールが終わる値ではありません。アプリが「11+」と表示するために、よく誤解されている点です。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>場所</th><th>晴天時の夏の典型的なピーク</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>英国北部、スカンジナビア</td><td>5–7</td></tr>
+            <tr><td>中央ヨーロッパ、北ヨーロッパ</td><td>6–8</td></tr>
+            <tr><td>地中海沿岸、米国南部</td><td>9–11</td></tr>
+            <tr><td>熱帯の低地</td><td>11–14</td></tr>
+            <tr><td>熱帯の高地（アンデス山脈、ヒマラヤ山脈）</td><td>14–20+</td></tr>
+            <tr><td>公表された最高値 — 異論あり（ボリビア、リカンカブール山、2003年12月）</td><td>43.3</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          リカンカブール山の数値は、アンデスの高い火山での線量計による測定に基づくもので<sup class="cite"><a href="#src-2" aria-label="出典 2">[2]</a></sup>、ほかの紫外線研究者からは測定器による誤差の可能性が高いとして異論が出ています。<sup class="cite"><a href="#src-3" aria-label="出典 3">[3]</a></sup>そのため、確立された記録ではなく、これまでに主張された値の上限として扱ってください。極端な値は、あらゆる増幅要因が同時に重なることで生じます。真上からの太陽、
+          薄いオゾン層、上空にほとんどない大気、澄んで乾いた空気、そして下からの雪の反射です。
+          標高による増加率が波長によって異なる理由は<a href="uva-at-altitude.html">標高と
+          UVA</a>で、アルベドの寄与は<a href="reflected-uva-snow-sand-water.html">反射するUVA</a>で
+          解説しています。
+        </p>
+
+        <h2>重み付けが果たす役割と、隠してしまうもの</h2>
+        <p>
+          紅斑作用による重み付けには、構造的な帰結があります。作用スペクトルは波長とともに
+          きわめて急激に低下し、UVB（紫外線B波）にあるピークと比べると、340&nbsp;nmでの効果は
+          1000分の1程度になります。つまり、この指数は実質的にUVBを測る道具なのです。
+        </p>
+        <div class="callout">
+          南中時刻には、地上に届く<strong>紫外線の光子のおよそ95%</strong>がUVA（紫外線A波）です。しかし
+          紅斑作用で重み付けすると、UVAがUVインデックスに占める割合は約<strong>17%</strong>にすぎず、
+          残りの約83%はUVBによるものです。この指数は、たまたま日焼け（サンバーン）を起こす、スペクトルのごく一部に
+          支配されているのです。
+        </div>
+        <p>
+          本来の役割である「これから日焼け（サンバーン）しそうかどうか」を伝えるという点では、これはまさに
+          正しく、批判は当たりません。問題は、この数値が「今日はどのくらい紫外線があるか」を示す
+          汎用的な指標として使われてしまうことで、そのような指標ではないのです。UVBとUVAは、
+          太陽の角度、オゾン、雲、ガラスに対してまったく異なる反応をするため、人々が注意を
+          払わなくなるまさにそのときに、両者は食い違います。
+        </p>
+        <ul>
+          <li>
+            <strong>冬。</strong>大気中を通る経路が長く斜めになると、途中にあるオゾンがはるかに多くなり、
+            UVBは取り除かれますが、UVAはほぼそのまま残ります。UVインデックスは大きく下がりますが、
+            UVAの減少はわずかです。<a href="does-uva-change-with-the-seasons.html">季節とUVA</a>を
+            ご覧ください。
+          </li>
+          <li>
+            <strong>ガラス越し。</strong>普通の窓ガラスはUVBをほぼすべて取り除くため、屋内での
+            実質的なUVインデックスはほぼゼロです。しかし、UVAの大部分は透過し続けます。
+            <a href="does-glass-block-uva.html">ガラスはUVAを防ぐのか</a>をご覧ください。
+          </li>
+          <li>
+            <strong>雲の下。</strong>雲は、UVAよりもUVBが大部分を占める紅斑紫外線の帯域を
+            強く減衰させるため、比率がまた変わります。<a href="uva-on-cloudy-days.html">曇りの日のUVA</a>を
+            ご覧ください。
+          </li>
+          <li>
+            <strong>早朝と夕方。</strong>冬と同じエアマスの理屈が、数時間に凝縮されたものです。
+            <a href="what-time-is-uva-highest.html">UVAがピークになる時間帯</a>をご覧ください。
+          </li>
+        </ul>
+        <p>
+          これらのどの場合でも、低いUVインデックスは日焼け（サンバーン）のリスクについては正しいことを
+          伝えていますが、紫外線の曝露全般については誤った印象を与えます。このサイトが
+          <a href="uv-index-vs-uva-index.html">別にUVA指数</a>を計算している理由は、まさにそこにあります。
+        </p>
+
+        <h2>2つを合わせて読む</h2>
+        <p>
+          最も役立つ習慣は、2つの指数を同じ問いの答えを争うものではなく、
+          2つの異なる問いに答えるものとして扱うことです。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>問い</th><th>見るべき数値</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>今日は日焼け（サンバーン）するか？</td><td>UVインデックス</td></tr>
+            <tr><td>今すぐ日焼け（サンバーン）対策が必要か？</td><td>UVインデックス ≥ 3</td></tr>
+            <tr><td>光老化や色素沈着につながる線量が蓄積しているか？</td><td>UVA指数</td></tr>
+            <tr><td>通勤や窓際のデスクは影響するか？</td><td>UVA指数</td></tr>
+            <tr><td>ビタミンDはつくられるか？</td><td>UVインデックス（UVBの代わりの指標）</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          最後の行は、じっくり考える価値があります。この違いを最もはっきり示す例だからです。
+          ビタミンDの合成はUVBによって起こるため、UVインデックスとよく連動しますが、
+          UVAはまったく寄与しません。この点は<a href="uva-and-vitamin-d.html">UVAとビタミンD</a>で
+          詳しく解説しています。このサイトの計算ツールがリアルタイムのUVインデックスを
+          UVA指数と並べて表示しているのは、まさにこのためです。2つを一緒に見れば、違いが一目でわかります。
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>出典</h2>
+          <ol>
+            <li id="src-1"><a href="https://www.who.int/publications/i/item/9241590076" rel="noopener">Global Solar UV Index: A Practical Guide</a>. <em>World Health Organization, WMO, UNEP and ICNIRP</em>, 2002.</li>
+            <li id="src-2">Cabrol NA, Feister U, Häder D-P, et al. (2014). <a href="https://doi.org/10.3389/fenvs.2014.00019" rel="noopener">Record solar UV irradiance in the tropical Andes</a>. <em>Frontiers in Environmental Science 2:19</em>.</li>
+            <li id="src-3">McKenzie RL, Bernhard G, Madronich S, Zaratti F (2015). <a href="https://doi.org/10.3389/fenvs.2015.00026" rel="noopener">Comment on &quot;Record solar UV irradiance in the tropical Andes&quot;</a>. <em>Frontiers in Environmental Science 3:26</em>.</li>
+          </ol>
+        </section>
+        <p class="reviewed">最終確認日：2026年11月16日。誤りやより良い出典に気づいたら、<a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">GitHubでお知らせください</a>。</p>
+
+        <a class="cta" href="../">現在地のUVA指数と比べてみる →</a>
+      </article>
+
+      <aside class="related">
+        <h2>あわせて読みたい</h2>
+        <ul>
+          <li><a href="uv-index-vs-uva-index.html">UVインデックスとUVA指数：それぞれが測っているもの</a></li>
+          <li><a href="how-uva-index-is-calculated.html">UVA指数はどのように計算されるのか</a></li>
+          <li><a href="uva-vs-uvb.html">UVAとUVBの違いとは？</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          無料のオープンソースです。UVA指数とUVA放射照度の非公式な計算です。教育目的の情報であり、医学的助言ではありません。詳しくは<a href="https://uvaindex.org/ja/about.html">このサイトについて</a>をご覧ください。
+          · <button type="button" class="link-btn" data-consent-open>Cookieの設定</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

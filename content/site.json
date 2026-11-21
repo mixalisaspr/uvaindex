@@ -1,6 +1,7 @@
 {
   "site_url": "https://uvaindex.org",
   "site_name": "UVA Index",
+  "languages": ["en", "es", "fr", "de", "it", "ja", "zh"],
   "org_name": "uvaindex.org",
   "ga_id": "G-Y6Z9PMH6V0",
   "default_og_image": "https://uvaindex.org/og-image.png",
@@ -8,21 +9,7 @@
   "og_image_height": "630",
   "related_count": 3,
   "tag_pages_enabled": true,
-  "tags": {
-    "basics": "Basics",
-    "comparison": "Comparisons",
-    "environment": "Conditions & environment",
-    "health": "Health effects",
-    "uv-index": "UV Index",
-    "methodology": "Methodology",
-    "protection": "Protection",
-    "spectrum": "UV spectrum",
-    "risks": "Risks",
-    "technical": "Technical"
-  },
-  "default_cta_text": "See the live UVA Index for your location →",
   "default_cta_href": "../",
-  "disclaimer": "Free and open source. Unofficial UVA index and UVA irradiance calculation. Educational information only, not medical advice. More on the <a href=\"https://uvaindex.org/about.html\">About page</a>.",
   "static_pages": [
     { "loc": "/", "lastmod": "2026-10-07", "changefreq": "weekly", "priority": "1.0" },
     { "loc": "/about.html", "lastmod": "2026-11-16", "changefreq": "monthly", "priority": "0.8" },
@@ -43,6 +30,7 @@
     "./js/consent.js",
     "./js/embed.js",
     "./js/forecast.js",
+    "./js/i18n.js",
     "./js/lut.js",
     "./js/solar.js",
     "./js/sw-register.js",

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>UVAが最も強いのは何時？1時間ごとに見るUVAの1日の変化</title>
+    <meta
+      name="description"
+      content="UVAのピークは南中時刻（太陽正午）ですが、そのカーブはUVインデックスよりずっとなだらかなため、朝や夕方には相対的にずっと多くのUVAが含まれます。1時間ごとの数値、影のルールが通用しない理由、そして南中時刻がめったに12:00にならない理由を解説します。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/ja/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/what-time-is-uva-highest.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA指数" />
+    <meta property="og:title" content="UVAが最も強いのは何時？" />
+    <meta property="og:description" content="UVAの1日のカーブはUVインデックスよりずっとなだらかです。南中時刻から4時間離れると、日焼けを起こす紫外線は63%減りますが、UVAは42%しか減りません。" />
+    <meta property="og:url" content="https://uvaindex.org/ja/learn/what-time-is-uva-highest.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "UVAが最も強いのは何時？1日の変化のカーブ",
+        "description": "地表のUVAが1日の中でどう変化するのか。cos（天頂角）による減少、紅斑紫外線との1時間ごとの比較、「10時から16時」のルールや影のルールがUVBのためのルールである理由、そして本当の南中時刻の求め方を解説します。",
+        "inLanguage": "ja",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-08-29",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/ja/learn/what-time-is-uva-highest.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Global Solar UV Index: A Practical Guide",
+            "publisher": "World Health Organization, WMO, UNEP and ICNIRP",
+            "datePublished": "2002",
+            "url": "https://www.who.int/publications/i/item/9241590076"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "UVAが1日で最も強いのは何時ですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "UVAのピークは南中時刻（太陽正午）、つまり太陽が最も高くなる瞬間で、それが時計の12:00になることはめったにありません。UVAの特徴は、その前後でゆっくりとしか下がらないことです。南中時刻から4時間離れてもピークの約58%ありますが、紅斑紫外線は約37%まで下がっています。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "朝の紫外線は強いですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "日焼けという意味では、それほどではありません。南中時刻の3時間前の紅斑紫外線は、ピークのおよそ59%です。UVAという意味では、かなり強いといえます。同じ時刻でピークの約75%あります。朝や夕方の日光は、相対的にUVAを多く含んでいます。大気中を長く通る間に、UVBのほうがUVAよりはるかに効率よく取り除かれるからです。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "影のルールはUVAにも使えますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "おおまかにしか使えません。「影が身長より短ければ紫外線が強い」というこのルールは、太陽天頂角45°を目安にしています。中緯度の真夏では、これは南中時刻の前後およそ3時間15分にあたります。その時間帯の外では紅斑紫外線は確かに大きく下がっていますが、UVAはまだピークの半分以上あります。ですから、影が「安全」な長さでも、UVAの線量が低いとは限りません。"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA指数",
+            "item": "https://uvaindex.org/ja/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "ナレッジベース",
+            "item": "https://uvaindex.org/ja/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "UVAが最も強いのは何時？",
+            "item": "https://uvaindex.org/ja/learn/what-time-is-uva-highest.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <a href="../">UVA指数</a><span class="sep">›</span><a href="./">ナレッジベース</a><span class="sep">›</span>UVAが最も強いのは何時？
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="言語: 日本語"><span class="lang-icon" aria-hidden="true">🌐</span> 日本語</summary>
+          <ul>
+            <li><a href="../../learn/what-time-is-uva-highest.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/what-time-is-uva-highest.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/what-time-is-uva-highest.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/what-time-is-uva-highest.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/what-time-is-uva-highest.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="what-time-is-uva-highest.html" hreflang="ja" lang="ja" aria-current="true">日本語</a></li>
+            <li><a href="../../zh/learn/what-time-is-uva-highest.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>UVAが最も強いのは何時？1日の変化のカーブ</h1>
+        <p class="lead">
+          UVA（紫外線A波）のピークは南中時刻（太陽正午）です。理由は空にある他のすべてのものと同じで、
+          そのとき太陽が最も高く、光が大気中を通る道のりが最も短いからです。興味深いのはピークではありません。
+          その<em>形</em>です。UVAの1日のカーブは、UVインデックスのカーブより目立ってなだらかです。つまり、
+          これまでに身につけてきたおなじみの時間帯のアドバイスは、どれも違う波長域に合わせたものなのです。
+        </p>
+
+        <div class="callout">
+          <strong>要点：</strong>南中時刻の前後4時間では、紅斑紫外線はピークの約<strong>37%</strong>まで
+          下がっていますが、UVAはまだ<strong>58%</strong>あります。正午と比べると、夕方の日光はおよそ
+          <strong>1.6倍UVAが豊富</strong>です。
+        </div>
+
+        <h2>カーブがこの形になる理由</h2>
+        <p>
+          太陽が低くなると、どちらの波長域も弱くなります。その理由は2つあります。1つ目は純粋に幾何学的な
+          ものです。斜めに地面に当たる光は、同じエネルギーをより広い面積に広げます。この効果は太陽天頂角の
+          コサインに比例し、すべての波長に同じように働きます。
+        </p>
+        <p>
+          2つ目の理由は吸収で、こちらは波長によって同じようには働きません。太陽が低くなると、日光はだんだんと
+          多くの大気を通るようになり（<strong>エアマス</strong>が大きくなり）、道のりが1キロ延びるごとに、
+          それだけ多くのオゾンが行く手をさえぎります。オゾンはUVB（紫外線B波）を強く吸収しますが、UVAは
+          ごくわずかしか吸収しません。そのため、道のりが長くなると、老化を起こす波長域よりも日焼けを起こす
+          波長域のほうがはるかに大きく削られるのです。
+        </p>
+        <p>
+          この2つを合わせると、地表の放射照度は天頂角のコサインのべき乗にほぼ従って下がり、その指数は波長域
+          ごとに異なります。このサイトの放射伝達モデルでは、UVAはおよそ<strong>cos(z)<sup>1.2</sup></strong>
+          で下がります。紅斑紫外線は、オゾンの項が幾何学的な効果に上乗せされるため、
+          <strong>cos(z)<sup>2.2</sup></strong>に近い振る舞いをします。この指数1つの違いが、話のすべてです。
+        </p>
+
+        <h2>1時間ごとの変化</h2>
+        <p>
+          下の表は、北緯&nbsp;40°（南ヨーロッパ、地中海北部、ニューヨーク、北京）の快晴の真夏の1日です。
+          値はそれぞれの波長域自身の正午のピークに対する割合なので、各列は大きさではなく形を直接比べられます。
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>南中時刻から</th><th>太陽天頂角</th><th>UVA（ピーク比）</th><th>紅斑紫外線（ピーク比）</th><th>UVAの濃縮度</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>0時間</td><td>17°</td><td>100%</td><td>100%</td><td>1.00倍</td></tr>
+            <tr><td>±1時間</td><td>21°</td><td>97%</td><td>95%</td><td>1.03倍</td></tr>
+            <tr><td>±2時間</td><td>30°</td><td>88%</td><td>80%</td><td>1.11倍</td></tr>
+            <tr><td>±3時間</td><td>41°</td><td>75%</td><td>59%</td><td>1.27倍</td></tr>
+            <tr><td>±4時間</td><td>53°</td><td>58%</td><td>37%</td><td>1.58倍</td></tr>
+            <tr><td>±5時間</td><td>64°</td><td>39%</td><td>18%</td><td>2.19倍</td></tr>
+            <tr><td>±6時間</td><td>75°</td><td>21%</td><td>6%</td><td>3.75倍</td></tr>
+            <tr><td>±7時間</td><td>86°</td><td>5%</td><td>0.4%</td><td>13倍</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          絶対値で言えば、この正午のピークは、海抜0メートルの快晴の空の下でUVA指数約<strong>10.5</strong>です。
+          しっかり「非常に強い」レベルに入っています。3時間後でもまだ約<strong>7.8</strong>で、「強い」レベルの
+          上限です。4時間後でも約<strong>6.0</strong>で、かろうじて「強い」レベルにとどまり、5時間後になって
+          ようやく、快晴の真夏の空は<strong>4.1</strong>、つまり「中程度」まで下がります。
+          <a href="uv-index-vs-uva-index.html">レベルの説明</a>では、それぞれのレベルでどんな対策をとる価値が
+          あるかを詳しく説明しています。
+        </p>
+        <div class="callout">
+          <strong>実用上の結論は「UVAの濃縮度」の列です。</strong>夕方に届く紫外線は、ただ弱くなっただけでは
+          ありません。その構成が変わっているのです。残っているのは、光老化や色素沈着を起こす波長域が相対的に
+          多く、気づくきっかけとなる波長域が相対的に少ない光です。
+        </div>
+
+        <h2>「10時から16時を避ける」がUVBのルールである理由</h2>
+        <p>
+          10:00から16:00の間は日光を避けるという標準的なアドバイスは、公衆衛生のメッセージとして妥当であり、
+          まさに日焼け（サンバーン）を狙ったものです<sup class="cite"><a href="#src-1" aria-label="出典 1">[1]</a></sup>。紅斑の列を見てください。この時間帯は
+          確かに日焼けを起こす紫外線の大部分をとらえているので、日焼けを避けるためのアドバイスとしては
+          機能します。
+        </p>
+        <p>
+          UVAのアドバイスとしては、ずっと弱いものです。南中時刻が13:00になる中緯度の真夏の1日を例にとりましょう。
+          10:00から16:00までの6時間には紅斑線量の大部分が含まれます。しかし、このルールが問題なしとしている
+          08:00から10:00と16:00から18:00は、UVAのピークのおよそ40〜75%で推移しています。17:00に1時間屋外に
+          いることは、UVAのない1時間ではありません。警告のサインがなくなっただけの、真昼の1時間のかなりの部分に
+          あたるのです。
+        </p>
+        <p>
+          同じことが<strong>影のルール</strong>にも当てはまります。影が身長より長ければ、紫外線は弱いとされて
+          います。これは天頂角45°を目安にしており、表では南中時刻からおよそ3時間15分にあたります。それより先では、
+          紅斑紫外線は確かに急速に下がっています。UVAはまだピークの半分以上あります。
+        </p>
+
+        <h2>南中時刻は12:00ではない</h2>
+        <p>
+          ここまでの話はすべて<strong>南中時刻</strong>、つまり太陽がその土地の子午線を通過する瞬間を基準に
+          しています。時計の上では、これが正午からかなり離れることがあり、3つの別々の効果が重なります。
+        </p>
+        <ul>
+          <li>
+            <strong>夏時間</strong>は南中時刻を1時間遅らせ、夏の間ずっと13:00ごろにします。これだけでも、
+            本当のピークは正午よりも、よくある昼休みの始まりに近いことになります。
+          </li>
+          <li>
+            <strong>タイムゾーン内での経度。</strong>タイムゾーンの幅は1時間ですが、政治的に決められています。
+            タイムゾーンの西の端では、太陽の動きが遅れます。スペインはグリニッジと同じ経度にありながら中央
+            ヨーロッパ時間を使っているため、ガリシア地方の夏の南中時刻は14:30を過ぎます。中国は5つの
+            タイムゾーン分の経度にわたって1つのタイムゾーンを使っており、カシュガルでは南中時刻が15:00近くに
+            なります。
+          </li>
+          <li>
+            <strong>均時差</strong>：地球の軌道は楕円で、地軸が傾いているため、ほかの要因とは関係なく、南中時刻は
+            1年を通じて最大約±16分ずれます。
+          </li>
+        </ul>
+        <p>
+          実際の帰結はこうです。<strong>紫外線のピークが正午にあると思い込まないでください。</strong>夏の
+          ヨーロッパの大部分では13:30に近く、スペインや中国西部の一部ではそれよりかなり遅くなります。この
+          サイトの計算ツールは、あなたの実際の座標と本当の太陽の位置をもとに計算するので、1時間ごとのグラフには、
+          時計が示す時刻ではなく、あなたにとって本当にピークが来る時刻が表示されます。
+        </p>
+
+        <h2>カーブの形を変えるもの</h2>
+        <p>
+          上のきれいなカーブは快晴の空を前提としています。現実には、予測できる形でゆがみます。
+        </p>
+        <ul>
+          <li>
+            <strong>季節はカーブをなだらかにしたり、とがらせたりします。</strong>冬は太陽が高く昇らないので、
+            カーブ全体が押しつぶされて低くなります。しかし、太陽が低いと1日中オゾン層を通る道のりが長いため、
+            相対的にUVAが多くなります。<a href="does-uva-change-with-the-seasons.html">季節によるUVAの変化</a>
+            で数値を追って説明しています。
+          </li>
+          <li>
+            <strong>緯度が上限を決めます。</strong>赤道に近いほど正午のピークは高く、カーブの幅も広くなります。
+            <a href="uva-by-latitude-and-location.html">緯度によるUVAの違い</a>で比較しています。
+          </li>
+          <li>
+            <strong>雲はばらつきを加えますが、傾向は変えません。</strong>流れていく積雲の群れは、数分のうちに
+            値を2倍も変えることがあり、切れ切れの雲は一時的に値を快晴時の線より<em>上</em>に押し上げることも
+            あります。<a href="uva-on-cloudy-days.html">曇りの日のUVA</a>をご覧ください。
+          </li>
+          <li>
+            <strong>地形はカーブを途中で切ります。</strong>谷間や街の通りでは、幾何学的なカーブが示すよりずっと
+            早く太陽が障害物の陰に隠れます。ただし、開けた空からの散乱UVAは続きます。日陰が完全な対策ではなく
+            部分的な対策であるのはこのためです。
+          </li>
+          <li>
+            <strong>朝と午後は完全には対称ではありません。</strong>対流性の雲は一般に日中にかけて発達し、
+            エアロゾルの量も朝と午後で異なることが多いため、実際の午後側のカーブは、たいてい朝側より少し
+            低くなります。
+          </li>
+        </ul>
+
+        <h2>この知識の使い方</h2>
+        <p>
+          日焼け（サンバーン）を避けたいなら、時間帯で避けるのは効率的です。紅斑のカーブは鋭くとがっている
+          ので、数時間日陰にいればリスクの大部分を取り除けます。光老化、肝斑、光線過敏の病気、目への曝露の
+          ためにUVAを減らしたいなら、時間帯の調整はずっと大ざっぱな手段にしかなりません。相手にしている
+          カーブの幅が広いからです。その場合の答えはスケジュールではなく<strong>遮るもの</strong>です。
+          日焼け止め、<a href="does-clothing-block-uva.html">衣服</a>、そして
+          <a href="uva-and-your-eyes.html">UV400レンズ</a>は、09:00でも13:00でも同じようによく働きます。
+        </p>
+
+        <section class="sources" id="sources">
+          <h2>出典</h2>
+          <ol>
+            <li id="src-1"><a href="https://www.who.int/publications/i/item/9241590076" rel="noopener">Global Solar UV Index: A Practical Guide</a>. <em>World Health Organization, WMO, UNEP and ICNIRP</em>, 2002.</li>
+          </ol>
+        </section>
+        <p class="reviewed">最終確認日：2026年11月16日。誤りやより良い出典に気づいたら、<a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">GitHubでお知らせください</a>。</p>
+
+        <a class="cta" href="../">現在地の今日の1時間ごとのUVAカーブを見る →</a>
+      </article>
+
+      <aside class="related">
+        <h2>あわせて読みたい</h2>
+        <ul>
+          <li><a href="uv-index-vs-uva-index.html">UVインデックスとUVA指数：それぞれが測っているもの</a></li>
+          <li><a href="does-uva-change-with-the-seasons.html">UVAがUVBほど季節によって変わらない理由</a></li>
+          <li><a href="how-uva-index-is-calculated.html">UVA指数はどのように計算されるのか</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          無料のオープンソースです。UVA指数とUVA放射照度の非公式な計算です。教育目的の情報であり、医学的助言ではありません。詳しくは<a href="https://uvaindex.org/ja/about.html">このサイトについて</a>をご覧ください。
+          · <button type="button" class="link-btn" data-consent-open>Cookieの設定</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>

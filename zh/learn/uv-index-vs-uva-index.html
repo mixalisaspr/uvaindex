@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Analytics: Google Analytics, loaded only after consent where
+         required (EU/EEA, UK, CH) — see js/consent.js -->
+    <script src="../../js/consent.js" data-ga-id="G-Y6Z9PMH6V0" defer></script>
+
+    <title>紫外线指数与 UVA 指数：两者各自衡量什么</title>
+    <meta
+      name="description"
+      content="紫外线指数是按红斑加权的，所以以 UVB 为主，几乎反映不出 UVA。本文介绍两种指数各自衡量什么，UV 指数低而 UVA 很高的情形，以及如何解读 0–11+ 的 UVA 指数等级。"
+    />
+    <meta name="author" content="uvaindex.org" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1724" />
+    <link rel="canonical" href="https://uvaindex.org/zh/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="de" href="https://uvaindex.org/de/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="it" href="https://uvaindex.org/it/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="ja" href="https://uvaindex.org/ja/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://uvaindex.org/zh/learn/uv-index-vs-uva-index.html" />
+    <link rel="alternate" hreflang="x-default" href="https://uvaindex.org/learn/uv-index-vs-uva-index.html" />
+    <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="UVA 指数" />
+    <meta property="og:title" content="紫外线指数与 UVA 指数：两者各自衡量什么" />
+    <meta property="og:description" content="紫外线指数是按晒伤加权的，所以它主要是一个 UVB 数值。两种指数各自衡量什么、何时出现分歧，以及如何解读 UVA 等级。" />
+    <meta property="og:url" content="https://uvaindex.org/zh/learn/uv-index-vs-uva-index.html" />
+    <meta property="og:image" content="https://uvaindex.org/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://uvaindex.org/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "紫外线指数与 UVA 指数：两者各自衡量什么",
+        "description": "按红斑加权的紫外线指数与未加权的 UVA 量度有何不同：各自反映什么，在哪些条件下 UV 指数低而 UVA 很高，以及 0–11+ 的 UVA 指数等级及其分档界限。",
+        "inLanguage": "zh-Hans",
+        "author": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "uvaindex.org"
+        },
+        "datePublished": "2026-06-20",
+        "dateModified": "2026-11-16",
+        "mainEntityOfPage": "https://uvaindex.org/zh/learn/uv-index-vs-uva-index.html",
+        "citation": [
+          {
+            "@type": "CreativeWork",
+            "name": "Global Solar UV Index: A Practical Guide",
+            "publisher": "World Health Organization, WMO, UNEP and ICNIRP",
+            "datePublished": "2002",
+            "url": "https://www.who.int/publications/i/item/9241590076"
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "紫外线指数能衡量 UVA 吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "几乎不能。紫外线指数用 CIE 红斑作用光谱对地面紫外线光谱进行加权——这条曲线描述的是每个波长使皮肤发红的效力——然后乘以 40。这条曲线向长波方向急剧下降——皮肤对某些 UVA 波长的敏感度比对 UVB 低约一千倍——所以尽管按能量计 UVA 占地面紫外线的绝大部分，这种加权却几乎把它抹掉了。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "紫外线指数低的时候，UVA 会很高吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "会，而且恰恰发生在人们认为安全的情形中。在傍晚、阴天、冬季或坐在窗户后面时，引起晒伤的 UVB 已经减弱或被过滤掉，而 UVA——在一天中更稳定，能透过窗户玻璃，被云层削弱的程度也远小于你能感觉到的那部分光——仍在持续到达。UV 指数给出一个令人安心的数字，而 UVA 照射却在悄然继续。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "UVA 指数的等级是怎样的？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "它是大约 315-400 nm 范围内以 W/m² 计的未加权 UVA 辐照度除以六。选择这个除数，是为了让太阳位于头顶、晴空条件下约 64–66 W/m² 的辐照度读数为 11，给人与热带地区峰值 UV 指数相同的“满刻度”感觉。各档沿用世界卫生组织（WHO）的用语：低于 3 为“低”，3 起为“中等”，6 起为“高”，8 起为“很高”，11 起为“极高”——按辐照度计分别对应 18、36、48 和 66 W/m²。"
+            }
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "UVA 指数",
+            "item": "https://uvaindex.org/zh/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "知识库",
+            "item": "https://uvaindex.org/zh/learn/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "紫外线指数与 UVA 指数",
+            "item": "https://uvaindex.org/zh/learn/uv-index-vs-uva-index.html"
+          }
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <main class="app app--wide">
+      <div class="page-top">
+        <nav class="breadcrumb" aria-label="面包屑导航">
+          <a href="../">UVA 指数</a><span class="sep">›</span><a href="./">知识库</a><span class="sep">›</span>紫外线指数与 UVA 指数
+        </nav>
+        <details class="lang-switch">
+          <summary aria-label="语言: 简体中文"><span class="lang-icon" aria-hidden="true">🌐</span> 简体中文</summary>
+          <ul>
+            <li><a href="../../learn/uv-index-vs-uva-index.html" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../es/learn/uv-index-vs-uva-index.html" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../fr/learn/uv-index-vs-uva-index.html" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../de/learn/uv-index-vs-uva-index.html" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../it/learn/uv-index-vs-uva-index.html" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../ja/learn/uv-index-vs-uva-index.html" hreflang="ja" lang="ja">日本語</a></li>
+            <li><a href="uv-index-vs-uva-index.html" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">简体中文</a></li>
+          </ul>
+        </details>
+      </div>
+
+      <article class="prose">
+        <h1>紫外线指数与 UVA 指数：两者各自衡量什么</h1>
+        <p class="lead">
+          紫外线指数（UV 指数）确实是一个有用的数字，但它回答的是一个特定的问题：<em>这样的阳光会多快晒伤没有防护的皮肤？</em>
+          由于它是按晒伤加权的，所以它以 UVB（中波紫外线）为主，并系统性地低估了 UVA（长波紫外线）——
+          尽管 UVA 占到达你身上的紫外线的<a href="../../learn/what-is-uva-radiation.html" hreflang="en">绝大部分</a>。
+        </p>
+
+        <h2>UV 指数究竟是什么</h2>
+        <p>
+          UV 指数（UVI）并不是对紫外线能量的直接测量。它是<strong>用红斑作用光谱加权后的</strong>地面紫外线光谱——
+          红斑作用光谱是由 CIE 定义的一条曲线，描述每个波长使人体皮肤发红的效力。加权后的光谱经过积分和缩放（乘以 40&nbsp;W/m⁻²），
+          就得到了人们熟悉的 0–11+ 等级。<sup class="cite"><a href="#src-1" aria-label="来源 1">[1]</a></sup>
+        </p>
+        <p>
+          这条红斑曲线的关键特点是，它向长波方向急剧下降。就晒伤而言，皮肤对 UVB 的敏感度<strong>远远</strong>高于 UVA——
+          在某些波长上要高出约一千倍。
+        </p>
+
+        <div class="callout">
+          <strong>结果是：</strong>尽管在地面上 UVA 的原始能量远远超过 UVB，红斑加权却几乎把它抹掉了。
+          UV 指数实际上是<strong>一个主要反映 UVB 的数值</strong>——在太阳正午，UVI 以 UVB 为主，UVA 只贡献了一小部分。
+        </div>
+
+        <h2>UV 指数擅长什么</h2>
+        <ul>
+          <li>它是衡量<strong>晒伤风险</strong>以及你多快会发红的绝佳参考。</li>
+          <li>它能反映<strong>正午和夏季的峰值</strong>，此时引起晒伤的 UVB 最强。</li>
+          <li>它是标准化的，国际公认，随处可查。</li>
+        </ul>
+        <p>对于“为了避免晒伤，我现在该不该涂防晒霜？”这个问题，UVI 是合适的工具。</p>
+
+        <h2>它反映不足的方面</h2>
+        <p>UV 指数不能很好地代表 UVA 剂量，因此也不能很好地代表 UVA 造成的危害：</p>
+        <ul>
+          <li><strong>光老化</strong>——胶原蛋白分解、皱纹和色素沉着主要是 UVA 的作用，UVI 几乎反映不出来。</li>
+          <li><strong>真皮深层损伤和间接 DNA 损伤</strong>，以及 UVA 对黑色素瘤的作用。</li>
+          <li><strong>透过玻璃的照射</strong>——在车里或窗边，你几乎接受不到 UVB（所以“有效”UVI 很低），却会接受大量 UVA。</li>
+          <li><strong>阴天和非高峰时段</strong>——当 UVI 已经下降时，UVA 仍保持在相对较高的水平，因为 UVA 随太阳角度和云层的变化要小得多。</li>
+          <li><strong>光敏反应</strong>，其中许多是由 UVA 驱动的。</li>
+        </ul>
+
+        <h2>为什么 UV 指数低仍可能意味着 UVA 很高</h2>
+        <p>
+          想象一下傍晚，或者一个雾蒙蒙/阴沉的日子，或者坐在阳光充足的窗边。UV 指数可能显示为低到中等，
+          因为引起晒伤的 UVB 已经减弱。但 UVA——在一天中更稳定，能透过窗户玻璃，被云层削弱的程度也远小于你能感觉到的那部分光——
+          仍可能向你皮肤的深层输送可观的剂量。UVI 给你一个令人安心的数字，而 UVA 照射却在悄然继续。
+        </p>
+
+        <h2>为什么需要专门的 UVA 指数</h2>
+        <p>
+          一个专门针对 UVA 的量度可以填补这一空白。它不使用红斑加权，而是关注<strong>未加权的 UVA 波段（≈315–400&nbsp;nm）</strong>——
+          即到达地面的实际长波辐照度，以 W/m² 计。它告诉你的是导致老化和深层长期损伤的那部分照射，而这是 UV 指数在设计上无法传达的。
+        </p>
+
+        <div class="callout">
+          <strong>本站存在的原因：</strong>没有哪个主流的免费天气 API 提供纯 UVA 数据——它们发布的都是按红斑加权的 UV&nbsp;指数。
+          所以本站根据太阳几何位置加上实时大气数据（云量、气溶胶、海拔、地表反射率）<strong>推算</strong> UVA，
+          提供 UV&nbsp;指数所无法提供的专门 UVA 读数。关于估算的具体构建方式，请参见
+          <a href="how-uva-index-is-calculated.html">UVA&nbsp;指数是如何计算的</a>。
+        </div>
+
+        <h2>UVA 指数等级</h2>
+        <p>
+          原始的 UVA 辐照度（以 W/m² 计）虽然精确，却不为人熟悉，所以我们把它换算成和 UV&nbsp;指数一样的 0–11+ 等级。
+          换算只用一个常数：<strong>UVA 指数 = UVA 辐照度 ÷ 6</strong>。选择这个除数，是为了让太阳位于头顶、晴空条件下的辐照度
+          （在我们的模型中约为 64–66&nbsp;W/m²）读数约为 <strong>11</strong>——给人与热带地区峰值 UV&nbsp;指数相同的“满刻度”感觉。
+          各档沿用世界卫生组织（WHO）UV&nbsp;指数的颜色和用语，所以你已经熟悉的数字可以直接套用：
+        </p>
+        <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr><th>UVA 指数</th><th>等级</th><th>≈ 辐照度</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>低于 3</td><td>低</td><td>低于 18 W/m²</td></tr>
+            <tr><td>3 至不足 6</td><td>中等</td><td>18 至不足 36 W/m²</td></tr>
+            <tr><td>6 至不足 8</td><td>高</td><td>36 至不足 48 W/m²</td></tr>
+            <tr><td>8 至不足 11</td><td>很高</td><td>48 至不足 66 W/m²</td></tr>
+            <tr><td>11 及以上</td><td>极高</td><td>66 W/m² 及以上</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>
+          由于指数与辐照度严格成正比，两个数字说明的是同一件事——指数只是一种更便于一眼看懂的读法。
+        </p>
+
+        <h2>两者结合使用</h2>
+        <p>
+          这并不是说“UV 指数不好，UVA 指数好”。两者回答的是不同的问题，相辅相成：
+        </p>
+        <ul>
+          <li><strong>UV 指数</strong> → 短期晒伤风险（主要是 UVB）。</li>
+          <li><strong>UVA 指数</strong> → 导致老化和深层累积性损伤的长波 UVA 剂量。</li>
+        </ul>
+        <p>同时查看两者，比只看其中任何一个数字，都能更全面地了解太阳对你皮肤的影响。</p>
+
+        <section class="sources" id="sources">
+          <h2>参考来源</h2>
+          <ol>
+            <li id="src-1"><a href="https://www.who.int/publications/i/item/9241590076" rel="noopener">Global Solar UV Index: A Practical Guide</a>. <em>World Health Organization, WMO, UNEP and ICNIRP</em>, 2002.</li>
+          </ol>
+        </section>
+        <p class="reviewed">最后审核：2026年11月16日。发现错误或有更好的来源？<a href="https://github.com/mixalisaspr/uvaindex/issues" rel="noopener">请在 GitHub 上告诉我们</a>。</p>
+
+        <a class="cta" href="../">查看你的 UVA 指数，并与 UV 指数对照 →</a>
+      </article>
+
+      <aside class="related">
+        <h2>继续阅读</h2>
+        <ul>
+          <li><a href="how-uva-index-is-calculated.html">UVA 指数是如何计算的</a></li>
+          <li><a href="uva-vs-uvb.html">UVA 和 UVB 有什么区别？</a></li>
+          <li><a href="how-to-measure-uva.html">如何自己测量 UVA：测量仪、卡片与手机的误区</a></li>
+        </ul>
+      </aside>
+
+      <footer>
+        <p class="disclaimer">
+          免费且开源。非官方的 UVA 指数与 UVA 辐照度计算。仅供科普参考，不构成医疗建议。更多信息请见<a href="https://uvaindex.org/zh/about.html">关于</a>页面。
+          · <button type="button" class="link-btn" data-consent-open>Cookie 设置</button>
+        </p>
+      </footer>
+    </main>
+
+    <script src="../../js/sw-register.js" defer></script>
+  </body>
+</html>
