@@ -5,15 +5,16 @@
   "org_name": "uvaindex.org",
   "ga_id": "G-Y6Z9PMH6V0",
   "default_og_image": "https://uvaindex.org/og-image.png",
+  "logo": "/icons/icon-512.png",
   "og_image_width": "1200",
   "og_image_height": "630",
   "related_count": 3,
   "tag_pages_enabled": true,
   "default_cta_href": "../",
   "static_pages": [
-    { "loc": "/", "lastmod": "2026-10-07", "changefreq": "weekly", "priority": "1.0" },
-    { "loc": "/about.html", "lastmod": "2026-11-16", "changefreq": "monthly", "priority": "0.8" },
-    { "loc": "/widget.html", "lastmod": "2026-11-21", "changefreq": "monthly", "priority": "0.8" }
+    { "loc": "/", "lastmod": "2026-11-21" },
+    { "loc": "/about.html", "lastmod": { "en": "2026-11-16", "default": "2026-11-21" } },
+    { "loc": "/widget.html", "lastmod": "2026-11-21" }
   ],
   "sw_shell_prefix": [
     "./",

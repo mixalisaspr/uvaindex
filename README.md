@@ -201,8 +201,14 @@ pages load the shared `styles.css` and `js/` from one level up.
   `content/site.json`.
 
 Every page carries a language menu, `<link rel="alternate" hreflang>` tags for
-each language it exists in (plus `x-default` → English), and the sitemap lists
-the alternates too. There is no automatic redirect by browser language. The
+each language it exists in (plus `x-default` → English), `og:locale` /
+`og:locale:alternate` for link previews, and the sitemap lists the alternates
+too. The sitemap carries only `<loc>`, `<lastmod>` and the alternates.
+Google ignores `<changefreq>` and `<priority>`, so neither is written. A
+hand-written page's `<lastmod>` comes from `static_pages` in
+`content/site.json`, either as one date or per language
+(`{"en": …, "default": …}`). Bump it when the page's content really changes.
+There is no automatic redirect by browser language. The
 embeddable widget takes `?lang=` and the builder on each language's widget
 page sets it, so the widget and its credit line match the host page.
 
