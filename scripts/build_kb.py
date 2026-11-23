@@ -229,6 +229,7 @@ def load_articles(errors: list[str]) -> list[dict]:
             "schema_type": schema_type,
             "date_published": date_published,
             "date_modified": date_modified,
+            "reviewed": date_modified,
             "tags": meta.get("tags", []),
             "order": meta.get("order"),
             "og_image": meta.get("og_image"),
@@ -284,8 +285,24 @@ def load_translations(code: str, english: list[dict], problems: list[str], warni
             problems += found
             continue  # not published until it matches its English source
         meta, body = parse_content_file(path)
+        # Dates of the translated page itself (Article JSON-LD, sitemap
+        # lastmod): "published" is when the translation went live and
+        # "modified" when its wording last changed. The "reviewed" line keeps
+        # the English review date, since the facts come from there.
+        published = meta.get("published") or en["date_published"]
+        modified = meta.get("modified") or max(published, meta.get("translated_from") or en["date_modified"])
+        bad = [f"{k} '{v}'" for k, v in (("published", published), ("modified", modified)) if not DATE_RE.match(v)]
+        if bad:
+            problems.append(f"{rel}: {', '.join(bad)} is not YYYY-MM-DD")
+            continue
+        if modified < published:
+            problems.append(f"{rel}: modified {modified} is before published {published}")
+            continue
         a = dict(en)
         a.update({
+            "date_published": published,
+            "date_modified": modified,
+            "reviewed": en["reviewed"],
             "title": meta["title"],
             "headline": meta["headline"],
             "description": meta["description"],
@@ -487,7 +504,7 @@ def render_sources_block(article: dict, S: dict) -> str:
             lines.append(f'    <li id="src-{n}">{format_source(src)}</li>')
         lines.append("  </ol>")
         lines.append("</section>")
-    reviewed = fill(S["reviewed_html"], date=human_date(article["date_modified"], S), issues=ISSUES_URL)
+    reviewed = fill(S["reviewed_html"], date=human_date(article["reviewed"], S), issues=ISSUES_URL)
     lines.append(f'<p class="reviewed">{reviewed}</p>')
     return "\n".join(lines)
 
@@ -560,6 +577,17 @@ class Site:
             lines.append(f'{indent}<link rel="alternate" hreflang="x-default" href="{esc(self.abs_url("en", key))}" />')
         return "\n".join(lines)
 
+    def og_locale_lines(self, code: str, key: tuple, indent: str = "    ") -> str:
+        """og:locale (this page) and og:locale:alternate (its translations),
+        in the language_TERRITORY form Open Graph expects."""
+        lines = [f'{indent}<meta property="og:locale" content="{og_locale(self.langs[code])}" />']
+        lines += [
+            f'{indent}<meta property="og:locale:alternate" content="{og_locale(S)}" />'
+            for other, S in self.langs.items()
+            if other != code and self.has(other, key)
+        ]
+        return "\n".join(lines)
+
     def lang_switch(self, code: str, key: tuple) -> str:
         """The language menu: the same page in every language (or that
         language's Knowledge Base / home page when the page isn't translated)."""
@@ -585,6 +613,10 @@ class Site:
         ).rstrip("\n")
 
 
+def og_locale(S: dict) -> str:
+    return S["intl_locale"].replace("-", "_")
+
+
 def render_related_block(related: list[dict], S: dict) -> str:
     if not related:
         return ""
@@ -602,18 +634,20 @@ def render_jsonld_block(data: dict) -> str:
     return f'    <script type="application/ld+json">\n{indented}\n    </script>'
 
 
-def article_jsonld(article: dict, canonical: str, S: dict) -> dict:
+def article_jsonld(article: dict, canonical: str, S: dict, site: dict) -> dict:
+    org = {"@type": "Organization", "name": article["author"], "url": site["site_url"].rstrip("/") + "/"}
     data = {
         "@context": "https://schema.org",
         "@type": article["schema_type"],
         "headline": article["headline"],
         "description": article["jsonld_description"],
+        "image": [absolute(site, article["og_image"] or site["default_og_image"])],
         "inLanguage": S["html_lang"],
-        "author": {"@type": "Organization", "name": article["author"]},
-        "publisher": {"@type": "Organization", "name": article["author"]},
+        "author": org,
+        "publisher": {**org, "logo": {"@type": "ImageObject", "url": absolute(site, site["logo"])}},
         "datePublished": article["date_published"],
         "dateModified": article["date_modified"],
-        "mainEntityOfPage": canonical,
+        "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
     }
     if article.get("_sources"):
         data["citation"] = [
@@ -628,6 +662,10 @@ def article_jsonld(article: dict, canonical: str, S: dict) -> dict:
             for src in article["_sources"]
         ]
     return data
+
+
+def absolute(site: dict, url: str) -> str:
+    return url if url.startswith(("http://", "https://")) else site["site_url"].rstrip("/") + "/" + url.lstrip("/")
 
 
 def faq_jsonld(faq: list[dict]) -> dict:
@@ -666,7 +704,7 @@ def render_breadcrumb_nav(crumbs: list[tuple], S: dict, lang_switch: str) -> str
 
 
 def render_head(ctx: Site, code: str, key: tuple, *, title, description, author,
-                og_type, og_title, og_description, og_image, jsonld_blocks) -> str:
+                og_type, og_title, og_description, og_image, jsonld_blocks, article=None) -> str:
     site = ctx.site
     S = ctx.langs[code]
     path = page_path(S, key)
@@ -685,7 +723,12 @@ def render_head(ctx: Site, code: str, key: tuple, *, title, description, author,
         OG_TITLE=esc(og_title),
         OG_DESCRIPTION=esc(og_description),
         OG_URL=esc(canonical),
-        OG_IMAGE=esc(og_image or site["default_og_image"]),
+        OG_IMAGE=esc(absolute(site, og_image or site["default_og_image"])),
+        OG_LOCALE=ctx.og_locale_lines(code, key),
+        ARTICLE_META="" if article is None else (
+            f'\n    <meta property="article:published_time" content="{article["date_published"]}" />'
+            f'\n    <meta property="article:modified_time" content="{article["date_modified"]}" />'
+        ),
         OG_IMAGE_WIDTH=site["og_image_width"],
         OG_IMAGE_HEIGHT=site["og_image_height"],
         JSONLD_BLOCKS="\n\n".join(jsonld_blocks),
@@ -714,7 +757,7 @@ def render_article(ctx: Site, code: str, article: dict, all_articles: list[dict]
         (article["breadcrumb_label"], canonical),
     ]
 
-    jsonld = [render_jsonld_block(article_jsonld(article, canonical, S))]
+    jsonld = [render_jsonld_block(article_jsonld(article, canonical, S, ctx.site))]
     if article["faq"]:
         jsonld.append(render_jsonld_block(faq_jsonld(article["faq"])))
     jsonld.append(render_jsonld_block(breadcrumb_jsonld(jsonld_crumbs)))
@@ -729,6 +772,7 @@ def render_article(ctx: Site, code: str, article: dict, all_articles: list[dict]
         og_description=article["og_description"],
         og_image=article["og_image"],
         jsonld_blocks=jsonld,
+        article=article,
     )
 
     related = compute_related(article, all_articles, ctx.site)
@@ -796,7 +840,7 @@ def patch_shell_page(ctx: Site, code: str, key: tuple, active: str, errors: list
         errors.append(f"{rel}: missing the hreflang:start/hreflang:end markers that scripts/build_kb.py needs")
         return None
     nav = NAV_START + "      " + render_site_nav(ctx, code, key, active) + "\n" + NAV_END
-    links = HREFLANG_START + ctx.hreflang_lines(key) + "\n" + HREFLANG_END
+    links = HREFLANG_START + ctx.hreflang_lines(key) + "\n" + ctx.og_locale_lines(code, key) + "\n" + HREFLANG_END
     text = NAV_RE.sub(lambda _m: nav, text, count=1)
     return HREFLANG_RE.sub(lambda _m: links, text, count=1)
 
@@ -938,19 +982,19 @@ def render_tags_index(ctx: Site, code: str, tag_counts: list[tuple]) -> str:
 # --- sitemap + service worker -------------------------------------------------------
 
 def render_sitemap(ctx: Site, pages: list[tuple]) -> str:
-    """pages: (code, key, lastmod, changefreq, priority) for every published
-    page. Each URL lists its translations as xhtml:link alternates."""
+    """pages: (code, key, lastmod) for every published page. Each URL lists
+    its translations (itself included) as xhtml:link alternates. Google
+    ignores <changefreq> and <priority>, so they are not written; <lastmod>
+    is, and must be the date the page's content last really changed."""
     lines = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"'
         ' xmlns:xhtml="http://www.w3.org/1999/xhtml">',
     ]
-    for code, key, lastmod, changefreq, priority in pages:
+    for code, key, lastmod in pages:
         lines.append("  <url>")
         lines.append(f"    <loc>{esc(ctx.abs_url(code, key))}</loc>")
         lines.append(f"    <lastmod>{lastmod}</lastmod>")
-        lines.append(f"    <changefreq>{changefreq}</changefreq>")
-        lines.append(f"    <priority>{priority}</priority>")
         alternates = [(c, S) for c, S in ctx.langs.items() if ctx.has(c, key)]
         if len(alternates) > 1:
             for c, S in alternates:
@@ -1139,31 +1183,33 @@ def build(check: bool, partial: bool = False) -> int:
             patched = patch_shell_page(ctx, code, key, kind, errors)
             if patched is not None:
                 rendered[output_file(page_path(S, key))] = patched
-            m = static_meta[SHELL_KEY_LOC[kind]]
-            sitemap_pages.append((code, key, m["lastmod"], m["changefreq"], m["priority"]))
+            lastmod = static_meta[SHELL_KEY_LOC[kind]]["lastmod"]
+            if isinstance(lastmod, dict):
+                lastmod = lastmod.get(code) or lastmod["default"]
+            sitemap_pages.append((code, key, lastmod))
         if not live:
             continue
 
         newest = max(a["date_modified"] for a in live)
-        sitemap_pages.append((code, ("hub",), newest, "monthly", "0.8"))
+        sitemap_pages.append((code, ("hub",), newest))
         rendered[output_file(page_path(S, ("hub",)))] = render_hub(ctx, code, live)
         for a in live:
             if code == "en" and not compute_related(a, live, site):
                 warnings.append(f"{a['_path']}: no related articles resolved")
             rendered[output_file(page_path(S, ("article", a["slug"])))] = render_article(ctx, code, a, live)
         for a in sorted(live, key=lambda a: a["slug"]):
-            sitemap_pages.append((code, ("article", a["slug"]), a["date_modified"], "monthly", "0.7"))
+            sitemap_pages.append((code, ("article", a["slug"]), a["date_modified"]))
 
         tag_counts = tag_counts_by_lang[code]
         if tag_counts:
             rendered[output_file(page_path(S, ("tags",)))] = render_tags_index(ctx, code, tag_counts)
-            sitemap_pages.append((code, ("tags",), newest, "monthly", "0.5"))
+            sitemap_pages.append((code, ("tags",), newest))
             for tag, label, _count in tag_counts:
                 tagged = [a for a in live if tag in a["tags"]]
                 rendered[output_file(page_path(S, ("tag", tag)))] = render_tag_page(ctx, code, tag, label, tagged)
             for tag, _label, _count in sorted(tag_counts):
                 lastmod = max(a["date_modified"] for a in live if tag in a["tags"])
-                sitemap_pages.append((code, ("tag", tag), lastmod, "monthly", "0.5"))
+                sitemap_pages.append((code, ("tag", tag), lastmod))
 
     rendered[ROOT / "sitemap.xml"] = render_sitemap(ctx, sitemap_pages)
 

@@ -2,9 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://uvaindex.org/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/" />
@@ -17,8 +15,6 @@
   <url>
     <loc>https://uvaindex.org/about.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/about.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/about.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/about.html" />
@@ -31,8 +27,6 @@
   <url>
     <loc>https://uvaindex.org/widget.html</loc>
     <lastmod>2026-11-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/widget.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/widget.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/widget.html" />
@@ -45,8 +39,6 @@
   <url>
     <loc>https://uvaindex.org/learn/</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/" />
@@ -59,8 +51,6 @@
   <url>
     <loc>https://uvaindex.org/learn/dangers-of-uva.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/dangers-of-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/dangers-of-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/dangers-of-uva.html" />
@@ -73,8 +63,6 @@
   <url>
     <loc>https://uvaindex.org/learn/do-you-need-sunscreen-every-day.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/do-you-need-sunscreen-every-day.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/do-you-need-sunscreen-every-day.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/do-you-need-sunscreen-every-day.html" />
@@ -87,8 +75,6 @@
   <url>
     <loc>https://uvaindex.org/learn/does-clothing-block-uva.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-clothing-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-clothing-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-clothing-block-uva.html" />
@@ -101,8 +87,6 @@
   <url>
     <loc>https://uvaindex.org/learn/does-glass-block-uva.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-glass-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-glass-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-glass-block-uva.html" />
@@ -115,8 +99,6 @@
   <url>
     <loc>https://uvaindex.org/learn/does-uva-change-with-the-seasons.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-change-with-the-seasons.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-change-with-the-seasons.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-change-with-the-seasons.html" />
@@ -129,8 +111,6 @@
   <url>
     <loc>https://uvaindex.org/learn/does-uva-damage-hair.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-damage-hair.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-damage-hair.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-damage-hair.html" />
@@ -143,8 +123,6 @@
   <url>
     <loc>https://uvaindex.org/learn/does-uva-tan-or-burn.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-tan-or-burn.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-tan-or-burn.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-tan-or-burn.html" />
@@ -157,8 +135,6 @@
   <url>
     <loc>https://uvaindex.org/learn/does-water-block-uva.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-water-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-water-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-water-block-uva.html" />
@@ -171,8 +147,6 @@
   <url>
     <loc>https://uvaindex.org/learn/how-to-measure-uva.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-to-measure-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-to-measure-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-to-measure-uva.html" />
@@ -185,8 +159,6 @@
   <url>
     <loc>https://uvaindex.org/learn/how-uva-index-is-calculated.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-uva-index-is-calculated.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-uva-index-is-calculated.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-uva-index-is-calculated.html" />
@@ -199,8 +171,6 @@
   <url>
     <loc>https://uvaindex.org/learn/indoor-uva-nail-lamps-tanning-beds.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/indoor-uva-nail-lamps-tanning-beds.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/indoor-uva-nail-lamps-tanning-beds.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/indoor-uva-nail-lamps-tanning-beds.html" />
@@ -213,8 +183,6 @@
   <url>
     <loc>https://uvaindex.org/learn/mineral-vs-chemical-sunscreen-uva.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/mineral-vs-chemical-sunscreen-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/mineral-vs-chemical-sunscreen-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/mineral-vs-chemical-sunscreen-uva.html" />
@@ -227,8 +195,6 @@
   <url>
     <loc>https://uvaindex.org/learn/reflected-uva-snow-sand-water.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/reflected-uva-snow-sand-water.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/reflected-uva-snow-sand-water.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/reflected-uva-snow-sand-water.html" />
@@ -241,8 +207,6 @@
   <url>
     <loc>https://uvaindex.org/learn/sun-protection-for-children-and-babies.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/sun-protection-for-children-and-babies.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/sun-protection-for-children-and-babies.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/sun-protection-for-children-and-babies.html" />
@@ -255,8 +219,6 @@
   <url>
     <loc>https://uvaindex.org/learn/sunscreen-application-uva-protection.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/sunscreen-application-uva-protection.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/sunscreen-application-uva-protection.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/sunscreen-application-uva-protection.html" />
@@ -269,8 +231,6 @@
   <url>
     <loc>https://uvaindex.org/learn/uv-index-scale-explained.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-scale-explained.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-scale-explained.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-scale-explained.html" />
@@ -283,8 +243,6 @@
   <url>
     <loc>https://uvaindex.org/learn/uv-index-vs-uva-index.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-vs-uva-index.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-vs-uva-index.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-vs-uva-index.html" />
@@ -297,8 +255,6 @@
   <url>
     <loc>https://uvaindex.org/learn/uva-and-skin-aging.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-skin-aging.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-skin-aging.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-skin-aging.html" />
@@ -311,8 +267,6 @@
   <url>
     <loc>https://uvaindex.org/learn/uva-and-vitamin-d.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-vitamin-d.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-vitamin-d.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-vitamin-d.html" />
@@ -325,8 +279,6 @@
   <url>
     <loc>https://uvaindex.org/learn/uva-and-your-eyes.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-your-eyes.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-your-eyes.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-your-eyes.html" />
@@ -339,8 +291,6 @@
   <url>
     <loc>https://uvaindex.org/learn/uva-at-altitude.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-at-altitude.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-at-altitude.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-at-altitude.html" />
@@ -353,8 +303,6 @@
   <url>
     <loc>https://uvaindex.org/learn/uva-by-latitude-and-location.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-by-latitude-and-location.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-by-latitude-and-location.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-by-latitude-and-location.html" />
@@ -367,8 +315,6 @@
   <url>
     <loc>https://uvaindex.org/learn/uva-melasma-and-skin-tone.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-melasma-and-skin-tone.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-melasma-and-skin-tone.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-melasma-and-skin-tone.html" />
@@ -381,8 +327,6 @@
   <url>
     <loc>https://uvaindex.org/learn/uva-on-cloudy-days.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-on-cloudy-days.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-on-cloudy-days.html" />
@@ -395,8 +339,6 @@
   <url>
     <loc>https://uvaindex.org/learn/uva-photosensitivity-medications.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-photosensitivity-medications.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-photosensitivity-medications.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-photosensitivity-medications.html" />
@@ -409,8 +351,6 @@
   <url>
     <loc>https://uvaindex.org/learn/uva-sunscreen-labels-explained.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-sunscreen-labels-explained.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-sunscreen-labels-explained.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-sunscreen-labels-explained.html" />
@@ -423,8 +363,6 @@
   <url>
     <loc>https://uvaindex.org/learn/uva-vs-uvb.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-vs-uvb.html" />
@@ -437,8 +375,6 @@
   <url>
     <loc>https://uvaindex.org/learn/what-is-uva-radiation.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-is-uva-radiation.html" />
@@ -451,8 +387,6 @@
   <url>
     <loc>https://uvaindex.org/learn/what-time-is-uva-highest.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-time-is-uva-highest.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-time-is-uva-highest.html" />
@@ -465,8 +399,6 @@
   <url>
     <loc>https://uvaindex.org/learn/tags/</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/" />
@@ -479,8 +411,6 @@
   <url>
     <loc>https://uvaindex.org/learn/tags/basics.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/basics.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/basics.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/basics.html" />
@@ -493,8 +423,6 @@
   <url>
     <loc>https://uvaindex.org/learn/tags/comparison.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/comparison.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/comparison.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/comparison.html" />
@@ -507,8 +435,6 @@
   <url>
     <loc>https://uvaindex.org/learn/tags/environment.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/environment.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/environment.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/environment.html" />
@@ -521,8 +447,6 @@
   <url>
     <loc>https://uvaindex.org/learn/tags/health.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/health.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/health.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/health.html" />
@@ -535,8 +459,6 @@
   <url>
     <loc>https://uvaindex.org/learn/tags/methodology.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/methodology.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/methodology.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/methodology.html" />
@@ -549,8 +471,6 @@
   <url>
     <loc>https://uvaindex.org/learn/tags/protection.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/protection.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/protection.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/protection.html" />
@@ -563,8 +483,6 @@
   <url>
     <loc>https://uvaindex.org/learn/tags/risks.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/risks.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/risks.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/risks.html" />
@@ -577,8 +495,6 @@
   <url>
     <loc>https://uvaindex.org/learn/tags/spectrum.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/spectrum.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/spectrum.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/spectrum.html" />
@@ -591,8 +507,6 @@
   <url>
     <loc>https://uvaindex.org/learn/tags/technical.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/technical.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/technical.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/technical.html" />
@@ -605,8 +519,6 @@
   <url>
     <loc>https://uvaindex.org/learn/tags/uv-index.html</loc>
     <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/uv-index.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/uv-index.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/uv-index.html" />
@@ -618,9 +530,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/" />
@@ -632,9 +542,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/about.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/about.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/about.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/about.html" />
@@ -647,8 +555,6 @@
   <url>
     <loc>https://uvaindex.org/es/widget.html</loc>
     <lastmod>2026-11-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/widget.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/widget.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/widget.html" />
@@ -660,9 +566,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/" />
@@ -674,9 +578,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/dangers-of-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/dangers-of-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/dangers-of-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/dangers-of-uva.html" />
@@ -688,9 +590,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/do-you-need-sunscreen-every-day.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/do-you-need-sunscreen-every-day.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/do-you-need-sunscreen-every-day.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/do-you-need-sunscreen-every-day.html" />
@@ -702,9 +602,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/does-clothing-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-clothing-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-clothing-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-clothing-block-uva.html" />
@@ -716,9 +614,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/does-glass-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-glass-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-glass-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-glass-block-uva.html" />
@@ -730,9 +626,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/does-uva-change-with-the-seasons.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-change-with-the-seasons.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-change-with-the-seasons.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-change-with-the-seasons.html" />
@@ -744,9 +638,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/does-uva-damage-hair.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-damage-hair.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-damage-hair.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-damage-hair.html" />
@@ -758,9 +650,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/does-uva-tan-or-burn.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-tan-or-burn.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-tan-or-burn.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-tan-or-burn.html" />
@@ -772,9 +662,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/does-water-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-water-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-water-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-water-block-uva.html" />
@@ -786,9 +674,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/how-to-measure-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-to-measure-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-to-measure-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-to-measure-uva.html" />
@@ -800,9 +686,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/how-uva-index-is-calculated.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-uva-index-is-calculated.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-uva-index-is-calculated.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-uva-index-is-calculated.html" />
@@ -814,9 +698,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/indoor-uva-nail-lamps-tanning-beds.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/indoor-uva-nail-lamps-tanning-beds.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/indoor-uva-nail-lamps-tanning-beds.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/indoor-uva-nail-lamps-tanning-beds.html" />
@@ -828,9 +710,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/mineral-vs-chemical-sunscreen-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/mineral-vs-chemical-sunscreen-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/mineral-vs-chemical-sunscreen-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/mineral-vs-chemical-sunscreen-uva.html" />
@@ -842,9 +722,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/reflected-uva-snow-sand-water.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/reflected-uva-snow-sand-water.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/reflected-uva-snow-sand-water.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/reflected-uva-snow-sand-water.html" />
@@ -856,9 +734,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/sun-protection-for-children-and-babies.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/sun-protection-for-children-and-babies.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/sun-protection-for-children-and-babies.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/sun-protection-for-children-and-babies.html" />
@@ -870,9 +746,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/sunscreen-application-uva-protection.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/sunscreen-application-uva-protection.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/sunscreen-application-uva-protection.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/sunscreen-application-uva-protection.html" />
@@ -884,9 +758,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/uv-index-scale-explained.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-scale-explained.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-scale-explained.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-scale-explained.html" />
@@ -898,9 +770,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/uv-index-vs-uva-index.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-vs-uva-index.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-vs-uva-index.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-vs-uva-index.html" />
@@ -912,9 +782,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/uva-and-skin-aging.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-skin-aging.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-skin-aging.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-skin-aging.html" />
@@ -926,9 +794,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/uva-and-vitamin-d.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-vitamin-d.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-vitamin-d.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-vitamin-d.html" />
@@ -940,9 +806,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/uva-and-your-eyes.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-your-eyes.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-your-eyes.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-your-eyes.html" />
@@ -954,9 +818,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/uva-at-altitude.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-at-altitude.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-at-altitude.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-at-altitude.html" />
@@ -968,9 +830,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/uva-by-latitude-and-location.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-by-latitude-and-location.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-by-latitude-and-location.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-by-latitude-and-location.html" />
@@ -982,9 +842,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/uva-melasma-and-skin-tone.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-melasma-and-skin-tone.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-melasma-and-skin-tone.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-melasma-and-skin-tone.html" />
@@ -996,9 +854,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/uva-on-cloudy-days.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-on-cloudy-days.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-on-cloudy-days.html" />
@@ -1010,9 +866,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/uva-photosensitivity-medications.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-photosensitivity-medications.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-photosensitivity-medications.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-photosensitivity-medications.html" />
@@ -1024,9 +878,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/uva-sunscreen-labels-explained.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-sunscreen-labels-explained.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-sunscreen-labels-explained.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-sunscreen-labels-explained.html" />
@@ -1038,9 +890,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/uva-vs-uvb.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-vs-uvb.html" />
@@ -1052,9 +902,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/what-is-uva-radiation.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-is-uva-radiation.html" />
@@ -1066,9 +914,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/what-time-is-uva-highest.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-time-is-uva-highest.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-time-is-uva-highest.html" />
@@ -1080,9 +926,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/tags/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/" />
@@ -1094,9 +938,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/tags/basics.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/basics.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/basics.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/basics.html" />
@@ -1108,9 +950,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/tags/comparison.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/comparison.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/comparison.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/comparison.html" />
@@ -1122,9 +962,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/tags/environment.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/environment.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/environment.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/environment.html" />
@@ -1136,9 +974,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/tags/health.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/health.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/health.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/health.html" />
@@ -1150,9 +986,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/tags/methodology.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/methodology.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/methodology.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/methodology.html" />
@@ -1164,9 +998,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/tags/protection.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/protection.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/protection.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/protection.html" />
@@ -1178,9 +1010,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/tags/risks.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/risks.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/risks.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/risks.html" />
@@ -1192,9 +1022,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/tags/spectrum.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/spectrum.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/spectrum.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/spectrum.html" />
@@ -1206,9 +1034,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/tags/technical.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/technical.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/technical.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/technical.html" />
@@ -1220,9 +1046,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/es/learn/tags/uv-index.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/uv-index.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/uv-index.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/uv-index.html" />
@@ -1234,9 +1058,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/" />
@@ -1248,9 +1070,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/about.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/about.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/about.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/about.html" />
@@ -1263,8 +1083,6 @@
   <url>
     <loc>https://uvaindex.org/fr/widget.html</loc>
     <lastmod>2026-11-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/widget.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/widget.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/widget.html" />
@@ -1276,9 +1094,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/" />
@@ -1290,9 +1106,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/dangers-of-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/dangers-of-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/dangers-of-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/dangers-of-uva.html" />
@@ -1304,9 +1118,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/do-you-need-sunscreen-every-day.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/do-you-need-sunscreen-every-day.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/do-you-need-sunscreen-every-day.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/do-you-need-sunscreen-every-day.html" />
@@ -1318,9 +1130,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/does-clothing-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-clothing-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-clothing-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-clothing-block-uva.html" />
@@ -1332,9 +1142,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/does-glass-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-glass-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-glass-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-glass-block-uva.html" />
@@ -1346,9 +1154,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/does-uva-change-with-the-seasons.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-change-with-the-seasons.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-change-with-the-seasons.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-change-with-the-seasons.html" />
@@ -1360,9 +1166,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/does-uva-damage-hair.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-damage-hair.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-damage-hair.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-damage-hair.html" />
@@ -1374,9 +1178,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/does-uva-tan-or-burn.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-tan-or-burn.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-tan-or-burn.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-tan-or-burn.html" />
@@ -1388,9 +1190,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/does-water-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-water-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-water-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-water-block-uva.html" />
@@ -1402,9 +1202,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/how-to-measure-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-to-measure-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-to-measure-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-to-measure-uva.html" />
@@ -1416,9 +1214,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/how-uva-index-is-calculated.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-uva-index-is-calculated.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-uva-index-is-calculated.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-uva-index-is-calculated.html" />
@@ -1430,9 +1226,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/indoor-uva-nail-lamps-tanning-beds.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/indoor-uva-nail-lamps-tanning-beds.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/indoor-uva-nail-lamps-tanning-beds.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/indoor-uva-nail-lamps-tanning-beds.html" />
@@ -1444,9 +1238,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/mineral-vs-chemical-sunscreen-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/mineral-vs-chemical-sunscreen-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/mineral-vs-chemical-sunscreen-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/mineral-vs-chemical-sunscreen-uva.html" />
@@ -1458,9 +1250,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/reflected-uva-snow-sand-water.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/reflected-uva-snow-sand-water.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/reflected-uva-snow-sand-water.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/reflected-uva-snow-sand-water.html" />
@@ -1472,9 +1262,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/sun-protection-for-children-and-babies.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/sun-protection-for-children-and-babies.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/sun-protection-for-children-and-babies.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/sun-protection-for-children-and-babies.html" />
@@ -1486,9 +1274,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/sunscreen-application-uva-protection.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/sunscreen-application-uva-protection.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/sunscreen-application-uva-protection.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/sunscreen-application-uva-protection.html" />
@@ -1500,9 +1286,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/uv-index-scale-explained.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-scale-explained.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-scale-explained.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-scale-explained.html" />
@@ -1514,9 +1298,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/uv-index-vs-uva-index.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-vs-uva-index.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-vs-uva-index.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-vs-uva-index.html" />
@@ -1528,9 +1310,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/uva-and-skin-aging.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-skin-aging.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-skin-aging.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-skin-aging.html" />
@@ -1542,9 +1322,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/uva-and-vitamin-d.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-vitamin-d.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-vitamin-d.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-vitamin-d.html" />
@@ -1556,9 +1334,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/uva-and-your-eyes.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-your-eyes.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-your-eyes.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-your-eyes.html" />
@@ -1570,9 +1346,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/uva-at-altitude.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-at-altitude.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-at-altitude.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-at-altitude.html" />
@@ -1584,9 +1358,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/uva-by-latitude-and-location.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-by-latitude-and-location.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-by-latitude-and-location.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-by-latitude-and-location.html" />
@@ -1598,9 +1370,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/uva-melasma-and-skin-tone.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-melasma-and-skin-tone.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-melasma-and-skin-tone.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-melasma-and-skin-tone.html" />
@@ -1612,9 +1382,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/uva-on-cloudy-days.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-on-cloudy-days.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-on-cloudy-days.html" />
@@ -1626,9 +1394,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/uva-photosensitivity-medications.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-photosensitivity-medications.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-photosensitivity-medications.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-photosensitivity-medications.html" />
@@ -1640,9 +1406,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/uva-sunscreen-labels-explained.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-sunscreen-labels-explained.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-sunscreen-labels-explained.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-sunscreen-labels-explained.html" />
@@ -1654,9 +1418,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/uva-vs-uvb.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-vs-uvb.html" />
@@ -1668,9 +1430,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/what-is-uva-radiation.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-is-uva-radiation.html" />
@@ -1682,9 +1442,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/what-time-is-uva-highest.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-time-is-uva-highest.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-time-is-uva-highest.html" />
@@ -1696,9 +1454,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/tags/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/" />
@@ -1710,9 +1466,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/tags/basics.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/basics.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/basics.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/basics.html" />
@@ -1724,9 +1478,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/tags/comparison.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/comparison.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/comparison.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/comparison.html" />
@@ -1738,9 +1490,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/tags/environment.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/environment.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/environment.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/environment.html" />
@@ -1752,9 +1502,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/tags/health.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/health.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/health.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/health.html" />
@@ -1766,9 +1514,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/tags/methodology.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/methodology.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/methodology.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/methodology.html" />
@@ -1780,9 +1526,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/tags/protection.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/protection.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/protection.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/protection.html" />
@@ -1794,9 +1538,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/tags/risks.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/risks.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/risks.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/risks.html" />
@@ -1808,9 +1550,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/tags/spectrum.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/spectrum.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/spectrum.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/spectrum.html" />
@@ -1822,9 +1562,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/tags/technical.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/technical.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/technical.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/technical.html" />
@@ -1836,9 +1574,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/fr/learn/tags/uv-index.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/uv-index.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/uv-index.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/uv-index.html" />
@@ -1850,9 +1586,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/" />
@@ -1864,9 +1598,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/about.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/about.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/about.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/about.html" />
@@ -1879,8 +1611,6 @@
   <url>
     <loc>https://uvaindex.org/de/widget.html</loc>
     <lastmod>2026-11-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/widget.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/widget.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/widget.html" />
@@ -1892,9 +1622,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/" />
@@ -1906,9 +1634,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/dangers-of-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/dangers-of-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/dangers-of-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/dangers-of-uva.html" />
@@ -1920,9 +1646,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/do-you-need-sunscreen-every-day.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/do-you-need-sunscreen-every-day.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/do-you-need-sunscreen-every-day.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/do-you-need-sunscreen-every-day.html" />
@@ -1934,9 +1658,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/does-clothing-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-clothing-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-clothing-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-clothing-block-uva.html" />
@@ -1948,9 +1670,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/does-glass-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-glass-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-glass-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-glass-block-uva.html" />
@@ -1962,9 +1682,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/does-uva-change-with-the-seasons.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-change-with-the-seasons.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-change-with-the-seasons.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-change-with-the-seasons.html" />
@@ -1976,9 +1694,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/does-uva-damage-hair.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-damage-hair.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-damage-hair.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-damage-hair.html" />
@@ -1990,9 +1706,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/does-uva-tan-or-burn.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-tan-or-burn.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-tan-or-burn.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-tan-or-burn.html" />
@@ -2004,9 +1718,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/does-water-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-water-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-water-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-water-block-uva.html" />
@@ -2018,9 +1730,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/how-to-measure-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-to-measure-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-to-measure-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-to-measure-uva.html" />
@@ -2032,9 +1742,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/how-uva-index-is-calculated.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-uva-index-is-calculated.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-uva-index-is-calculated.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-uva-index-is-calculated.html" />
@@ -2046,9 +1754,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/indoor-uva-nail-lamps-tanning-beds.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/indoor-uva-nail-lamps-tanning-beds.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/indoor-uva-nail-lamps-tanning-beds.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/indoor-uva-nail-lamps-tanning-beds.html" />
@@ -2060,9 +1766,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/mineral-vs-chemical-sunscreen-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/mineral-vs-chemical-sunscreen-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/mineral-vs-chemical-sunscreen-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/mineral-vs-chemical-sunscreen-uva.html" />
@@ -2074,9 +1778,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/reflected-uva-snow-sand-water.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/reflected-uva-snow-sand-water.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/reflected-uva-snow-sand-water.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/reflected-uva-snow-sand-water.html" />
@@ -2088,9 +1790,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/sun-protection-for-children-and-babies.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/sun-protection-for-children-and-babies.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/sun-protection-for-children-and-babies.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/sun-protection-for-children-and-babies.html" />
@@ -2102,9 +1802,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/sunscreen-application-uva-protection.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/sunscreen-application-uva-protection.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/sunscreen-application-uva-protection.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/sunscreen-application-uva-protection.html" />
@@ -2116,9 +1814,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/uv-index-scale-explained.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-scale-explained.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-scale-explained.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-scale-explained.html" />
@@ -2130,9 +1826,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/uv-index-vs-uva-index.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-vs-uva-index.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-vs-uva-index.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-vs-uva-index.html" />
@@ -2144,9 +1838,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/uva-and-skin-aging.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-skin-aging.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-skin-aging.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-skin-aging.html" />
@@ -2158,9 +1850,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/uva-and-vitamin-d.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-vitamin-d.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-vitamin-d.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-vitamin-d.html" />
@@ -2172,9 +1862,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/uva-and-your-eyes.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-your-eyes.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-your-eyes.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-your-eyes.html" />
@@ -2186,9 +1874,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/uva-at-altitude.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-at-altitude.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-at-altitude.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-at-altitude.html" />
@@ -2200,9 +1886,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/uva-by-latitude-and-location.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-by-latitude-and-location.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-by-latitude-and-location.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-by-latitude-and-location.html" />
@@ -2214,9 +1898,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/uva-melasma-and-skin-tone.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-melasma-and-skin-tone.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-melasma-and-skin-tone.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-melasma-and-skin-tone.html" />
@@ -2228,9 +1910,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/uva-on-cloudy-days.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-on-cloudy-days.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-on-cloudy-days.html" />
@@ -2242,9 +1922,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/uva-photosensitivity-medications.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-photosensitivity-medications.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-photosensitivity-medications.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-photosensitivity-medications.html" />
@@ -2256,9 +1934,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/uva-sunscreen-labels-explained.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-sunscreen-labels-explained.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-sunscreen-labels-explained.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-sunscreen-labels-explained.html" />
@@ -2270,9 +1946,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/uva-vs-uvb.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-vs-uvb.html" />
@@ -2284,9 +1958,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/what-is-uva-radiation.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-is-uva-radiation.html" />
@@ -2298,9 +1970,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/what-time-is-uva-highest.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-time-is-uva-highest.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-time-is-uva-highest.html" />
@@ -2312,9 +1982,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/tags/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/" />
@@ -2326,9 +1994,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/tags/basics.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/basics.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/basics.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/basics.html" />
@@ -2340,9 +2006,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/tags/comparison.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/comparison.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/comparison.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/comparison.html" />
@@ -2354,9 +2018,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/tags/environment.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/environment.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/environment.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/environment.html" />
@@ -2368,9 +2030,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/tags/health.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/health.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/health.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/health.html" />
@@ -2382,9 +2042,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/tags/methodology.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/methodology.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/methodology.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/methodology.html" />
@@ -2396,9 +2054,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/tags/protection.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/protection.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/protection.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/protection.html" />
@@ -2410,9 +2066,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/tags/risks.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/risks.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/risks.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/risks.html" />
@@ -2424,9 +2078,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/tags/spectrum.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/spectrum.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/spectrum.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/spectrum.html" />
@@ -2438,9 +2090,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/tags/technical.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/technical.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/technical.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/technical.html" />
@@ -2452,9 +2102,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/de/learn/tags/uv-index.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/uv-index.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/uv-index.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/uv-index.html" />
@@ -2466,9 +2114,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/" />
@@ -2480,9 +2126,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/about.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/about.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/about.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/about.html" />
@@ -2495,8 +2139,6 @@
   <url>
     <loc>https://uvaindex.org/it/widget.html</loc>
     <lastmod>2026-11-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/widget.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/widget.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/widget.html" />
@@ -2508,9 +2150,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/" />
@@ -2522,9 +2162,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/dangers-of-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/dangers-of-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/dangers-of-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/dangers-of-uva.html" />
@@ -2536,9 +2174,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/do-you-need-sunscreen-every-day.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/do-you-need-sunscreen-every-day.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/do-you-need-sunscreen-every-day.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/do-you-need-sunscreen-every-day.html" />
@@ -2550,9 +2186,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/does-clothing-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-clothing-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-clothing-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-clothing-block-uva.html" />
@@ -2564,9 +2198,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/does-glass-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-glass-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-glass-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-glass-block-uva.html" />
@@ -2578,9 +2210,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/does-uva-change-with-the-seasons.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-change-with-the-seasons.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-change-with-the-seasons.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-change-with-the-seasons.html" />
@@ -2592,9 +2222,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/does-uva-damage-hair.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-damage-hair.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-damage-hair.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-damage-hair.html" />
@@ -2606,9 +2234,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/does-uva-tan-or-burn.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-tan-or-burn.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-tan-or-burn.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-tan-or-burn.html" />
@@ -2620,9 +2246,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/does-water-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-water-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-water-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-water-block-uva.html" />
@@ -2634,9 +2258,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/how-to-measure-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-to-measure-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-to-measure-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-to-measure-uva.html" />
@@ -2648,9 +2270,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/how-uva-index-is-calculated.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-uva-index-is-calculated.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-uva-index-is-calculated.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-uva-index-is-calculated.html" />
@@ -2662,9 +2282,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/indoor-uva-nail-lamps-tanning-beds.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/indoor-uva-nail-lamps-tanning-beds.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/indoor-uva-nail-lamps-tanning-beds.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/indoor-uva-nail-lamps-tanning-beds.html" />
@@ -2676,9 +2294,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/mineral-vs-chemical-sunscreen-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/mineral-vs-chemical-sunscreen-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/mineral-vs-chemical-sunscreen-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/mineral-vs-chemical-sunscreen-uva.html" />
@@ -2690,9 +2306,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/reflected-uva-snow-sand-water.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/reflected-uva-snow-sand-water.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/reflected-uva-snow-sand-water.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/reflected-uva-snow-sand-water.html" />
@@ -2704,9 +2318,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/sun-protection-for-children-and-babies.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/sun-protection-for-children-and-babies.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/sun-protection-for-children-and-babies.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/sun-protection-for-children-and-babies.html" />
@@ -2718,9 +2330,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/sunscreen-application-uva-protection.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/sunscreen-application-uva-protection.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/sunscreen-application-uva-protection.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/sunscreen-application-uva-protection.html" />
@@ -2732,9 +2342,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/uv-index-scale-explained.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-scale-explained.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-scale-explained.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-scale-explained.html" />
@@ -2746,9 +2354,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/uv-index-vs-uva-index.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-vs-uva-index.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-vs-uva-index.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-vs-uva-index.html" />
@@ -2760,9 +2366,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/uva-and-skin-aging.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-skin-aging.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-skin-aging.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-skin-aging.html" />
@@ -2774,9 +2378,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/uva-and-vitamin-d.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-vitamin-d.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-vitamin-d.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-vitamin-d.html" />
@@ -2788,9 +2390,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/uva-and-your-eyes.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-your-eyes.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-your-eyes.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-your-eyes.html" />
@@ -2802,9 +2402,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/uva-at-altitude.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-at-altitude.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-at-altitude.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-at-altitude.html" />
@@ -2816,9 +2414,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/uva-by-latitude-and-location.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-by-latitude-and-location.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-by-latitude-and-location.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-by-latitude-and-location.html" />
@@ -2830,9 +2426,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/uva-melasma-and-skin-tone.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-melasma-and-skin-tone.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-melasma-and-skin-tone.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-melasma-and-skin-tone.html" />
@@ -2844,9 +2438,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/uva-on-cloudy-days.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-on-cloudy-days.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-on-cloudy-days.html" />
@@ -2858,9 +2450,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/uva-photosensitivity-medications.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-photosensitivity-medications.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-photosensitivity-medications.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-photosensitivity-medications.html" />
@@ -2872,9 +2462,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/uva-sunscreen-labels-explained.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-sunscreen-labels-explained.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-sunscreen-labels-explained.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-sunscreen-labels-explained.html" />
@@ -2886,9 +2474,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/uva-vs-uvb.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-vs-uvb.html" />
@@ -2900,9 +2486,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/what-is-uva-radiation.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-is-uva-radiation.html" />
@@ -2914,9 +2498,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/what-time-is-uva-highest.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-time-is-uva-highest.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-time-is-uva-highest.html" />
@@ -2928,9 +2510,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/tags/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/" />
@@ -2942,9 +2522,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/tags/basics.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/basics.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/basics.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/basics.html" />
@@ -2956,9 +2534,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/tags/comparison.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/comparison.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/comparison.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/comparison.html" />
@@ -2970,9 +2546,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/tags/environment.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/environment.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/environment.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/environment.html" />
@@ -2984,9 +2558,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/tags/health.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/health.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/health.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/health.html" />
@@ -2998,9 +2570,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/tags/methodology.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/methodology.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/methodology.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/methodology.html" />
@@ -3012,9 +2582,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/tags/protection.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/protection.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/protection.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/protection.html" />
@@ -3026,9 +2594,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/tags/risks.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/risks.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/risks.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/risks.html" />
@@ -3040,9 +2606,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/tags/spectrum.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/spectrum.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/spectrum.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/spectrum.html" />
@@ -3054,9 +2618,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/tags/technical.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/technical.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/technical.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/technical.html" />
@@ -3068,9 +2630,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/it/learn/tags/uv-index.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/uv-index.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/uv-index.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/uv-index.html" />
@@ -3082,9 +2642,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/" />
@@ -3096,9 +2654,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/about.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/about.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/about.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/about.html" />
@@ -3111,8 +2667,6 @@
   <url>
     <loc>https://uvaindex.org/ja/widget.html</loc>
     <lastmod>2026-11-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/widget.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/widget.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/widget.html" />
@@ -3124,9 +2678,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/" />
@@ -3138,9 +2690,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/dangers-of-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/dangers-of-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/dangers-of-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/dangers-of-uva.html" />
@@ -3152,9 +2702,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/do-you-need-sunscreen-every-day.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/do-you-need-sunscreen-every-day.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/do-you-need-sunscreen-every-day.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/do-you-need-sunscreen-every-day.html" />
@@ -3166,9 +2714,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/does-clothing-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-clothing-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-clothing-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-clothing-block-uva.html" />
@@ -3180,9 +2726,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/does-glass-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-glass-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-glass-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-glass-block-uva.html" />
@@ -3194,9 +2738,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/does-uva-change-with-the-seasons.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-change-with-the-seasons.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-change-with-the-seasons.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-change-with-the-seasons.html" />
@@ -3208,9 +2750,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/does-uva-damage-hair.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-damage-hair.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-damage-hair.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-damage-hair.html" />
@@ -3222,9 +2762,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/does-uva-tan-or-burn.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-tan-or-burn.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-tan-or-burn.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-tan-or-burn.html" />
@@ -3236,9 +2774,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/does-water-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-water-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-water-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-water-block-uva.html" />
@@ -3250,9 +2786,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/how-to-measure-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-to-measure-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-to-measure-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-to-measure-uva.html" />
@@ -3264,9 +2798,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/how-uva-index-is-calculated.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-uva-index-is-calculated.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-uva-index-is-calculated.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-uva-index-is-calculated.html" />
@@ -3278,9 +2810,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/indoor-uva-nail-lamps-tanning-beds.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/indoor-uva-nail-lamps-tanning-beds.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/indoor-uva-nail-lamps-tanning-beds.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/indoor-uva-nail-lamps-tanning-beds.html" />
@@ -3292,9 +2822,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/mineral-vs-chemical-sunscreen-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/mineral-vs-chemical-sunscreen-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/mineral-vs-chemical-sunscreen-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/mineral-vs-chemical-sunscreen-uva.html" />
@@ -3306,9 +2834,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/reflected-uva-snow-sand-water.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/reflected-uva-snow-sand-water.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/reflected-uva-snow-sand-water.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/reflected-uva-snow-sand-water.html" />
@@ -3320,9 +2846,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/sun-protection-for-children-and-babies.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/sun-protection-for-children-and-babies.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/sun-protection-for-children-and-babies.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/sun-protection-for-children-and-babies.html" />
@@ -3334,9 +2858,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/sunscreen-application-uva-protection.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/sunscreen-application-uva-protection.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/sunscreen-application-uva-protection.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/sunscreen-application-uva-protection.html" />
@@ -3348,9 +2870,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/uv-index-scale-explained.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-scale-explained.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-scale-explained.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-scale-explained.html" />
@@ -3362,9 +2882,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/uv-index-vs-uva-index.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-vs-uva-index.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-vs-uva-index.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-vs-uva-index.html" />
@@ -3376,9 +2894,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/uva-and-skin-aging.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-skin-aging.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-skin-aging.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-skin-aging.html" />
@@ -3390,9 +2906,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/uva-and-vitamin-d.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-vitamin-d.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-vitamin-d.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-vitamin-d.html" />
@@ -3404,9 +2918,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/uva-and-your-eyes.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-your-eyes.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-your-eyes.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-your-eyes.html" />
@@ -3418,9 +2930,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/uva-at-altitude.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-at-altitude.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-at-altitude.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-at-altitude.html" />
@@ -3432,9 +2942,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/uva-by-latitude-and-location.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-by-latitude-and-location.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-by-latitude-and-location.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-by-latitude-and-location.html" />
@@ -3446,9 +2954,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/uva-melasma-and-skin-tone.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-melasma-and-skin-tone.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-melasma-and-skin-tone.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-melasma-and-skin-tone.html" />
@@ -3460,9 +2966,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/uva-on-cloudy-days.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-on-cloudy-days.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-on-cloudy-days.html" />
@@ -3474,9 +2978,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/uva-photosensitivity-medications.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-photosensitivity-medications.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-photosensitivity-medications.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-photosensitivity-medications.html" />
@@ -3488,9 +2990,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/uva-sunscreen-labels-explained.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-sunscreen-labels-explained.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-sunscreen-labels-explained.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-sunscreen-labels-explained.html" />
@@ -3502,9 +3002,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/uva-vs-uvb.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-vs-uvb.html" />
@@ -3516,9 +3014,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/what-is-uva-radiation.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-is-uva-radiation.html" />
@@ -3530,9 +3026,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/what-time-is-uva-highest.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-time-is-uva-highest.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-time-is-uva-highest.html" />
@@ -3544,9 +3038,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/tags/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/" />
@@ -3558,9 +3050,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/tags/basics.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/basics.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/basics.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/basics.html" />
@@ -3572,9 +3062,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/tags/comparison.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/comparison.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/comparison.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/comparison.html" />
@@ -3586,9 +3074,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/tags/environment.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/environment.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/environment.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/environment.html" />
@@ -3600,9 +3086,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/tags/health.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/health.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/health.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/health.html" />
@@ -3614,9 +3098,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/tags/methodology.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/methodology.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/methodology.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/methodology.html" />
@@ -3628,9 +3110,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/tags/protection.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/protection.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/protection.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/protection.html" />
@@ -3642,9 +3122,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/tags/risks.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/risks.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/risks.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/risks.html" />
@@ -3656,9 +3134,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/tags/spectrum.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/spectrum.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/spectrum.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/spectrum.html" />
@@ -3670,9 +3146,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/tags/technical.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/technical.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/technical.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/technical.html" />
@@ -3684,9 +3158,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/ja/learn/tags/uv-index.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/uv-index.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/uv-index.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/uv-index.html" />
@@ -3698,9 +3170,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/" />
@@ -3712,9 +3182,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/about.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/about.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/about.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/about.html" />
@@ -3727,8 +3195,6 @@
   <url>
     <loc>https://uvaindex.org/zh/widget.html</loc>
     <lastmod>2026-11-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/widget.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/widget.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/widget.html" />
@@ -3740,9 +3206,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/" />
@@ -3754,9 +3218,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/dangers-of-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/dangers-of-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/dangers-of-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/dangers-of-uva.html" />
@@ -3768,9 +3230,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/do-you-need-sunscreen-every-day.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/do-you-need-sunscreen-every-day.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/do-you-need-sunscreen-every-day.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/do-you-need-sunscreen-every-day.html" />
@@ -3782,9 +3242,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/does-clothing-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-clothing-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-clothing-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-clothing-block-uva.html" />
@@ -3796,9 +3254,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/does-glass-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-glass-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-glass-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-glass-block-uva.html" />
@@ -3810,9 +3266,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/does-uva-change-with-the-seasons.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-change-with-the-seasons.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-change-with-the-seasons.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-change-with-the-seasons.html" />
@@ -3824,9 +3278,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/does-uva-damage-hair.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-damage-hair.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-damage-hair.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-damage-hair.html" />
@@ -3838,9 +3290,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/does-uva-tan-or-burn.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-uva-tan-or-burn.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-uva-tan-or-burn.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-uva-tan-or-burn.html" />
@@ -3852,9 +3302,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/does-water-block-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/does-water-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/does-water-block-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/does-water-block-uva.html" />
@@ -3866,9 +3314,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/how-to-measure-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-to-measure-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-to-measure-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-to-measure-uva.html" />
@@ -3880,9 +3326,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/how-uva-index-is-calculated.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/how-uva-index-is-calculated.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/how-uva-index-is-calculated.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/how-uva-index-is-calculated.html" />
@@ -3894,9 +3338,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/indoor-uva-nail-lamps-tanning-beds.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/indoor-uva-nail-lamps-tanning-beds.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/indoor-uva-nail-lamps-tanning-beds.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/indoor-uva-nail-lamps-tanning-beds.html" />
@@ -3908,9 +3350,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/mineral-vs-chemical-sunscreen-uva.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/mineral-vs-chemical-sunscreen-uva.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/mineral-vs-chemical-sunscreen-uva.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/mineral-vs-chemical-sunscreen-uva.html" />
@@ -3922,9 +3362,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/reflected-uva-snow-sand-water.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/reflected-uva-snow-sand-water.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/reflected-uva-snow-sand-water.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/reflected-uva-snow-sand-water.html" />
@@ -3936,9 +3374,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/sun-protection-for-children-and-babies.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/sun-protection-for-children-and-babies.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/sun-protection-for-children-and-babies.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/sun-protection-for-children-and-babies.html" />
@@ -3950,9 +3386,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/sunscreen-application-uva-protection.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/sunscreen-application-uva-protection.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/sunscreen-application-uva-protection.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/sunscreen-application-uva-protection.html" />
@@ -3964,9 +3398,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/uv-index-scale-explained.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-scale-explained.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-scale-explained.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-scale-explained.html" />
@@ -3978,9 +3410,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/uv-index-vs-uva-index.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uv-index-vs-uva-index.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uv-index-vs-uva-index.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uv-index-vs-uva-index.html" />
@@ -3992,9 +3422,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/uva-and-skin-aging.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-skin-aging.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-skin-aging.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-skin-aging.html" />
@@ -4006,9 +3434,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/uva-and-vitamin-d.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-vitamin-d.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-vitamin-d.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-vitamin-d.html" />
@@ -4020,9 +3446,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/uva-and-your-eyes.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-and-your-eyes.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-and-your-eyes.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-and-your-eyes.html" />
@@ -4034,9 +3458,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/uva-at-altitude.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-at-altitude.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-at-altitude.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-at-altitude.html" />
@@ -4048,9 +3470,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/uva-by-latitude-and-location.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-by-latitude-and-location.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-by-latitude-and-location.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-by-latitude-and-location.html" />
@@ -4062,9 +3482,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/uva-melasma-and-skin-tone.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-melasma-and-skin-tone.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-melasma-and-skin-tone.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-melasma-and-skin-tone.html" />
@@ -4076,9 +3494,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/uva-on-cloudy-days.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-on-cloudy-days.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-on-cloudy-days.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-on-cloudy-days.html" />
@@ -4090,9 +3506,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/uva-photosensitivity-medications.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-photosensitivity-medications.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-photosensitivity-medications.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-photosensitivity-medications.html" />
@@ -4104,9 +3518,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/uva-sunscreen-labels-explained.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-sunscreen-labels-explained.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-sunscreen-labels-explained.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-sunscreen-labels-explained.html" />
@@ -4118,9 +3530,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/uva-vs-uvb.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/uva-vs-uvb.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/uva-vs-uvb.html" />
@@ -4132,9 +3542,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/what-is-uva-radiation.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-is-uva-radiation.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-is-uva-radiation.html" />
@@ -4146,9 +3554,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/what-time-is-uva-highest.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/what-time-is-uva-highest.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/what-time-is-uva-highest.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/what-time-is-uva-highest.html" />
@@ -4160,9 +3566,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/tags/</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/" />
@@ -4174,9 +3578,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/tags/basics.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/basics.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/basics.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/basics.html" />
@@ -4188,9 +3590,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/tags/comparison.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/comparison.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/comparison.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/comparison.html" />
@@ -4202,9 +3602,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/tags/environment.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/environment.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/environment.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/environment.html" />
@@ -4216,9 +3614,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/tags/health.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/health.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/health.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/health.html" />
@@ -4230,9 +3626,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/tags/methodology.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/methodology.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/methodology.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/methodology.html" />
@@ -4244,9 +3638,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/tags/protection.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/protection.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/protection.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/protection.html" />
@@ -4258,9 +3650,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/tags/risks.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/risks.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/risks.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/risks.html" />
@@ -4272,9 +3662,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/tags/spectrum.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/spectrum.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/spectrum.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/spectrum.html" />
@@ -4286,9 +3674,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/tags/technical.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/technical.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/technical.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/technical.html" />
@@ -4300,9 +3686,7 @@
   </url>
   <url>
     <loc>https://uvaindex.org/zh/learn/tags/uv-index.html</loc>
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-11-21</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://uvaindex.org/learn/tags/uv-index.html" />
     <xhtml:link rel="alternate" hreflang="es" href="https://uvaindex.org/es/learn/tags/uv-index.html" />
     <xhtml:link rel="alternate" hreflang="fr" href="https://uvaindex.org/fr/learn/tags/uv-index.html" />

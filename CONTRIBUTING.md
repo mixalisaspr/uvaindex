@@ -87,8 +87,11 @@ both for missing articles and as corrections to existing ones.
   the English has one), `og_description`, `jsonld_description`, `faq`,
   `cta_text`, `breadcrumb_label`, and `related_pins` only when the English
   pins carry labels — plus `"slug"` and `"translated_from"` (the English
-  `date_modified` you translated). Everything else is taken from the English
-  article.
+  `date_modified` you translated) and `"published"` (the date the
+  translation goes live). When you later revise the wording, add
+  `"modified"` with that date. These two dates feed the page's Article
+  structured data and its sitemap `<lastmod>`; everything else is taken from
+  the English article.
 - **A page:** `<lang>/index.html`, `about.html` and `widget.html` mirror the
   root pages; asset paths gain `../`, canonical and `og:url` gain `/<lang>/`.
 - **Interface text:** `js/i18n.js` (scripts) and `content/i18n/<lang>.json`
